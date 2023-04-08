@@ -84,6 +84,10 @@ public class AjouterCoachingController implements Initializable {
     private Button ModifierC;
     @FXML
     private TextField idField;
+    @FXML
+    private Button Coachingbutton;
+    @FXML
+    private Button rdvButton;
 
     /**
      * Initializes the controller class.
