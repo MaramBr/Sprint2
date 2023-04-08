@@ -36,7 +36,7 @@ public class ServiceRendezVous implements IService<RendezVous> {
     
     @Override
     public void ajouter(RendezVous c) {
-String qry="INSERT INTO `rendez_vous`( `coachings_id`, `daterdv`) VALUES ('"+c.getIdCoaching()+"','"+c.getDaterdv()+"','"+c.isEtatrdv()+"')";
+String qry="INSERT INTO `rendez_vous`( `coachings_id`, `daterdv`) VALUES ('"+c.getIdCoaching()+"','"+c.getDaterdv()+"')";
    try {
             Statement stm = cnx.createStatement();
        
@@ -51,7 +51,7 @@ String qry="INSERT INTO `rendez_vous`( `coachings_id`, `daterdv`) VALUES ('"+c.g
     @Override
     public boolean modifier(RendezVous c) {
  try {
-            String qry = "UPDATE `rendez_vous` SET `daterdv` = '" + c.getDaterdv()+ "', `coachings_id` = '" + c.getIdCoaching() + "',`etatrdv` = '" + c.isEtatrdv() + "' WHERE `id` = '" + c.getId() + "'";
+            String qry = "UPDATE `rendez_vous` SET `daterdv`  = '" + c.getDaterdv()+ "', `coachings_id` = '" + c.getIdCoaching() + "',`etatrdv` = '" + c.isEtatrdv() + "' WHERE `id` = '" + c.getId() + "'";
             stm = cnx.createStatement();
 
             stm.executeUpdate(qry);
@@ -77,7 +77,7 @@ String qry = "DELETE FROM rendez_vous WHERE id=?";
         List<RendezVous> rdvList = new ArrayList();
 
         try {
-            String qry = "SELECT rv.id, rv.coachings_id, rv.daterdv, rv.etatrdv \" +\"FROM rendez_vous rv JOIN coaching c ON c.id = rv.coachings_id;";
+            String qry = "SELECT rv.id, c.cours, rv.daterdv, rv.etatrdv FROM rendez_vous rv JOIN coaching c ON c.id = rv.coachings_id;";
             stm = cnx.createStatement();
            // PreparedStatement ps= cnx.prepareCall(qry);
             ResultSet rs = stm.executeQuery(qry);
@@ -85,12 +85,12 @@ String qry = "DELETE FROM rendez_vous WHERE id=?";
             while (rs.next()) {
                 RendezVous c = new RendezVous();
                 c.setId(rs.getInt(1));
-                c.setIdCoaching(rs.getInt(2));
-                c.setNomCours(rs.getString(3));
+               // c.setIdCoaching(rs.getInt(2));
+                c.setNomCours(rs.getString(2));
 
-               // c.setDaterdv(rs.getString(3));
+                c.setDaterdv(rs.getDate(3));
                 
-                c.setEtatrdv(rs.getBoolean(4));
+                c.setEtatrdv(rs.getBoolean(3));
 
                 rdvList.add(c);
             }

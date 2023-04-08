@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -24,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import java.sql.Date;
 
 /**
  *
@@ -48,11 +48,12 @@ public class Efit extends Application {
      */
     public static void main(String[] args) throws ParseException {
               // MyDB a = MyDB.getInstance();
-//RendezVous p4 = new RendezVous(39, "45",false);
+              
+   RendezVous p4 = new RendezVous(39,  Date.valueOf(LocalDate.of(2000, 10, 26)),false);
                ServiceRendezVous sc = new ServiceRendezVous();
 
-      // sc.ajouter(p4);
-        System.out.println(sc.afficher());
+       sc.ajouter(p4);
+      
 
 
     }

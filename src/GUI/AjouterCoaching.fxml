@@ -1,26 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" onMouseClicked="#getSelected" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1E1E1E;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterCoachingController">
-   <children>
-      <TextField fx:id="coursField" layoutX="257.0" layoutY="29.0" />
-      <TextField fx:id="descField" layoutX="257.0" layoutY="79.0" />
-      <TextField fx:id="dispoField" layoutX="257.0" layoutY="129.0" />
-      <Label layoutX="179.0" layoutY="33.0" text="Cours" textFill="WHITE" />
-      <Label layoutX="179.0" layoutY="84.0" text="Description">
+<AnchorPane id="AnchorPane" onMouseClicked="#getSelected" prefHeight="527.0" prefWidth="831.0" style="-fx-background-color: #1E1E1E;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterCoachingController">
+   <stylesheets>
+        <URL value="@tableview.css" />
+    </stylesheets>
+    <children>
+      <TextField fx:id="coursField" layoutX="108.0" layoutY="109.0" />
+      <TextField fx:id="descField" layoutX="108.0" layoutY="159.0" />
+      <TextField fx:id="dispoField" layoutX="808.0" layoutY="282.0" prefHeight="31.0" prefWidth="18.0" visible="false" />
+      <Label layoutX="30.0" layoutY="113.0" text="Cours" textFill="WHITE" />
+      <Label layoutX="30.0" layoutY="164.0" text="Description">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -29,7 +36,7 @@
                </stops>
             </LinearGradient>
          </textFill></Label>
-      <Label layoutX="176.0" layoutY="133.0" text="Disponibilite">
+      <Label layoutX="27.0" layoutY="213.0" text="Disponibilite">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -38,7 +45,7 @@
                </stops>
             </LinearGradient>
          </textFill></Label>
-      <Label layoutX="193.0" layoutY="174.0" text="Image">
+      <Label layoutX="29.0" layoutY="271.0" text="Image">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -47,52 +54,51 @@
                </stops>
             </LinearGradient>
          </textFill></Label>
-      <Button fx:id="Add" layoutX="183.0" layoutY="282.0" mnemonicParsing="false" onAction="#ajouter" text="Ajouter" />
-      <Button fx:id="imgField" layoutX="258.0" layoutY="170.0" mnemonicParsing="false" onAction="#choisirImage" style="-fx-background-color: e15e1c;" text="inserer une image " />
-      <ImageView fx:id="imgView" fitHeight="150.0" fitWidth="200.0" layoutX="546.0" layoutY="254.0" pickOnBounds="true" preserveRatio="true" />
-      <TableView fx:id="CoachingTable" layoutX="420.0" layoutY="26.0" onMouseClicked="#getSelected" prefHeight="206.0" prefWidth="345.0">
+      <Button fx:id="imgField" layoutX="112.0" layoutY="266.0" mnemonicParsing="false" onAction="#choisirImage" style="-fx-background-color: e15e1c;" text="inserer une image " />
+      <TableView fx:id="CoachingTable" layoutX="359.0" layoutY="109.0" onMouseClicked="#getSelected" prefHeight="206.0" prefWidth="462.0">
         <columns>
           <TableColumn fx:id="idC" minWidth="0.0" prefWidth="0.0" text="Id" />
           <TableColumn fx:id="CoursC" prefWidth="81.0" text="Cours" />
             <TableColumn fx:id="DescC" prefWidth="92.0" text="Description" />
-            <TableColumn fx:id="DispoC" prefWidth="84.0" text="Disponibilte" />
-            <TableColumn fx:id="ImgC" prefWidth="87.0" text="Image" />
+            <TableColumn fx:id="DispoC" prefWidth="112.0" text="Disponibilte" />
+            <TableColumn fx:id="ImgC" prefWidth="59.0" text="Image" />
         </columns>
       </TableView>
-      <Button fx:id="ModifierC" layoutX="255.0" layoutY="282.0" mnemonicParsing="false" onAction="#ModifierCoaching" text="Modifier" />
+      <Button fx:id="ModifierC" layoutX="483.0" layoutY="435.0" mnemonicParsing="false" onAction="#ModifierCoaching" prefHeight="31.0" prefWidth="83.0" text="Modifier" visible="false" />
       <TextField fx:id="idField" layoutX="450.0" layoutY="260.0" prefHeight="0.0" prefWidth="5.0" visible="false" />
-      <Button layoutX="332.0" layoutY="282.0" mnemonicParsing="false" onAction="#SupprimerCoaching" text="Supprimer" />
-      <BorderPane layoutX="-7.0" prefHeight="521.0" prefWidth="167.0" style="-fx-background-color: #282828;">
-         <right>
-            <VBox prefHeight="456.0" prefWidth="164.0" BorderPane.alignment="CENTER">
+      <Button layoutX="606.0" layoutY="450.0" mnemonicParsing="false" onAction="#SupprimerCoaching" prefHeight="31.0" prefWidth="92.0" text="Supprimer" visible="false" />
+      <BorderPane layoutX="319.0" layoutY="94.0" prefHeight="319.0" prefWidth="4.0" style="-fx-background-color: e15e1c;" />
+      <TextField fx:id="chercherField" layoutX="369.0" layoutY="70.0" prefHeight="31.0" prefWidth="180.0" promptText="Recchercher" />
+      <Button fx:id="refreshB" layoutX="747.0" layoutY="70.0" mnemonicParsing="false" onAction="#updateTable" text="Refresh" />
+      <ComboBox fx:id="dispoCombo" layoutX="110.0" layoutY="208.0" prefHeight="31.0" prefWidth="187.0" />
+      <SplitPane dividerPositions="0.5" layoutX="359.0" layoutY="326.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: e15e1c;">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="13.0" prefWidth="158.0">
                <children>
-                  <Button fx:id="Coachingbutton" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: #e15e1c;" text="Coaching">
-                     <graphic>
-                        <ImageView fitHeight="27.0" fitWidth="26.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../Downloads/ch-removebg-preview.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <effect>
-                        <InnerShadow />
-                     </effect>
-                  </Button>
-                  <Button fx:id="rdvButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" style="-fx-background-color: e15e1c;" text="Rendez_vous">
-                     <graphic>
-                        <ImageView fitHeight="29.0" fitWidth="28.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../Downloads/rdv-removebg-preview.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <effect>
-                        <InnerShadow />
-                     </effect>
-                  </Button>
+                  <Label layoutY="1.0" text="Filtrer par:" />
                </children>
-            </VBox>
-         </right>
-      </BorderPane>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="34.0" prefWidth="240.0">
+               <children>
+                  <CheckBox fx:id="checkFitness" layoutY="4.0" mnemonicParsing="false" onAction="#filtreCoaching" text="Fitness" />
+                  <CheckBox fx:id="checkYoga" layoutX="81.0" layoutY="3.0" mnemonicParsing="false" onAction="#filtreCoaching" text="Yoga" />
+                  <CheckBox fx:id="checkBoxing" layoutX="152.0" layoutY="3.0" mnemonicParsing="false" onAction="#filtreCoaching" text="Boxing" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <Label layoutX="107.0" layoutY="27.0" text="Coachnig" textFill="WHITE">
+         <font>
+            <Font name="Eras Light ITC" size="38.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="67.0" fitWidth="50.0" layoutX="50.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/coach.png" />
+         </image>
+      </ImageView>
+      <FontAwesomeIconView fill="#e15e1c" glyphName="PLUS" layoutX="30.0" layoutY="392.0" onMouseClicked="#ajouter" size="60" wrappingWidth="39.0000065267086" />
+      <FontAwesomeIconView fill="#e15e1c" glyphName="EDIT" layoutX="100.0" layoutY="392.0" onMouseClicked="#ModifierCoaching" size="60" />
+      <FontAwesomeIconView fill="#e15e1c" glyphName="TRASH" layoutX="180.0" layoutY="392.0" onMouseClicked="#SupprimerC" size="60" />
    </children>
 </AnchorPane>

@@ -8,9 +8,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import java.net.URL?>
 
-<AnchorPane id="AnchorPane" fx:id="dateField" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RendezVousController">
-   <children>
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RendezVousController">
+   <stylesheets>
+        <URL value="@tableview.css" />
+    </stylesheets>
+    <children>
+       
       <Label layoutX="35.0" layoutY="63.0" text="date" />
       <Label layoutX="35.0" layoutY="107.0" text="cours" />
       <Button layoutX="152.0" layoutY="200.0" mnemonicParsing="false" onAction="#ModifierRdv" text="Modifier" />
@@ -26,6 +31,6 @@
       </TableView>
       <TextField fx:id="idField" layoutX="86.0" layoutY="14.0" />
       <ComboBox fx:id="coachingField" layoutX="86.0" layoutY="103.0" prefWidth="150.0" />
-      <DatePicker layoutX="74.0" layoutY="59.0" />
+      <DatePicker fx:id="dateField" layoutX="74.0" layoutY="59.0" />
    </children>
 </AnchorPane>
