@@ -13,6 +13,9 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -24,8 +27,11 @@ import javafx.collections.transformation.SortedList;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -38,8 +44,10 @@ import javafx.scene.image.WritableImage;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
@@ -67,6 +75,7 @@ public class AjouterCoachingController implements Initializable {
     private Button imgField;
     
   
+    @FXML
     private ImageView imgView;
     
       @FXML
@@ -107,6 +116,8 @@ public class AjouterCoachingController implements Initializable {
     private ComboBox<String> dispoCombo;
     @FXML
     private Button refreshB;
+    @FXML
+    private VBox mainPane;
     
 
     /**
@@ -180,37 +191,59 @@ public class AjouterCoachingController implements Initializable {
     }
 
     @FXML
-    private void choisirImage(ActionEvent event) {
-        
-          Coaching c = new Coaching();
+ private void choisirImage(ActionEvent event) {
+    Coaching c = new Coaching();
 
-        FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choose Image File");
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Choose Image File");
 
-        // Ajouter un filtre pour n'afficher que les fichiers d'images
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
-        );
+    // Ajouter un filtre pour n'afficher que les fichiers d'images
+    fileChooser.getExtensionFilters().addAll(
+            new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+    );
 
-        // Afficher la boîte de dialogue de sélection de fichiers
-        File selectedFile = fileChooser.showOpenDialog(null);
-        if (selectedFile != null) {
-            // Charger l'image à partir du fichier sélectionné
-            WritableImage image = null;
-       
+    // Afficher la boîte de dialogue de sélection de fichiers
+    File selectedFile = fileChooser.showOpenDialog(null);
+   if (selectedFile != null) {
+    try {
+        // Charger l'image à partir du fichier sélectionné
+        BufferedImage bufferedImage = ImageIO.read(selectedFile);
+        WritableImage image = SwingFXUtils.toFXImage(bufferedImage, null);
 
-            if (image != null) {
-                // Afficher l'image dans l'objet ImageView de votre interface utilisateur
-                imgView.setImage(image);
+        // Afficher l'image dans l'objet ImageView de votre interface utilisateur
+        imgView.setImage(image);
 
-                // Enregistrer l'image sélectionnée dans votre objet Coaching
-              //  c.setImgCoach(image);
-/*
-BufferedImage bufferedimg =ImageIO.read(file);
-WritableImage image = SwingFXUtils.toFXImage(bufferedimg,null);
-        c.setImgCoach(imgField.getText());*/
+        // Enregistrer l'image sélectionnée dans votre objet Coaching
+        c.setImgCoach(selectedFile.getAbsolutePath()); // Convert to String path and set
+
+        // Enregistrer votre objet Coaching dans une base de données ou un fichier
+        // par exemple
+         save(c); // exemple si vous utilisez un DAO pour enregistrer votre objet Coaching
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
 }
-        }}
+   
+
+}
+ 
+ public void save(Coaching c) {
+    // Code pour enregistrer l'objet Coaching dans une base de données ou un fichier
+    // par exemple
+
+    // Exemple d'enregistrement dans un fichier
+    try {
+        FileOutputStream fileOut = new FileOutputStream("coaching.ser");
+        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+        out.writeObject(c);
+        out.close();
+        fileOut.close();
+        System.out.println("Object has been serialized");
+    } catch (IOException i) {
+        i.printStackTrace();
+    }
+}
+
 
     @FXML
     private void ModifierCoaching(javafx.scene.input.MouseEvent event) {
@@ -255,7 +288,7 @@ WritableImage image = SwingFXUtils.toFXImage(bufferedimg,null);
         coursField.setText(CoursC.getCellData(index));
         dispoCombo.setValue(DispoC.getCellData(index));
         descField.setText(DescC.getCellData(index));
-        imgField.setText(ImgC.getCellData(index));
+      //  imgView.setImage(ImgC.getCellData(index));
     }
 
     private void SupprimerCoaching(javafx.scene.input.MouseEvent event) {
@@ -356,7 +389,33 @@ WritableImage image = SwingFXUtils.toFXImage(bufferedimg,null);
         JOptionPane.showMessageDialog(null, "Seance supprimee");
     }
 
+    /*
+    private void pagerdv(MouseEvent event) {
+        
+          try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/GUI/RendezVous.fxml"));
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+        } catch (IOException ex) {
+                     System.out.println(ex.getMessage());         }
+    }
+*/
+    @FXML
+    private void RefrechC(MouseEvent event) {
+    }
+
+    @FXML
+    private void pagerdv(ActionEvent event) throws IOException {
+        
+        mainPane.getChildren().clear();
+        Parent Content = FXMLLoader.load(getClass().getResource("RendezVous.fxml"));
+        mainPane.getChildren().setAll(Content);
+    }
+    }
+
 
  
  
-}

@@ -19,4 +19,5 @@ public interface IService<C>{
     public ObservableList<C> afficher();
     public List<C>afficherrdv();
     
+    
 }

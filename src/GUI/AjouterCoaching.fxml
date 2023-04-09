@@ -2,6 +2,7 @@
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.net.URL?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
@@ -14,6 +15,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
@@ -23,11 +25,11 @@
         <URL value="@tableview.css" />
     </stylesheets>
     <children>
-      <TextField fx:id="coursField" layoutX="108.0" layoutY="109.0" />
-      <TextField fx:id="descField" layoutX="108.0" layoutY="159.0" />
+      <TextField fx:id="coursField" layoutX="113.0" layoutY="165.0" />
+      <TextField fx:id="descField" layoutX="113.0" layoutY="215.0" />
       <TextField fx:id="dispoField" layoutX="808.0" layoutY="282.0" prefHeight="31.0" prefWidth="18.0" visible="false" />
-      <Label layoutX="30.0" layoutY="113.0" text="Cours" textFill="WHITE" />
-      <Label layoutX="30.0" layoutY="164.0" text="Description">
+      <Label layoutX="35.0" layoutY="169.0" text="Cours" textFill="WHITE" />
+      <Label layoutX="35.0" layoutY="220.0" text="Description">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -36,7 +38,7 @@
                </stops>
             </LinearGradient>
          </textFill></Label>
-      <Label layoutX="27.0" layoutY="213.0" text="Disponibilite">
+      <Label layoutX="32.0" layoutY="269.0" text="Disponibilite">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -45,7 +47,7 @@
                </stops>
             </LinearGradient>
          </textFill></Label>
-      <Label layoutX="29.0" layoutY="271.0" text="Image">
+      <Label layoutX="34.0" layoutY="327.0" text="Image">
          <textFill>
             <LinearGradient endX="1.0" endY="1.0">
                <stops>
@@ -54,8 +56,8 @@
                </stops>
             </LinearGradient>
          </textFill></Label>
-      <Button fx:id="imgField" layoutX="112.0" layoutY="266.0" mnemonicParsing="false" onAction="#choisirImage" style="-fx-background-color: e15e1c;" text="inserer une image " />
-      <TableView fx:id="CoachingTable" layoutX="359.0" layoutY="109.0" onMouseClicked="#getSelected" prefHeight="206.0" prefWidth="462.0">
+      <Button fx:id="imgField" layoutX="118.0" layoutY="304.0" mnemonicParsing="false" onAction="#choisirImage" style="-fx-background-color: e15e1c;" text="inserer une image " />
+      <TableView fx:id="CoachingTable" layoutX="364.0" layoutY="165.0" onMouseClicked="#getSelected" prefHeight="206.0" prefWidth="363.0">
         <columns>
           <TableColumn fx:id="idC" minWidth="0.0" prefWidth="0.0" text="Id" />
           <TableColumn fx:id="CoursC" prefWidth="81.0" text="Cours" />
@@ -65,13 +67,13 @@
         </columns>
       </TableView>
       <Button fx:id="ModifierC" layoutX="483.0" layoutY="435.0" mnemonicParsing="false" onAction="#ModifierCoaching" prefHeight="31.0" prefWidth="83.0" text="Modifier" visible="false" />
-      <TextField fx:id="idField" layoutX="450.0" layoutY="260.0" prefHeight="0.0" prefWidth="5.0" visible="false" />
+      <TextField fx:id="idField" layoutX="455.0" layoutY="316.0" prefHeight="0.0" prefWidth="5.0" visible="false" />
       <Button layoutX="606.0" layoutY="450.0" mnemonicParsing="false" onAction="#SupprimerCoaching" prefHeight="31.0" prefWidth="92.0" text="Supprimer" visible="false" />
-      <BorderPane layoutX="319.0" layoutY="94.0" prefHeight="319.0" prefWidth="4.0" style="-fx-background-color: e15e1c;" />
-      <TextField fx:id="chercherField" layoutX="369.0" layoutY="70.0" prefHeight="31.0" prefWidth="180.0" promptText="Recchercher" />
-      <Button fx:id="refreshB" layoutX="747.0" layoutY="70.0" mnemonicParsing="false" onAction="#updateTable" text="Refresh" />
-      <ComboBox fx:id="dispoCombo" layoutX="110.0" layoutY="208.0" prefHeight="31.0" prefWidth="187.0" />
-      <SplitPane dividerPositions="0.5" layoutX="359.0" layoutY="326.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: e15e1c;">
+      <BorderPane layoutX="324.0" layoutY="150.0" prefHeight="319.0" prefWidth="4.0" style="-fx-background-color: e15e1c;" />
+      <TextField fx:id="chercherField" layoutX="374.0" layoutY="126.0" prefHeight="31.0" prefWidth="180.0" promptText="Recchercher" />
+      <Button fx:id="refreshB" layoutX="624.0" layoutY="415.0" mnemonicParsing="false" onAction="#updateTable" text="Refresh" />
+      <ComboBox fx:id="dispoCombo" layoutX="115.0" layoutY="264.0" prefHeight="31.0" prefWidth="149.0" />
+      <SplitPane dividerPositions="0.5" layoutX="364.0" layoutY="382.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: e15e1c;">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="13.0" prefWidth="158.0">
                <children>
@@ -87,18 +89,26 @@
             </AnchorPane>
         </items>
       </SplitPane>
-      <Label layoutX="107.0" layoutY="27.0" text="Coachnig" textFill="WHITE">
+      <Label layoutX="98.0" layoutY="27.0" text="Coachnig" textFill="WHITE">
          <font>
-            <Font name="Eras Light ITC" size="38.0" />
+            <Font name="Baskerville Old Face" size="38.0" />
          </font>
       </Label>
-      <ImageView fitHeight="67.0" fitWidth="50.0" layoutX="50.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="67.0" fitWidth="50.0" layoutX="41.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/coach.png" />
          </image>
       </ImageView>
-      <FontAwesomeIconView fill="#e15e1c" glyphName="PLUS" layoutX="30.0" layoutY="392.0" onMouseClicked="#ajouter" size="60" wrappingWidth="39.0000065267086" />
-      <FontAwesomeIconView fill="#e15e1c" glyphName="EDIT" layoutX="100.0" layoutY="392.0" onMouseClicked="#ModifierCoaching" size="60" />
-      <FontAwesomeIconView fill="#e15e1c" glyphName="TRASH" layoutX="180.0" layoutY="392.0" onMouseClicked="#SupprimerC" size="60" />
+      <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="21.0" layoutY="457.0" onMouseClicked="#ajouter" size="50" wrappingWidth="39.0000065267086" />
+      <FontAwesomeIconView fill="WHITE" glyphName="EDIT" layoutX="90.0" layoutY="457.0" onMouseClicked="#ModifierCoaching" size="50" />
+      <FontAwesomeIconView fill="WHITE" glyphName="TRASH" layoutX="175.0" layoutY="452.0" onMouseClicked="#SupprimerC" size="50" />
+      <Pane layoutY="96.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: #ffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+      <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" layoutX="799.0" layoutY="35.0" size="30" wrappingWidth="18.000004917383194" AnchorPane.rightAnchor="13.999995082616806" AnchorPane.topAnchor="9.285715103149414" />
+      <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" layoutX="241.0" layoutY="452.0" onMouseClicked="#RefrechC" size="50" />
+      <ImageView fx:id="imgView" fitHeight="87.0" fitWidth="122.0" layoutX="134.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #ffff;" />
    </children>
 </AnchorPane>

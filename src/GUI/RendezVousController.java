@@ -9,6 +9,7 @@ import Entites.Coaching;
 import Entities.RendezVous;
 import Services.ServiceCoaching;
 import Services.ServiceRendezVous;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +30,12 @@ import javax.swing.JOptionPane;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 /**
@@ -106,6 +112,8 @@ public class RendezVousController implements Initializable {
 
         dateR.setCellValueFactory(new PropertyValueFactory<>("daterdv"));
         etatR.setCellValueFactory(new PropertyValueFactory<>("etatrdv"));
+        
+        
 
         TableView.setItems(rdvList);
         
@@ -188,19 +196,39 @@ public class RendezVousController implements Initializable {
 
     @FXML
   private void getSelected(MouseEvent event) {
-    index = TableView.getSelectionModel().getSelectedIndex();
+     index = TableView.getSelectionModel().getSelectedIndex();
     if (index <= -1) {
         return;
     }
     idField.setText((idR.getCellData(index).toString()));
     coachingField.setValue(coursR.getCellData(index));
-     dateField.setValue(dateR.getCellData(index));
+    LocalDate localDate = dateR.getCellData(index);
+    Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+    dateField.setValue(date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
 
+    // Do something with the selected date
 
     
 
     // Faire quelqssue chose avec la date sélectionnée
     // ...
 }
+
+    @FXML
+    private void Addrdv(MouseEvent event) {
+          try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/tableView/addStudent.fxml"));
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+        } catch (IOException ex) {
+                     System.out.println(ex.getMessage());         }
+    }
+    
+   
+        
+    
 
 }
