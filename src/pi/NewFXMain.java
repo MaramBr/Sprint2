@@ -28,16 +28,13 @@ public class NewFXMain extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../GUI/Produit.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/MenuProduit.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
             System.out.println(ex);        }
-        Image img = new Image("efit.png");
-        ImageView vi = new ImageView(img);
-        StackPane root = new StackPane();
-        root.getChildren().add(vi);
+     
     }
 
     /**

@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import Services.ServiceProduit;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -26,6 +27,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javax.swing.JOptionPane;
 
 
@@ -40,6 +44,8 @@ public class ProduitController implements Initializable {
    int index=-1;
 
     private int idCategorieToadd ;
+    @FXML
+    private Button selectimageBtn;
     
       public int getIdCategorieToadd() {
         return idCategorieToadd;
@@ -155,7 +161,7 @@ public class ProduitController implements Initializable {
                 }
                 if (selectedLibelle != null) {
                     int id = selectedLibelle.getId();
-                    System.out.println("Selected vehicule id: " + id);
+                    System.out.println("Selected categorie id: " + id);
                     // do something with the id...
                     setIdCategorieToadd(id);
                 }
@@ -164,7 +170,7 @@ public class ProduitController implements Initializable {
     
 
     
-    @FXML
+   /* @FXML
     private void ajouterP(ActionEvent event) {
         Produit p = new Produit();
         p.setNom(nomFieldP.getText());
@@ -175,9 +181,34 @@ public class ProduitController implements Initializable {
          p.setImage(imageFieldP.getText());
         sc.ajouterProduit(p);
         updateTable();
-        JOptionPane.showMessageDialog(null, "Seance Ajoutée");
+        JOptionPane.showMessageDialog(null, "produit Ajoutée");
     }
-
+*/
+    
+    @FXML
+private void ajouterP(ActionEvent event) {
+Produit p = new Produit();
+// Vérification des champs obligatoires
+if (nomFieldP.getText().isEmpty() || descriptionFieldP.getText().isEmpty() || quantiteFieldP.getText().isEmpty() || prixFieldP.getText().isEmpty()) {
+JOptionPane.showMessageDialog(null, "Veuillez remplir tous les champs obligatoires.");
+return;
+}
+// Vérification que la quantité et le prix sont des nombres valides
+try {
+p.setQuantite(Integer.parseInt(quantiteFieldP.getText()));
+p.setPrix(Float.parseFloat(prixFieldP.getText()));
+} catch (NumberFormatException e) {
+JOptionPane.showMessageDialog(null, "La quantité et le prix doivent être des nombres.");
+return;
+}
+p.setNom(nomFieldP.getText());
+p.setIdCategory(idCategorieToadd);
+p.setDescription(descriptionFieldP.getText());
+p.setImage(imageFieldP.getText());
+sc.ajouterProduit(p);
+updateTable();
+JOptionPane.showMessageDialog(null, "Produit ajouté.");
+}
 
     @FXML
     private void getSelected(MouseEvent event) {
@@ -216,7 +247,7 @@ public class ProduitController implements Initializable {
         
         sc.supprimerProduit(c);
        updateTable();
-        JOptionPane.showMessageDialog(null, "Seance supprimee");
+        JOptionPane.showMessageDialog(null, "produit supprimee");
     }
         
     
@@ -244,4 +275,18 @@ public class ProduitController implements Initializable {
     
     
 }
+
+    @FXML
+    private void selectimage(MouseEvent event) {
+        FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Sélectionner une image de produit");
+    // filtre pour les fichiers image uniquement
+    fileChooser.getExtensionFilters().addAll(
+        new ExtensionFilter("Images", ".png", ".jpg", "*.gif"));
+    File selectedFile = fileChooser.showOpenDialog(selectimageBtn.getScene().getWindow());
+    if (selectedFile != null) {
+        imageFieldP.setText(selectedFile.getAbsolutePath());
+    }
+        
+    }
 }

@@ -121,6 +121,16 @@ public class ServiceCategorie implements ICService<Categorie> {
    
         
     }
+    /*
+    public boolean categorieExiste(String libelle) {
+         Iterable<Categorie> Categories = null;
+    for (Categorie c : Categories) {
+        if (c.getLibelle().equals(libelle)) {
+            return true;
+        }
+    }
+    return false;
+}*/
 }
 
 

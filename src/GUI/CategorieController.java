@@ -79,7 +79,7 @@ public class CategorieController implements Initializable {
         TableViewC.setItems(CategorieList);
     }
     
-    @FXML
+   /* @FXML
     private void ajouterC(ActionEvent event) {
                Categorie p = new Categorie();
         p.setLibelle(libelleFieldC.getText());
@@ -87,7 +87,36 @@ public class CategorieController implements Initializable {
         sc.ajouterCategorie(p);
         updateTable();
         JOptionPane.showMessageDialog(null, "Categorie Ajoutée");
+    }*/
+    
+    @FXML
+private void ajouterC(ActionEvent event) {
+    // Vérifiez que le champ de texte libelleFieldC n'est pas vide
+    if (libelleFieldC.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Veuillez entrer un libellé pour la catégorie");
+        return;
     }
+
+    // Vérifiez que le champ de texte libelleFieldC ne contient pas de caractères non autorisés
+    String libelle = libelleFieldC.getText();
+    if (!libelle.matches("[a-zA-Z]+")) {
+        JOptionPane.showMessageDialog(null, "Le libellé doit contenir uniquement des lettres alphabétiques");
+        return;
+    }
+
+    /*// Vérifiez que la catégorie n'existe pas déjà dans votre système
+    if (sc.categorieExiste(libelle)) {
+        JOptionPane.showMessageDialog(null, "La catégorie existe déjà dans le système");
+        return;
+    }
+*/
+    // Si toutes les vérifications sont réussies, créez une nouvelle catégorie et ajoutez-la
+    Categorie p = new Categorie();
+    p.setLibelle(libelle);
+    sc.ajouterCategorie(p);
+    updateTable();
+    JOptionPane.showMessageDialog(null, "Categorie Ajoutée");
+}
 
     @FXML
     private void modifierC(ActionEvent event) {
