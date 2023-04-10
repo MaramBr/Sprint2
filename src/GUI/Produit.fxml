@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="772.0" prefWidth="1055.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProduitController">
+   <children>
+      <Button fx:id="Add" layoutX="501.0" layoutY="582.0" mnemonicParsing="false" onAction="#ajouterP" text="Ajouter" />
+      <TextField fx:id="quantiteFieldP" layoutX="128.0" layoutY="324.0" />
+      <TextField fx:id="prixFieldP" layoutX="128.0" layoutY="380.0" />
+      <TextField fx:id="descriptionFieldP" layoutX="128.0" layoutY="269.0" />
+      <TextField fx:id="nomFieldP" layoutX="128.0" layoutY="203.0" />
+      <TextField fx:id="idFieldP" layoutX="-240.0" layoutY="494.0" />
+      <Label layoutX="-167.0" layoutY="167.0" text="id" />
+      <Label layoutX="40.0" layoutY="208.0" style="-fx-background-color: orange;" text="  Nom  " />
+      <Label layoutX="19.0" layoutY="274.0" style="-fx-background-color: orange;" text="  Description  " />
+      <Label layoutX="28.0" layoutY="329.0" style="-fx-background-color: orange;" text="  Quantite  " />
+      <Label layoutX="35.0" layoutY="627.0" prefHeight="21.0" prefWidth="62.0" style="-fx-background-color: orange;" text="   image" />
+      <Label layoutX="45.0" layoutY="385.0" style="-fx-background-color: orange;" text="  Prix  " />
+      <TableView fx:id="TableView" layoutX="443.0" layoutY="200.0" onMouseClicked="#getSelected" prefHeight="322.0" prefWidth="580.0">
+        <columns>
+          <TableColumn fx:id="nomP" prefWidth="90.0" text="Nom" />
+          <TableColumn fx:id="descriptionP" prefWidth="136.0" text="Description" />
+            <TableColumn fx:id="quantiteP" prefWidth="72.0" text="Quantite" />
+            <TableColumn fx:id="prixP" prefWidth="63.0" text="Prix" />
+            <TableColumn fx:id="imageP" minWidth="0.0" prefWidth="124.0" text="Image" />
+            <TableColumn fx:id="idP" minWidth="0.0" prefWidth="0.0" text="id" />
+            <TableColumn fx:id="CategoryP" prefWidth="90.0" text="Category" />
+        </columns>
+      </TableView>
+      <Button fx:id="supprimer" layoutX="839.0" layoutY="582.0" mnemonicParsing="false" onAction="#supprimerP" text="Supprimer" />
+      <Button fx:id="modifier" layoutX="668.0" layoutY="582.0" mnemonicParsing="false" onAction="#modifierP" text="Modifier" />
+      <TextField fx:id="imageFieldP" layoutX="136.0" layoutY="622.0" />
+      <Label layoutX="34.0" layoutY="448.0" style="-fx-background-color: orange;" text="  categorie  " />
+      <ComboBox fx:id="catPField" layoutX="147.0" layoutY="443.0" prefWidth="150.0" />
+      <Pane layoutY="114.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Text fill="WHITE" layoutX="51.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produits">
+         <font>
+            <Font name="Akhbar MT" size="57.0" />
+         </font>
+      </Text>
+      <HBox alignment="CENTER_LEFT" layoutX="577.0" layoutY="638.0" prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: black;">
+         <children>
+            <FontAwesomeIconView fill="#f2eeee" glyphName="REFRESH" size="45" text="" />
+         </children>
+      </HBox>
+      <FontAwesomeIconView />
+   </children>
+</AnchorPane>
