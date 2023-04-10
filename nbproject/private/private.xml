@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/EvenementFrontController.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/entities/Evenement.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/EvenementFront.fxml</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/ParticipantBack.fxml</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/intefaces/InterfaceSponsor.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/entities/Sponsor.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/HomePage.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/evenement2.fxml</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/tests/MainClass.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/ParticipantBackController.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/utils/MyConnection.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/SponsorController.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/Participant.fxml</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/Menu.fxml</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/services/SponsorCRUD.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/services/ParticipantCRUD.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/intefaces/InterfaceParticipant.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/Evenement.fxml</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/services/EvenementCRUD.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/ParticipantController.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/EvenementController.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/MenuController.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/entities/Participant.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/Sponsor.fxml</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/GestionEvenement.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/intefaces/InterfaceEvenement.java</file>
+        </group>
+    </open-files>
+</project-private>

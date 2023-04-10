@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="726.0" prefWidth="1267.0" style="-fx-background-color: #e08d17;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestionEvenement.gui.SponsorController">
+   <children>
+      <Pane layoutX="28.0" layoutY="59.0" prefHeight="608.0" prefWidth="965.0" style="-fx-background-color: black; -fx-border-color: #131314;">
+         <children>
+            <Label layoutX="24.0" layoutY="35.0" prefHeight="37.0" prefWidth="292.0" text="Ajout d'un Sponsor" textFill="#f5f4f0">
+               <font>
+                  <Font name="Corbel Bold Italic" size="28.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="tftype" layoutX="93.0" layoutY="271.0" prefHeight="33.0" prefWidth="226.0" style="-fx-background-color: #ffffff; -fx-border-color: #131314;" />
+            <Button fx:id="btnenvoyer" layoutX="24.0" layoutY="368.0" mnemonicParsing="false" onAction="#ajoutersponsor" prefHeight="33.0" prefWidth="103.0" style="-fx-border-color: orange; -fx-background-color: #000000;" text="Envoyer" textFill="#ffa734" />
+            <TableView fx:id="tableSponsors" layoutX="455.0" layoutY="125.0" onMouseClicked="#afficherReclamationSelectionnee" prefHeight="416.0" prefWidth="394.0" style="-fx-background-color: #ffff; -fx-border-color: #131314;">
+          <columns>
+              <TableColumn fx:id="colnom" prefWidth="100.0" text="nom" />
+              <TableColumn fx:id="colemail" prefWidth="126.0" text="email" />
+              <TableColumn fx:id="colinvest" prefWidth="156.0" text="Invest" />
+                  <TableColumn fx:id="colid" prefWidth="193.0" text="id" visible="false" />
+          </columns>
+      </TableView>
+            <Button fx:id="btnmodifier" layoutX="443.0" layoutY="79.0" mnemonicParsing="false" onAction="#modifiersponsor" prefHeight="27.0" prefWidth="91.0" style="-fx-border-color: orange; -fx-background-color: #000000;" text="Modifier" textFill="#f8b135" />
+            <Button fx:id="btnsupprimer" layoutX="546.0" layoutY="78.0" mnemonicParsing="false" onAction="#supprimersponsor" prefHeight="31.0" prefWidth="103.0" style="-fx-border-color: orange; -fx-background-color: #000000;" text="Supprimer" textFill="#fcd64e" />
+            <Label layoutX="447.0" layoutY="29.0" text="Mes  Sponsors :" textFill="#fcfbf8">
+               <font>
+                  <Font name="Corbel Bold Italic" size="28.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="271.0" prefHeight="34.0" prefWidth="109.0" text="Invest:" textFill="#f8f5f5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="pdf" layoutX="665.0" layoutY="78.0" mnemonicParsing="false" onAction="#generatePDF" prefHeight="27.0" prefWidth="74.0" style="-fx-border-color: orange; -fx-background-color: #000000;" text="PDF" textFill="#f5c54c" />
+            <Label layoutX="28.0" layoutY="206.0" text="Email:" textFill="#f5f2f2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <TextField fx:id="emailField" layoutX="93.0" layoutY="203.0" prefHeight="33.0" prefWidth="226.0" promptText="veuillez entrer une email valide" style="-fx-border-color: #131314;" />
+            <TextField fx:id="tfnom" layoutX="93.0" layoutY="139.0" prefHeight="37.0" prefWidth="226.0" />
+            <Label layoutX="33.0" layoutY="141.0" text="nom" textFill="#f5f2f2">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="statistique" layoutX="758.0" layoutY="78.0" mnemonicParsing="false" onAction="#statistique" prefHeight="27.0" prefWidth="91.0" style="-fx-border-color: orange; -fx-background-color: #000000;" text="statistique" textFill="#f8ae24" />
+         </children>
+      </Pane>
+      <VBox layoutX="1025.0" layoutY="59.0" prefHeight="608.0" prefWidth="214.0" style="-fx-background-color: #000000; -fx-border-color: #131314;">
+         <children>
+            <Button fx:id="btnEvenement" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#gererEvenement" opacity="0.64" prefHeight="32.0" prefWidth="294.0" style="-fx-border-color: #131314; -fx-background-color: orange;" text="Evenement" textFill="#473a00">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnParticipant" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#gererParticipant" opacity="0.64" prefHeight="32.0" prefWidth="294.0" style="-fx-border-color: #131314; -fx-background-color: orange;" text="Participation" textFill="#473a00">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Button>
+            <Button fx:id="btnSponsor" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#gererSponsor" opacity="0.64" prefHeight="32.0" prefWidth="294.0" style="-fx-border-color: #131314; -fx-background-color: orange;" text="Sponsor" textFill="#473a00">
+               <font>
+                  <Font name="System Bold" size="26.0" />
+               </font>
+            </Button>
+            <ImageView fx:id="image1" fitHeight="183.0" fitWidth="215.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </VBox>
+      <Button fx:id="btnretour" layoutY="-3.0" mnemonicParsing="false" onAction="#retour" prefHeight="34.0" prefWidth="40.0" style="-fx-border-color: #ffffff; -fx-background-color: #ffffff;" text="&lt;-">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
