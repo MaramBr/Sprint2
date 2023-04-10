@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="493.0" prefWidth="635.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RelamationController">
+  <tabs>
+    <Tab text="Genre">
+         <content>
+            <AnchorPane prefHeight="405.0" prefWidth="639.0">
+               <children>
+ <Label layoutX="191.0" layoutY="325.0" text="libellé" />
+      <Button layoutX="287.0" layoutY="381.0" mnemonicParsing="false" onAction="#ModifGenre" text="Modifier" />
+      <Button layoutX="109.0" layoutY="381.0" mnemonicParsing="false" onAction="#AjoutGenre" text="Ajouter" />
+      <Button layoutX="447.0" layoutY="381.0" mnemonicParsing="false" onAction="#SupprimerGenre" text="Supprimer" />
+      <TableView fx:id="TableView" layoutX="38.0" layoutY="79.0" onMouseClicked="#getSelected2" prefHeight="200.0" prefWidth="560.0">
+        <columns>
+          <TableColumn fx:id="idG" minWidth="0.0" prefWidth="152.0" text="id" />
+            <TableColumn fx:id="libellé" prefWidth="407.0" text="libellé" />
+        </columns>
+      </TableView>
+      <TextField fx:id="TFlibelle" layoutX="243.0" layoutY="321.0" />
+                  <TextField fx:id="tfrechercheg" layoutX="243.0" layoutY="20.0" />
+                  <Button layoutX="417.0" layoutY="20.0" mnemonicParsing="false" onAction="#rechercheGenre" text="rechercher" />
+                  <Button fx:id="front_btn" layoutX="549.0" layoutY="425.0" mnemonicParsing="false" onAction="#Front" prefHeight="25.0" prefWidth="71.0" text="Front" />
+               </children>
+            </AnchorPane>
+         </content></Tab>
+  
+    <Tab text="Reclamation">
+         <content>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="85.0" layoutY="292.0" text="Status :" />
+      <Button layoutX="85.0" layoutY="399.0" mnemonicParsing="false" onAction="#modifierReca" text="Modifier" />
+      <Button layoutX="445.0" layoutY="399.0" mnemonicParsing="false" onAction="#SupprimerReca" text="Supprimer" />
+      <TableView fx:id="AdminViewRec" layoutX="6.0" layoutY="43.0" onMouseClicked="#getSelectedrec" prefHeight="236.0" prefWidth="626.0">
+        <columns>
+          <TableColumn fx:id="idRec" minWidth="0.0" prefWidth="32.0" text="id" />
+          <TableColumn fx:id="idGenre" prefWidth="57.0" text="Id genre" />
+            <TableColumn fx:id="TitreRec" text="Titre" />
+            <TableColumn fx:id="DescR" prefWidth="246.0" text="Descirption" />
+                        <TableColumn fx:id="DateRec" prefWidth="61.0" text="Date" />
+                        <TableColumn fx:id="StatusRec" prefWidth="69.0" text="Status" />
+                        <TableColumn fx:id="TraitementRec" text="Traitement" />
+        </columns>
+      </TableView>
+      <TextField fx:id="TFrechercheReca" layoutX="243.0" layoutY="14.0" />
+                  <Label layoutX="263.0" layoutY="292.0" text="Traitement :" />
+                  <TextArea fx:id="TfTraitement" layoutX="263.0" layoutY="316.0" prefHeight="69.0" prefWidth="245.0" />
+                  <ComboBox fx:id="boxtraitement" layoutX="85.0" layoutY="316.0" prefWidth="150.0" />
+                  <Button layoutX="409.0" layoutY="14.0" mnemonicParsing="false" onAction="#rechercherRec" text="rechercher" />
+                  <Button fx:id="front_btn" layoutX="550.0" layoutY="424.0" mnemonicParsing="false" onAction="#Front" prefHeight="25.0" prefWidth="71.0" text="Front" />
+               </children>
+            </AnchorPane>
+         </content></Tab>
+  </tabs>
+</TabPane>
