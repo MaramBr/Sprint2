@@ -1,0 +1,12 @@
+/* Styles pour le texte */
+.search-box {
+      -fx-background-color: #FFFFFF;
+    
+    -fx-border-radius: 100px;
+}
+
+.tranparent {
+
+    -fx-background-color: rgba(0,0,0,0);
+}
+    
