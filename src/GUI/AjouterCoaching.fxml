@@ -107,7 +107,6 @@
             <Insets />
          </opaqueInsets>
       </Pane>
-      <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" layoutX="799.0" layoutY="35.0" size="30" wrappingWidth="18.000004917383194" AnchorPane.rightAnchor="13.999995082616806" AnchorPane.topAnchor="9.285715103149414" />
       <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" layoutX="241.0" layoutY="452.0" onMouseClicked="#RefrechC" size="50" />
       <ImageView fx:id="imgView" fitHeight="87.0" fitWidth="122.0" layoutX="134.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #ffff;" />
    </children>

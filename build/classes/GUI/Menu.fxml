@@ -9,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="527.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuController">
    <children>
-      <VBox fx:id="mainPane" layoutX="154.0" prefHeight="527.0" prefWidth="821.0" />
+      <VBox fx:id="mainPane" layoutX="169.0" prefHeight="527.0" prefWidth="821.0" />
       <AnchorPane layoutY="-3.0" prefHeight="527.0" prefWidth="169.0" style="-fx-background-color: e15e1c;">
          <children>
             <Button layoutX="14.0" layoutY="310.0" mnemonicParsing="false" onAction="#pageCoaching" prefHeight="40.0" prefWidth="135.0" text="Coaching">
@@ -22,7 +22,7 @@
                   <Font name="Baskerville Old Face" size="20.0" />
                </font>
             </Button>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="7.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="7.0" layoutY="62.0" onMousePressed="#FrontC" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/fit-removebg-preview.png" />
                </image>

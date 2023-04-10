@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CoachingFrontController">
+<AnchorPane id="AnchorPane" prefHeight="527.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CoachingFrontController">
    <children>
-      <Pane layoutY="83.0" prefHeight="10.0" prefWidth="617.0" style="-fx-background-color: e15e1c;" AnchorPane.rightAnchor="-1.0" AnchorPane.topAnchor="83.0" />
-      <Text layoutX="147.0" layoutY="54.0" lineSpacing="5.0" onMouseClicked="#pageCoachingF" strokeType="OUTSIDE" strokeWidth="0.0" text="Coaching">
+      <Label layoutX="105.0" layoutY="48.0" text="Coachnig">
          <font>
-            <Font name="Baskerville Old Face" size="22.0" />
+            <Font name="Baskerville Old Face" size="48.0" />
          </font>
-      </Text>
-      <Text layoutX="344.0" layoutY="54.0" lineSpacing="5.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rendez_Vous">
-         <font>
-            <Font name="Baskerville Old Face" size="22.0" />
-         </font>
-      </Text>
+      </Label>
+      <ImageView fitHeight="67.0" fitWidth="50.0" layoutX="43.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/coach.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

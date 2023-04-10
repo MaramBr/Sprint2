@@ -51,7 +51,7 @@ String qry="INSERT INTO `rendez_vous`( `coachings_id`, `daterdv`) VALUES ('"+c.g
     @Override
     public boolean modifier(RendezVous c) {
  try {
-            String qry = "UPDATE `rendez_vous` SET `daterdv`  = '" + c.getDaterdv()+ "', `coachings_id` = '" + c.getIdCoaching() + "',`etatrdv` = '" + c.isEtatrdv() + "' WHERE `id` = '" + c.getId() + "'";
+            String qry = "UPDATE `rendez_vous` SET `daterdv`  = '" + c.getDaterdv()+ "', `coachings_id` = '" + c.getIdCoaching() + "',`etatrdv` = '" + c.getEtatrdv() + "' WHERE `id` = '" + c.getId() + "'";
             stm = cnx.createStatement();
 
             stm.executeUpdate(qry);
@@ -90,7 +90,7 @@ String qry = "DELETE FROM rendez_vous WHERE id=?";
 
                 c.setDaterdv(rs.getDate(3));
                 
-                c.setEtatrdv(rs.getBoolean(3));
+                c.setEtatrdv(rs.getInt(4));
 
                 rdvList.add(c);
             }

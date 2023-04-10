@@ -27,7 +27,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javax.swing.JOptionPane;
-import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import javafx.fxml.FXMLLoader;
@@ -36,7 +35,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  * FXML Controller class
@@ -65,14 +65,12 @@ public class RendezVousController implements Initializable {
     @FXML
     private ComboBox<String> coachingField;
     @FXML
-
     private TableColumn<RendezVous, Integer> idR;
     @FXML
-    private TableColumn<RendezVous, LocalDate> dateR;
+    private TableColumn<RendezVous, java.sql.Date> dateR;
     @FXML
     private TableColumn<RendezVous, String> coursR;
-    @FXML
-    private TableColumn<RendezVous, Boolean> etatR;
+    private TableColumn<RendezVous, Integer> etatR;
     @FXML
     private TableView<RendezVous> TableView;
   
@@ -89,7 +87,6 @@ public class RendezVousController implements Initializable {
                 coursR.setCellValueFactory(new PropertyValueFactory<>("nomCours"));
 
         dateR.setCellValueFactory(new PropertyValueFactory<>("daterdv"));
-        etatR.setCellValueFactory(new PropertyValueFactory<>("etatrdv"));
 
         System.out.println("affichage" + sr.afficherrdv());
         TableView.setItems(rdvList);
@@ -111,7 +108,6 @@ public class RendezVousController implements Initializable {
         coursR.setCellValueFactory(new PropertyValueFactory<>("nomCours"));
 
         dateR.setCellValueFactory(new PropertyValueFactory<>("daterdv"));
-        etatR.setCellValueFactory(new PropertyValueFactory<>("etatrdv"));
         
         
 
@@ -138,7 +134,7 @@ public class RendezVousController implements Initializable {
                 }
                 if (selectedCours != null) {
                     int id = selectedCours.getId();
-                    System.out.println("Selected vehicule id: " + id);
+                    System.out.println("Selected Cours id: " + id);
                     // do something with the id...
                     setIdCoachingToadd(id);
                 }
@@ -150,14 +146,11 @@ public class RendezVousController implements Initializable {
     private void ModifierRdv(ActionEvent event) {
         RendezVous c = new RendezVous();
         c.setId(Integer.parseInt(idField.getText()));
-               c.setIdCoaching(idCoachingToadd);
-  // Convert java.util.Date to java.sql.Date
-    Date utilDate = Date.from(dateField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+          c.setIdCoaching(idCoachingToadd);
+          // Convert java.util.Date to java.sql.Date
+           Date utilDate = Date.from(dateField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
     java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
     c.setDaterdv(sqlDate);
-
-    dateField.setValue(c.getDaterdv().toLocalDate());
-    
 
         sr.modifier(c);
         updateTable();
@@ -187,8 +180,10 @@ public class RendezVousController implements Initializable {
         RendezVous c = new RendezVous();
         c.setId(Integer.parseInt(idField.getText()));
 
-       dateField.setValue(c.getDaterdv().toLocalDate());
         c.setNomCours( coachingField.getValue());
+       Date utilDate = Date.from(dateField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+    c.setDaterdv(sqlDate);
         sr.supprimer(c);
         updateTable();
         JOptionPane.showMessageDialog(null, "Seance supprimee");
@@ -202,9 +197,9 @@ public class RendezVousController implements Initializable {
     }
     idField.setText((idR.getCellData(index).toString()));
     coachingField.setValue(coursR.getCellData(index));
-    LocalDate localDate = dateR.getCellData(index);
-    Date date = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
-    dateField.setValue(date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate());
+ 
+    dateField.setValue(dateR.getCellData(index).toLocalDate());
+   // dateField.setValue(LocalDate.parse());
 
     // Do something with the selected date
 
@@ -212,22 +207,12 @@ public class RendezVousController implements Initializable {
 
     // Faire quelqssue chose avec la date sélectionnée
     // ...
+     
+     
+     
+     
 }
-
-    @FXML
-    private void Addrdv(MouseEvent event) {
-          try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/tableView/addStudent.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.show();
-        } catch (IOException ex) {
-                     System.out.println(ex.getMessage());         }
-    }
-    
-   
+ 
         
     
 

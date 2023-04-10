@@ -13,9 +13,10 @@ import java.sql.Date;
  */
 public class RendezVous {
     
-    private int id ,idCoaching;
+    private int id ,idCoaching,etatrdv;
    private String nomCours;
     private Date daterdv;
+
 
     public String getNomCours() {
         return nomCours;
@@ -24,11 +25,10 @@ public class RendezVous {
     public void setNomCours(String nomCours) {
         this.nomCours = nomCours;
     }
-private boolean etatrdv;
     public RendezVous() {
     }
 
-    public RendezVous(int id, int idCoaching, Date daterdv, String nomCours, boolean etatrdv) {
+    public RendezVous(int id, int idCoaching, Date daterdv, String nomCours, int etatrdv) {
         this.id = id;
         this.idCoaching = idCoaching;
         this.daterdv = daterdv;
@@ -36,7 +36,7 @@ private boolean etatrdv;
         this.etatrdv = etatrdv;
     }
 
-    public RendezVous(int idCoaching, Date daterdv, String nomCours, boolean etatrdv) {
+    public RendezVous(int idCoaching, Date daterdv, String nomCours, int etatrdv) {
         this.idCoaching = idCoaching;
         this.daterdv = daterdv;
         this.nomCours = nomCours;
@@ -71,16 +71,17 @@ private boolean etatrdv;
         this.idCoaching = idCoaching;
     }
 
-    public boolean isEtatrdv() {
+    public int getEtatrdv() {
         return etatrdv;
     }
 
-    public void setEtatrdv(boolean etatrdv) {
+    public void setEtatrdv(int etatrdv) {
         this.etatrdv = etatrdv;
     }
+
     
 
-    public RendezVous(int idCoaching, Date daterdv, boolean etatrdv) {
+    public RendezVous(int idCoaching, Date daterdv, int etatrdv) {
         this.idCoaching = idCoaching;
         this.daterdv = daterdv;
         this.etatrdv = etatrdv;

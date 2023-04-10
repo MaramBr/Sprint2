@@ -8,14 +8,16 @@ package GUI;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -24,10 +26,10 @@ import javafx.stage.StageStyle;
  *
  * @author Maram
  */
-public class MenuController implements Initializable {
+public class MenuFrontController implements Initializable {
 
     @FXML
-    private VBox mainPane;
+    private HBox mainPane;
 
     /**
      * Initializes the controller class.
@@ -38,27 +40,23 @@ public class MenuController implements Initializable {
     }    
 
     @FXML
-    private void pageCoaching(ActionEvent event)throws IOException {
-             mainPane.getChildren().clear();
-        Parent Content = FXMLLoader.load(getClass().getResource("AjouterCoaching.fxml"));
-        mainPane.getChildren().setAll(Content);
-    }
-    
- 
-  
-
-    @FXML
-    private void pageRDV(ActionEvent event)throws IOException {
-             mainPane.getChildren().clear();
-        Parent Content = FXMLLoader.load(getClass().getResource("RdvBack.fxml"));
+    private void pagerdv(MouseEvent event) throws IOException {
+         mainPane.getChildren().clear();
+        Parent Content = FXMLLoader.load(getClass().getResource("RendezVous.fxml"));
         mainPane.getChildren().setAll(Content);
     }
 
     @FXML
-    private void FrontC(MouseEvent event) {
-        
-            try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/GUI/MenuFront.fxml"));
+    private void CoachingPage(MouseEvent event) throws IOException {
+         mainPane.getChildren().clear();
+        Parent Content = FXMLLoader.load(getClass().getResource("CoachingFront.fxml"));
+        mainPane.getChildren().setAll(Content);
+    }
+
+    @FXML
+    private void BackC(MouseEvent event) {
+          try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/GUI/Menu.fxml"));
             Scene scene = new Scene(parent);
             Stage stage = new Stage();
             stage.setScene(scene);
@@ -66,6 +64,8 @@ public class MenuController implements Initializable {
             stage.show();}
         catch (IOException ex) {
             System.out.println(ex);        }
+        
+      
     }
     
 }

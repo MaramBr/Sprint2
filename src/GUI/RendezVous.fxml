@@ -11,42 +11,59 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="527.0" prefWidth="831.0" style="-fx-background-color: #1E1E1E;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RendezVousController">
+<AnchorPane id="AnchorPane" prefHeight="544.0" prefWidth="981.0" style="-fx-background-color: #ffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RendezVousController">
    <stylesheets>
         <URL value="@tableview.css" />
     </stylesheets>
     <children>
        
-      <Label layoutX="62.0" layoutY="275.0" text="date" />
-      <Label layoutX="59.0" layoutY="397.0" text="cours" />
-      <Button layoutX="368.0" layoutY="402.0" mnemonicParsing="false" onAction="#ModifierRdv" text="Modifier" />
-      <Button layoutX="259.0" layoutY="402.0" mnemonicParsing="false" onAction="#AjouterRdv" onMouseClicked="#Addrdv" text="Ajouter" />
-      <Button layoutX="485.0" layoutY="402.0" mnemonicParsing="false" onAction="#SupprimerRdv" text="Supprimer" />
-      <TableView fx:id="TableView" layoutX="200.0" layoutY="175.0" onMouseClicked="#getSelected" prefHeight="200.0" prefWidth="432.0">
+      <Label layoutX="42.0" layoutY="235.0" text=".Date">
+         <font>
+            <Font name="Baskerville Old Face" size="20.0" />
+         </font></Label>
+      <Label layoutX="40.0" layoutY="178.0" text=".Cours">
+         <font>
+            <Font name="Baskerville Old Face" size="20.0" />
+         </font></Label>
+      <Button layoutX="168.0" layoutY="296.0" mnemonicParsing="false" onAction="#ModifierRdv" style="-fx-background-color: e15e1c;" text="Modifier">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="79.0" layoutY="296.0" mnemonicParsing="false" onAction="#AjouterRdv" style="-fx-background-color: e15e1c;" text="Ajouter" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font name="Book Antiqua Bold" size="12.0" />
+         </font></Button>
+      <Button layoutX="257.0" layoutY="296.0" mnemonicParsing="false" onAction="#SupprimerRdv" style="-fx-background-color: e15e1c;" text="Supprimer">
+         <font>
+            <Font name="Book Antiqua Bold" size="12.0" />
+         </font></Button>
+      <TableView fx:id="TableView" layoutX="436.0" layoutY="117.0" onMouseClicked="#getSelected" prefHeight="236.0" prefWidth="464.0">
         <columns>
-          <TableColumn fx:id="idR" minWidth="0.0" prefWidth="61.0" text="id" />
-          <TableColumn fx:id="dateR" prefWidth="89.0" text="date" />
-            <TableColumn fx:id="coursR" prefWidth="75.0" text="cours" />
-            <TableColumn fx:id="etatR" prefWidth="75.0" text="etat" />
-            <TableColumn fx:id="etatR1" prefWidth="75.0" text="edit" />
+          <TableColumn fx:id="idR" minWidth="0.0" prefWidth="61.0" text="id" visible="false" />
+          <TableColumn fx:id="dateR" prefWidth="230.0" text="date" />
+            <TableColumn fx:id="coursR" prefWidth="245.0" text="cours" />
         </columns>
       </TableView>
-      <TextField fx:id="idField" layoutX="86.0" layoutY="14.0" visible="false" />
-      <ComboBox fx:id="coachingField" layoutX="13.0" layoutY="353.0" prefWidth="150.0" />
-      <DatePicker fx:id="dateField" layoutX="13.0" layoutY="303.0" prefHeight="25.0" prefWidth="150.0" />
-      <Pane layoutX="1.0" layoutY="90.0" prefHeight="5.0" prefWidth="831.0" style="-fx-background-color: #ffff;" AnchorPane.rightAnchor="11.0" AnchorPane.topAnchor="90.0" />
-      <Label layoutX="134.0" layoutY="27.0" text="Rendez Vous" textFill="WHITE">
+      <TextField fx:id="idField" layoutX="52.0" layoutY="41.0" visible="false" />
+      <ComboBox fx:id="coachingField" layoutX="131.0" layoutY="180.0" prefWidth="150.0" />
+      <DatePicker fx:id="dateField" layoutX="127.0" layoutY="237.0" prefHeight="25.0" prefWidth="150.0" />
+      <Label layoutX="100.0" layoutY="54.0" text="Rendez Vous" textFill="WHITE">
          <font>
             <Font name="Baskerville Old Face" size="38.0" />
          </font>
       </Label>
-      <ImageView fitHeight="63.0" fitWidth="72.0" layoutX="55.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="63.0" fitWidth="72.0" layoutX="21.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/rdv.png" />
          </image>
       </ImageView>
+      <Text layoutX="100.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RendezVous">
+         <font>
+            <Font name="Baskerville Old Face" size="48.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

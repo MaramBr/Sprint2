@@ -49,11 +49,11 @@ public class Efit extends Application {
     public static void main(String[] args) throws ParseException {
               // MyDB a = MyDB.getInstance();
               
-   RendezVous p4 = new RendezVous(39,  Date.valueOf(LocalDate.of(2000, 10, 26)),false);
+   RendezVous p4 = new RendezVous(39,  Date.valueOf(LocalDate.of(2006, 10, 26)),0);
                ServiceRendezVous sc = new ServiceRendezVous();
 
        sc.ajouter(p4);
-      
+       sc.afficherrdv();
 
 
     }

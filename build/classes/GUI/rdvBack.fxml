@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="527.0" prefWidth="831.0" style="-fx-background-color: #1E1E1E;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RdvBackController">
+   <children>
+      <Pane layoutX="10.0" layoutY="106.0" prefHeight="5.0" prefWidth="1000.0" style="-fx-background-color: #ffff;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+      <Label layoutX="145.0" layoutY="30.0" text="Rendez Vous" textFill="WHITE">
+         <font>
+            <Font name="Baskerville Old Face" size="38.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="84.0" fitWidth="82.0" layoutX="52.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/rdv.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="tablerdv" layoutX="134.0" layoutY="173.0" prefHeight="285.0" prefWidth="494.0">
+        <columns>
+          <TableColumn fx:id="idR" prefWidth="75.0" text="idrdv" visible="false" />
+          <TableColumn fx:id="coursR" prefWidth="150.0" text="Cours" />
+            <TableColumn fx:id="dateR" prefWidth="181.0" text="date" />
+            <TableColumn fx:id="etatR" prefWidth="162.0" text="etat" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

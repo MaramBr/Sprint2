@@ -8,7 +8,7 @@ package GUI;
 import Entites.Coaching;
 import Entities.RendezVous;
 import Services.ServiceCoaching;
-import java.awt.Image;
+import javafx.scene.image.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
@@ -63,7 +63,7 @@ public class AjouterCoachingController implements Initializable {
     ServiceCoaching sc=new ServiceCoaching();
     ObservableList<Coaching> CoachingList;
    int index=-1;
-    
+     String path="";
     
     @FXML
     private TextField coursField;
@@ -161,7 +161,12 @@ public class AjouterCoachingController implements Initializable {
     @FXML
     private void ajouter(javafx.scene.input.MouseEvent event) {
         
+        Image photo=imgView.getImage();
         
+          String nomValue = coursField.getText();
+                String prenomValue = descField.getText();
+                String pwdValue = dispoCombo.getValue();
+                String imagePath = path;
   if(coursField.getText().trim().length() == 0) {
     JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'cours'");
     return;
@@ -180,7 +185,8 @@ public class AjouterCoachingController implements Initializable {
         c.setCours(coursField.getText());
         c.setDescCoach(descField.getText());
         c.setDispoCoach(dispoCombo.getValue());
-        c.setImgCoach(imgField.getText());
+        c.setImgCoach(imgView.getImage().toString());
+        
         sc.ajouter(c);
         updateTable();
         JOptionPane.showMessageDialog(null, "Seance Ajoutée");
@@ -204,45 +210,39 @@ public class AjouterCoachingController implements Initializable {
 
     // Afficher la boîte de dialogue de sélection de fichiers
     File selectedFile = fileChooser.showOpenDialog(null);
-   if (selectedFile != null) {
-    try {
-        // Charger l'image à partir du fichier sélectionné
-        BufferedImage bufferedImage = ImageIO.read(selectedFile);
-        WritableImage image = SwingFXUtils.toFXImage(bufferedImage, null);
-
-        // Afficher l'image dans l'objet ImageView de votre interface utilisateur
-        imgView.setImage(image);
-
-        // Enregistrer l'image sélectionnée dans votre objet Coaching
-        c.setImgCoach(selectedFile.getAbsolutePath()); // Convert to String path and set
-
-        // Enregistrer votre objet Coaching dans une base de données ou un fichier
-        // par exemple
-         save(c); // exemple si vous utilisez un DAO pour enregistrer votre objet Coaching
-    } catch (IOException e) {
-        e.printStackTrace();
+    if (selectedFile != null) {
+    // load the selected image into the image view
+    path=selectedFile.getAbsolutePath();
+    Image image = new Image(selectedFile.toURI().toString());
+    imgView.setImage(image);
     }
-}
    
 
 }
  
- public void save(Coaching c) {
-    // Code pour enregistrer l'objet Coaching dans une base de données ou un fichier
-    // par exemple
-
-    // Exemple d'enregistrement dans un fichier
-    try {
-        FileOutputStream fileOut = new FileOutputStream("coaching.ser");
-        ObjectOutputStream out = new ObjectOutputStream(fileOut);
-        out.writeObject(c);
-        out.close();
-        fileOut.close();
-        System.out.println("Object has been serialized");
-    } catch (IOException i) {
-        i.printStackTrace();
+ 
+ 
+ 
+   private void ajouterimagesignup(ActionEvent event) {
+ 
+     FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Select Image");
+    fileChooser.getExtensionFilters().addAll(
+    new FileChooser.ExtensionFilter("Image Files", ".png", ".jpg", "*.gif"));
+    File selectedFile = fileChooser.showOpenDialog(null);
+    if (selectedFile != null) {
+    // load the selected image into the image view
+    path=selectedFile.getAbsolutePath();
+    Image image = new Image(selectedFile.toURI().toString());
+    imgView.setImage(image);
     }
-}
+
+      
+    }
+   
+   
+ 
+ 
 
 
     @FXML
@@ -279,7 +279,7 @@ public class AjouterCoachingController implements Initializable {
     @FXML
     private void getSelected(MouseEvent event) {
         
-     
+         Coaching c=CoachingTable.getSelectionModel().getSelectedItem();
          index = CoachingTable.getSelectionModel().getSelectedIndex();
         if (index <= -1) {
             return;
@@ -288,7 +288,15 @@ public class AjouterCoachingController implements Initializable {
         coursField.setText(CoursC.getCellData(index));
         dispoCombo.setValue(DispoC.getCellData(index));
         descField.setText(DescC.getCellData(index));
-      //  imgView.setImage(ImgC.getCellData(index));
+          String uri="file:" +c.getImgCoach();
+          try {
+    BufferedImage bufferedImage = ImageIO.read(new File(c.getImgCoach()));
+    WritableImage image = SwingFXUtils.toFXImage(bufferedImage, null);
+    imgView.setImage(image);
+} catch (IOException ex) {
+    // Handle the exception
+};
+          
     }
 
     private void SupprimerCoaching(javafx.scene.input.MouseEvent event) {
@@ -389,20 +397,7 @@ public class AjouterCoachingController implements Initializable {
         JOptionPane.showMessageDialog(null, "Seance supprimee");
     }
 
-    /*
-    private void pagerdv(MouseEvent event) {
-        
-          try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/GUI/RendezVous.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.show();
-        } catch (IOException ex) {
-                     System.out.println(ex.getMessage());         }
-    }
-*/
+ 
     @FXML
     private void RefrechC(MouseEvent event) {
     }
