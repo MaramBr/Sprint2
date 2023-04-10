@@ -77,7 +77,6 @@
                   <Font name="System Bold" size="26.0" />
                </font>
             </Button>
-            <ImageView fx:id="image1" fitHeight="183.0" fitWidth="215.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </VBox>
       <Button fx:id="btnretour" layoutY="-3.0" mnemonicParsing="false" onAction="#retour" prefHeight="34.0" prefWidth="40.0" style="-fx-border-color: #ffffff; -fx-background-color: #ffffff;" text="&lt;-">
@@ -88,5 +87,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
+      <ImageView fx:id="image1" fitHeight="91.0" fitWidth="212.0" layoutX="1010.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

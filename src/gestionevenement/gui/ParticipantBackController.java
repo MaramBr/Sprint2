@@ -28,6 +28,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -62,6 +64,8 @@ public class ParticipantBackController implements Initializable {
     private Button btnSponsor;
     @FXML
     private Button btnParticipant;
+    @FXML
+    private ImageView image1;
 
     /**
      * Initializes the controller class.
@@ -70,13 +74,14 @@ public class ParticipantBackController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     show();
-        File file = new File("");
+        File file = new File("C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/image/logoFit.png");
         String localURL = "";
         try {
             localURL = file.toURI().toURL().toString();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+           image1.setImage(new Image(localURL));
         
     }
     MyConnection cnx = null;
@@ -164,12 +169,11 @@ public class ParticipantBackController implements Initializable {
         coltel.setCellValueFactory(new PropertyValueFactory<>("tel"));
         
         colidp.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-colnom.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-colprenom.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-
-colemail.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-colage.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-coltel.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+        colnom.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+        colprenom.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+        colemail.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+        colage.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+        coltel.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
        
         
         tableparticipant.setItems(data);

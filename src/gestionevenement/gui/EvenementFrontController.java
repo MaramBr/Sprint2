@@ -28,6 +28,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 
@@ -76,6 +78,8 @@ public class EvenementFrontController implements Initializable {
     private TableColumn<Evenement, Integer> colidevent;
    @FXML
     private TableView<Evenement> tableEvenement;
+    @FXML
+    private ImageView image1;
     
 // Association de l'ObservableList au TableView
 
@@ -86,13 +90,14 @@ public class EvenementFrontController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         //show(event);
-        File file = new File("");
+        File file = new File("C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/image/logoEfit.png");
         String localURL = "";
         try {
             localURL = file.toURI().toURL().toString();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+         image1.setImage(new Image(localURL));
           show();
        
     }  
@@ -195,6 +200,8 @@ private void participer(ActionEvent event) {
         int idEvent = selectedEvenement.getId();
         String nomEvent = selectedEvenement.getNom();
         try {
+            
+           /////redirection//////
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Participant.fxml"));
             Parent messageParent = loader.load();
             ParticipantController ParticipantController = loader.getController();

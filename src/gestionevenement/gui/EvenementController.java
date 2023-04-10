@@ -10,25 +10,15 @@ import gestionEvenement.entities.Evenement;
 import gestionEvenement.entities.Sponsor;
 import gestionEvenement.services.EvenementCRUD;
 import gestionEvenement.services.SponsorCRUD;
-import gestionEvenement.utils.MyConnection;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import static java.util.Collections.list;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -36,13 +26,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -54,9 +40,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.scene.Group;
-import javafx.scene.chart.PieChart;
-import javafx.scene.control.TableCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 
 /**
@@ -134,7 +119,10 @@ public class EvenementController implements Initializable {
     private ComboBox<String> cbsponsor;
     @FXML
     private Button btnrf;
+    @FXML
     private TextField tfsp;
+    @FXML
+    private ImageView image1;
 
     /**
      * Initializes the controller class.
@@ -157,14 +145,14 @@ public void initialize(URL url, ResourceBundle rb) {
     // Ajouter un gestionnaire d'événements pour le ComboBox
     cbsponsor.setOnAction(event -> selectsponsor(event));
 
-    File file = new File("");
+    File file = new File("C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/image/logoFit.png");
     String localURL = "";
     try {
         localURL = file.toURI().toURL().toString();
     } catch (Exception e) {
         System.out.println(e.getMessage());
     }
-
+ image1.setImage(new Image(localURL));
     browseimg.setOnAction(event -> {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choose Image");

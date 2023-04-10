@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -31,11 +32,6 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="btnajouterev" layoutX="51.0" layoutY="548.0" mnemonicParsing="false" onAction="#ajouterev" prefHeight="44.0" prefWidth="105.0" style="-fx-border-color: #000000; -fx-background-color: #000000;" text="Ajouter" textFill="#eb7f7f">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Button>
             <TextField fx:id="tfnomev" layoutX="156.0" layoutY="122.0" />
             <TextField fx:id="tflieu" layoutX="156.0" layoutY="164.0" />
             <TextField fx:id="tftype" layoutX="156.0" layoutY="216.0" />
@@ -113,6 +109,12 @@
             <Button fx:id="browseimg" layoutX="346.0" layoutY="401.0" mnemonicParsing="false" text="Upload" />
             <ComboBox fx:id="cbsponsor" layoutX="156.0" layoutY="77.0" onAction="#selectsponsor" prefWidth="150.0" />
             <Button fx:id="btnrf" layoutX="1000.0" layoutY="431.0" mnemonicParsing="false" onAction="#rafraichir" prefHeight="37.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-background-color: #000000;" text="rafraichir" textAlignment="CENTER" textFill="#eb7563" />
+            <TextField fx:id="tfsp" layoutX="78.0" layoutY="556.0" prefHeight="18.0" prefWidth="14.0" />
+            <Button fx:id="btnajouterev" layoutX="52.0" layoutY="549.0" mnemonicParsing="false" onAction="#ajouterev" prefHeight="44.0" prefWidth="105.0" style="-fx-border-color: #000000; -fx-background-color: #000000;" text="Ajouter" textFill="#eb7f7f">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
       <VBox layoutX="1195.0" layoutY="86.0" prefHeight="608.0" prefWidth="205.0" style="-fx-background-color: #000000; -fx-border-color: #131314;">
@@ -129,5 +131,6 @@
             </Button>
          </children>
       </VBox>
+      <ImageView fx:id="image1" fitHeight="89.0" fitWidth="236.0" layoutX="1195.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

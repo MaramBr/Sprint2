@@ -5,21 +5,15 @@
  */
 package gestionEvenement.entities;
 //import java.util.Date;
-import java.sql.Date;
-import java.time.LocalDate;
-import javafx.scene.control.DateCell;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.SingleSelectionModel;
-import javafx.util.Callback;
 
 
-public class Evenement {
-private int id,sponsors_id;
- private String nom_sponsor;
-    private String nom,lieu,type,description;
-    private String date_debut, date_fin;
-    private String image;
-    private int nb_participant,prix;
+  public class Evenement {
+  private int id,sponsors_id;
+  private String nom_sponsor;
+  private String nom,lieu,type,description;
+  private String date_debut, date_fin;
+  private String image;
+  private int nb_participant,prix;
   private Sponsor sponsor; 
 
     public Evenement(int id, int sponsors_id, String nom_sponsor, String nom, String lieu, String type, String description, String date_debut, String date_fin, String image, int nb_participant, int prix, Sponsor sponsor) {

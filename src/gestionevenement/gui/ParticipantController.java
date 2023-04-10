@@ -35,6 +35,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -88,6 +90,8 @@ public class ParticipantController implements Initializable {
     private TextField tfnomev;
     @FXML
     private Button btnEvenement;
+    @FXML
+    private ImageView image1;
 
     /**
      * Initializes the controller class.
@@ -97,14 +101,14 @@ public class ParticipantController implements Initializable {
         // TODO
       
         show();
-        File file = new File("");
+        File file = new File("C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/image/logoFit.png");
         String localURL = "";
         try {
             localURL = file.toURI().toURL().toString();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        
+           image1.setImage(new Image(localURL));
     }
     MyConnection cnx = null;
     Statement st = null;
@@ -144,37 +148,10 @@ coltel.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-sty
     }
 
     
-    
- 
-   /* private void gererEvenements(ActionEvent event) {
-        try {
-            Parent EvenementParent = FXMLLoader.load(getClass().getResource("Evenement.fxml"));
-            Scene EvenementScene = new Scene(EvenementParent);
-            Stage window = (Stage) (((Button) event.getSource()).getScene().getWindow());
-            window.setScene(EvenementScene);
-            window.show();
-        } catch (IOException e) {
-        }
-    }
 
-    private void gererAvis(ActionEvent event) {
-        try {
-            Parent avisParent = FXMLLoader.load(getClass().getResource("Evenement.fxml"));
-            Scene avisScene = new Scene(avisParent);
-            Stage window = (Stage) (((Button) event.getSource()).getScene().getWindow());
-            window.setScene(avisScene);
-            window.show();
-        } catch (IOException e) {
-        }
-    }
-*/
    
 
     
-    
-    
-
-
   
 
    
@@ -212,9 +189,39 @@ private void ajouterparticipant(ActionEvent event) {
         return;
     }
 
+
     // Récupérer les valeurs des champs
     String nom = tfnom.getText();
     String prenom = tfprenom.getText();
+    
+    // Vérifier que l'âge et le téléphone sont des nombres entiers et ne dépassent pas 8 chiffres
+if (tfage.getText().isEmpty() || tftel.getText().isEmpty()) {
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Champs vides");
+    alert.setHeaderText(null);
+    alert.setContentText("Aucune de ces informations ne doit être vide. Veuillez remplir tous les champs.");
+    alert.showAndWait();
+    return;
+}
+try {
+    int age = Integer.parseInt(tfage.getText());
+    int tel = Integer.parseInt(tftel.getText());
+    if ( tftel.getText().length() < 8) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Le téléphone doit avoir au moins 8 chiffres.");
+        alert.showAndWait();
+        return;
+    }
+} catch (NumberFormatException e) {
+    Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Erreur");
+    alert.setHeaderText(null);
+    alert.setContentText("L'âge et le téléphone doivent être des nombres entiers.");
+    alert.showAndWait();
+    return;
+}
     int age = Integer.parseInt(tfage.getText());
     int tel = Integer.parseInt(tftel.getText());
 

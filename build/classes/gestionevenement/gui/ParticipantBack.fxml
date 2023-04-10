@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -11,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="731.0" prefWidth="1338.0" style="-fx-background-color: #e08d17;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestionEvenement.gui.ParticipantBackController">
    <children>
-      <Pane layoutX="286.0" layoutY="65.0" prefHeight="608.0" prefWidth="960.0" style="-fx-background-color: black; -fx-background-image: black;">
+      <Pane layoutX="286.0" layoutY="89.0" prefHeight="584.0" prefWidth="926.0" style="-fx-background-color: black; -fx-background-image: black;">
          <children>
             <TableView fx:id="tableparticipant" layoutX="139.0" layoutY="156.0" prefHeight="416.0" prefWidth="576.0" style="-fx-background-color: #ffff;">
           <columns>
@@ -31,7 +32,7 @@
             </Label>
          </children>
       </Pane>
-      <VBox layoutX="22.0" layoutY="65.0" prefHeight="608.0" prefWidth="256.0" style="-fx-background-color: #dbeaf1; -fx-background-color: black;">
+      <VBox layoutX="26.0" layoutY="89.0" prefHeight="584.0" prefWidth="252.0" style="-fx-background-color: #dbeaf1; -fx-background-color: black;">
          <children>
             <Button fx:id="btnevenement" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#gererEvenement" opacity="0.64" prefHeight="32.0" prefWidth="294.0" style="-fx-border-color: #131314; -fx-background-color: orange;" text="Evenement" textFill="#473a00">
                <font>
@@ -50,5 +51,6 @@
             </Button>
          </children>
       </VBox>
+      <ImageView fx:id="image1" fitHeight="123.0" fitWidth="188.0" layoutX="1111.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

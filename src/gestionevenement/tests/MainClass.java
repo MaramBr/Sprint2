@@ -25,13 +25,13 @@ public class MainClass {
         MyConnection conn = MyConnection.getInstance();
       
         //Evenement r = new Evenement(10,100,"aa" ,"aqa","zzz","22/3/2023","22/3/2023", "Evenement","ded");
-      Sponsor sponsor = new Sponsor(123,"er","zer","sdfg");
-SponsorCRUD sponsorCRUD = new SponsorCRUD();
+     // Sponsor sponsor = new Sponsor(123,"er","zer","sdfg");
+//SponsorCRUD sponsorCRUD = new SponsorCRUD();
 //Integer id = sponsorCRUD.getIdSponsorFromNom(sponsor);
-if (id != null) {
-    System.out.println("ID du sponsor : " + id);
-} else {
-    System.out.println("Sponsor non trouvé.");
+//if (id != null) {
+   // System.out.println("ID du sponsor : " + id);
+//} else {
+ //   System.out.println("Sponsor non trouvé.");
 }
 
    
@@ -44,4 +44,4 @@ if (id != null) {
         
     }
     
-}
+

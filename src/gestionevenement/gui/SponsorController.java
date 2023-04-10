@@ -5,7 +5,6 @@
  */
 package gestionEvenement.gui;
 
-import gestionEvenement.entities.Evenement;
 import gestionEvenement.entities.Sponsor;
 import gestionEvenement.utils.MyConnection;
 import gestionEvenement.services.SponsorCRUD;
@@ -15,7 +14,6 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -107,7 +105,7 @@ public class SponsorController implements Initializable {
      
       
         show();
-      File file = new File("C:/Users/emna/OneDrive/Documents/NetBeansProjects/gestionEvenement/src/image/logoauto2.png");
+      File file = new File("C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/image/logoFit.png");
         String localURL = "";
         try {
             localURL = file.toURI().toURL().toString();
@@ -323,6 +321,12 @@ public void show() {
         colinvest.setCellValueFactory(new PropertyValueFactory<>("invest"));
         colid.setCellValueFactory(new PropertyValueFactory<>("id"));
         tableSponsors.setItems(data);
+        
+          colnom.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+colemail.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+colinvest.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+
+
     }
 
     @FXML
@@ -360,23 +364,23 @@ public void show() {
     }
 
     ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
-    int totalEvenements = 0;
+    int totalSponsors = 0;
     for (Map.Entry<String, Integer> entry : statistiques.entrySet()) {
         String type = entry.getKey();
         int nbSponsors = entry.getValue();
-        totalEvenements += nbSponsors;
+        totalSponsors += nbSponsors;
         pieChartData.add(new PieChart.Data(type + " (" + nbSponsors + ")", nbSponsors));
     }
 
     // Calcul des pourcentages
     for (PieChart.Data data : pieChartData) {
-        double pourcentage = (data.getPieValue() / totalEvenements) * 100;
+        double pourcentage = (data.getPieValue() / totalSponsors) * 100;
         String label = data.getName() + " - " + String.format("%.2f", pourcentage) + "%";
         data.setName(label);
     }
 
     PieChart chart = new PieChart(pieChartData);
-    chart.setTitle("Statistiques des sponsor par type d'investissement");
+    chart.setTitle("Statistiques des sponsors par type d'investissement");
 
     Stage stage = new Stage();
     Scene scene = new Scene(new Group(chart), 600, 400);

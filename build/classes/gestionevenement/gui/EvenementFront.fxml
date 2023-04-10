@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -40,5 +41,6 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
+      <ImageView fx:id="image1" fitHeight="111.0" fitWidth="219.0" layoutX="755.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

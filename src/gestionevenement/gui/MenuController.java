@@ -34,6 +34,8 @@ public class MenuController implements Initializable {
     private Label message;
     @FXML
     private Button btnclient;
+    @FXML
+    private ImageView image1;
  
 
     /**
@@ -42,13 +44,14 @@ public class MenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        File file = new File("");
+        File file = new File("C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/image/logoFit.png");
         String localURL = "";
         try {
             localURL = file.toURI().toURL().toString();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+         image1.setImage(new Image(localURL));
       
     }    
 
@@ -56,7 +59,8 @@ public class MenuController implements Initializable {
 
     @FXML
     private void movetoevenement(ActionEvent event) {
-           try {
+        
+             try {
         Parent EvenementsParent = FXMLLoader.load(getClass().getResource("Evenement.fxml"));
         Scene EvenementsScene = new Scene(EvenementsParent);
         Stage window = (Stage)(((Button)event.getSource()).getScene().getWindow());
@@ -64,6 +68,7 @@ public class MenuController implements Initializable {
         window.show();
     } catch (IOException e) {
     }
+    
     }
 
     @FXML
