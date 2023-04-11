@@ -21,11 +21,14 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
@@ -46,6 +49,10 @@ public class ProduitController implements Initializable {
     private int idCategorieToadd ;
     @FXML
     private Button selectimageBtn;
+    @FXML
+    private ImageView imgView;
+    @FXML
+    private TextField Recherche;
     
       public int getIdCategorieToadd() {
         return idCategorieToadd;
@@ -122,6 +129,7 @@ public class ProduitController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         show();
         
+        
         // TODO
     }    
 
@@ -139,7 +147,7 @@ public class ProduitController implements Initializable {
         imageP.setCellValueFactory(new PropertyValueFactory<>("image"));
 
         TableView.setItems(ProduitList);
-        
+        chercherCoaching();
         //////////////////////////////////////////
          ServiceCategorie sc = new ServiceCategorie();
         List<String> nomsCataegory = new ArrayList<>();
@@ -278,15 +286,54 @@ JOptionPane.showMessageDialog(null, "Produit ajouté.");
 
     @FXML
     private void selectimage(MouseEvent event) {
-        FileChooser fileChooser = new FileChooser();
-    fileChooser.setTitle("Sélectionner une image de produit");
-    // filtre pour les fichiers image uniquement
+        String path ="";
+ FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Choose Image File");
+
+    // Ajouter un filtre pour n'afficher que les fichiers d'images
     fileChooser.getExtensionFilters().addAll(
-        new ExtensionFilter("Images", ".png", ".jpg", "*.gif"));
-    File selectedFile = fileChooser.showOpenDialog(selectimageBtn.getScene().getWindow());
+            new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif")
+    );
+
+    // Afficher la boîte de dialogue de sélection de fichiers
+    File selectedFile = fileChooser.showOpenDialog(null);
     if (selectedFile != null) {
-        imageFieldP.setText(selectedFile.getAbsolutePath());
+    // load the selected image into the image view
+    path=selectedFile.getAbsolutePath().replace("\\", "/");
+
+    Image image = new Image(selectedFile.toURI().toString());
+    imgView.setImage(image);
     }
         
     }
+
+    @FXML
+    private void voirProduit(ActionEvent event) {
+    }
+    
+    
+        
+     public void chercherCoaching() {
+        FilteredList<Produit> filteredData = new FilteredList<>(FXCollections.observableArrayList(sc.afficherProduit()), b -> true);
+        Recherche.textProperty().addListener((observable, oldValue, newValue) -> {
+            filteredData.setPredicate(rec -> {
+                if (newValue == null || newValue.isEmpty()) {
+                    return true;
+                }
+                String lowerCaseFilter = newValue.toLowerCase();
+                if (rec.getNom().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                } else if (rec.getDescription().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                    return true;
+                }  else {
+                    return false;
+                }
+
+            });
+        });
+        SortedList<Produit> sortedData = new SortedList<>(filteredData);
+        sortedData.comparatorProperty().bind(TableView.comparatorProperty());
+        TableView.setItems(sortedData);
+    }
+
 }

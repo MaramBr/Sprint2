@@ -14,13 +14,12 @@ public class Produit {
     private int id,quantite,idCategory ;
     private String nom ,description,image,nomCategory ;
 
-    public Produit(int quantite, int idCategory, String nom, String description, String image, String nomCategory, float prix) {
+    public Produit(int quantite, int idCategory, String nom, String description, String image, float prix) {
         this.quantite = quantite;
         this.idCategory = idCategory;
         this.nom = nom;
         this.description = description;
         this.image = image;
-        this.nomCategory = nomCategory;
         this.prix = prix;
     }
 
@@ -116,4 +115,7 @@ public class Produit {
     public String toString() {
         return "Produit{" + "id=" + id + ", nom=" + nom + ", description=" + description + ", quantite=" + quantite +  ", prix=" + prix + ", image=" + image + '}';
     }
+    
+    
+    
 }

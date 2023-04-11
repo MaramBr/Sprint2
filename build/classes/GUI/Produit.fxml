@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
@@ -37,7 +38,7 @@
       </TableView>
       <Button fx:id="supprimer" layoutX="657.0" layoutY="474.0" mnemonicParsing="false" onAction="#supprimerP" style="-fx-background-color: e15e1c;" text="Supprimer" />
       <Button fx:id="modifier" layoutX="524.0" layoutY="474.0" mnemonicParsing="false" onAction="#modifierP" style="-fx-background-color: e15e1c;" text="Modifier" />
-      <TextField fx:id="imageFieldP" layoutX="102.0" layoutY="598.0" style="-fx-background-color: black;" />
+      <TextField fx:id="imageFieldP" layoutX="312.0" layoutY="605.0" style="-fx-background-color: black;" />
       <Label layoutX="12.0" layoutY="418.0" style="-fx-background-color: black;" text="  categorie  " textFill="#fcf8f8" />
       <ComboBox fx:id="catPField" layoutX="121.0" layoutY="413.0" prefWidth="150.0" />
       <Pane layoutY="114.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: e15e1c;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
@@ -49,5 +50,8 @@
       <FontAwesomeIconView />
       <Button fx:id="selectimageBtn" layoutX="125.0" layoutY="474.0" mnemonicParsing="false" onMouseClicked="#selectimage" text="ajouter une image" />
       <TextField fx:id="idFieldP" layoutX="271.0" layoutY="-48.0" style="-fx-background-color: black;" />
+      <ImageView fx:id="imgView" fitHeight="150.0" fitWidth="200.0" layoutX="358.0" layoutY="545.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="121.0" layoutY="598.0" mnemonicParsing="false" onAction="#voirProduit" text="voir image" />
+      <TextField fx:id="Recherche" layoutX="450.0" layoutY="151.0" />
    </children>
 </AnchorPane>
