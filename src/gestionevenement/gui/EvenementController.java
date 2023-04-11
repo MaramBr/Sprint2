@@ -572,7 +572,7 @@ private void afficherEvenementSelectionne(MouseEvent event) {
     Evenement Evenement = tableEvenement.getSelectionModel().getSelectedItem();
     if (Evenement != null) {
         int sponsorId = Evenement.getSponsors_id();
-        // Afficher le nom du sponsor dans la ComboBox
+        // Afficher le nom du sponsor dans la ComboBox voilaaaaaaa
         String sponsorName = new SponsorCRUD().getSponsorNameById(sponsorId);
         cbsponsor.setValue(sponsorName);
         // Autres champs
