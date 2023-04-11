@@ -32,6 +32,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
@@ -116,8 +117,9 @@ public class AjouterCoachingController implements Initializable {
     private ComboBox<String> dispoCombo;
     @FXML
     private Button refreshB;
-    @FXML
     private VBox mainPane;
+    @FXML
+    private ImageView image2;
     
 
     /**
@@ -161,12 +163,15 @@ public class AjouterCoachingController implements Initializable {
     @FXML
     private void ajouter(javafx.scene.input.MouseEvent event) {
         
-        Image photo=imgView.getImage();
+                Image photo=imgView.getImage();
         
-          String nomValue = coursField.getText();
-                String prenomValue = descField.getText();
-                String pwdValue = dispoCombo.getValue();
-                String imagePath = path;
+                String cours = coursField.getText();
+                String descCoach = descField.getText();
+                String dispoCoach = dispoCombo.getValue();
+                
+                String imagePath = path.substring(path.lastIndexOf("/img/"));
+                
+                
   if(coursField.getText().trim().length() == 0) {
     JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'cours'");
     return;
@@ -180,14 +185,10 @@ public class AjouterCoachingController implements Initializable {
     JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'disponibilité'");
     return;
 }
-  
-        Coaching c = new Coaching();
-        c.setCours(coursField.getText());
-        c.setDescCoach(descField.getText());
-        c.setDispoCoach(dispoCombo.getValue());
-        c.setImgCoach(imgView.getImage().toString());
-        
-        sc.ajouter(c);
+   Coaching u = new Coaching(cours, descCoach, dispoCoach, imagePath);
+    
+    // Insert new user into the database
+   sc.ajouter(u);
         updateTable();
         JOptionPane.showMessageDialog(null, "Seance Ajoutée");
 
@@ -195,6 +196,10 @@ public class AjouterCoachingController implements Initializable {
         
         
     }
+    
+    
+    
+    
 
     @FXML
  private void choisirImage(ActionEvent event) {
@@ -212,7 +217,8 @@ public class AjouterCoachingController implements Initializable {
     File selectedFile = fileChooser.showOpenDialog(null);
     if (selectedFile != null) {
     // load the selected image into the image view
-    path=selectedFile.getAbsolutePath();
+    path=selectedFile.getAbsolutePath().replace("\\", "/");
+
     Image image = new Image(selectedFile.toURI().toString());
     imgView.setImage(image);
     }
@@ -223,22 +229,6 @@ public class AjouterCoachingController implements Initializable {
  
  
  
-   private void ajouterimagesignup(ActionEvent event) {
- 
-     FileChooser fileChooser = new FileChooser();
-    fileChooser.setTitle("Select Image");
-    fileChooser.getExtensionFilters().addAll(
-    new FileChooser.ExtensionFilter("Image Files", ".png", ".jpg", "*.gif"));
-    File selectedFile = fileChooser.showOpenDialog(null);
-    if (selectedFile != null) {
-    // load the selected image into the image view
-    path=selectedFile.getAbsolutePath();
-    Image image = new Image(selectedFile.toURI().toString());
-    imgView.setImage(image);
-    }
-
-      
-    }
    
    
  
@@ -276,28 +266,9 @@ public class AjouterCoachingController implements Initializable {
     }
     
 
-    @FXML
-    private void getSelected(MouseEvent event) {
-        
-         Coaching c=CoachingTable.getSelectionModel().getSelectedItem();
-         index = CoachingTable.getSelectionModel().getSelectedIndex();
-        if (index <= -1) {
-            return;
-        }
-        idField.setText((idC.getCellData(index).toString()));
-        coursField.setText(CoursC.getCellData(index));
-        dispoCombo.setValue(DispoC.getCellData(index));
-        descField.setText(DescC.getCellData(index));
-          String uri="file:" +c.getImgCoach();
-          try {
-    BufferedImage bufferedImage = ImageIO.read(new File(c.getImgCoach()));
-    WritableImage image = SwingFXUtils.toFXImage(bufferedImage, null);
-    imgView.setImage(image);
-} catch (IOException ex) {
-    // Handle the exception
-};
-          
-    }
+    
+    
+   
 
     private void SupprimerCoaching(javafx.scene.input.MouseEvent event) {
            Coaching c = new Coaching();
@@ -402,13 +373,61 @@ public class AjouterCoachingController implements Initializable {
     private void RefrechC(MouseEvent event) {
     }
 
-    @FXML
     private void pagerdv(ActionEvent event) throws IOException {
         
         mainPane.getChildren().clear();
         Parent Content = FXMLLoader.load(getClass().getResource("RendezVous.fxml"));
         mainPane.getChildren().setAll(Content);
     }
+
+    @FXML
+    private void imageafficher(ActionEvent event) {
+        
+             Coaching selectedCoaching= CoachingTable.getSelectionModel().getSelectedItem();
+    
+    if (selectedCoaching!= null) {
+      
+ 
+         Image image = new Image(new File(selectedCoaching.getImgCoach()).toURI().toString());
+            imgView.setImage(image);
+    } else {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Veuillez sélectionner un utilisateur à modifier.");
+        alert.showAndWait();
+    }
+    }
+
+    @FXML
+    private void getSelected(MouseEvent event) {
+        
+   
+        
+         Coaching c=CoachingTable.getSelectionModel().getSelectedItem();
+         index = CoachingTable.getSelectionModel().getSelectedIndex();
+        if (index <= -1) {
+            return;
+        }
+        idField.setText((idC.getCellData(index).toString()));
+        coursField.setText(CoursC.getCellData(index));
+        dispoCombo.setValue(DispoC.getCellData(index));
+        descField.setText(DescC.getCellData(index));
+            Image image = new Image(new File(c.getImgCoach()).toURI().toString());
+            imgView.setImage(image);
+
+   
+    
+    
+          
+    }
+    
+    
+
+   
+
+    
+   
     }
 
 

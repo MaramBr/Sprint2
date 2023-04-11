@@ -70,7 +70,7 @@
       <TextField fx:id="idField" layoutX="455.0" layoutY="316.0" prefHeight="0.0" prefWidth="5.0" visible="false" />
       <Button layoutX="606.0" layoutY="450.0" mnemonicParsing="false" onAction="#SupprimerCoaching" prefHeight="31.0" prefWidth="92.0" text="Supprimer" visible="false" />
       <BorderPane layoutX="324.0" layoutY="150.0" prefHeight="319.0" prefWidth="4.0" style="-fx-background-color: e15e1c;" />
-      <TextField fx:id="chercherField" layoutX="374.0" layoutY="126.0" prefHeight="31.0" prefWidth="180.0" promptText="Recchercher" />
+      <TextField fx:id="chercherField" layoutX="365.0" layoutY="115.0" prefHeight="31.0" prefWidth="180.0" promptText="Recchercher" />
       <Button fx:id="refreshB" layoutX="624.0" layoutY="415.0" mnemonicParsing="false" onAction="#updateTable" text="Refresh" />
       <ComboBox fx:id="dispoCombo" layoutX="115.0" layoutY="264.0" prefHeight="31.0" prefWidth="149.0" />
       <SplitPane dividerPositions="0.5" layoutX="364.0" layoutY="382.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: e15e1c;">
@@ -108,6 +108,8 @@
          </opaqueInsets>
       </Pane>
       <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" layoutX="241.0" layoutY="452.0" onMouseClicked="#RefrechC" size="50" />
-      <ImageView fx:id="imgView" fitHeight="87.0" fitWidth="122.0" layoutX="134.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: #ffff;" />
+      <ImageView fx:id="imgView" fitHeight="67.0" fitWidth="122.0" layoutX="118.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="546.0" layoutY="30.0" mnemonicParsing="false" onAction="#imageafficher" text="image" />
+      <ImageView fx:id="image2" fitHeight="150.0" fitWidth="200.0" layoutX="325.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

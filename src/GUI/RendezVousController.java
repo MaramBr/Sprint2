@@ -80,11 +80,12 @@ public class RendezVousController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
     public void updateTable() {
         ObservableList<RendezVous> rdvList = FXCollections.observableArrayList(sr.afficherrdv());
 
         idR.setCellValueFactory(new PropertyValueFactory<>("id"));
-                coursR.setCellValueFactory(new PropertyValueFactory<>("nomCours"));
+        coursR.setCellValueFactory(new PropertyValueFactory<>("nomCours"));
 
         dateR.setCellValueFactory(new PropertyValueFactory<>("daterdv"));
 
@@ -160,18 +161,36 @@ public class RendezVousController implements Initializable {
     @FXML
     private void AjouterRdv(ActionEvent event) {
 
-        RendezVous c = new RendezVous();
-        c.setIdCoaching(idCoachingToadd);
-  // Convert java.util.Date to java.sql.Date
-    Date utilDate = Date.from(dateField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-    c.setDaterdv(sqlDate);
+        // Récupérer la date sélectionnée dans le DatePicker
+LocalDate selectedDate = dateField.getValue();
 
-    dateField.setValue(c.getDaterdv().toLocalDate());
+// Vérifier si la date est supérieure à la date d'aujourd'hui
+if (selectedDate.isBefore(LocalDate.now())) {
+    // Afficher un message d'erreur et sortir de la méthode
+    JOptionPane.showMessageDialog(null, "La date sélectionnée doit être supérieure à la date d'aujourd'hui.");
+    return;
+}
 
-        sr.ajouter(c);
-        updateTable();
-        JOptionPane.showMessageDialog(null, "rendez vous Ajoutée");
+// Calculer la date d'il y a 3 mois
+LocalDate threeMonthsAgo = LocalDate.now().plusMonths(3);
+
+// Vérifier si la date est inférieure à 3 mois
+if (selectedDate.isAfter(threeMonthsAgo)) {
+    // Afficher un message d'erreur et sortir de la méthode
+    JOptionPane.showMessageDialog(null, "La date sélectionnée doit être inférieure à 3 mois.");
+    return;
+}
+
+// Si la date est valide, ajouter le rendez-vous
+RendezVous c = new RendezVous();
+c.setIdCoaching(idCoachingToadd);
+Date utilDate = Date.from(selectedDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+c.setDaterdv(sqlDate);
+sr.ajouter(c);
+updateTable();
+JOptionPane.showMessageDialog(null, "Rendez-vous ajouté avec succès.");
+
     }
 
     @FXML
@@ -212,6 +231,14 @@ public class RendezVousController implements Initializable {
      
      
 }
+
+    @FXML
+    private void ViderRdv(ActionEvent event) {
+        
+        dateField.setValue(null);
+        coachingField.setValue(null);
+       
+    }
  
         
     

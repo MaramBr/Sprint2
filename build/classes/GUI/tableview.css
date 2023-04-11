@@ -1,3 +1,31 @@
+/* Styles pour le texte */
+.text {
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 10pt;
+    -fx-text-fill: #4d4d4d;
+}
+
+/* Styles pour les boutons */
+.button {
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 14pt;
+    -fx-background-color: #e15e1c;
+    -fx-text-fill: #ffffff;
+    -fx-padding: 10px 20px;
+    -fx-border-radius: 30px;
+    -fx-cursor: hand;
+}
+
+/* Styles pour les champs de texte */
+.text-field {
+    -fx-font-family: "Open Sans";
+    -fx-font-size: 10pt;
+    -fx-background-color: #f5f5f5;
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 30px;
+    -fx-padding: 10px 20px;
+}
+
 .btn:hover{
     -fx-cursor:hand ;
 }
@@ -23,4 +51,10 @@
     
 .table-view .column-header .label {
         -fx-text-fill: white ;
+    }
+
+
+
+.right-bar {
+        -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1),10.0,0.0,10.0,0.0) ;
     }

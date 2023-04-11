@@ -45,6 +45,6 @@
             <FontAwesomeIconView layoutX="949.0" layoutY="26.0" onMousePressed="#BackC" size="20" text="" wrappingWidth="41.0" />
          </children>
       </AnchorPane>
-      <HBox fx:id="mainPane" layoutX="6.0" layoutY="121.0" prefHeight="401.0" prefWidth="981.0" />
+      <HBox fx:id="mainPane" layoutX="6.0" layoutY="121.0" prefHeight="527.0" prefWidth="981.0" />
    </children>
 </AnchorPane>
