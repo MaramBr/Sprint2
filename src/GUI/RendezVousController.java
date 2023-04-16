@@ -10,7 +10,6 @@ import Entities.RendezVous;
 import Services.ServiceCoaching;
 import Services.ServiceRendezVous;
 import Utils.MyDB;
-import com.sun.rowset.internal.Row;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -80,7 +79,6 @@ import static org.apache.poi.hssf.usermodel.HeaderFooter.file;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
@@ -91,7 +89,12 @@ import jxl.WorkbookSettings;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import jxl.*;
 import java.io.*;
+import java.sql.SQLException;
 import jxl.read.biff.BiffException;
+import org.apache.poi.ss.usermodel.Row;
+
+
+
 
 
 
@@ -317,7 +320,7 @@ JOptionPane.showMessageDialog(null, "Rendez-vous ajouté avec succès.");
         ServiceRendezVous sr=new ServiceRendezVous();
     try {
         // Création du fichier Excel
-        File file = new File("rendezvousExprot.xls");
+        File file = new File("rendezExprot.xls");
         WritableWorkbook workbook = Workbook.createWorkbook(file);
 
         // Création de la feuille de calcul
@@ -366,9 +369,87 @@ JOptionPane.showMessageDialog(null, "Rendez-vous ajouté avec succès.");
 
     @FXML
     private void stats(ActionEvent event) {
+     
+            ObservableList<RendezVous> rdv = TableView.getItems();
+    Map<String, Integer> statistiques = new HashMap<>();
+
+    // Calcul des statistiques
+    for (RendezVous r : rdv) {
+        String cours = r.getNomCours();
+        if (statistiques.containsKey(cours)) {
+            statistiques.put(cours, statistiques.get(cours) + 1);
+        } else {
+            statistiques.put(cours, 1);
+        }
     }
 
+    ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+    int totalrdv = 0;
+    for (Map.Entry<String, Integer> entry : statistiques.entrySet()) {
+        String type = entry.getKey();
+        int nbrdv = entry.getValue();
+        totalrdv += nbrdv;
+        pieChartData.add(new PieChart.Data(type + " (" + nbrdv + ")", nbrdv));
+    }
 
+    // Calcul des pourcentages
+    for (PieChart.Data data : pieChartData) {
+        double pourcentage = (data.getPieValue() / totalrdv) * 100;
+        String label = data.getName() + " - " + String.format("%.2f", pourcentage) + "%";
+        data.setName(label);
+    }
+
+    PieChart chart = new PieChart(pieChartData);
+    chart.setTitle("Statistiques de nombre des rendez_vous par cours");
+
+    Stage stage = new Stage();
+    Scene scene = new Scene(new Group(chart), 600, 400);
+    stage.setScene(scene);
+    stage.show();
+        
+    
+        
+    }
+
+    @FXML
+    private void importExcel(ActionEvent event) {
+              
+
+        importFromExcel();
+   
+    }
+public void importFromExcel() {
+    try {
+        // Récupération du fichier Excel
+        File file = new File("rendezExprot.xls");
+        Workbook workbook = Workbook.getWorkbook(file);
+
+        // Récupération de la feuille de calcul
+        Sheet sheet = workbook.getSheet(0);
+
+        // Récupération des données de chaque ligne et insertion dans la base de données
+        Connection conn = MyDB.getInstance().getCnx();
+        for (int i = 1; i < sheet.getRows(); i++) {
+            String cours = sheet.getCell(0, i).getContents();
+            Date daterdv = ((DateTime) sheet.getCell(1, i)).getDate();
+
+            // Insertion des données dans la base de données
+            Statement stmt = conn.createStatement();
+            String query = "INSERT INTO rendez_vous (coachings_id, daterdv) "
+                         + "SELECT id, '" + daterdv + "' FROM coaching WHERE cours = '" + cours + "'";
+            stmt.executeUpdate(query);
+            stmt.close();
+        }
+        
+
+        // Fermeture de la connexion à la base de données
+        conn.close();
+
+        System.out.println("Données importées avec succès depuis le fichier rendezvous.xls !");
+    } catch (Exception e) {
+        System.out.println("Erreur lors de l'import des données depuis le fichier Excel : " + e.getMessage());
+    }
+}
 
 
 
