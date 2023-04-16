@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="754.0" prefWidth="1049.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProduitController">
+<AnchorPane id="AnchorPane" prefHeight="850.0" prefWidth="1428.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProduitController">
    <children>
       <Button fx:id="Add" layoutX="405.0" layoutY="474.0" mnemonicParsing="false" onAction="#ajouterP" style="-fx-background-color: e15e1c;" text="Ajouter" />
       <TextField fx:id="quantiteFieldP" layoutX="114.0" layoutY="293.0" />
@@ -53,5 +53,6 @@
       <ImageView fx:id="imgView" fitHeight="150.0" fitWidth="200.0" layoutX="358.0" layoutY="545.0" pickOnBounds="true" preserveRatio="true" />
       <Button layoutX="121.0" layoutY="598.0" mnemonicParsing="false" onAction="#voirProduit" text="voir image" />
       <TextField fx:id="Recherche" layoutX="450.0" layoutY="151.0" />
+      <Button layoutX="746.0" layoutY="151.0" mnemonicParsing="false" onAction="#stat" style="-fx-background-color: e15e1c;" text="statistique " />
    </children>
 </AnchorPane>

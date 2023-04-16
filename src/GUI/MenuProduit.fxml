@@ -4,11 +4,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <AnchorPane id="AnchorPane" prefHeight="732.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuProduitController">
    <children>
-      <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="736.0" prefWidth="254.0" style="-fx-background-color: e15e1c;">
+      <AnchorPane layoutX="-2.0" layoutY="-1.0" prefHeight="847.0" prefWidth="254.0" style="-fx-background-color: e15e1c;">
          <children>
             <Button layoutX="34.0" layoutY="423.0" mnemonicParsing="false" onAction="#pageProduits" prefHeight="69.0" prefWidth="144.0" text="Produits" />
             <Button layoutX="40.0" layoutY="526.0" mnemonicParsing="false" onAction="#pageCategories" prefHeight="77.0" prefWidth="132.0" text="Categories" />
@@ -19,6 +20,14 @@
             </ImageView>
          </children>
       </AnchorPane>
-      <VBox fx:id="mainPane" layoutX="233.0" layoutY="-3.0" prefHeight="732.0" prefWidth="1152.0" />
+      <VBox fx:id="mainPane" layoutX="233.0" layoutY="-3.0" prefHeight="732.0" prefWidth="1152.0">
+         <children>
+            <HBox prefHeight="261.0" prefWidth="1152.0" />
+            <ImageView fitHeight="850.0" fitWidth="1428.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/000007734-310x207.jpg" />
+               </image>
+            </ImageView>
+         </children></VBox>
    </children>
 </AnchorPane>

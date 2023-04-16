@@ -18,11 +18,20 @@ import javafx.scene.control.TextField;
 import Services.ServiceProduit;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -194,6 +203,7 @@ public class ProduitController implements Initializable {
 */
     
     @FXML
+    /*
 private void ajouterP(ActionEvent event) {
 Produit p = new Produit();
 // Vérification des champs obligatoires
@@ -216,8 +226,65 @@ p.setImage(imageFieldP.getText());
 sc.ajouterProduit(p);
 updateTable();
 JOptionPane.showMessageDialog(null, "Produit ajouté.");
+}*/
+
+    
+    
+    
+    private void ajouterP(ActionEvent event) {
+    Produit p = new Produit();
+    // Vérification des champs obligatoires
+    if (nomFieldP.getText().isEmpty() || descriptionFieldP.getText().isEmpty() || quantiteFieldP.getText().isEmpty() || prixFieldP.getText().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Veuillez remplir tous les champs obligatoires.");
+        return;
+    }
+    
+    // Vérification que le nom ne contient pas de chiffres et fait au moins 3 caractères
+    String nom = nomFieldP.getText();
+    if (!nom.matches("[a-zA-Z\\s]+") || nom.length() < 3) {
+        JOptionPane.showMessageDialog(null, "Le nom doit contenir au moins 3 lettres et ne doit pas contenir de chiffres.");
+        return;
+    }
+
+    // Vérification que le prix est un nombre positif
+    try {
+        float prix = Float.parseFloat(prixFieldP.getText());
+        if (prix < 0) {
+            JOptionPane.showMessageDialog(null, "Le prix doit être positif.");
+            return;
+        }
+        p.setPrix(prix);
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Le prix doit être un nombre.");
+        return;
+    }
+
+    // Vérification que la quantité est un nombre positif
+    try {
+        p.setQuantite(Integer.parseInt(quantiteFieldP.getText()));
+        if (p.getQuantite() < 0) {
+            JOptionPane.showMessageDialog(null, "La quantité doit être positive.");
+            return;
+        }
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "La quantité doit être un nombre.");
+        return;
+    }
+
+    p.setNom(nom);
+    p.setIdCategory(idCategorieToadd);
+    p.setDescription(descriptionFieldP.getText());
+    p.setImage(imageFieldP.getText());
+    sc.ajouterProduit(p);
+    updateTable();
+    JOptionPane.showMessageDialog(null, "Produit ajouté.");
 }
 
+    
+    
+    
+    
+    
     @FXML
     private void getSelected(MouseEvent event) {
         
@@ -335,5 +402,56 @@ JOptionPane.showMessageDialog(null, "Produit ajouté.");
         sortedData.comparatorProperty().bind(TableView.comparatorProperty());
         TableView.setItems(sortedData);
     }
+
+    @FXML
+    private void stat(ActionEvent event) {
+        generateStatistics();
+        
+    }
+
+    public Map<String, Integer> getProduitCountByCategory(List<Produit> produits) {
+    Map<String, Integer> countMap = new HashMap<>();
+
+    for (Produit produit : produits) {
+        String category = produit.getNomCategory();
+        if (countMap.containsKey(category)) {
+            countMap.put(category, countMap.get(category) + 1);
+        } else {
+            countMap.put(category, 1);
+        }
+    }
+
+    return countMap;
+}
+
+
+
+public void generateStatistics() {
+    // Retrieve the list of products
+    ObservableList<Produit> produitList = FXCollections.observableArrayList(sc.afficherProduit());
+
+    // Calculate the number of products by category
+    Map<String, Integer> countMap = getProduitCountByCategory(produitList);
+
+    // Create the data for the chart
+    XYChart.Series<String, Number> countData = new XYChart.Series<>();
+    for (String category : countMap.keySet()) {
+        countData.getData().add(new XYChart.Data<>(category, countMap.get(category)));
+    }
+
+    // Create the chart
+    CategoryAxis xAxis = new CategoryAxis();
+    NumberAxis yAxis = new NumberAxis();
+    BarChart<String, Number> chart = new BarChart<>(xAxis, yAxis);
+    chart.getData().add(countData);
+
+    // Show the chart in a dialog box
+    Alert chartAlert = new Alert(Alert.AlertType.INFORMATION);
+    chartAlert.setTitle("Product Statistics");
+    chartAlert.setHeaderText("Number of Products by Category");
+    chartAlert.getDialogPane().setContent(chart);
+    chartAlert.showAndWait();
+}
+
 
 }
