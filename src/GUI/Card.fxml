@@ -9,19 +9,24 @@
 
 <HBox fx:id="box" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="185.0" prefWidth="400.0" spacing="15.0" style="-fx-background-radius: 15;" styleClass="shadow" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CardController">
    <children>
-      <ImageView fx:id="VehiculeImg" fitHeight="155.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coursImg" fitHeight="155.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/46672.png" />
          </image>
       </ImageView>
       <VBox alignment="CENTER" prefHeight="185.0" prefWidth="246.0" spacing="15.0">
          <children>
-            <Label fx:id="VehiculeName" prefHeight="163.0" prefWidth="230.0" text=" Mercedes             &#10;classe C">
+            <Label fx:id="coursName" prefHeight="163.0" prefWidth="230.0" text=" Cours&#10;">
                <font>
                   <Font name="Berlin Sans FB Bold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="marque" prefHeight="81.0" prefWidth="244.0" text="Mercedes">
+            <Label fx:id="coursDesc" prefHeight="81.0" prefWidth="244.0" text="desc">
+               <font>
+                  <Font name="Berlin Sans FB" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="coursDispo" prefHeight="81.0" prefWidth="244.0" text="dispo">
                <font>
                   <Font name="Berlin Sans FB" size="24.0" />
                </font>

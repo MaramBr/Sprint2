@@ -99,17 +99,15 @@
             <Image url="@images/coach.png" />
          </image>
       </ImageView>
-      <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="21.0" layoutY="457.0" onMouseClicked="#ajouter" size="50" wrappingWidth="39.0000065267086" />
-      <FontAwesomeIconView fill="WHITE" glyphName="EDIT" layoutX="90.0" layoutY="457.0" onMouseClicked="#ModifierCoaching" size="50" />
-      <FontAwesomeIconView fill="WHITE" glyphName="TRASH" layoutX="175.0" layoutY="452.0" onMouseClicked="#SupprimerC" size="50" />
+      <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="22.0" layoutY="499.0" onMouseClicked="#ajouter" size="50" wrappingWidth="39.0000065267086" />
+      <FontAwesomeIconView fill="WHITE" glyphName="EDIT" layoutX="91.0" layoutY="499.0" onMouseClicked="#ModifierCoaching" size="50" />
+      <FontAwesomeIconView fill="WHITE" glyphName="TRASH" layoutX="176.0" layoutY="494.0" onMouseClicked="#SupprimerC" size="50" />
       <Pane layoutY="96.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: #ffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </Pane>
-      <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" layoutX="241.0" layoutY="452.0" onMouseClicked="#RefrechC" size="50" />
-      <ImageView fx:id="imgView" fitHeight="67.0" fitWidth="122.0" layoutX="118.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="546.0" layoutY="30.0" mnemonicParsing="false" onAction="#imageafficher" text="image" />
-      <ImageView fx:id="image2" fitHeight="150.0" fitWidth="200.0" layoutX="325.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true" />
+      <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" layoutX="244.0" layoutY="493.0" onMouseClicked="#RefrechC" size="50" />
+      <ImageView fx:id="imgView" fitHeight="59.0" fitWidth="109.0" layoutX="122.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

@@ -118,8 +118,6 @@ public class AjouterCoachingController implements Initializable {
     @FXML
     private Button refreshB;
     private VBox mainPane;
-    @FXML
-    private ImageView image2;
     
 
     /**
@@ -185,7 +183,11 @@ public class AjouterCoachingController implements Initializable {
     JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'disponibilité'");
     return;
 }
-   Coaching u = new Coaching(cours, descCoach, dispoCoach, imagePath);
+         if (imgView.getImage() == null) {
+    JOptionPane.showMessageDialog(null, "Veuillez ajouter une image");
+    return;
+}
+   Coaching u = new Coaching( descCoach,cours, dispoCoach, imagePath);
     
     // Insert new user into the database
    sc.ajouter(u);
@@ -371,6 +373,15 @@ public class AjouterCoachingController implements Initializable {
  
     @FXML
     private void RefrechC(MouseEvent event) {
+          coursField.setText("");
+          descField.setText("");
+
+          dispoCombo.setValue(null);
+             imgView.setImage(null);
+
+          
+
+       
     }
 
     private void pagerdv(ActionEvent event) throws IOException {
@@ -380,7 +391,6 @@ public class AjouterCoachingController implements Initializable {
         mainPane.getChildren().setAll(Content);
     }
 
-    @FXML
     private void imageafficher(ActionEvent event) {
         
              Coaching selectedCoaching= CoachingTable.getSelectionModel().getSelectedItem();

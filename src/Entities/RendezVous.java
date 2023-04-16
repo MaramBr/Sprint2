@@ -17,6 +17,14 @@ public class RendezVous {
    private String nomCours;
     private Date daterdv;
 
+    public RendezVous(String cours, String dateRdv) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public RendezVous(String cours, java.util.Date dateRdv) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
     public String getNomCours() {
         return nomCours;
@@ -41,6 +49,11 @@ public class RendezVous {
         this.daterdv = daterdv;
         this.nomCours = nomCours;
         this.etatrdv = etatrdv;
+    }
+
+    public RendezVous(String nomCours, Date daterdv) {
+        this.nomCours = nomCours;
+        this.daterdv = daterdv;
     }
 
   

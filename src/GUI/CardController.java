@@ -25,14 +25,17 @@ public class CardController implements Initializable {
 
     @FXML
     private HBox box;
-    @FXML
-    private Label VehiculeName;
-    @FXML
-    private Label marque;
-    @FXML
-    private ImageView VehiculeImg;
+
     
 private  String [] colors = {"B9E5FF","BDB2FE","FB9AA8","FF5056"} ;
+    @FXML
+    private ImageView coursImg;
+    @FXML
+    private Label coursName;
+    @FXML
+    private Label coursDesc;
+    @FXML
+    private Label coursDispo;
     /**
      * Initializes the controller class.
      */
@@ -40,12 +43,14 @@ private  String [] colors = {"B9E5FF","BDB2FE","FB9AA8","FF5056"} ;
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    public void setData(Coaching modele)
+    public void setData(Coaching c)
     {
-      Image image = new Image(getClass().getResourceAsStream(modele.getImgCoach())) ;
-       VehiculeImg.setImage(image);
-        VehiculeName.setText(modele.getCours());
-        marque.setText(modele.getDispoCoach());
+      Image image = new Image(getClass().getResourceAsStream(c.getImgCoach())) ;
+       coursImg.setImage(image);
+        coursDesc.setText(c.getCours());
+       coursName.setText(c.getDescCoach());
+         coursDispo.setText(c.getDispoCoach());
+
         box.setStyle("-fx-background-color: #" +colors[(int)(Math.random()*colors.length)] 
                 +" ; -fx-background-radius: 15;"
                 +"-fx-effect : dropshadow(three-pass-box , rgba(0,0,0,0.1) , 10 , 0 ,0 , 10 ) ;");

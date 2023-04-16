@@ -75,5 +75,15 @@
             <URL value="@tableview.css" />
          </stylesheets>
       </Button>
+      <Button fx:id="ExcelBtn" layoutX="544.0" layoutY="437.0" mnemonicParsing="false" onAction="#excel" prefHeight="28.0" prefWidth="112.0" text="Excel">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <stylesheets>
+            <URL value="@tableview.css" />
+            <URL value="@tableview.css" />
+         </stylesheets>
+      </Button>
+      <Button layoutX="698.0" layoutY="437.0" mnemonicParsing="false" onAction="#stats" text="stat" />
    </children>
 </AnchorPane>

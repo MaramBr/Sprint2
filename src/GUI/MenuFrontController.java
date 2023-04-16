@@ -49,7 +49,7 @@ public class MenuFrontController implements Initializable {
     @FXML
     private void CoachingPage(MouseEvent event) throws IOException {
          mainPane.getChildren().clear();
-        Parent Content = FXMLLoader.load(getClass().getResource("CoachingFront.fxml"));
+        Parent Content = FXMLLoader.load(getClass().getResource("Front.fxml"));
         mainPane.getChildren().setAll(Content);
     }
 

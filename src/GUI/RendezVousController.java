@@ -9,6 +9,10 @@ import Entites.Coaching;
 import Entities.RendezVous;
 import Services.ServiceCoaching;
 import Services.ServiceRendezVous;
+import Utils.MyDB;
+import com.sun.rowset.internal.Row;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -37,6 +41,59 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javafx.scene.control.Button;
+import jxl.Sheet;
+import jxl.Workbook;
+import jxl.write.DateTime;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+import jxl.write.Label;
+import jxl.write.WriteException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import jxl.Workbook;
+import jxl.write.DateTime;
+import jxl.write.Label;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.scene.Group;
+import javafx.scene.chart.PieChart;
+import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
+import static org.apache.poi.hssf.usermodel.HeaderFooter.file;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import jxl.WorkbookSettings;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import jxl.*;
+import java.io.*;
+import jxl.read.biff.BiffException;
+
+
 
 /**
  * FXML Controller class
@@ -50,6 +107,8 @@ public class RendezVousController implements Initializable {
     int index = -1;
     
     private int idCoachingToadd ;
+    @FXML
+    private Button ExcelBtn;
 
     public int getIdCoachingToadd() {
         return idCoachingToadd;
@@ -239,8 +298,80 @@ JOptionPane.showMessageDialog(null, "Rendez-vous ajouté avec succès.");
         coachingField.setValue(null);
        
     }
- 
-        
+
+    @FXML
+    private void excel(ActionEvent event) throws IOException  {
+        File file = new File("rendezvous.xls");
+
+     
+
+      exportToExcel();
+      
+}
+
+
+
+   
     
+    public void exportToExcel() {
+        ServiceRendezVous sr=new ServiceRendezVous();
+    try {
+        // Création du fichier Excel
+        File file = new File("rendezvousExprot.xls");
+        WritableWorkbook workbook = Workbook.createWorkbook(file);
+
+        // Création de la feuille de calcul
+        WritableSheet sheet = workbook.createSheet("Rendez-vous", 0);
+
+        // Ajout des en-têtes de colonnes
+        //sheet.addCell(new Label(0, 0, "ID"));
+        sheet.addCell(new Label(0, 0, "Nom du cours"));
+        sheet.addCell(new Label(1, 0, "Date de rendez-vous"));
+
+        // Récupération des données depuis la base de données
+       
+        Connection conn ;
+           conn = MyDB.getInstance().getCnx();
+
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT rdv.id, c.cours, rdv.daterdv FROM rendez_vous rdv JOIN coaching c ON rdv.coachings_id = c.id");
+
+        // Ajout des données dans la feuille de calcul
+        int row = 1;
+        while (rs.next()) {
+            //sheet.addCell(new jxl.write.Number(0, row, rs.getInt("id")));
+
+            //sheet.addCell(new Label(0, row, rs.getString("coachings_id")));
+           sheet.addCell(new Label(0, row, rs.getString("cours")));
+
+            sheet.addCell(new DateTime(1, row, rs.getTimestamp("daterdv")));
+            row++;
+        }
+
+        // Fermeture de la connexion à la base de données
+        rs.close();
+        stmt.close();
+        conn.close();
+
+        // Écriture du fichier Excel
+        workbook.write();
+        workbook.close();
+        System.out.println("Données exportées avec succès vers le fichier rendezvous.xls !");
+    } catch (Exception e) {
+        System.out.println("Erreur lors de l'export des données vers le fichier Excel : " + e.getMessage());
+    }
+}
+    
+
+
+    @FXML
+    private void stats(ActionEvent event) {
+    }
+
+
+
+
+
+
 
 }

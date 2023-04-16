@@ -35,7 +35,6 @@ public class FrontController implements Initializable {
     @FXML
     private HBox cardlayoout;
     private List<Coaching> recentlyadd;
-    @FXML
     Connection cnx;
     Statement stmt;
 
