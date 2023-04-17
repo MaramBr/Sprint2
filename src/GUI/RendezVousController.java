@@ -429,27 +429,36 @@ public void importFromExcel() {
 
         // Récupération des données de chaque ligne et insertion dans la base de données
         Connection conn = MyDB.getInstance().getCnx();
-        for (int i = 1; i < sheet.getRows(); i++) {
-            String cours = sheet.getCell(0, i).getContents();
-            Date daterdv = ((DateTime) sheet.getCell(1, i)).getDate();
+            for (int i = 1; i < sheet.getRows(); i++) {
+                String cours = sheet.getCell(0, i).getContents();
+                String daterdv = sheet.getCell(1, i).getContents(); // récupère le contenu de la cellule sous forme de chaîne de caractères
 
-            // Insertion des données dans la base de données
-            Statement stmt = conn.createStatement();
-            String query = "INSERT INTO rendez_vous (coachings_id, daterdv) "
-                         + "SELECT id, '" + daterdv + "' FROM coaching WHERE cours = '" + cours + "'";
-            stmt.executeUpdate(query);
-            stmt.close();
-        }
+                // Convertir la chaîne de caractères en objet de type java.util.Date
+                SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd"); // adapté au format de date utilisé dans la cellule Excel
+                Date date = inputFormat.parse(daterdv);
+
+                // Formater la date pour l'insérer dans la requête SQL
+                SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd"); // adapté au format de date attendu par la base de données
+                String formattedDate = outputFormat.format(date);
+
+                // Insertion des données dans la base de données
+                String query = "INSERT INTO rendez_vous (coachings_id, daterdv) "
+                             + "SELECT id, '" + formattedDate + "' FROM coaching WHERE cours = '" + cours + "'";
+                try (Statement stmt = conn.createStatement()) {
+                    stmt.executeUpdate(query);
+                }
+                updateTable();
+            }
         
-
-        // Fermeture de la connexion à la base de données
-        conn.close();
-
         System.out.println("Données importées avec succès depuis le fichier rendezvous.xls !");
+        
+        
     } catch (Exception e) {
         System.out.println("Erreur lors de l'import des données depuis le fichier Excel : " + e.getMessage());
     }
 }
+
+
 
 
 
