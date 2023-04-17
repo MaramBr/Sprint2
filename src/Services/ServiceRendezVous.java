@@ -106,4 +106,17 @@ String qry = "DELETE FROM rendez_vous WHERE id=?";
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+     public void mailing(int id) {
+        try {
+            String qry = "UPDATE rendez_vous SET etatrdv = CASE WHEN etatrdv = 1 THEN 0 ELSE 1 END WHERE id = ?";
+            PreparedStatement stm = cnx.prepareStatement(qry);
+            stm.setInt(1, id);
+            stm.executeUpdate();
+            //System.out.println("User with ID " + id + " has been banned/unbanned successfully");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+   
+    
 }

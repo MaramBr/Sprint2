@@ -150,6 +150,7 @@ public class RendezVousController implements Initializable {
         coursR.setCellValueFactory(new PropertyValueFactory<>("nomCours"));
 
         dateR.setCellValueFactory(new PropertyValueFactory<>("daterdv"));
+        etatR.setCellValueFactory(new PropertyValueFactory<>("etatrdv"));
 
         System.out.println("affichage" + sr.afficherrdv());
         TableView.setItems(rdvList);
@@ -171,7 +172,8 @@ public class RendezVousController implements Initializable {
         coursR.setCellValueFactory(new PropertyValueFactory<>("nomCours"));
 
         dateR.setCellValueFactory(new PropertyValueFactory<>("daterdv"));
-        
+                etatR.setCellValueFactory(new PropertyValueFactory<>("etatrdv"));
+
         
 
         TableView.setItems(rdvList);
@@ -263,6 +265,7 @@ JOptionPane.showMessageDialog(null, "Rendez-vous ajouté avec succès.");
 
         c.setNomCours( coachingField.getValue());
        Date utilDate = Date.from(dateField.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
+
     java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
     c.setDaterdv(sqlDate);
         sr.supprimer(c);
