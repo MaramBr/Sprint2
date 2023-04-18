@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="527.0" prefWidth="831.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdminController">
+   <children>
+      <TableView fx:id="table" layoutX="604.0" layoutY="246.0" onMouseClicked="#getSelected" prefHeight="200.0" prefWidth="493.0" stylesheets="@tableview2.css">
+        <columns>
+            <TableColumn fx:id="idc" minWidth="0.0" prefWidth="0.0" />
+          <TableColumn fx:id="nomU" prefWidth="86.0" text="nom" />
+          <TableColumn fx:id="prenomU" prefWidth="96.0" text="prenom" />
+            <TableColumn fx:id="emailU" prefWidth="120.0" text="email" />
+            <TableColumn fx:id="image" prefWidth="75.0" text="photo" />
+            <TableColumn fx:id="rolesU" prefWidth="110.0" text="roles" />
+        </columns>
+      </TableView>
+      <Label layoutX="84.0" layoutY="186.0" text="nom" textFill="WHITE" />
+      <TextField fx:id="nom" layoutX="133.0" layoutY="181.0" />
+      <Label layoutX="78.0" layoutY="229.0" text="prenom" textFill="WHITE" />
+      <TextField fx:id="prenom" layoutX="135.0" layoutY="224.0" />
+      <Label layoutX="87.0" layoutY="275.0" text="email" textFill="WHITE" />
+      <TextField fx:id="email" layoutX="135.0" layoutY="270.0" />
+      <Label layoutX="82.0" layoutY="324.0" text="mdp" textFill="WHITE" />
+      <PasswordField fx:id="mdp" layoutX="133.0" layoutY="319.0" />
+      <ChoiceBox fx:id="roles" layoutX="135.0" layoutY="364.0" prefWidth="150.0" />
+      <Label layoutX="80.0" layoutY="379.0" text="Roles" textFill="WHITE" />
+      <Button layoutX="163.0" layoutY="431.0" mnemonicParsing="false" onAction="#ajouterimage" style="-fx-background-color: e15e1c;" text="upload image" />
+      <Button layoutX="87.0" layoutY="489.0" mnemonicParsing="false" onAction="#ajoute" prefHeight="21.0" prefWidth="96.0" style="-fx-background-color: e15e1c;" text="Ajouter" />
+      <Button layoutX="91.0" layoutY="604.0" mnemonicParsing="false" onAction="#Afficher" prefHeight="31.0" prefWidth="88.0" style="-fx-background-color: e15e1c;" text="Afficher" />
+      <ImageView fx:id="image2" fitHeight="137.0" fitWidth="164.0" layoutX="375.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="253.0" layoutY="489.0" mnemonicParsing="false" onAction="#modifier" prefHeight="31.0" prefWidth="96.0" style="-fx-background-color: e15e1c;" text="Modifier" />
+      <Button layoutX="87.0" layoutY="545.0" mnemonicParsing="false" onAction="#Supprimer" prefHeight="31.0" prefWidth="96.0" style="-fx-background-color: e15e1c;" text="Supprimer" />
+      <Button layoutX="261.0" layoutY="607.0" mnemonicParsing="false" onAction="#refresh" prefHeight="31.0" prefWidth="88.0" style="-fx-background-color: e15e1c;" text="refresh" />
+      <TextField fx:id="idfield" layoutX="135.0" layoutY="379.0" visible="false" />
+      <Button layoutX="1089.0" layoutY="620.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: e15e1c;" text="Retour" />
+      <TextField fx:id="Recherche" layoutX="685.0" layoutY="176.0" onAction="#recherche" />
+      <Label layoutX="581.0" layoutY="181.0" text="Recherche" textFill="WHITE" />
+      <Button layoutX="931.0" layoutY="176.0" mnemonicParsing="false" onAction="#triNom" prefHeight="31.0" prefWidth="121.0" style="-fx-background-color: e15e1c;" text="Tri par Nom" />
+      <Button layoutX="257.0" layoutY="545.0" mnemonicParsing="false" onAction="#ban" prefHeight="31.0" prefWidth="88.0" style="-fx-background-color: e15e1c;" text="Bloquer" />
+      <Button fx:id="stat" layoutX="828.0" layoutY="505.0" mnemonicParsing="false" onAction="#statistique" style="-fx-background-color: e15e1c;" text="Stat" />
+      <Pane layoutX="-17.0" layoutY="123.0" prefHeight="6.0" prefWidth="1196.0" style="-fx-background-color: white;" />
+      <Text fill="WHITE" layoutX="193.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User">
+         <font>
+            <Font name="Baskerville Old Face" size="63.0" />
+         </font>
+      </Text>
+      <Pane layoutX="553.0" layoutY="166.0" prefHeight="469.0" prefWidth="10.0" style="-fx-background-color: e15e1c;" />
+      <ImageView fitHeight="120.0" fitWidth="132.0" layoutX="45.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/userv1.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
