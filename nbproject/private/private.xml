@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/Utils/JavaMail.java</file>
             <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/ResetController.java</file>
             <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/userjava/NewFXMain.java</file>
@@ -19,6 +20,19 @@
             <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/CodeTestController.java</file>
             <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/mdpoubliee.fxml</file>
             <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/Services/UserService.java</file>
+=======
+            <file>file:/C:/Users/Maram/Desktop/Efit/src/Entities/RendezVous.java</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit/src/GUI/RendezVous.fxml</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit/src/GUI/RendezVousController.java</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit/src/efit/Efit.java</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit/src/GUI/AjouterCoachingController.java</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit/src/Services/ServiceRendezVous.java</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit/src/efit/RendezVousFXMain.java</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit/src/Services/IService.java</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit/src/Entities/Coaching.java</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit/src/efit/NewFXMain.java</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit/src/Services/ServiceCoaching.java</file>
+>>>>>>> 14a8723cd1b6ad63b261614150eb2151cfe69149
         </group>
     </open-files>
 </project-private>

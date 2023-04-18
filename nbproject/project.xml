@@ -3,7 +3,11 @@
     <type>org.netbeans.modules.java.j2seproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/j2se-project/3">
+<<<<<<< HEAD
             <name>UserJava</name>
+=======
+            <name>Efit</name>
+>>>>>>> 14a8723cd1b6ad63b261614150eb2151cfe69149
             <source-roots>
                 <root id="src.dir"/>
             </source-roots>

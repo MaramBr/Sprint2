@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RendezVousController">
+   <children>
+      <TextField fx:id="dateField" layoutX="86.0" layoutY="59.0" />
+      <Label layoutX="35.0" layoutY="63.0" text="date" />
+      <Label layoutX="35.0" layoutY="107.0" text="cours" />
+      <Button layoutX="152.0" layoutY="200.0" mnemonicParsing="false" onAction="#ModifierRdv" text="Modifier" />
+      <Button layoutX="86.0" layoutY="200.0" mnemonicParsing="false" onAction="#AjouterRdv" text="Ajouter" />
+      <Button layoutX="221.0" layoutY="200.0" mnemonicParsing="false" onAction="#SupprimerRdv" text="Supprimer" />
+      <TableView fx:id="TableView" layoutX="293.0" layoutY="43.0" onMouseClicked="#getSelected" prefHeight="200.0" prefWidth="304.0">
+        <columns>
+          <TableColumn fx:id="idR" minWidth="0.0" prefWidth="61.0" text="id" />
+          <TableColumn fx:id="dateR" prefWidth="89.0" text="date" />
+            <TableColumn fx:id="coursR" prefWidth="75.0" text="cours" />
+            <TableColumn fx:id="etatR" prefWidth="75.0" text="etat" />
+        </columns>
+      </TableView>
+      <TextField fx:id="idField" layoutX="86.0" layoutY="14.0" />
+      <ComboBox fx:id="coachingField" layoutX="86.0" layoutY="103.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

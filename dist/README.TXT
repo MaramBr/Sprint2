@@ -11,7 +11,11 @@ JAR files manifest file (MANIFEST.MF).
 To run the project from the command line, go to the dist folder and
 type the following:
 
+<<<<<<< HEAD
 java -jar "UserJava.jar" 
+=======
+java -jar "Efit.jar" 
+>>>>>>> 14a8723cd1b6ad63b261614150eb2151cfe69149
 
 To distribute this project, zip up the dist folder (including the lib folder)
 and distribute the ZIP file.

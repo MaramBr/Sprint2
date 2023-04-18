@@ -8,6 +8,7 @@ package Utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+<<<<<<< HEAD
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,6 +18,15 @@ import java.util.logging.Logger;
  */
 public class MyDB {
     private static MyDB instance ;
+=======
+
+/**
+ *
+ * @author Maram
+ */
+public class MyDB {
+     private static MyDB instance ;
+>>>>>>> 14a8723cd1b6ad63b261614150eb2151cfe69149
     final String URL ="jdbc:mysql://127.0.0.1:3306/pidev";
     final String USERNAME ="root";
     final String PWD ="";
@@ -41,4 +51,8 @@ public class MyDB {
         
         return instance;
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 14a8723cd1b6ad63b261614150eb2151cfe69149
 }
