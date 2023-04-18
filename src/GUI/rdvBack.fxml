@@ -36,6 +36,6 @@
             <TableColumn fx:id="etatR" prefWidth="162.0" text="etat" />
         </columns>
       </TableView>
-      <Button fx:id="Etat" layoutX="669.0" layoutY="251.0" mnemonicParsing="false" onAction="#ban" text="Etat" />
+      <Button fx:id="Etat" layoutX="669.0" layoutY="251.0" mnemonicParsing="false" onAction="#ban" prefHeight="25.0" prefWidth="82.0" text="Traiter" />
    </children>
 </AnchorPane>

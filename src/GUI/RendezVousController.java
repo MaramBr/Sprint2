@@ -90,6 +90,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import jxl.*;
 import java.io.*;
 import java.sql.SQLException;
+import javax.swing.JFileChooser;
 import jxl.read.biff.BiffException;
 import org.apache.poi.ss.usermodel.Row;
 
@@ -150,7 +151,7 @@ public class RendezVousController implements Initializable {
         coursR.setCellValueFactory(new PropertyValueFactory<>("nomCours"));
 
         dateR.setCellValueFactory(new PropertyValueFactory<>("daterdv"));
-        etatR.setCellValueFactory(new PropertyValueFactory<>("etatrdv"));
+     //   etatR.setCellValueFactory(new PropertyValueFactory<>("etatrdv"));
 
         System.out.println("affichage" + sr.afficherrdv());
         TableView.setItems(rdvList);
@@ -172,7 +173,7 @@ public class RendezVousController implements Initializable {
         coursR.setCellValueFactory(new PropertyValueFactory<>("nomCours"));
 
         dateR.setCellValueFactory(new PropertyValueFactory<>("daterdv"));
-                etatR.setCellValueFactory(new PropertyValueFactory<>("etatrdv"));
+//                etatR.setCellValueFactory(new PropertyValueFactory<>("etatrdv"));
 
         
 
@@ -423,21 +424,28 @@ JOptionPane.showMessageDialog(null, "Rendez-vous ajouté avec succès.");
     }
 public void importFromExcel() {
     try {
-        // Récupération du fichier Excel
-        File file = new File("rendezExprot.xls");
-        Workbook workbook = Workbook.getWorkbook(file);
+        // Afficher le file chooser dialog pour sélectionner le fichier Excel
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setDialogTitle("Sélectionner le fichier Excel à importer");
+        int userSelection = fileChooser.showOpenDialog(null);
+        if (userSelection == JFileChooser.APPROVE_OPTION) {
+            File file = fileChooser.getSelectedFile();
 
-        // Récupération de la feuille de calcul
-        Sheet sheet = workbook.getSheet(0);
+            // Récupération du fichier Excel
+            Workbook workbook = Workbook.getWorkbook(file);
 
-        // Récupération des données de chaque ligne et insertion dans la base de données
-        Connection conn = MyDB.getInstance().getCnx();
+            // Récupération de la feuille de calcul
+            Sheet sheet = workbook.getSheet(0);
+
+            // Récupération des données de chaque ligne et insertion dans la base de données
+            Connection conn = MyDB.getInstance().getCnx();
             for (int i = 1; i < sheet.getRows(); i++) {
                 String cours = sheet.getCell(0, i).getContents();
                 String daterdv = sheet.getCell(1, i).getContents(); // récupère le contenu de la cellule sous forme de chaîne de caractères
 
                 // Convertir la chaîne de caractères en objet de type java.util.Date
-                SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd"); // adapté au format de date utilisé dans la cellule Excel
+                SimpleDateFormat inputFormat = new SimpleDateFormat("dd/MM/yy"); // adapté au format de date utilisé dans la cellule Excel
+                inputFormat.setLenient(true);
                 Date date = inputFormat.parse(daterdv);
 
                 // Formater la date pour l'insérer dans la requête SQL
@@ -453,15 +461,13 @@ public void importFromExcel() {
                 updateTable();
             }
         
-        System.out.println("Données importées avec succès depuis le fichier rendezvous.xls !");
-        
+            System.out.println("Données importées avec succès depuis le fichier " + file.getName() + " !");
+        }
         
     } catch (Exception e) {
         System.out.println("Erreur lors de l'import des données depuis le fichier Excel : " + e.getMessage());
     }
 }
-
-
 
 
 
