@@ -16,7 +16,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ReclamamtionFrontController">
    <children>
-      <AnchorPane id="AnchorPane" onMouseClicked="#getSelected" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1E1E1E;">
+      <AnchorPane id="AnchorPane" layoutX="-2.0" onMouseClicked="#getSelected" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #1E1E1E;">
          <children>
             <TextField fx:id="TFTitre" layoutX="165.0" layoutY="44.0" prefHeight="25.0" prefWidth="189.0" />
             <Label layoutX="171.0" layoutY="22.0" text="Titre :" textFill="WHITE" />

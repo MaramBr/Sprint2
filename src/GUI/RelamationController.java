@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -130,6 +131,40 @@ boxtraitement.setItems(options);
 
     TableView.setItems(genresList);
     }
+ 
+@FXML
+public void recherche() {
+    // Ajouter un listener sur le champ de recherche pour effectuer la recherche à chaque modification du texte
+    TFrechercheReca.textProperty().addListener((observable, oldValue, newValue) -> {
+        // Filtrer les réclamations en utilisant le nouveau texte de recherche
+       List<Reclamation> reclamationrecherche = sp.afficher2().stream()
+        .filter(reclamation -> 
+            reclamation.getTitre().toLowerCase().contains(newValue.toLowerCase()) ||
+            reclamation.getStatus().toLowerCase().contains(newValue.toLowerCase()) ||
+            reclamation.getDate().toLowerCase().contains(newValue.toLowerCase()) ||
+            reclamation.getDescription().toLowerCase().contains(newValue.toLowerCase())
+        )
+        .collect(Collectors.toList());
+
+        // Mettre à jour la TableView avec les réclamations filtrées
+        AdminViewRec.setItems(FXCollections.observableArrayList(reclamationrecherche));
+    });
+}
+@FXML
+public void recherche2() {
+    // Ajouter un listener sur le champ de recherche pour effectuer la recherche à chaque modification du texte
+    tfrechercheg.textProperty().addListener((observable, oldValue, newValue) -> {
+        // Filtrer les réclamations en utilisant le nouveau texte de recherche
+       List<Genre> genrerecherche = sr.afficher2().stream()
+        .filter(genre -> 
+            genre.getLibelle().toLowerCase().contains(newValue.toLowerCase()) 
+        )
+        .collect(Collectors.toList());
+
+        // Mettre à jour la TableView avec les réclamations filtrées
+        TableView.setItems(FXCollections.observableArrayList(genrerecherche));
+    });
+}
   public void updateTablereclamation() {
         ObservableList<Reclamation> reclamations = sp.afficher2();
 
@@ -303,16 +338,17 @@ private void AjoutGenre(ActionEvent event) {
     
     @FXML
     public void rechercheGenre(ActionEvent event){
-        List<Genre> genres = sr.rechercher(tfrechercheg.getText());
+     /*   List<Genre> genres = sr.rechercher(tfrechercheg.getText());
         ObservableList<Genre> olp = FXCollections.observableArrayList(genres);
         idG.setCellValueFactory(new PropertyValueFactory<>("id"));
         libellé.setCellValueFactory(new PropertyValueFactory<>("libelle"));
-        TableView.setItems(olp);
+        TableView.setItems(olp);*/
 }
     
     
     @FXML
     public void rechercherRec(ActionEvent event){
+        /*
         List<Reclamation> Reclamations = sp.rechercher(TFrechercheReca.getText());
         ObservableList<Reclamation> olp = FXCollections.observableArrayList(Reclamations);
          idRec.setCellValueFactory(new PropertyValueFactory<>("idRec"));
@@ -324,6 +360,7 @@ private void AjoutGenre(ActionEvent event) {
     TraitementRec.setCellValueFactory(new PropertyValueFactory<>("traitement"));
 
     AdminViewRec.setItems(olp);
+*/
 }
 
     @FXML

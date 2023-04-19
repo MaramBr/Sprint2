@@ -9,56 +9,74 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="493.0" prefWidth="635.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RelamationController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="527.0" prefWidth="831.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RelamationController">
   <tabs>
     <Tab text="Genre">
          <content>
-            <AnchorPane prefHeight="405.0" prefWidth="639.0">
+            <AnchorPane prefHeight="405.0" prefWidth="527.0" style="-fx-background-color: black;">
                <children>
- <Label layoutX="191.0" layoutY="325.0" text="libellé" />
-      <Button layoutX="287.0" layoutY="381.0" mnemonicParsing="false" onAction="#ModifGenre" text="Modifier" />
-      <Button layoutX="109.0" layoutY="381.0" mnemonicParsing="false" onAction="#AjoutGenre" text="Ajouter" />
-      <Button layoutX="447.0" layoutY="381.0" mnemonicParsing="false" onAction="#SupprimerGenre" text="Supprimer" />
-      <TableView fx:id="TableView" layoutX="38.0" layoutY="79.0" onMouseClicked="#getSelected2" prefHeight="200.0" prefWidth="560.0">
+ <Label layoutX="14.0" layoutY="195.0" prefHeight="19.0" prefWidth="61.0" text="libellé" textFill="WHITE" />
+      <Button layoutX="145.0" layoutY="304.0" mnemonicParsing="false" onAction="#ModifGenre" style="-fx-background-color: #e15e1c;" text="Modifier" />
+      <Button layoutX="37.0" layoutY="304.0" mnemonicParsing="false" onAction="#AjoutGenre" style="-fx-background-color: #e15e1c;" text="Ajouter" />
+      <Button layoutX="81.0" layoutY="371.0" mnemonicParsing="false" onAction="#SupprimerGenre" style="-fx-background-color: #e15e1c;" text="Supprimer" />
+      <TableView fx:id="TableView" layoutX="392.0" layoutY="203.0" onMouseClicked="#getSelected2" prefHeight="202.0" prefWidth="228.0" stylesheets="@tableview2%20(1).css">
         <columns>
-          <TableColumn fx:id="idG" minWidth="0.0" prefWidth="152.0" text="id" />
+          <TableColumn fx:id="idG" minWidth="0.0" prefWidth="152.0" text="id" visible="false" />
             <TableColumn fx:id="libellé" prefWidth="407.0" text="libellé" />
         </columns>
       </TableView>
-      <TextField fx:id="TFlibelle" layoutX="243.0" layoutY="321.0" />
-                  <TextField fx:id="tfrechercheg" layoutX="243.0" layoutY="20.0" />
-                  <Button layoutX="417.0" layoutY="20.0" mnemonicParsing="false" onAction="#rechercheGenre" text="rechercher" />
-                  <Button fx:id="front_btn" layoutX="549.0" layoutY="425.0" mnemonicParsing="false" onAction="#Front" prefHeight="25.0" prefWidth="71.0" text="Front" />
+      <TextField fx:id="TFlibelle" layoutX="81.0" layoutY="178.0" />
+                  <TextField fx:id="tfrechercheg" layoutX="381.0" layoutY="144.0" onAction="#recherche2" />
+                  <Button layoutX="548.0" layoutY="147.0" mnemonicParsing="false" onAction="#rechercheGenre" style="-fx-background-color: #e15e1c;" text="rechercher" />
+                  <Button fx:id="front_btn" layoutX="664.0" layoutY="428.0" mnemonicParsing="false" onAction="#Front" prefHeight="31.0" prefWidth="71.0" style="-fx-background-color: #e15e1c;" text="Front" />
+                  <Pane layoutY="102.0" prefHeight="6.0" prefWidth="888.0" style="-fx-background-color: white;" />
+                  <Text fill="#fcfcfc" layoutX="117.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categorie">
+                     <font>
+                        <Font name="Cambria" size="34.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="59.0" fitWidth="71.0" layoutX="37.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../Downloads/icon.jpg" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </content></Tab>
   
     <Tab text="Reclamation">
          <content>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane prefHeight="536.0" prefWidth="1019.0" style="-fx-background-color: black;">
                <children>
-                  <Label layoutX="85.0" layoutY="292.0" text="Status :" />
-      <Button layoutX="85.0" layoutY="399.0" mnemonicParsing="false" onAction="#modifierReca" text="Modifier" />
-      <Button layoutX="445.0" layoutY="399.0" mnemonicParsing="false" onAction="#SupprimerReca" text="Supprimer" />
-      <TableView fx:id="AdminViewRec" layoutX="6.0" layoutY="43.0" onMouseClicked="#getSelectedrec" prefHeight="236.0" prefWidth="626.0">
+                  <Label layoutX="33.0" layoutY="158.0" text="Status :" textFill="#fffbfb" />
+      <Button layoutX="21.0" layoutY="396.0" mnemonicParsing="false" onAction="#modifierReca" prefHeight="40.0" prefWidth="76.0" style="-fx-background-color: #e15e1c;" text="Modifier" />
+      <Button layoutX="132.0" layoutY="397.0" mnemonicParsing="false" onAction="#SupprimerReca" prefHeight="39.0" prefWidth="78.0" style="-fx-background-color: #e15e1c;" text="Supprimer" />
+      <TableView fx:id="AdminViewRec" layoutX="255.0" layoutY="167.0" onMouseClicked="#getSelectedrec" prefHeight="237.0" prefWidth="573.0" stylesheets="@tableview2%20(1).css">
         <columns>
-          <TableColumn fx:id="idRec" minWidth="0.0" prefWidth="32.0" text="id" />
-          <TableColumn fx:id="idGenre" prefWidth="57.0" text="Id genre" />
-            <TableColumn fx:id="TitreRec" text="Titre" />
-            <TableColumn fx:id="DescR" prefWidth="246.0" text="Descirption" />
-                        <TableColumn fx:id="DateRec" prefWidth="61.0" text="Date" />
-                        <TableColumn fx:id="StatusRec" prefWidth="69.0" text="Status" />
-                        <TableColumn fx:id="TraitementRec" text="Traitement" />
+          <TableColumn fx:id="idRec" minWidth="0.0" prefWidth="32.0" text="id" visible="false" />
+          <TableColumn fx:id="idGenre" prefWidth="97.0" text="Genre" />
+            <TableColumn fx:id="TitreRec" prefWidth="140.0" text="Titre" />
+            <TableColumn fx:id="DescR" prefWidth="115.0" text="Descirption" />
+                        <TableColumn fx:id="DateRec" prefWidth="84.0" text="Date" />
+                        <TableColumn fx:id="StatusRec" prefWidth="68.0" text="Status" />
+                        <TableColumn fx:id="TraitementRec" prefWidth="89.0" text="Traitement" />
         </columns>
       </TableView>
-      <TextField fx:id="TFrechercheReca" layoutX="243.0" layoutY="14.0" />
-                  <Label layoutX="263.0" layoutY="292.0" text="Traitement :" />
-                  <TextArea fx:id="TfTraitement" layoutX="263.0" layoutY="316.0" prefHeight="69.0" prefWidth="245.0" />
-                  <ComboBox fx:id="boxtraitement" layoutX="85.0" layoutY="316.0" prefWidth="150.0" />
-                  <Button layoutX="409.0" layoutY="14.0" mnemonicParsing="false" onAction="#rechercherRec" text="rechercher" />
-                  <Button fx:id="front_btn" layoutX="550.0" layoutY="424.0" mnemonicParsing="false" onAction="#Front" prefHeight="25.0" prefWidth="71.0" text="Front" />
+      <TextField fx:id="TFrechercheReca" layoutX="259.0" layoutY="111.0" onAction="#recherche" />
+                  <Label layoutX="20.0" layoutY="248.0" text="Traitement :" textFill="#fcfcfc" />
+                  <TextArea fx:id="TfTraitement" layoutX="14.0" layoutY="277.0" prefHeight="69.0" prefWidth="213.0" />
+                  <ComboBox fx:id="boxtraitement" layoutX="21.0" layoutY="194.0" prefWidth="150.0" />
+                  <Button layoutX="461.0" layoutY="108.0" mnemonicParsing="false" onAction="#rechercherRec" style="-fx-background-color: #e15e1c;" text="rechercher" />
+                  <Button fx:id="front_btn" layoutX="739.0" layoutY="424.0" mnemonicParsing="false" onAction="#Front" prefHeight="35.0" prefWidth="71.0" style="-fx-background-color: #e15e1c;" text="Front" />
+                  <Pane layoutX="-40.0" layoutY="89.0" prefHeight="11.0" prefWidth="945.0" style="-fx-background-color: white;" />
+                  <Text fill="#fffbfb" fontSmoothingType="LCD" layoutX="108.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reclamation" wrappingWidth="126.23177337646484" />
                </children>
             </AnchorPane>
          </content></Tab>

@@ -19,4 +19,5 @@ public interface IService<T> {
     public boolean modifier (T t);
     public void supprimer(T t);
     public ObservableList<T> afficher2();
+    
 }

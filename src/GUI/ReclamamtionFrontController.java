@@ -38,17 +38,26 @@ import javafx.scene.input.MouseEvent;
 import javafx.util.StringConverter;
 import javax.swing.JOptionPane;
 
+//import static GUIadd.SmsController.ACCOUNT_SID;
+//import static GUIadd.SmsController.AUTH_TOKEN;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
+
 /**
  * FXML Controller class
  *
  * @author Majdi
  */
 public class ReclamamtionFrontController implements Initializable {
-ServiceGenre sr = new ServiceGenre();
-   ServiceReclamation sp = new ServiceReclamation();
+
+    ServiceGenre sr = new ServiceGenre();
+    ServiceReclamation sp = new ServiceReclamation();
+    public static final String ACCOUNT_SID = "AC099883ea0f07c67cd19e55b497fceb12";
+    public static final String AUTH_TOKEN = "7cd54f265b4727ce40c3c978b0181069";
     int index = -1;
-    
-    private int idCoachingToadd ;
+
+    private int idCoachingToadd;
     @FXML
     private Button admin_btn;
 
@@ -59,7 +68,7 @@ ServiceGenre sr = new ServiceGenre();
     public void setIdCoachingToadd(int idCoachingToadd) {
         this.idCoachingToadd = idCoachingToadd;
     }
-    
+
     @FXML
     private TextField TFTitre;
     @FXML
@@ -100,7 +109,7 @@ ServiceGenre sr = new ServiceGenre();
     @FXML
     private TextArea descTF;
     @FXML
-    private TableColumn<Reclamation, String>  idgenre;
+    private TableColumn<Reclamation, String> idgenre;
 
     /**
      * Initializes the controller class.
@@ -109,31 +118,33 @@ ServiceGenre sr = new ServiceGenre();
     public void initialize(URL url, ResourceBundle rb) {
         show();
         show2();
-      //  remplirComboBoxGenres();
-      ServiceGenre sc = new ServiceGenre();
-ObservableList<Genre> genres = FXCollections.observableArrayList(sc.afficherGenres());
-boxGenre.setItems(genres);
-boxGenre.setConverter(new StringConverter<Genre>() {
-    @Override
-    public String toString(Genre genre) {
-        return genre.getLibelle();
-    }
-    @Override
-    public Genre fromString(String string) {
-        return null;
-    }
-});
-boxGenre.valueProperty().addListener((observable, oldValue, newValue) -> {
-    if (newValue != null) {
-        int id = newValue.getId();
-        System.out.println("Selected libelle id: " + id);
-        // do something with the id...
-        setIdCoachingToadd(id);
-    }
-});
+        //  remplirComboBoxGenres();
+        ServiceGenre sc = new ServiceGenre();
+        ObservableList<Genre> genres = FXCollections.observableArrayList(sc.afficherGenres());
+        boxGenre.setItems(genres);
+        boxGenre.setConverter(new StringConverter<Genre>() {
+            @Override
+            public String toString(Genre genre) {
+                return genre.getLibelle();
+            }
 
-    }  
-/*private void remplirComboBoxGenres() {
+            @Override
+            public Genre fromString(String string) {
+                return null;
+            }
+        });
+        boxGenre.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                int id = newValue.getId();
+                System.out.println("Selected libelle id: " + id);
+                // do something with the id...
+                setIdCoachingToadd(id);
+            }
+        });
+
+    }
+
+    /*private void remplirComboBoxGenres() {
     // Récupérer la liste des genres à partir de la base de données
     List<Genre> genres = sr.afficherGenres();
     // Ajouter les genres au ComboBox
@@ -167,205 +178,221 @@ boxGenre.valueProperty().addListener((observable, oldValue, newValue) -> {
         
                 }*/
 
+    public static void sendSms(String recipient, String messageBody) {
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+        Message message = Message.creator(
+                new PhoneNumber(recipient), // To number
+                new PhoneNumber("+12766336884"), // From number
+                messageBody) // SMS body
+                .create();
+
+        System.out.println("Message sent: " + message.getSid());
+    }
 
     @FXML
-private void ajouterRec(ActionEvent event) {
-    
-    // Créer un objet Reclamation avec les informations de la nouvelle réclamation
-    Reclamation r = new Reclamation();
-    r.setTitre(TFTitre.getText());
-    r.setDescription(descTF.getText());
-     if (r.getDescription().length() < 5) {
-        // La description doit contenir au moins 5 caractères
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Description trop courte");
-        alert.setHeaderText(null);
-        alert.setContentText("La description doit contenir au moins 5 caractères.");
-        alert.showAndWait();
-        return;
-    }
-if (TFTitre.getText().length() == 0 || descTF.getText().length() == 0 ) {
-        // La description doit contenir au moins 5 caractères
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("champ vide");
-        alert.setHeaderText(null);
-        alert.setContentText(" remplir les champs.");
-        alert.showAndWait();
-        return;
-    }
-    
-    // Récupérer le genre sélectionné à partir du ComboBox
-    Genre g = boxGenre.getSelectionModel().getSelectedItem();
-    if (g == null) {
-        // Aucun genre sélectionné
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Aucun genre sélectionné");
-        alert.setHeaderText(null);
-        alert.setContentText("Veuillez sélectionner un genre.");
-        alert.showAndWait();
-        return;
-    }
-    r.setIdG(g.getId());
-    
-    // Ajouter la réclamation à la base de données
-    sp.ajouter(r);
-    // Actualiser la table des réclamations
-    updateTablereclamation();
-    // Afficher un message de succès
-    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-    alert.setTitle("Succès");
-    alert.setHeaderText(null);
-    alert.setContentText("Réclamation ajoutée avec succès.");
-    alert.showAndWait();
-}
- public void updateTablereclamation() {
- ObservableList<Reclamation> reclamations = sp.afficher2();
- ObservableList<Reclamation> reclamations2 = sp.afficher2();
+    private void ajouterRec(ActionEvent event) {
 
-    // ajouter les réclamations à la TableView
-FilteredList<Reclamation> reclamationsFiltrees = new FilteredList<>(reclamations, p -> p.getStatus().equals("en attente"));
-    idgenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
-    Titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
-    Description.setCellValueFactory(new PropertyValueFactory<>("description"));
-    Date.setCellValueFactory(new PropertyValueFactory<>("date"));
-    Status.setCellValueFactory(new PropertyValueFactory<>("status"));
+        // Créer un objet Reclamation avec les informations de la nouvelle réclamation
+        Reclamation r = new Reclamation();
+        r.setTitre(TFTitre.getText());
+        r.setDescription(descTF.getText());
+        if (r.getDescription().length() < 5) {
+            // La description doit contenir au moins 5 caractères
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Description trop courte");
+            alert.setHeaderText(null);
+            alert.setContentText("La description doit contenir au moins 5 caractères.");
+            alert.showAndWait();
+            return;
+        }
+        if (TFTitre.getText().length() == 0 || descTF.getText().length() == 0) {
+            // La description doit contenir au moins 5 caractères
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("champ vide");
+            alert.setHeaderText(null);
+            alert.setContentText(" remplir les champs.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Récupérer le genre sélectionné à partir du ComboBox
+        Genre g = boxGenre.getSelectionModel().getSelectedItem();
+        if (g == null) {
+            // Aucun genre sélectionné
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Aucun genre sélectionné");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez sélectionner un genre.");
+            alert.showAndWait();
+            return;
+        }
+        r.setIdG(g.getId());
+
+        // Ajouter la réclamation à la base de données
+        sp.ajouter(r);
+        // envoye d'un sms
+        sendSms("+21692524435", "une réclamation a été ajoutée du titre " + r.getTitre() + ", veuillez le traiter svp");
+        // Appeler la méthode de notification
+        String message = "Une nouvelle réclamation a été ajoutée.";
+        sp.notification(message);
+        // Actualiser la table des réclamations
+        updateTablereclamation();
+        // Afficher un message de succès
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Succès");
+        alert.setHeaderText(null);
+        alert.setContentText("Réclamation ajoutée avec succès.");
+        alert.showAndWait();
+    }
+
+    public void updateTablereclamation() {
+        ObservableList<Reclamation> reclamations = sp.afficher2();
+        ObservableList<Reclamation> reclamations2 = sp.afficher2();
+
+        // ajouter les réclamations en attente à la TableView
+        FilteredList<Reclamation> reclamationsFiltrees = new FilteredList<>(reclamations, p -> p.getStatus().equals("en attente"));
+        idgenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        Titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
+        Description.setCellValueFactory(new PropertyValueFactory<>("description"));
+        Date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        Status.setCellValueFactory(new PropertyValueFactory<>("status"));
         ReclamationTable.setItems(reclamationsFiltrees);
-     
 
-    // ajouter les réclamations à la TableView
-FilteredList<Reclamation> reclamationsFiltrees2 = new FilteredList<>(reclamations2, p -> p.getStatus().equals("confirmé"));
+        // ajouter les réclamations confirmées à la TableView
+        FilteredList<Reclamation> reclamationsFiltrees2 = new FilteredList<>(reclamations2, p -> p.getStatus().equals("confirmé"));
 
-    GenreR1.setCellValueFactory(new PropertyValueFactory<>("genre"));
-    TitreR.setCellValueFactory(new PropertyValueFactory<>("titre"));
-    DescriptionR.setCellValueFactory(new PropertyValueFactory<>("description"));
-    dateR.setCellValueFactory(new PropertyValueFactory<>("date"));
-    Traitement.setCellValueFactory(new PropertyValueFactory<>("traitement"));
+        GenreR1.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        TitreR.setCellValueFactory(new PropertyValueFactory<>("titre"));
+        DescriptionR.setCellValueFactory(new PropertyValueFactory<>("description"));
+        dateR.setCellValueFactory(new PropertyValueFactory<>("date"));
+        Traitement.setCellValueFactory(new PropertyValueFactory<>("traitement"));
 
-
-     ReclamationTable1.setItems(reclamationsFiltrees2);
-     
-     
+        ReclamationTable1.setItems(reclamationsFiltrees2);
 
     }
-   @FXML
+
+    @FXML
     private void getSelected(MouseEvent event) {
-          index = ReclamationTable.getSelectionModel().getSelectedIndex();
+        index = ReclamationTable.getSelectionModel().getSelectedIndex();
         if (index <= -1) {
             return;
         }
-       
+
         TFTitre.setText(Titre.getCellData(index));
-                descTF.setText(Description.getCellData(index));
-     
-        
-    
+        descTF.setText(Description.getCellData(index));
+
     }
 
     @FXML
     private void ModifierRec(ActionEvent event) {
-         Reclamation selectedReclamation = ReclamationTable.getSelectionModel().getSelectedItem();
-    if (selectedReclamation == null) {
-        // Aucune réclamation sélectionnée
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Aucune réclamation sélectionnée");
-        alert.setHeaderText(null);
-        alert.setContentText("Veuillez sélectionner une réclamation dans la table.");
-        alert.showAndWait();
-        return;
-    }
+        Reclamation selectedReclamation = ReclamationTable.getSelectionModel().getSelectedItem();
+        if (selectedReclamation == null) {
+            // Aucune réclamation sélectionnée
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Aucune réclamation sélectionnée");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez sélectionner une réclamation dans la table.");
+            alert.showAndWait();
+            return;
+        }
 
-    // Récupération des données de la réclamation à modifier
-    selectedReclamation.setTitre(TFTitre.getText());
-     selectedReclamation.setDescription(descTF.getText());
-    //selectedReclamation.setGenre(boxGenre.getSelectionModel().getSelectedItem());
-    if (descTF.getText().length() < 5) {
-        // La description doit contenir au moins 5 caractères
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Description trop courte");
-        alert.setHeaderText(null);
-        alert.setContentText("La description doit contenir au moins 5 caractères.");
-        alert.showAndWait();
-        return;
-    }
-    if (TFTitre.getText().length() == 0 || descTF.getText().length() == 0 ) {
-        // La description doit contenir au moins 5 caractères
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("champ vide");
-        alert.setHeaderText(null);
-        alert.setContentText(" remplir les champs.");
-        alert.showAndWait();
-        return;
-    }
+        // Récupération des données de la réclamation à modifier
+        selectedReclamation.setTitre(TFTitre.getText());
+        selectedReclamation.setDescription(descTF.getText());
+        //selectedReclamation.setGenre(boxGenre.getSelectionModel().getSelectedItem());
+        if (descTF.getText().length() < 5) {
+            // La description doit contenir au moins 5 caractères
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Description trop courte");
+            alert.setHeaderText(null);
+            alert.setContentText("La description doit contenir au moins 5 caractères.");
+            alert.showAndWait();
+            return;
+        }
+        if (TFTitre.getText().length() == 0 || descTF.getText().length() == 0) {
+            // La description doit contenir au moins 5 caractères
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("champ vide");
+            alert.setHeaderText(null);
+            alert.setContentText(" remplir les champs.");
+            alert.showAndWait();
+            return;
+        }
 
-    // Enregistrement de la modification
-    sp.modifier(selectedReclamation);
-    updateTablereclamation();
-    JOptionPane.showMessageDialog(null, "Réclamation modifiée");
-        
-    
+        // Enregistrement de la modification
+        sp.modifier(selectedReclamation);
+        // Appeler la méthode de notification
+        String message = "Une réclamation a été modifié.";
+        sp.notification(message);
+        // refresh table 
+        updateTablereclamation();
+        JOptionPane.showMessageDialog(null, "Réclamation modifiée");
+
     }
 
     @FXML
     private void SupprimerRec(ActionEvent event) {
-    Reclamation selectedReclamation = ReclamationTable.getSelectionModel().getSelectedItem();
-    if (selectedReclamation == null) {
-        // Aucune réclamation sélectionnée
-        Alert alert = new Alert(Alert.AlertType.WARNING);
-        alert.setTitle("Aucune réclamation sélectionnée");
+        Reclamation selectedReclamation = ReclamationTable.getSelectionModel().getSelectedItem();
+        if (selectedReclamation == null) {
+            // Aucune réclamation sélectionnée
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Aucune réclamation sélectionnée");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez sélectionner une réclamation dans la table.");
+            alert.showAndWait();
+            return;
+        }
+
+        // Confirmation de la suppression
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmation de la suppression");
         alert.setHeaderText(null);
-        alert.setContentText("Veuillez sélectionner une réclamation dans la table.");
-        alert.showAndWait();
-        return;
-    }
+        alert.setContentText("Êtes-vous sûr de vouloir supprimer la réclamation sélectionnée ?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            // Supprimer la réclamation de la base de données
+            sp.supprimer(selectedReclamation);
+            // Appeler la méthode de notification
+            String message = "Une réclamation a été supprimée.";
+            sp.notification(message);
+            // refresh table
+            updateTablereclamation();
+            // Supprimer la réclamation de la table
+            ReclamationTable.getItems().remove(selectedReclamation);
 
-    // Confirmation de la suppression
-    Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-    alert.setTitle("Confirmation de la suppression");
-    alert.setHeaderText(null);
-    alert.setContentText("Êtes-vous sûr de vouloir supprimer la réclamation sélectionnée ?");
-    Optional<ButtonType> result = alert.showAndWait();
-    if (result.isPresent() && result.get() == ButtonType.OK) {
-        // Supprimer la réclamation de la base de données
-        sp.supprimer(selectedReclamation);
-updateTablereclamation();
-        // Supprimer la réclamation de la table
-        ReclamationTable.getItems().remove(selectedReclamation);
-    
-}
+        }
 
-    
     }
 
     private void show() {
-ObservableList<Reclamation> reclamations = sp.afficher2();
+        ObservableList<Reclamation> reclamations = sp.afficher2();
 
-    // ajouter les réclamations à la TableView
-FilteredList<Reclamation> reclamationsFiltrees = new FilteredList<>(reclamations, p -> p.getStatus().equals("en attente"));
-    idgenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        // ajouter les réclamations à la TableView
+        FilteredList<Reclamation> reclamationsFiltrees = new FilteredList<>(reclamations, p -> p.getStatus().equals("en attente"));
+        idgenre.setCellValueFactory(new PropertyValueFactory<>("genre"));
 
-    Titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
-    Description.setCellValueFactory(new PropertyValueFactory<>("description"));
-    Date.setCellValueFactory(new PropertyValueFactory<>("date"));
-    Status.setCellValueFactory(new PropertyValueFactory<>("status"));
+        Titre.setCellValueFactory(new PropertyValueFactory<>("titre"));
+        Description.setCellValueFactory(new PropertyValueFactory<>("description"));
+        Date.setCellValueFactory(new PropertyValueFactory<>("date"));
+        Status.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-
-     ReclamationTable.setItems(reclamationsFiltrees);
+        ReclamationTable.setItems(reclamationsFiltrees);
 
     }
 
     private void show2() {
         ObservableList<Reclamation> reclamations = sp.afficher2();
 
-    // ajouter les réclamations à la TableView
-FilteredList<Reclamation> reclamationsFiltrees = new FilteredList<>(reclamations, p -> p.getStatus().equals("confirmé"));
-   GenreR1.setCellValueFactory(new PropertyValueFactory<>("genre"));
-    TitreR.setCellValueFactory(new PropertyValueFactory<>("titre"));
-    DescriptionR.setCellValueFactory(new PropertyValueFactory<>("description"));
-    dateR.setCellValueFactory(new PropertyValueFactory<>("date"));
-    Traitement.setCellValueFactory(new PropertyValueFactory<>("traitement"));
+        // ajouter les réclamations à la TableView
+        FilteredList<Reclamation> reclamationsFiltrees = new FilteredList<>(reclamations, p -> p.getStatus().equals("confirmé"));
+        GenreR1.setCellValueFactory(new PropertyValueFactory<>("genre"));
+        TitreR.setCellValueFactory(new PropertyValueFactory<>("titre"));
+        DescriptionR.setCellValueFactory(new PropertyValueFactory<>("description"));
+        dateR.setCellValueFactory(new PropertyValueFactory<>("date"));
+        Traitement.setCellValueFactory(new PropertyValueFactory<>("traitement"));
 
-
-     ReclamationTable1.setItems(reclamationsFiltrees);
+        ReclamationTable1.setItems(reclamationsFiltrees);
 
     }
 
@@ -377,6 +404,4 @@ FilteredList<Reclamation> reclamationsFiltrees = new FilteredList<>(reclamations
 
     }
 
-   
-    
 }
