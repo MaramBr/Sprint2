@@ -13,8 +13,18 @@
 
 <AnchorPane id="AnchorPane" prefHeight="726.0" prefWidth="1267.0" style="-fx-background-color: #e08d17;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestionEvenement.gui.ParticipantController">
    <children>
-      <Pane layoutX="21.0" layoutY="59.0" prefHeight="608.0" prefWidth="965.0" style="-fx-background-color: #171716; -fx-border-color: #131314;">
+      <Pane layoutX="23.0" layoutY="59.0" prefHeight="608.0" prefWidth="965.0" style="-fx-background-color: black; -fx-border-color: #131314;">
          <children>
+            <TableView fx:id="tableparticipant" layoutX="503.0" layoutY="146.0" onMouseClicked="#afficherParticipantSelectionnee" prefHeight="88.0" prefWidth="258.0" style="-fx-background-color: black; -fx-border-color: #131314;">
+          <columns>
+              <TableColumn fx:id="colidp" minWidth="0.0" prefWidth="0.0" text="event" visible="false" />
+              <TableColumn fx:id="colnom" prefWidth="98.0" />
+              <TableColumn fx:id="colprenom" prefWidth="88.0" />
+                  <TableColumn fx:id="colemail" prefWidth="125.0" style="-fx-background-color: black;" />
+                  <TableColumn fx:id="colage" prefWidth="51.0" text="age" />
+                  <TableColumn fx:id="coltel" prefWidth="118.0" text="telephone" />
+          </columns>
+      </TableView>
             <Label layoutX="28.0" layoutY="291.0" text="Age" textFill="#f8f4f4">
                <font>
                   <Font size="18.0" />
@@ -25,16 +35,6 @@
                   <Font name="Corbel Bold Italic" size="28.0" />
                </font>
             </Label>
-            <TableView fx:id="tableparticipant" layoutX="429.0" layoutY="137.0" onMouseClicked="#afficherParticipantSelectionnee" prefHeight="315.0" prefWidth="482.0" style="-fx-background-color: #ffff; -fx-border-color: #131314;">
-          <columns>
-              <TableColumn fx:id="colidp" minWidth="0.0" prefWidth="0.0" text="event" visible="false" />
-              <TableColumn fx:id="colnom" prefWidth="98.0" text="nom" />
-              <TableColumn fx:id="colprenom" prefWidth="88.0" text="prenom" />
-                  <TableColumn fx:id="colemail" prefWidth="125.0" text="email" />
-                  <TableColumn fx:id="colage" prefWidth="51.0" text="age" />
-                  <TableColumn fx:id="coltel" prefWidth="118.0" text="telephone" />
-          </columns>
-      </TableView>
             <Button fx:id="btnmodifier" layoutX="443.0" layoutY="79.0" mnemonicParsing="false" onAction="#modifierparticipant" prefHeight="27.0" prefWidth="91.0" style="-fx-border-color: #131314; -fx-background-color: black;" text="Modifier" textFill="#d9bd18" />
             <Button fx:id="btnsupprimer" layoutX="546.0" layoutY="78.0" mnemonicParsing="false" onAction="#supprimerparticipant" prefHeight="31.0" prefWidth="103.0" style="-fx-border-color: #131314; -fx-background-color: black;" text="Annuler" textFill="#e8b717" />
             <Label layoutX="447.0" layoutY="29.0" text="Votre participation" textFill="#f8f7f5">
@@ -76,6 +76,16 @@
                   <Font size="18.0" />
                </font>
             </Label>
+            <Pane fx:id="card" layoutX="382.0" layoutY="135.0" prefHeight="373.0" prefWidth="388.0" style="-fx-background-color: orange;">
+               <children>
+                  <Label fx:id="labelNom" layoutX="19.0" layoutY="43.0" prefHeight="21.0" prefWidth="243.0" />
+                  <Label fx:id="labelPrenom" layoutX="15.0" layoutY="100.0" />
+                  <Label fx:id="labelEmail" layoutX="15.0" layoutY="147.0" />
+                  <Label fx:id="labelAge" layoutX="15.0" layoutY="190.0" />
+                  <Label fx:id="labelTel" layoutX="15.0" layoutY="244.0" />
+                  <Label fx:id="labelEvent" layoutX="19.0" layoutY="314.0" />
+               </children>
+            </Pane>
          </children>
       </Pane>
       <VBox layoutX="1003.0" layoutY="59.0" prefHeight="608.0" prefWidth="214.0" style="-fx-background-color: #171716; -fx-border-color: #131314;">

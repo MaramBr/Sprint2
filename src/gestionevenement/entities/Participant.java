@@ -10,6 +10,16 @@ public class Participant {
  private int id;
     private String nom, prenom,email;
       private int age ,tel;
+      
+       private String nomev;
+
+    public String getNomev() {
+        return nomev;
+    }
+
+    public void setNomev(String nomev) {
+        this.nomev = nomev;
+    }
 
     public Participant(String nom, String prenom, String email, int age, int tel) {
         this.nom = nom;
@@ -26,6 +36,21 @@ public class Participant {
         this.email = email;
         this.age = age;
         this.tel = tel;
+    }
+
+    public Participant() {
+       
+    }
+
+   
+
+    public Participant(String nom, String prenom, String email, int age, int tel, String nomev) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.age = age;
+        this.tel = tel;
+        this.nomev = nomev;
     }
 
    

@@ -36,7 +36,6 @@
             <TextField fx:id="tflieu" layoutX="156.0" layoutY="164.0" />
             <TextField fx:id="tftype" layoutX="156.0" layoutY="216.0" />
             <TextField fx:id="tfdescription" layoutX="156.0" layoutY="263.0" />
-            <TextField fx:id="tfimage" layoutX="160.0" layoutY="401.0" />
             <TextField fx:id="tfnbParticipant" layoutX="160.0" layoutY="449.0" />
             <Label layoutX="40.0" layoutY="166.0" prefHeight="27.0" prefWidth="85.0" text="Lieu:" textFill="#fffdfa">
                <font>
@@ -81,19 +80,19 @@
             </Label>
             <DatePicker fx:id="tfdatedebut" layoutX="156.0" layoutY="312.0" />
             <DatePicker fx:id="tfdatefin" layoutX="156.0" layoutY="355.0" />
-            <TableView fx:id="tableEvenement" layoutX="384.0" layoutY="71.0" onMouseClicked="#afficherEvenementSelectionne" prefHeight="323.0" prefWidth="781.0">
+            <TableView fx:id="tableEvenement" layoutX="384.0" layoutY="71.0" onMouseClicked="#afficherEvenementSelectionne" prefHeight="323.0" prefWidth="781.0" stylesheets="@../../../../../../../Downloads/tableview2.css">
               <columns>
-                  <TableColumn fx:id="callidev" prefWidth="52.0" style="-fx-background-color: orange;" text="type" />
+                  <TableColumn fx:id="callidev" prefWidth="52.0" text="type" />
                 <TableColumn fx:id="callnomev" prefWidth="75.0" text="nom" />
-                  <TableColumn fx:id="calllieu" prefWidth="75.0" style="-fx-background-color: orange;" text="lieu" />
+                  <TableColumn fx:id="calllieu" prefWidth="75.0" text="lieu" />
                   <TableColumn fx:id="calltype" prefWidth="75.0" text="type" />
-                  <TableColumn fx:id="calldescription" prefWidth="75.0" style="-fx-background-color: orange;" text="description" />
+                  <TableColumn fx:id="calldescription" prefWidth="75.0" text="description" />
                   <TableColumn fx:id="calldatedebut" prefWidth="75.0" text="dateD" />
-                  <TableColumn fx:id="calldatefin" prefWidth="75.0" style="-fx-background-color: orange;" text="dateF" />
+                  <TableColumn fx:id="calldatefin" prefWidth="75.0" text="dateF" />
                   <TableColumn fx:id="callimage" prefWidth="75.0" text="image" />
-                  <TableColumn fx:id="callnbparticipant" prefWidth="75.0" style="-fx-background-color: orange;" text="nbP" />
+                  <TableColumn fx:id="callnbparticipant" prefWidth="75.0" text="nbP" />
                   <TableColumn fx:id="callprix" prefWidth="98.0" text="prix" />
-                  <TableColumn fx:id="callids" prefWidth="75.0" style="-fx-background-color: orange;" text="Sponsor" />
+                  <TableColumn fx:id="callids" prefWidth="75.0" text="Sponsor" />
               </columns>
             </TableView>
             <Button fx:id="btnmodifier" layoutX="433.0" layoutY="17.0" mnemonicParsing="false" onAction="#modifierev" prefHeight="46.0" prefWidth="120.0" style="-fx-border-color: #000000; -fx-background-color: #000000;" text="Modifier" textFill="#eb7f7f">
@@ -106,7 +105,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button fx:id="browseimg" layoutX="346.0" layoutY="401.0" mnemonicParsing="false" text="Upload" />
+            <Button fx:id="browseimg" layoutX="160.0" layoutY="401.0" mnemonicParsing="false" onAction="#ajouterimage" prefHeight="31.0" prefWidth="205.0" text="Upload" />
             <ComboBox fx:id="cbsponsor" layoutX="156.0" layoutY="77.0" onAction="#selectsponsor" prefWidth="150.0" />
             <Button fx:id="btnrf" layoutX="1000.0" layoutY="431.0" mnemonicParsing="false" onAction="#rafraichir" prefHeight="37.0" prefWidth="150.0" style="-fx-border-color: #000000; -fx-background-color: #000000;" text="rafraichir" textAlignment="CENTER" textFill="#eb7563" />
             <TextField fx:id="tfsp" layoutX="78.0" layoutY="556.0" prefHeight="18.0" prefWidth="14.0" />
@@ -115,6 +114,7 @@
                   <Font size="20.0" />
                </font>
             </Button>
+            <ImageView fx:id="image2" fitHeight="150.0" fitWidth="200.0" layoutX="433.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
       <VBox layoutX="1195.0" layoutY="86.0" prefHeight="608.0" prefWidth="205.0" style="-fx-background-color: #000000; -fx-border-color: #131314;">

@@ -58,7 +58,7 @@ public class EvenementController implements Initializable {
     
     ObservableList<Evenement> list;
   
-
+String path="";
 
     @FXML
     private Button btnajouterev;
@@ -71,7 +71,6 @@ public class EvenementController implements Initializable {
     private TextField tftype;
     @FXML
     private TextField tfdescription;
-    @FXML
     private TextField tfimage;
     @FXML
     private TextField tfnbParticipant;
@@ -123,6 +122,8 @@ public class EvenementController implements Initializable {
     private TextField tfsp;
     @FXML
     private ImageView image1;
+    @FXML
+    private ImageView image2;
 
     /**
      * Initializes the controller class.
@@ -153,14 +154,14 @@ public void initialize(URL url, ResourceBundle rb) {
         System.out.println(e.getMessage());
     }
  image1.setImage(new Image(localURL));
-    browseimg.setOnAction(event -> {
+   /* browseimg.setOnAction(event -> {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choose Image");
         File fileImageV = fileChooser.showOpenDialog(browseimg.getScene().getWindow());
         if (fileImageV != null) {
             tfimage.setText(fileImageV.getPath());
         }
-    });
+    });*/
     
     show();
 }
@@ -173,7 +174,7 @@ private void ajouterev(ActionEvent event) {
         // Vérifier que tous les champs sont remplis
         if (cbsponsor.getValue() == null || tfnomev.getText().isEmpty() || tflieu.getText().isEmpty()
                 || tftype.getText().isEmpty() || tfdescription.getText().isEmpty()
-                || tfdatedebut.getValue() == null || tfdatefin.getValue() == null || tfimage.getText().isEmpty()
+                || tfdatedebut.getValue() == null || tfdatefin.getValue() == null 
                 || tfnbParticipant.getText().isEmpty() || tfprix.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Champs vides");
@@ -225,7 +226,7 @@ private void ajouterev(ActionEvent event) {
         String mysqlDateString11 = LocalDate.parse(datefin, DateTimeFormatter.ofPattern("dd/MM/yyyy")).toString();
 
         // Récupérer les autres champs
-        String image = tfimage.getText();
+        String image = path;
 
         // Vérifier que les champs pour le nombre de participants et le prix sont des nombres entiers
         int nb_participant = 0;
@@ -321,7 +322,7 @@ private void modifierev(ActionEvent event) {
         // Vérifier que tous les champs sont remplis
         if (cbsponsor.getValue() == null || tfnomev.getText().isEmpty() || tflieu.getText().isEmpty()
                 || tftype.getText().isEmpty() || tfdescription.getText().isEmpty()
-                || tfdatedebut.getValue() == null || tfdatefin.getValue() == null || tfimage.getText().isEmpty()
+                || tfdatedebut.getValue() == null || tfdatefin.getValue() == null 
                 || tfnbParticipant.getText().isEmpty() || tfprix.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Champs vides");
@@ -372,7 +373,7 @@ private void modifierev(ActionEvent event) {
         String mysqlDateString = LocalDate.parse(datedebut, DateTimeFormatter.ofPattern("dd/MM/yyyy")).toString();
         String mysqlDateString11 = LocalDate.parse(datefin, DateTimeFormatter.ofPattern("dd/MM/yyyy")).toString();
 
-        String image = tfimage.getText();
+        String image = path ;
         
         // Vérifier que les champs pour le nombre de participants et le prix sont des nombres entiers
         int nb_participant = 0;
@@ -417,7 +418,7 @@ private void modifierev(ActionEvent event) {
         tfdescription.setText("");
         tfdatedebut.setValue(null);
         tfdatefin.setValue(null);
-        tfimage.setText("");
+       // tfimage.setText("");
         tfnbParticipant.setText("");
         tfprix.setText("");
         
@@ -531,17 +532,6 @@ private void show() {
             }
         });
         
-        callids.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-callnomev.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-calllieu.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-
-calltype.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-calldescription.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-calldatedebut.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-calldatefin.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-callimage.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-callnbparticipant.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-callprix.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
 
         
         
@@ -571,6 +561,9 @@ callprix.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-s
 private void afficherEvenementSelectionne(MouseEvent event) {
     Evenement Evenement = tableEvenement.getSelectionModel().getSelectedItem();
     if (Evenement != null) {
+        
+        
+            
         int sponsorId = Evenement.getSponsors_id();
         // Afficher le nom du sponsor dans la ComboBox voilaaaaaaa
         String sponsorName = new SponsorCRUD().getSponsorNameById(sponsorId);
@@ -583,7 +576,9 @@ private void afficherEvenementSelectionne(MouseEvent event) {
         tfdescription.setText(Evenement.getDescription());
         tfdatedebut.setValue(LocalDate.parse(Evenement.getDate_debut()));
         tfdatefin.setValue(LocalDate.parse(Evenement.getDate_fin()));
-        tfimage.setText(Evenement.getImage());
+       // tfimage.setText(Evenement.getImage());
+        Image image = new Image(new File(Evenement.getImage()).toURI().toString());
+            image2.setImage(image);
         int nbParticipant = Evenement.getNb_participant();
         tfnbParticipant.setText(Integer.toString(nbParticipant));
         int prix = Evenement.getPrix();
@@ -678,6 +673,23 @@ private void trierDate(MouseEvent event) {
         TableColumn<Evenement, String> dateColumn = (TableColumn<Evenement, String>) event.getSource();
         tableEvenement.getSortOrder().clear(); // Supprimer tout tri précédent
         data.sort((r1, r2) -> r1.getDate_debut().compareTo(r2.getDate_debut()));
+    }
+
+    @FXML
+    private void ajouterimage(ActionEvent event) {
+       FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Select Image");
+    fileChooser.getExtensionFilters().addAll(
+    new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+    File selectedFile = fileChooser.showOpenDialog(null);
+    if (selectedFile != null) {
+    // load the selected image into the image view
+    path=selectedFile.getAbsolutePath();
+    Image image = new Image(selectedFile.toURI().toString());
+    image2.setImage(image);
+    }  
+        
+        
     }
 
 }

@@ -8,6 +8,7 @@ package gestionEvenement.gui;
 import gestionEvenement.entities.Participant;
 import gestionEvenement.entities.Sponsor;
 import gestionEvenement.utils.MyConnection;
+import gestionevenement.services.PDFGenerator;
 import gestionevenement.services.ParticipantCRUD;
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +16,9 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Arrays;
 import java.util.Optional;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -34,10 +37,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  * FXML Controller class
@@ -92,6 +105,21 @@ public class ParticipantController implements Initializable {
     private Button btnEvenement;
     @FXML
     private ImageView image1;
+  @FXML
+private Pane card;
+    @FXML
+    private Label labelNom;
+    @FXML
+    private Label labelPrenom;
+    @FXML
+    private Label labelEmail;
+    @FXML
+    private Label labelAge;
+    @FXML
+    private Label labelTel;
+    @FXML
+    private Label labelEvent;
+ 
 
     /**
      * Initializes the controller class.
@@ -100,7 +128,7 @@ public class ParticipantController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
       
-        show();
+     
         File file = new File("C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/image/logoFit.png");
         String localURL = "";
         try {
@@ -150,8 +178,83 @@ coltel.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-sty
     
 
    
+public void show2() {
+    try {
+        String requete = "SELECT * FROM participant ORDER BY id DESC LIMIT 1";
+        Statement st = MyConnection.getInstance().getCnx().createStatement();
+        ResultSet rs = st.executeQuery(requete);
+        if (rs.next()) {
+            Participant r = new Participant(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"), rs.getString("email"), rs.getInt("age"), rs.getInt("tel"));
+            data.clear(); // Clear previous data
+            data.add(r); // Add the last row to the data list
+            colidp.setCellValueFactory(new PropertyValueFactory<>("id"));
+            colnom.setCellValueFactory(new PropertyValueFactory<>("nom"));
+            colprenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+            colemail.setCellValueFactory(new PropertyValueFactory<>("email"));
+            colage.setCellValueFactory(new PropertyValueFactory<>("age"));
+            coltel.setCellValueFactory(new PropertyValueFactory<>("tel"));
+            colidp.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+            colnom.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+            colprenom.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+            colemail.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+            colage.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+            coltel.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+            tableparticipant.setItems(data);
+        }
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+}
 
-    
+public void show3() {
+    try {
+        String requete = "SELECT * FROM participant ORDER BY id DESC LIMIT 1";
+        Statement st = MyConnection.getInstance().getCnx().createStatement();
+        ResultSet rs = st.executeQuery(requete);
+        if (rs.next()) {
+            String nom = rs.getString("nom");
+            String prenom = rs.getString("prenom");
+            String email = rs.getString("email");
+            int age = rs.getInt("age");
+            int tel = rs.getInt("tel");
+
+            labelNom.setText(nom);
+            labelPrenom.setText(prenom);
+            labelEmail.setText(email);
+            labelAge.setText(Integer.toString(age));
+            labelTel.setText(Integer.toString(tel));
+        }
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+
+}
+   
+public void show4() {
+    try {
+        String requete = "SELECT * FROM participant ORDER BY id DESC LIMIT 1";
+        Statement st = MyConnection.getInstance().getCnx().createStatement();
+        ResultSet rs = st.executeQuery(requete);
+        if (rs.next()) {
+            String nom = rs.getString("nom");
+            String prenom = rs.getString("prenom");
+            String email = rs.getString("email");
+            int age = rs.getInt("age");
+            int tel = rs.getInt("tel");
+            String nomEvenement = tfnomev.getText();
+
+            labelNom.setText(nom);
+            labelPrenom.setText(prenom);
+            labelEmail.setText(email);
+            labelAge.setText(Integer.toString(age));
+            labelTel.setText(Integer.toString(tel));
+            labelEvent.setText(nomEvenement);
+        }
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+    }
+}
+
   
 
    
@@ -233,17 +336,21 @@ try {
 
     // Rafraîchir la liste de données
     data.clear();
-    show();
-
+    show4();
+    show2();
+  sendMail(tfemail);
     // Rafraîchir la vue de la table
     tableparticipant.refresh();
-
+ 
     // Effacer les champs de saisie
     tfnom.setText("");
     tfprenom.setText("");
     tfemail.setText("");
     tfage.setText("");
     tftel.setText("");
+    
+     // Appelle la fonction sendMail avec le champ de texte en paramètre
+   
 }
 
     @FXML
@@ -303,7 +410,7 @@ private void modifierparticipant(ActionEvent event) {
 
     // Rafraîchir la liste de données
     data.clear();
-    show();
+    show2();
 
     // Rafraîchir la vue de la table
     tableparticipant.refresh();
@@ -348,12 +455,38 @@ private void modifierparticipant(ActionEvent event) {
         }
     }
 
-    @FXML
-    private void generatePDF(ActionEvent event) {
-        
-        
-    }
+  @FXML
+private void generatePDF(ActionEvent event) {
 
+    // Récupérer les données des labels
+
+String nom = labelNom.getText();
+String prenom = labelPrenom.getText();
+String email = labelEmail.getText();
+int age = Integer.parseInt(labelAge.getText());
+int tel = Integer.parseInt(labelTel.getText());
+String nomev = labelEvent.getText();
+
+
+// Créer un Participant avec les données récupérées
+Participant participant = new Participant(nom, prenom, email, age, tel,nomev);
+
+FileChooser fileChooser = new FileChooser();
+
+// Définir l'extension de fichier par défaut
+FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("PDF files (*.pdf)", "*.pdf");
+fileChooser.getExtensionFilters().add(extFilter);
+
+// Afficher la boîte de dialogue pour enregistrer le fichier
+File file = fileChooser.showSaveDialog(null);
+
+if (file != null) {
+    PDFGenerator pdfGenerator = new PDFGenerator();
+    // Générer le PDF avec une liste contenant le Participant créé
+    pdfGenerator.generatePDF(Arrays.asList(participant), file.getAbsolutePath());
+}
+
+}
     
     
     
@@ -451,5 +584,83 @@ private void supprimerparticipant(ActionEvent event) {
         alert.showAndWait();
         e.printStackTrace();
     }
+}
+
+
+
+
+
+
+public void sendMail(TextField tfemail) {
+
+    // Récupère l'adresse e-mail saisie dans le schamp de texte
+    String recipient = tfemail.getText();
+
+    // Vérifie que l'adresse e-mail est valide
+    if (!isValidEmailAddress(recipient)) {
+        // Affiche une notification d'erreur
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("L'adresse e-mail saisie n'est pas valide.");
+        alert.showAndWait();
+        return;
+    }
+// Récupère le type de evénement sélectionné dans la ChoiceBox
+String nomev = tfnomev.getText();
+
+    // Paramètres de configuration pour le serveur SMTP de Gmail
+    String host = "smtp.gmail.com";
+    int port = 587;
+    String username = "emna.abbessi@esprit.tn";
+    String password = "12715163";
+
+    // Configuration de la session avec les propriétés nécessaires
+    Properties props = new Properties();
+    props.put("mail.smtp.auth", "true");
+    props.put("mail.smtp.starttls.enable", "true");
+    props.put("mail.smtp.host", host);
+    props.put("mail.smtp.port", port);
+
+    // Création de la session avec authentification
+    Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+        protected PasswordAuthentication getPasswordAuthentication() {
+            return new PasswordAuthentication(username, password);
+        }
+    });
+
+    try {
+        // Création du message
+        Message message = new MimeMessage(session);
+        message.setFrom(new InternetAddress(username));
+        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
+        message.setSubject("Confirmation de réception de votre evénement");
+        message.setText("Cher client,\n"
+                + "vous etes participer dans l evenement " +nomev+
+                "\nElle est prise en considération et nous vous remercions pour votre participation \nN'hésitez pas à nous contacter si vous avez besoin d'aide.\nCordialement,\nL'équipe du service client.");            
+        // Envoi du message
+        Transport.send(message);
+
+        // Affiche une notification de succès
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Succès");
+        alert.setHeaderText(null);
+        alert.setContentText("Votre evénement est envoyée avec succès !");
+        alert.showAndWait();
+
+    } catch (MessagingException e) {
+        // Affiche une notification d'erreur
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Une erreur s'est produite lors de l'envoi du message : " + e.getMessage());
+        alert.showAndWait();
+    }
+}
+
+private boolean isValidEmailAddress(String email) {
+    // Vérifie que l'adresse e-mail est valide en utilisant une expression régulière
+    String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+    return email.matches(regex);
 }
 }

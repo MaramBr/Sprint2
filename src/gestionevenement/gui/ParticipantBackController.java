@@ -14,6 +14,7 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -27,10 +28,18 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  * FXML Controller class
@@ -132,6 +141,8 @@ public class ParticipantBackController implements Initializable {
         alert.showAndWait();
         e.printStackTrace();
     }
+ 
+    
     }
 
     
@@ -204,5 +215,76 @@ public class ParticipantBackController implements Initializable {
     } catch (IOException e) {
     }
     }
-    
+ public void sendMail(TableColumn colemail) {
+
+    // Récupère l'adresse e-mail saisie dans le schamp de texte
+    String recipient = colemail.getText();
+
+    // Vérifie que l'adresse e-mail est valide
+    if (!isValidEmailAddress(recipient)) {
+        // Affiche une notification d'erreur
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("L'adresse e-mail saisie n'est pas valide.");
+        alert.showAndWait();
+        return;
+    }
+// Récupère le type de evénement sélectionné dans la ChoiceBox
+String nomev = colemail.getText();
+
+    // Paramètres de configuration pour le serveur SMTP de Gmail
+    String host = "smtp.gmail.com";
+    int port = 587;
+    String username = "emna.abbessi@esprit.tn";
+    String password = "12715163";
+
+    // Configuration de la session avec les propriétés nécessaires
+    Properties props = new Properties();
+    props.put("mail.smtp.auth", "true");
+    props.put("mail.smtp.starttls.enable", "true");
+    props.put("mail.smtp.host", host);
+    props.put("mail.smtp.port", port);
+
+    // Création de la session avec authentification
+    Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+        protected PasswordAuthentication getPasswordAuthentication() {
+            return new PasswordAuthentication(username, password);
+        }
+    });
+
+    try {
+        // Création du message
+        Message message = new MimeMessage(session);
+        message.setFrom(new InternetAddress(username));
+        message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
+        message.setSubject("Confirmation de réception de votre evénement");
+        message.setText("Cher client,\n"
+                + "vous etes participer dans l evenement " +nomev+
+                "\nElle est prise en considération et nous vous remercions pour votre participation \nN'hésitez pas à nous contacter si vous avez besoin d'aide.\nCordialement,\nL'équipe du service client.");            
+        // Envoi du message
+        Transport.send(message);
+
+        // Affiche une notification de succès
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Succès");
+        alert.setHeaderText(null);
+        alert.setContentText("Votre evénement est envoyée avec succès !");
+        alert.showAndWait();
+
+    } catch (MessagingException e) {
+        // Affiche une notification d'erreur
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Une erreur s'est produite lors de l'envoi du message : " + e.getMessage());
+        alert.showAndWait();
+    }
+}
+
+private boolean isValidEmailAddress(String email) {
+    // Vérifie que l'adresse e-mail est valide en utilisant une expression régulière
+    String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+    return email.matches(regex);
+}   
 }
