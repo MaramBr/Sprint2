@@ -17,10 +17,22 @@ public class User {
     private String email;
     private String roles;
      private String image;
+     private int is_active;
      
       public User() {
     }
 
+    public int getIs_active() {
+        return is_active;
+    }
+
+    public void setIs_active(int is_active) {
+        this.is_active = is_active;
+    }
+
+  
+
+ 
     public User(int id, String nom, String prenom, String password, String email, String roles, String image) {
         this.id = id;
         this.nom = nom;
@@ -39,7 +51,16 @@ public class User {
         this.roles = roles;
         this.image = image;
     }
-
+ public User(int id,String nom, String prenom, String password, String email, String roles, String image,int is_active) {
+     this.id = id;  
+     this.nom = nom;
+        this.prenom = prenom;
+        this.password = password;
+        this.email = email;
+        this.roles = roles;
+        this.image = image;
+        this.is_active=is_active;
+    }
 
     public void setId(int id) {
         this.id = id;

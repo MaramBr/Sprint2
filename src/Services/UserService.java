@@ -92,7 +92,8 @@ pst.setString(3, myPwd);
                         rs.getString("password"),
                         rs.getString("email"),
                         rs.getString("roles"),
-                        rs.getString("image"));
+                        rs.getString("image"),
+                rs.getInt("is_active"));
                 list.add(p);
             }
         } catch (SQLException ex) {

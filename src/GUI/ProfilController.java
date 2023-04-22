@@ -53,6 +53,8 @@ public class ProfilController implements Initializable {
     private Button newimg;
     @FXML
     private PasswordField newpwd;
+    @FXML
+    private TextField prenom;
     @ FXML
        void btn_changer_nom(ActionEvent event) {
                     String imagePath = path;
@@ -62,6 +64,8 @@ Image photo=improfile.getImage();
          System.out.println("new"+nouveauNom);
          String nomUser = Nom.getText();
         String email1 = email.getText();
+        String prenom1 =prenom.getText();
+          UserConnected.setPrenom(prenom1);
     UserConnected.setNom(nomUser);
     UserConnected.setEmail(email1);
     UserConnected.setImage(path);

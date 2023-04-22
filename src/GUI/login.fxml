@@ -7,22 +7,36 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" onMouseClicked="#handleClose" prefHeight="796.0" prefWidth="1152.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LoginController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#handleClose" prefHeight="678.0" prefWidth="1182.0" style="-fx-background-color: #20120F;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LoginController">
    <children>
-      <AnchorPane layoutX="438.0" layoutY="84.0" prefHeight="385.0" prefWidth="361.0" style="-fx-background-color: #9C2B27;">
+      <AnchorPane layoutX="571.0" layoutY="72.0" prefHeight="569.0" prefWidth="578.0" style="-fx-background-color: e15e1c;">
          <children>
-            <TextField fx:id="emailLogin" layoutX="57.0" layoutY="106.0" prefHeight="31.0" prefWidth="267.0" promptText="email" />
-            <PasswordField fx:id="pwdLogin" layoutX="60.0" layoutY="196.0" prefHeight="31.0" prefWidth="261.0" promptText="Password" />
-            <Button fx:id="btnlogin" layoutX="34.0" layoutY="283.0" mnemonicParsing="false" onAction="#login" prefHeight="41.0" prefWidth="134.0" text="connecter" />
-            <Label layoutX="140.0" layoutY="45.0" text="SIGN-IN" />
+            <TextField fx:id="emailLogin" layoutX="118.0" layoutY="122.0" prefHeight="47.0" prefWidth="310.0" promptText="email" />
+            <PasswordField fx:id="pwdLogin" layoutX="117.0" layoutY="223.0" prefHeight="47.0" prefWidth="310.0" promptText="Password" />
+            <Button fx:id="btnlogin" layoutX="70.0" layoutY="344.0" mnemonicParsing="false" onAction="#login" prefHeight="41.0" prefWidth="134.0" text="connecter" />
+            <Label layoutX="203.0" layoutY="24.0" text="SIGN-IN">
+               <font>
+                  <Font name="Baskerville Old Face" size="47.0" />
+               </font></Label>
             <Text fx:id="nullErr" disable="true" fill="#ff000000" layoutX="112.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="veuillez entrer votre email !" visible="false" />
             <Text fx:id="nullmdp" fill="#ff000000" layoutX="85.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="veuillez entrer votre mot de passe !" visible="false" />
-            <Button layoutX="202.0" layoutY="283.0" mnemonicParsing="false" onAction="#Gotoacoount" prefHeight="41.0" prefWidth="147.0" text="S'inscrire" />
+            <Button layoutX="335.0" layoutY="348.0" mnemonicParsing="false" onAction="#Gotoacoount" prefHeight="41.0" prefWidth="147.0" text="S'inscrire" />
+            <Label layoutX="10.0" layoutY="138.0" prefHeight="30.0" prefWidth="82.0" text="Email:">
+               <font>
+                  <Font name="Baskerville Old Face" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="1.0" layoutY="233.0" prefHeight="27.0" prefWidth="110.0" text="Mot de passe:">
+               <font>
+                  <Font name="Baskerville Old Face" size="20.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="224.0" fitWidth="317.0" layoutX="72.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="456.0" fitWidth="451.0" layoutX="72.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/log.png" />
          </image>

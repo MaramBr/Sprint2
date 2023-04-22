@@ -64,7 +64,7 @@ public class CodeTestController implements Initializable {
       User us = U.getUser(email);
       System.out.println(us.getPrenom()+us.getEmail());
         //MS.send(us.getPrenom()+ us.getNom()+"Mr ou Madame"+" voila ton code est "+b, email);
-         JavaMail.sendMail(us.getPrenom()+ us.getNom()+"Mr ou Madame"+" voila ton code est "+b,email);
+         JavaMail.sendMail("Bonjour"+"Mr/Mme"+ us.getNom()+"\t"+us.getPrenom()+"\t"+"voila ton code est "+b,email);
         send.setOnAction(e->{
             String c=code1.getText();
         if(c.equals(s)){

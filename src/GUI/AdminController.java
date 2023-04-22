@@ -91,6 +91,8 @@ public class AdminController implements Initializable {
     private TextField Recherche;
     @FXML
     private Button stat;
+    @FXML
+    private TableColumn<?, ?> etatU;
  
     /**
      * Initializes the controller class.
@@ -256,8 +258,8 @@ void VoirUser(ActionEvent event) {
        
         
         typeString = "[\"ROLE_"+roles.getValue()+"\"]";
-          String imagePath = path;
-Image photo=image2.getImage();    
+          String imagePath=selectedUser.getImage();
+Image photo=image2.getImage();
         if (nomUser.isEmpty() || prenomUser.isEmpty() || emailUser.isEmpty() || typeString == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Erreur");
@@ -272,8 +274,9 @@ Image photo=image2.getImage();
         selectedUser.setPrenom(prenomUser);
         selectedUser.setPassword(password);
         selectedUser.setEmail(emailUser);
-     
+     selectedUser.setPassword(password);
         selectedUser.setRoles(typeString);
+        
        selectedUser.setImage(path);
 
         UserService userService = new UserService();
@@ -339,6 +342,7 @@ Image photo=image2.getImage();
         emailU.setCellValueFactory(new PropertyValueFactory<>("email"));
         image.setCellValueFactory(new PropertyValueFactory<>("image"));
           rolesU.setCellValueFactory(new PropertyValueFactory<>("roles"));
+             etatU.setCellValueFactory(new PropertyValueFactory<>("is_active"));
   ObservableList<User> userData = FXCollections.observableArrayList(users);
          table.setItems(userData);
 
@@ -354,6 +358,7 @@ Image photo=image2.getImage();
         email.setText("");
        roles.getSelectionModel().clearSelection();
         image2.setImage(null);
+        Afficher();
     }
     @FXML
   private void getSelected(MouseEvent event) {
@@ -367,7 +372,9 @@ Image photo=image2.getImage();
         nom.setText(nomU.getCellData(index));
         prenom.setText(prenomU.getCellData(index));
         email.setText(emailU.getCellData(index));
-         roles.setValue(rolesU.getCellData(index));
+         roles.setValue(c.getRoles());
+         
+        
          System.out.println("The value of roles is: " + roles.getValue());
          //System.out.println(rolesU);
            Image image = new Image(new File(c.getImage()).toURI().toString());
@@ -444,8 +451,17 @@ void ban(ActionEvent event){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Confirmation");
         alert.setHeaderText(null);
-        alert.setContentText("Utilisateur est bannée !");
+        if(selectedUser.getIs_active()==0){
+            alert.setContentText("Utilisateur est bannée !");
         alert.showAndWait();
+        }
+        else{
+                   alert.setContentText("Utilisateur est débloquer !");
+        alert.showAndWait(); 
+                }
+            
+        
+       
 
         // Réinitialiser les champs
         nom.setText("");
