@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="box" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="792.0" spacing="15.0" style="-fx-background-radius: 15;" styleClass="shadow" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestionEvenement.gui.CardController">
+   <children>
+      <ImageView fx:id="image2" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+      
+      <VBox alignment="CENTER" prefHeight="185.0" prefWidth="246.0" spacing="15.0">
+         <children>
+            <Label fx:id="nom" prefHeight="163.0" prefWidth="230.0" text=" Nom&#10;&#10;&#10;&#10;">
+               <font>
+                  <Font name="Berlin Sans FB Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="description" prefHeight="81.0" prefWidth="244.0" text="desc">
+               <font>
+                  <Font name="Berlin Sans FB" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="datedebut" prefHeight="81.0" prefWidth="244.0" text="date">
+               <font>
+                  <Font name="Berlin Sans FB" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="datefin" prefHeight="81.0" prefWidth="244.0" text="date fin">
+               <font>
+                  <Font name="Berlin Sans FB" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="lieu" prefHeight="81.0" prefWidth="244.0" text="lieu">
+               <font>
+                  <Font name="Berlin Sans FB" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="type" prefHeight="81.0" prefWidth="244.0" text="type">
+               <font>
+                  <Font name="Berlin Sans FB" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="nbParticipant" prefHeight="81.0" prefWidth="244.0" text="nbParticipant">
+               <font>
+                  <Font name="Berlin Sans FB" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="prix" prefHeight="81.0" prefWidth="244.0" text="prix">
+               <font>
+                  <Font name="Berlin Sans FB" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="sponsor" prefHeight="81.0" prefWidth="244.0" text="sponsor">
+               <font>
+                  <Font name="Berlin Sans FB" size="24.0" />
+               </font>
+            </Label>
+          
+         </children>
+      </VBox>
+   </children>
+</HBox>
