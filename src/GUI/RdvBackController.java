@@ -20,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -56,24 +57,29 @@ public class RdvBackController implements Initializable {
  
     
      public void show() {
+    ObservableList<RendezVous> rdvList = FXCollections.observableArrayList(sr.afficherrdv());
+    System.out.println("affichage" + sr.afficherrdv());
 
-        ObservableList<RendezVous> rdvList = FXCollections.observableArrayList(sr.afficherrdv());
-      
+    idR.setCellValueFactory(new PropertyValueFactory<>("id"));
+    coursR.setCellValueFactory(new PropertyValueFactory<>("nomCours"));
+    dateR.setCellValueFactory(new PropertyValueFactory<>("daterdv"));
 
-        System.out.println("affichage" + sr.afficherrdv());
-        idR.setCellValueFactory(new PropertyValueFactory<>("id"));
-        coursR.setCellValueFactory(new PropertyValueFactory<>("nomCours"));
-
-        dateR.setCellValueFactory(new PropertyValueFactory<>("daterdv"));
-        
-        
-
-        tablerdv.setItems(rdvList);
-        
-        //////////////////////////////////////////
-       
+    etatR.setCellValueFactory(new PropertyValueFactory<>("etatrdv"));
+    etatR.setCellFactory(column -> new TableCell<RendezVous, Integer>() {
+        @Override
+        protected void updateItem(Integer item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty) {
+                setText(null);
+            } else {
+                setText(item == 1 ? "traité" : "non traité");
+            }
+        }
+    });
+    
+    tablerdv.setItems(rdvList);
 }
-     
+ 
 @FXML
 void ban(ActionEvent event) throws Exception{
    

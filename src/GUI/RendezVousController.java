@@ -153,7 +153,7 @@ public class RendezVousController implements Initializable {
         coursR.setCellValueFactory(new PropertyValueFactory<>("nomCours"));
 
         dateR.setCellValueFactory(new PropertyValueFactory<>("daterdv"));
-     //   etatR.setCellValueFactory(new PropertyValueFactory<>("etatrdv"));
+       // etatR.setCellValueFactory(new PropertyValueFactory<>("etatrdv"));
 
         System.out.println("affichage" + sr.afficherrdv());
         TableView.setItems(rdvList);
@@ -175,7 +175,7 @@ public class RendezVousController implements Initializable {
         coursR.setCellValueFactory(new PropertyValueFactory<>("nomCours"));
 
         dateR.setCellValueFactory(new PropertyValueFactory<>("daterdv"));
-//                etatR.setCellValueFactory(new PropertyValueFactory<>("etatrdv"));
+       // etatR.setCellValueFactory(new PropertyValueFactory<>("etatrdv"));
 
         
 
