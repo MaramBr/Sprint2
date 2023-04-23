@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -32,6 +33,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.Alert;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -54,6 +56,7 @@ public class ProduitController implements Initializable {
     ServiceProduit sc=new ServiceProduit();
     List<Produit> Produit;
    int index=-1;
+    String path ="";
 
     private int idCategorieToadd ;
     @FXML
@@ -113,6 +116,15 @@ public class ProduitController implements Initializable {
     private TableColumn<Produit, String> CategoryP;
     @FXML
     private ComboBox<String> catPField;
+    
+    @FXML
+    private CheckBox checkAcc;
+
+    @FXML
+    private CheckBox checkApp;
+
+    @FXML
+    private CheckBox checkVet;
 
     
     private Image image;
@@ -156,7 +168,7 @@ public class ProduitController implements Initializable {
         imageP.setCellValueFactory(new PropertyValueFactory<>("image"));
 
         TableView.setItems(ProduitList);
-        chercherCoaching();
+        chercherProduit();
         //////////////////////////////////////////
          ServiceCategorie sc = new ServiceCategorie();
         List<String> nomsCataegory = new ArrayList<>();
@@ -230,7 +242,7 @@ JOptionPane.showMessageDialog(null, "Produit ajouté.");
 
     
     
-    
+    /*
     private void ajouterP(ActionEvent event) {
     Produit p = new Produit();
     // Vérification des champs obligatoires
@@ -278,8 +290,94 @@ JOptionPane.showMessageDialog(null, "Produit ajouté.");
     sc.ajouterProduit(p);
     updateTable();
     JOptionPane.showMessageDialog(null, "Produit ajouté.");
-}
+}*/
+    
+    
+    
+    
+    
+    private void ajouterP(ActionEvent event) {
+        
+                        Image photo=imgView.getImage();
 
+    String nomProduit = nomFieldP.getText();
+    String descProduit = descriptionFieldP.getText();
+    Float prixProduit =  Float.parseFloat(prixFieldP.getText());
+        int quantite =  Integer.parseInt(quantiteFieldP.getText());
+
+    
+           String imagePath = path.substring(path.lastIndexOf("/img/"));
+          Produit u = new Produit(nomProduit, descProduit,quantite ,prixProduit, imagePath);
+
+
+
+   
+    // Vérification de la saisie du nom du produit
+    if (nomProduit.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Veuillez saisir un nom de produit valide.");
+        return;
+    }
+    
+    
+    
+    // Vérification de la saisie de la description du produit
+    if (descProduit.isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Veuillez saisir une description de produit valide.");
+        return;
+    }
+    
+    // Vérification de la saisie du prix du produit
+    //if (!prixProduit.matches("^\\d+(\\.\\d{1,2})?$")) {
+      //  JOptionPane.showMessageDialog(null, "Veuillez saisir un prix de produit valide.");
+      // return;
+   // }
+   
+   // Vérification que la quantité et le prix sont des nombres valides
+
+
+
+    
+    // Vérification de la saisie du chemin d'accès de l'image du produit
+   // if (imageProduit.isEmpty()) {
+    //    JOptionPane.showMessageDialog(null, "Veuillez saisir un chemin d'accès d'image de produit valide.");
+      //  return;
+    //}
+   // if (imageProduitFiled.getText().isEmpty()) {
+     //   JOptionPane.showMessageDialog(null, "Veuillez sélectionner une image de produit.");
+     //   return;
+    //}
+    
+   
+
+    // Toutes les saisies sont valides, création et ajout du produit
+    Produit c = new Produit();
+    c.setNom(nomProduit);
+    c.setDescription(descProduit);
+    
+   try {
+
+c.setPrix(Float.parseFloat(prixFieldP.getText()));
+} catch (NumberFormatException e) {
+JOptionPane.showMessageDialog(null, "La quantité et le prix doivent être des nombres.");
+return;
+}
+    c.setImage(imagePath);
+     c.setIdCategory(idCategorieToadd);
+     
+    
+   
+
+    sc.ajouterProduit(c);
+    updateTable();
+    JOptionPane.showMessageDialog(null, "Produit ajouté.");
+    
+    
+
+    }
+    
+    
+    
+    
     
     
     
@@ -287,6 +385,8 @@ JOptionPane.showMessageDialog(null, "Produit ajouté.");
     
     @FXML
     private void getSelected(MouseEvent event) {
+        
+        Produit c=TableView.getSelectionModel().getSelectedItem();
         
          index =TableView.getSelectionModel().getSelectedIndex();
         if (index <= -1) {
@@ -297,8 +397,9 @@ JOptionPane.showMessageDialog(null, "Produit ajouté.");
         descriptionFieldP.setText(descriptionP.getCellData(index));
         quantiteFieldP.setText(quantiteP.getCellData(index).toString());
         prixFieldP.setText(prixP.getCellData(index).toString());
-        imageFieldP.setText(imageP.getCellData(index));
         catPField.setValue(CategoryP.getCellData(index));
+        Image image = new Image(new File(c.getImage()).toURI().toString());
+            imgView.setImage(image);
 
     
     }
@@ -353,7 +454,7 @@ JOptionPane.showMessageDialog(null, "Produit ajouté.");
 
     @FXML
     private void selectimage(MouseEvent event) {
-        String path ="";
+       
  FileChooser fileChooser = new FileChooser();
     fileChooser.setTitle("Choose Image File");
 
@@ -370,6 +471,8 @@ JOptionPane.showMessageDialog(null, "Produit ajouté.");
 
     Image image = new Image(selectedFile.toURI().toString());
     imgView.setImage(image);
+    
+    
     }
         
     }
@@ -380,7 +483,7 @@ JOptionPane.showMessageDialog(null, "Produit ajouté.");
     
     
         
-     public void chercherCoaching() {
+     public void chercherProduit() {
         FilteredList<Produit> filteredData = new FilteredList<>(FXCollections.observableArrayList(sc.afficherProduit()), b -> true);
         Recherche.textProperty().addListener((observable, oldValue, newValue) -> {
             filteredData.setPredicate(rec -> {
@@ -445,13 +548,82 @@ public void generateStatistics() {
     BarChart<String, Number> chart = new BarChart<>(xAxis, yAxis);
     chart.getData().add(countData);
 
+    // Find the category with the highest count
+    String maxCategory = "";
+    int maxCount = 0;
+    for (String category : countMap.keySet()) {
+        int count = countMap.get(category);
+        if (count > maxCount) {
+            maxCategory = category;
+            maxCount = count;
+        }
+    }
+
+    // Retrieve the list of products for the category with the highest count
+    List<Produit> maxCategoryProduits = new ArrayList<>();
+    for (Produit produit : produitList) {
+        if (produit.getNomCategory().equals(maxCategory)) {
+            maxCategoryProduits.add(produit);
+        }
+    }
+
+    // Show the list of products in a dialog box
+    String message = "Les produits du catégorie \"" + maxCategory + "\":\n";
+    for (Produit produit : maxCategoryProduits) {
+        message += "- " + produit.getNom() + "\n";
+    }
+    Alert maxCategoryAlert = new Alert(Alert.AlertType.INFORMATION);
+    maxCategoryAlert.setTitle("Statistiques des produits");
+    maxCategoryAlert.setHeaderText("La catégorie avec le plus grand nombre des produits est : \"" + maxCategory + "\"");
+    maxCategoryAlert.setContentText(message);
+    maxCategoryAlert.showAndWait();
+
     // Show the chart in a dialog box
     Alert chartAlert = new Alert(Alert.AlertType.INFORMATION);
-    chartAlert.setTitle("Product Statistics");
-    chartAlert.setHeaderText("Number of Products by Category");
+    chartAlert.setTitle("Statistiques des produits");
+    chartAlert.setHeaderText("Nombre des produits par catégorie");
     chartAlert.getDialogPane().setContent(chart);
     chartAlert.showAndWait();
 }
 
+    @FXML
+    private void filtre(ActionEvent event) {
+            ObservableList<Produit> produitList = FXCollections.observableArrayList(sc.afficherProduit());
 
+    
+        
+           boolean accSelected = checkAcc.isSelected();
+    boolean appSelected = checkApp.isSelected();
+    boolean vetSelected = checkVet.isSelected();
+
+    // Créer une liste filtrée en fonction de la valeur des CheckBox
+    List<Produit> filteredList = produitList.stream()
+        .filter(p -> {
+            boolean isAcc = p.getNomCategory().equals("Accessoires");
+            boolean isApp = p.getNomCategory().equals("Appareils");
+            boolean isVet = p.getNomCategory().equals("vetements");
+            return (isAcc && accSelected) || (isApp && appSelected) || (isVet && vetSelected);
+        })
+        .collect(Collectors.toList());
+
+    // Afficher la liste filtrée dans la tableView
+    if (accSelected || appSelected || vetSelected){
+            TableView.setItems(FXCollections.observableArrayList(filteredList));
+
+    }if (!accSelected && !appSelected && !vetSelected){
+              
+         idP.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nomP.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        descriptionP.setCellValueFactory(new PropertyValueFactory<>("description"));
+        quantiteP.setCellValueFactory(new PropertyValueFactory<>("quantite"));
+        prixP.setCellValueFactory(new PropertyValueFactory<>("prix"));
+        imageP.setCellValueFactory(new PropertyValueFactory<>("image"));
+
+        System.out.println("affichage" + sc.afficherProduit());
+         TableView.setItems(produitList);
+        
+    }
+
+
+    }
 }
