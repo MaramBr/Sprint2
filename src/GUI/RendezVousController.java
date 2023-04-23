@@ -90,9 +90,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import jxl.*;
 import java.io.*;
 import java.sql.SQLException;
+import javafx.geometry.Pos;
 import javax.swing.JFileChooser;
 import jxl.read.biff.BiffException;
 import org.apache.poi.ss.usermodel.Row;
+import org.controlsfx.control.Notifications;
 
 
 
@@ -254,8 +256,11 @@ java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 c.setDaterdv(sqlDate);
 sr.ajouter(c);
 updateTable();
-JOptionPane.showMessageDialog(null, "Rendez-vous ajouté avec succès.");
-
+Notifications.create()
+                    .title("Notification")
+                    .text("RendezVous ajoutè.")
+                    .position(Pos.BOTTOM_RIGHT)
+                    .showInformation();
     }
 
     @FXML
@@ -423,6 +428,7 @@ JOptionPane.showMessageDialog(null, "Rendez-vous ajouté avec succès.");
    
     }
 public void importFromExcel() {
+    Connection conn = null;
     try {
         // Afficher le file chooser dialog pour sélectionner le fichier Excel
         JFileChooser fileChooser = new JFileChooser();
@@ -437,8 +443,10 @@ public void importFromExcel() {
             // Récupération de la feuille de calcul
             Sheet sheet = workbook.getSheet(0);
 
+            // Récupération de la connexion à la base de données
+            conn = MyDB.getInstance().getCnx();
+
             // Récupération des données de chaque ligne et insertion dans la base de données
-            Connection conn = MyDB.getInstance().getCnx();
             for (int i = 1; i < sheet.getRows(); i++) {
                 String cours = sheet.getCell(0, i).getContents();
                 String daterdv = sheet.getCell(1, i).getContents(); // récupère le contenu de la cellule sous forme de chaîne de caractères
@@ -466,8 +474,9 @@ public void importFromExcel() {
         
     } catch (Exception e) {
         System.out.println("Erreur lors de l'import des données depuis le fichier Excel : " + e.getMessage());
-    }
+    } 
 }
+
 
 
 
