@@ -6,36 +6,50 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <HBox fx:id="box" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="185.0" prefWidth="400.0" spacing="15.0" style="-fx-background-radius: 15;" styleClass="shadow" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CardController">
    <children>
-      <ImageView fx:id="coursImg" fitHeight="155.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coursImg" fitHeight="177.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/46672.png" />
          </image>
       </ImageView>
-      <VBox alignment="CENTER" prefHeight="185.0" prefWidth="246.0" spacing="15.0">
+      <VBox alignment="CENTER" prefHeight="151.0" prefWidth="230.0" spacing="15.0">
          <children>
-            <Label fx:id="coursName" prefHeight="163.0" prefWidth="230.0" text=" Cours&#10;">
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="coursDesc" alignment="CENTER" contentDisplay="CENTER" prefHeight="74.0" prefWidth="230.0" text=" Cours&#10;" textFill="#970d0d">
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Text fill="#0471ab" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :">
+                     <font>
+                        <Font name="Berlin Sans FB Bold" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <Label fx:id="coursName" prefHeight="40.0" prefWidth="225.0" text=" desc">
                <font>
-                  <Font name="Berlin Sans FB Bold" size="24.0" />
+                  <Font name="Berlin Sans FB" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="coursDesc" prefHeight="81.0" prefWidth="244.0" text="desc">
+            <Text fill="#0471ab" strokeType="OUTSIDE" strokeWidth="0.0" text="Disponibilte :" wrappingWidth="229.185546875">
                <font>
-                  <Font name="Berlin Sans FB" size="24.0" />
+                  <Font name="Berlin Sans FB Bold" size="20.0" />
+               </font>
+            </Text>
+            <Label fx:id="coursDispo" prefHeight="60.0" prefWidth="195.0" text="dispo">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="coursDispo" prefHeight="81.0" prefWidth="244.0" text="dispo">
-               <font>
-                  <Font name="Berlin Sans FB" size="24.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="70.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../img/rating.png" />
-               </image>
-            </ImageView>
          </children>
       </VBox>
    </children>

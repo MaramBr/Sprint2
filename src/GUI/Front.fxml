@@ -4,7 +4,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -14,17 +17,26 @@
       <String fx:value="selected" />
    </styleClass>
    <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="554.0" prefWidth="981.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Label prefHeight="21.0" prefWidth="280.0" text="Les séances de coaching">
-               <font>
-                  <Font name="Baskerville Old Face" size="24.0" />
-               </font>
-               <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-               </padding>
-            </Label>
-            <Pagination fx:id="pagination" prefHeight="438.0" prefWidth="831.0" />
+            <HBox prefHeight="161.0" prefWidth="981.0">
+               <children>
+                  <ImageView fitHeight="194.0" fitWidth="115.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/coach.png" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" prefHeight="133.0" prefWidth="569.0" text="Les séances de coaching">
+                     <font>
+                        <Font name="Baskerville Old Face" size="48.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <Pagination fx:id="pagination" prefHeight="381.0" prefWidth="981.0" />
          </children>
       </VBox>
    </center>

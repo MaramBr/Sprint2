@@ -3,8 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -14,11 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="527.0" prefWidth="831.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CoachingFrontController">
+<AnchorPane id="AnchorPane" prefHeight="351.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CoachingFrontController">
    <children>
-      <BorderPane layoutX="229.0" layoutY="114.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <BorderPane layoutX="-8.0" layoutY="114.0" prefHeight="357.0" prefWidth="646.0" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <right>
-            <VBox prefHeight="527.0" prefWidth="629.0" style="-fx-background-color: FAFAD2;" BorderPane.alignment="CENTER">
+            <VBox prefHeight="205.0" prefWidth="636.0" style="-fx-background-color: FAFAD2;" BorderPane.alignment="CENTER">
                <children>
                   <HBox alignment="CENTER" prefHeight="91.0" prefWidth="604.0">
                      <children>
@@ -40,18 +38,10 @@
                         <Insets left="30.0" right="30.0" />
                      </padding>
                      <children>
-                        <TextField alignment="CENTER" prefHeight="53.0" prefWidth="801.0" promptText="Rechercher " stylesheets="@tableview.css">
-                           <padding>
-                              <Insets left="20.0" />
-                           </padding>
-                           <font>
-                              <Font name="Book Antiqua" size="12.0" />
-                           </font>
-                        </TextField>
                         <TextField fx:id="idField" disable="true" visible="false" />
                      </children>
                   </HBox>
-                  <VBox alignment="CENTER" prefHeight="346.0" prefWidth="603.0">
+                  <VBox alignment="CENTER" prefHeight="273.0" prefWidth="725.0">
                      <children>
                         <HBox prefHeight="59.0" prefWidth="564.0">
                            <children>
@@ -87,17 +77,6 @@
                </children>
             </VBox>
          </right>
-         <left>
-            <TableView fx:id="table" onMouseClicked="#getSelected" prefHeight="527.0" prefWidth="225.0" BorderPane.alignment="CENTER">
-              <columns>
-                <TableColumn fx:id="idC" minWidth="0.0" prefWidth="0.0" text="id" />
-                <TableColumn fx:id="coursC" prefWidth="232.0" text="cours" />
-                  <TableColumn fx:id="descC" minWidth="0.0" prefWidth="42.0" text="desc" />
-                  <TableColumn fx:id="imgC" minWidth="0.0" prefWidth="0.0" text="img" />
-                  <TableColumn fx:id="dispoC" minWidth="0.0" prefWidth="298.0" text="dispo" />
-              </columns>
-            </TableView>
-         </left>
       </BorderPane>
    </children>
 </AnchorPane>

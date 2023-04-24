@@ -190,9 +190,9 @@ public class AjouterCoachingController implements Initializable {
    Coaching u = new Coaching( descCoach,cours, dispoCoach, imagePath);
     
     // Insert new user into the database
-   sc.ajouter(u);
+        sc.ajouter(u);
         updateTable();
-        JOptionPane.showMessageDialog(null, "Seance Ajoutée");
+      //  JOptionPane.showMessageDialog(null, "Seance Ajoutée");
 
         
         
@@ -263,7 +263,7 @@ public class AjouterCoachingController implements Initializable {
 
         sc.modifier(c);
         updateTable();
-        JOptionPane.showMessageDialog(null, "Seance modifiée");
+      //  JOptionPane.showMessageDialog(null, "Seance modifiée");
 
     }
     
@@ -272,19 +272,7 @@ public class AjouterCoachingController implements Initializable {
     
    
 
-    private void SupprimerCoaching(javafx.scene.input.MouseEvent event) {
-           Coaching c = new Coaching();
-        c.setId(Integer.parseInt(idField.getText()));
-        c.setCours(coursField.getText());
-        c.setDispoCoach(dispoCombo.getValue());
-        c.setDescCoach(descField.getText());
-        c.setImgCoach(imgField.getText());
 
-        sc.supprimer(c);
-        updateTable();
-        JOptionPane.showMessageDialog(null, "Seance supprimee");
-    }
-    
     
      public void chercherCoaching() {
         FilteredList<Coaching> filteredData = new FilteredList<>(FXCollections.observableArrayList(sc.afficher()), b -> true);
@@ -347,15 +335,8 @@ public class AjouterCoachingController implements Initializable {
     }
     }
 
-    @FXML
-    private void ModifierCoaching(ActionEvent event) {
-    }
 
-    @FXML
-    private void SupprimerCoaching(ActionEvent event) {
-      
-    }
-
+ 
     @FXML
     private void SupprimerC(javafx.scene.input.MouseEvent event) {
            Coaching c = new Coaching();
@@ -367,7 +348,7 @@ public class AjouterCoachingController implements Initializable {
 
         sc.supprimer(c);
         updateTable();
-        JOptionPane.showMessageDialog(null, "Seance supprimee");
+        //JOptionPane.showMessageDialog(null, "Seance supprimee");
     }
 
  
@@ -430,6 +411,14 @@ public class AjouterCoachingController implements Initializable {
     
     
           
+    }
+
+    @FXML
+    private void ModifierCoaching(ActionEvent event) {
+    }
+
+    @FXML
+    private void SupprimerCoaching(ActionEvent event) {
     }
     
     

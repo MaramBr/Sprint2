@@ -26,6 +26,7 @@ import javafx.scene.control.Pagination;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
@@ -36,8 +37,6 @@ import javafx.scene.layout.VBox;
  */
 public class FrontController implements Initializable {
 
-    @FXML
-    private HBox cardlayoout;
     private List<Coaching> recentlyadd;
     Connection cnx;
     Statement stmt;
@@ -58,24 +57,33 @@ private int pageCount;
     pagination.setPageCount(pageCount);
     pagination.setPageFactory(this::createPage);
 }
-
 private Region createPage(int pageIndex) {
     int startIndex = pageIndex * rowsPerPage;
     int endIndex = Math.min(startIndex + rowsPerPage, recentlyadd.size());
     List<Coaching> pageProducts = recentlyadd.subList(startIndex, endIndex);
 
-    VBox pageContainer = new VBox();
+    HBox pageContainer = new HBox();
     pageContainer.setSpacing(20.0);
     pageContainer.setAlignment(Pos.CENTER);
 
     try {
-        for (Coaching value : pageProducts) {
-            FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("Card.fxml"));
-            HBox cardBox = fxmlLoader.load();
-            CardController cardController = fxmlLoader.getController();
-            cardController.setData(value);
-            pageContainer.getChildren().add(cardBox);
+        for (int i = 0; i < Math.ceil((double) pageProducts.size() / 2); i++) {
+            HBox rowContainer = new HBox();
+            rowContainer.setSpacing(20.0);
+            rowContainer.setAlignment(Pos.CENTER);
+            for (int j = i * 2; j < Math.min(i * 2 + 2, pageProducts.size()); j++) {
+                Coaching value = pageProducts.get(j);
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("Card.fxml"));
+                HBox cardBox = fxmlLoader.load();
+                CardController cardController = fxmlLoader.getController();
+                cardController.setData(value);
+                rowContainer.getChildren().add(cardBox);
+            }
+            // Set alignment to center for each row
+            HBox.setHgrow(rowContainer, Priority.ALWAYS);
+            HBox.setMargin(rowContainer, new Insets(0, 0, 0, (pageContainer.getWidth() - rowContainer.getWidth()) / 2));
+            pageContainer.getChildren().add(rowContainer);
         }
     } catch (IOException e) {
         e.printStackTrace();
@@ -83,6 +91,7 @@ private Region createPage(int pageIndex) {
 
     return pageContainer;
 }
+
 
     
 

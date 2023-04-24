@@ -361,9 +361,7 @@ Notifications.create()
         }
 
         // Fermeture de la connexion à la base de données
-        rs.close();
-        stmt.close();
-        conn.close();
+       
 
         // Écriture du fichier Excel
         workbook.write();

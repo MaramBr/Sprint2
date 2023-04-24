@@ -28,7 +28,7 @@
             <Image url="@images/rdv.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tablerdv" layoutX="134.0" layoutY="173.0" prefHeight="285.0" prefWidth="494.0" stylesheets="@tableview.css">
+      <TableView fx:id="tablerdv" layoutX="134.0" layoutY="173.0" prefHeight="285.0" prefWidth="494.0" stylesheets="@tableview2.css">
         <columns>
           <TableColumn fx:id="idR" prefWidth="75.0" text="idrdv" visible="false" />
           <TableColumn fx:id="coursR" prefWidth="150.0" text="Cours" />

@@ -18,10 +18,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
+
+import javafx.scene.input.MouseEvent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -39,30 +39,14 @@ public class CoachingFrontController implements Initializable {
     @FXML
     private Label dispoField;
   
-    private TableView<Coaching> CoachingTable;
 
-    @FXML
-    private TableColumn<Coaching, Integer> idC;
 
-    @FXML
-    private TableColumn<Coaching, String> coursC;
-
-    @FXML
-    private TableColumn<Coaching, String> descC;
-
-    @FXML
-    private TableColumn<Coaching,String> dispoC;
-
-    @FXML
-    private TableColumn<Coaching, String> imgC;
     
     
  ServiceCoaching sc=new ServiceCoaching();
     ObservableList<Coaching> CoachingList;
    int index=-1;
      String path="";
-    @FXML
-    private TableView<Coaching> table;
     @FXML
     private TextField idField;
 
@@ -72,45 +56,23 @@ public class CoachingFrontController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
          
-      Coaching c = new Coaching();
-       
-         idC.setCellValueFactory(new PropertyValueFactory<>("id"));
-        coursC.setCellValueFactory(new PropertyValueFactory<>("cours"));
-        dispoC.setCellValueFactory(new PropertyValueFactory<>("dispoCoach"));
-        descC.setCellValueFactory(new PropertyValueFactory<>("descCoach"));
-        imgC.setCellValueFactory(new PropertyValueFactory<>("imgCoach"));
-
-        CoachingList = sc.afficher();
-        table.setItems(CoachingList);
      
        
     }    
 
-    @FXML
-    private void getSelected(MouseEvent event) {
-         
-        
-   
-        
-         Coaching c=table.getSelectionModel().getSelectedItem();
-         index = table.getSelectionModel().getSelectedIndex();
-        if (index <= -1) {
-            return;
-        }
-        idField.setText((idC.getCellData(index).toString()));
-        coursField.setText(coursC.getCellData(index));
-        dispoField.setText(dispoC.getCellData(index));
-        descField.setText(descC.getCellData(index));
-            Image image = new Image(new File(c.getImgCoach()).toURI().toString());
-            imgView.setImage(image);
+     public void setData(Coaching c)
+    {
+      Image image = new Image(getClass().getResourceAsStream(c.getImgCoach())) ;
+       imgView.setImage(image);
+        coursField.setText(c.getCours());
+       descField.setText(c.getDescCoach());
+         dispoField.setText(c.getDispoCoach());
 
-   
-    
-    
-          
+  
+        
     }
-    
-    }
+
+}
     
 
     
