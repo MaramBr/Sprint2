@@ -43,7 +43,7 @@
          <graphic>
             <FontAwesomeIconView glyphName="PLUS" size="25" />
          </graphic></Button>
-      <ImageView fx:id="image2" fitHeight="137.0" fitWidth="164.0" layoutX="375.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="image2" fitHeight="137.0" fitWidth="164.0" layoutX="364.0" layoutY="342.0" pickOnBounds="true" preserveRatio="true" />
       <Button layoutX="253.0" layoutY="489.0" mnemonicParsing="false" onAction="#modifier" prefHeight="31.0" prefWidth="96.0" style="-fx-background-color: e15e1c;" text="Modifier">
          <graphic>
             <FontAwesomeIconView glyphName="EDIT" size="25" />
@@ -58,7 +58,7 @@
          </graphic></Button>
       <FontAwesomeIconView />
       <TextField fx:id="idfield" layoutX="135.0" layoutY="379.0" visible="false" />
-      <Button layoutX="1076.0" layoutY="617.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: e15e1c;" text="Retour">
+      <Button layoutX="1042.0" layoutY="617.0" mnemonicParsing="false" onAction="#retour" style="-fx-background-color: e15e1c;" text="Déconnecter">
          <graphic>
             <FontAwesomeIconView glyphName="SIGN_OUT" size="25" />
          </graphic></Button>
@@ -67,11 +67,11 @@
          <graphic>
             <FontAwesomeIconView fill="WHITE" glyphName="SEARCH" size="25" />
          </graphic></Label>
-      <Button layoutX="931.0" layoutY="176.0" mnemonicParsing="false" onAction="#triNom" prefHeight="36.0" prefWidth="128.0" style="-fx-background-color: e15e1c;" text="Tri par Nom">
+      <Button layoutX="931.0" layoutY="176.0" mnemonicParsing="false" onAction="#triNom" prefHeight="36.0" prefWidth="45.0" style="-fx-background-color: e15e1c;">
          <graphic>
             <FontAwesomeIconView glyphName="SORT_ALPHA_ASC" size="25" />
          </graphic></Button>
-      <Button fx:id="stat" layoutX="799.0" layoutY="573.0" mnemonicParsing="false" onAction="#statistique" style="-fx-background-color: e15e1c;" text="Stat">
+      <Button fx:id="stat" layoutX="1056.0" layoutY="176.0" mnemonicParsing="false" onAction="#statistique" style="-fx-background-color: e15e1c;" text="Stat">
          <graphic>
             <FontAwesomeIconView glyphName="PIE_CHART" size="25" />
          </graphic></Button>
@@ -87,6 +87,16 @@
             <Image url="@../images/userv1.png" />
          </image>
       </ImageView>
-      <Button layoutX="595.0" layoutY="576.0" mnemonicParsing="false" onAction="#ban" prefHeight="31.0" prefWidth="150.0" style="-fx-background-color: e15e1c;" text="Bloquer/Débloquer" />
+      <Button layoutX="574.0" layoutY="533.0" mnemonicParsing="false" onAction="#ban" prefHeight="31.0" prefWidth="196.0" style="-fx-background-color: e15e1c;" text="Bloquer/Débloquer" />
+      <FontAwesomeIconView glyphName="LOCK" layoutX="582.0" layoutY="557.0" size="25" />
+      <FontAwesomeIconView glyphName="UNLOCK" layoutX="743.0" layoutY="555.0" size="25" />
+      <Button layoutX="996.0" layoutY="176.0" mnemonicParsing="false" onAction="#triNomDESC" prefHeight="36.0" prefWidth="44.0" style="-fx-background-color: e15e1c;">
+         <graphic>
+            <FontAwesomeIconView glyphName="SORT_ALPHA_DESC" size="25" />
+         </graphic>
+      </Button>
+      <ImageView fx:id="Qr" fitHeight="150.0" fitWidth="200.0" layoutX="840.0" layoutY="514.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="591.0" layoutY="599.0" mnemonicParsing="false" onAction="#Generate" prefHeight="36.0" prefWidth="120.0" style="-fx-background-color: e15e1c;" text="Code Qr" />
+      <FontAwesomeIconView glyphName="QRCODE" layoutX="597.0" layoutY="628.0" onDragDetected="#Generate" size="25" />
    </children>
 </AnchorPane>

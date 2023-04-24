@@ -8,7 +8,10 @@ package GUI;
 import Entities.User;
 import Services.UserService;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.PreparedStatement;
@@ -47,6 +50,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javax.imageio.ImageIO;
+import net.glxn.qrgen.QRCode;
 
 /**
  * FXML Controller class
@@ -93,6 +97,8 @@ public class AdminController implements Initializable {
     private Button stat;
     @FXML
     private TableColumn<?, ?> etatU;
+    @FXML
+    private ImageView Qr;
  
     /**
      * Initializes the controller class.
@@ -327,7 +333,6 @@ Image photo=image2.getImage();
         
     }
     
-  @FXML
     public void Afficher() {
         UserService US =new UserService();
         
@@ -358,6 +363,7 @@ Image photo=image2.getImage();
         email.setText("");
        roles.getSelectionModel().clearSelection();
         image2.setImage(null);
+        Qr.setImage(null);
         Afficher();
     }
     @FXML
@@ -522,5 +528,51 @@ void ban(ActionEvent event){
     stage.show();
         
     }
+    
+            
+                public static String projectPath = System.getProperty("user.dir").replace("\\", "/");
+    private void QRcode(User u) throws FileNotFoundException, IOException {
+        String contenue = "Nom : " + u.getNom()+ "\n" + "Email: " + u.getEmail()+ "\n" + "Role: " + u.getRoles(); 
+        ByteArrayOutputStream out = QRCode.from(contenue).to(net.glxn.qrgen.image.ImageType.JPG).stream();
+        File f = new File(projectPath + "\\src\\images\\" + u.getId()+ ".jpg");
+        System.out.println(f.getPath());
+        FileOutputStream fos = new FileOutputStream(f); //creation du fichier de sortie
+        fos.write(out.toByteArray()); //ecrire le fichier du sortie converter
+        fos.flush(); // creation final
+        Image image = new Image(f.toURI().toString());
+        Qr.setImage(image);
 
+
+     }
+@FXML
+    private void Generate(ActionEvent event) throws IOException {
+                     ObservableList<User> allUsers,SingleUser ;
+             allUsers=table.getItems();
+             SingleUser=table.getSelectionModel().getSelectedItems();
+             User selectedUser = table.getSelectionModel().getSelectedItem();
+             if (selectedUser != null) {
+             //User A = SingleUser.get(0);
+
+            QRcode(selectedUser);
+             }
+             else {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Veuillez sélectionner un utilisateur ");
+        alert.showAndWait();
+    }
+    }
+
+    @FXML
+void triNomDESC(ActionEvent event) {
+          UserService us = new UserService();
+ nomU.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        prenomU.setCellValueFactory(new PropertyValueFactory<>("prenom"));
+        emailU.setCellValueFactory(new PropertyValueFactory<>("email"));
+        image.setCellValueFactory(new PropertyValueFactory<>("image"));
+          rolesU.setCellValueFactory(new PropertyValueFactory<>("roles"));
+       UserList=us.TriNomDESC();
+             table.setItems(UserList);
+    }//Ban a user
 }

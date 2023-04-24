@@ -14,15 +14,19 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import static javax.swing.text.html.parser.DTDConstants.MS;
 
 /**
@@ -64,7 +68,9 @@ public class CodeTestController implements Initializable {
       User us = U.getUser(email);
       System.out.println(us.getPrenom()+us.getEmail());
         //MS.send(us.getPrenom()+ us.getNom()+"Mr ou Madame"+" voila ton code est "+b, email);
-         JavaMail.sendMail("Bonjour"+"Mr/Mme"+ us.getNom()+"\t"+us.getPrenom()+"\t"+"voila ton code est "+b,email);
+         JavaMail.sendMail("Bonjour,\n\n"+"Mr/Mme"+"\t"+ us.getNom()+"\t"+us.getPrenom()+"\t"+"Veuillez saisir le code suivant pour vérifier votre compte: "+"\t"+b+"\n\n" +
+                 "Cordialement,\n" +
+                 "L'équipe de support technique de E-FIT",email);
         send.setOnAction(e->{
             String c=code1.getText();
         if(c.equals(s)){
@@ -104,4 +110,21 @@ public class CodeTestController implements Initializable {
         // TODO
     
 }
+       @FXML
+  void retour(ActionEvent event) {
+        try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("mdpoubliee.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+                  
+
+
+     
+            } catch (IOException ex) {
+                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+    }
 }

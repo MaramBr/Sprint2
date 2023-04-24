@@ -25,6 +25,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -44,10 +45,6 @@ public class LoginController implements Initializable {
     private TextField emailLogin;
     @FXML
     private PasswordField pwdLogin;
-    @FXML
-    private Button btnLogin;
-    @FXML
-    private Label label;
      @FXML
     private Text nullErr;
        @FXML
@@ -55,6 +52,7 @@ public class LoginController implements Initializable {
         @FXML
     private AnchorPane rootPane;
     @FXML
+    private Button btnlogin;
     private void handleClose(ActionEvent event){
         System.exit(0);
     }
@@ -157,9 +155,8 @@ public class LoginController implements Initializable {
         }
     }    
     
-    
-      @FXML
-    void Gotoacoount(ActionEvent event) {
+    @FXML
+      void Gotoacoount(ActionEvent event) {
         try {
                 Parent page1 = FXMLLoader.load(getClass().getResource("signup.fxml"));
                 Scene scene = new Scene(page1);
@@ -175,6 +172,29 @@ public class LoginController implements Initializable {
             }
         
 
+    }
+
+      @FXML
+      void mdpoubliee(ActionEvent event) {
+        try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("mdpoubliee.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+                  
+
+
+     
+            } catch (IOException ex) {
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+
+    }
+
+    @FXML
+    private void handleClose(MouseEvent event) {
     }
     
 }

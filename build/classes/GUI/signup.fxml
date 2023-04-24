@@ -1,26 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="678.0" prefWidth="1182.0" style="-fx-background-color: #FF8C00;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SignupController">
+<AnchorPane id="AnchorPane" prefHeight="678.0" prefWidth="1182.0" styleClass="bg-form" stylesheets="@login1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SignupController">
    <children>
-      <Label layoutX="63.0" layoutY="83.0" text="nom" />
-      <TextField fx:id="nomsignup" layoutX="107.0" layoutY="82.0" />
-      <Label layoutX="47.0" layoutY="143.0" text="prenom" />
-      <TextField fx:id="prenomsignup" layoutX="108.0" layoutY="138.0" />
-      <Label layoutX="45.0" layoutY="200.0" text="email" />
-      <TextField fx:id="emailsignup" layoutX="109.0" layoutY="195.0" />
-      <Label layoutX="48.0" layoutY="253.0" text="mdp" />
-      <PasswordField fx:id="mdpsignup" layoutX="109.0" layoutY="248.0" />
-      <Button layoutX="403.0" layoutY="98.0" mnemonicParsing="false" onAction="#ajouterimagesignup" text="upload image" />
-      <Button layoutX="212.0" layoutY="334.0" mnemonicParsing="false" onAction="#ajoutesignup" text="AJOUTER" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="359.0" layoutY="146.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="imagesignup" fitHeight="150.0" fitWidth="200.0" layoutX="369.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true" />
-      <Button layoutX="31.0" layoutY="350.0" mnemonicParsing="false" onAction="#retour" text="Retour" />
+      <ImageView fitHeight="768.0" fitWidth="1182.0" mouseTransparent="true" opacity="0.12" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/start.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="375.0" layoutY="191.0" text="Nom:">
+         <font>
+            <Font name="Bodoni MT Black" size="24.0" />
+         </font></Label>
+      <TextField fx:id="nomsignup" layoutX="485.0" layoutY="193.0" />
+      <Label layoutX="360.0" layoutY="263.0" text="prenom:">
+         <font>
+            <Font name="Bodoni MT Black" size="24.0" />
+         </font></Label>
+      <TextField fx:id="prenomsignup" layoutX="485.0" layoutY="258.0" />
+      <Label layoutX="365.0" layoutY="324.0" text="email:">
+         <font>
+            <Font name="Bodoni MT Black" size="24.0" />
+         </font></Label>
+      <TextField fx:id="emailsignup" layoutX="484.0" layoutY="321.0" />
+      <Label layoutX="364.0" layoutY="383.0" text="mdp:">
+         <font>
+            <Font name="Bodoni MT Black Italic" size="24.0" />
+         </font></Label>
+      <PasswordField fx:id="mdpsignup" layoutX="485.0" layoutY="386.0" />
+      <Button layoutX="523.0" layoutY="443.0" mnemonicParsing="false" onAction="#ajouterimagesignup" text="upload image" />
+      <Button layoutX="445.0" layoutY="541.0" mnemonicParsing="false" onAction="#ajoutesignup" prefHeight="47.0" prefWidth="283.0" styleClass="btn" text="S'inscrire" textFill="WHITE">
+         <font>
+            <Font name="Bodoni MT Bold" size="24.0" />
+         </font></Button>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="623.0" layoutY="353.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagesignup" fitHeight="150.0" fitWidth="200.0" layoutX="651.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
+      <HBox layoutX="43.0" layoutY="667.0">
+         <children>
+            <FontAwesomeIconView glyphName="SIGN_IN" size="35" />
+            <Button mnemonicParsing="false" onAction="#retour" prefHeight="34.0" prefWidth="117.0" styleClass="btn" text="Se Connecter" textFill="WHITE">
+               <font>
+                  <Font name="Bodoni MT Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <Pane layoutX="-39.0" layoutY="113.0" prefHeight="6.0" prefWidth="1196.0" style="-fx-background-color: white;" />
+      <FontAwesomeIconView glyphName="USER_PLUS" layoutX="55.0" layoutY="92.0" size="100" wrappingWidth="72.14285659790039" />
+      <Label layoutX="361.0" layoutY="448.0" text="Photo:">
+         <font>
+            <Font name="Bodoni MT Black Italic" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="413.0" layoutY="47.0" text="BIENVENUE">
+         <font>
+            <Font name="Bodoni MT Bold Italic" size="41.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

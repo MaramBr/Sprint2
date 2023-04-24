@@ -328,4 +328,25 @@ pst.setString(1, myPwd);
             System.out.println(ex.getMessage());
         }
     }
+     
+      public ObservableList<User> TriNomDESC() {
+        ObservableList<User> list = FXCollections.observableArrayList();
+        try {
+         //   String req = "Select * from espacetalent where roles like '%[]%' order by nom";
+                String req = "Select * from user  order by Nom DESC";
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(req);
+
+            while (rs.next()) {
+            //    EspaceTalent u = new EspaceTalent(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"), rs.getString("username"), rs.getString("email"), rs.getString("file"), rs.getInt("etat"), rs.getDate("created_at"));
+               User a = new User( rs.getString("Nom"), rs.getString("Prenom"),rs.getString("Password"),rs.getString("Email"),rs.getString("roles"),rs.getString("Image")); 
+        list.add(a) ;
+        
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return list;
+    }
 }

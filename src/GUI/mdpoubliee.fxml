@@ -1,21 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="678.0" prefWidth="1182.0" style="-fx-background-color: e15e1c;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MdpoublieeController">
+<AnchorPane id="AnchorPane" prefHeight="678.0" prefWidth="1182.0" styleClass="bg-form" stylesheets="@login1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MdpoublieeController">
    <children>
-      <TextField fx:id="emailmdp" layoutX="208.0" layoutY="185.0" />
-      <Label layoutX="130.0" layoutY="185.0" text="Email" />
-      <Button fx:id="mdpOublier" layoutX="243.0" layoutY="257.0" mnemonicParsing="false" onAction="#mdpOublier" text="SEND" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="186.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="768.0" fitWidth="1182.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" />
+      <HBox layoutX="391.0" layoutY="263.0" styleClass="textlab">
+         <children>
+            <FontAwesomeIconView glyphName="USER" size="25" styleClass="textlab">
+               <HBox.margin>
+                  <Insets left="10.0" top="7.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <TextField fx:id="emailmdp" prefHeight="39.0" prefWidth="250.0" promptText="username@esprit.tn" style="-fx-background-color: transparent;" />
+         </children>
+      </HBox>
+      <Label layoutX="306.0" layoutY="269.0" text="Email:">
+         <font>
+            <Font name="Bodoni MT Bold" size="24.0" />
+         </font></Label>
+      <Button fx:id="mdpOublier" layoutX="455.0" layoutY="378.0" mnemonicParsing="false" onAction="#mdpOublier" prefHeight="39.0" prefWidth="166.0" styleClass="btn" text="Envoyer" textFill="WHITE" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="24.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/log.png" />
          </image>
       </ImageView>
+      <Pane layoutX="-29.0" layoutY="144.0" prefHeight="6.0" prefWidth="1196.0" style="-fx-background-color: white;" />
+      <Button layoutX="39.0" layoutY="690.0" mnemonicParsing="false" onAction="#retour" prefHeight="49.0" prefWidth="65.0" styleClass="btn" />
+      <FontAwesomeIconView fill="WHITE" glyphName="REPLY" layoutX="53.0" layoutY="724.0" size="30" />
    </children>
 </AnchorPane>

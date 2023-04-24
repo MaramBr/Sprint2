@@ -25,8 +25,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -55,6 +59,8 @@ public class ProfilController implements Initializable {
     private PasswordField newpwd;
     @FXML
     private TextField prenom;
+    @FXML
+    private Circle circle;
     @ FXML
        void btn_changer_nom(ActionEvent event) {
                     String imagePath = path;
@@ -89,7 +95,11 @@ Image photo=improfile.getImage();
     // load the selected image into the image view
     path=selectedFile.getAbsolutePath();
     Image image = new Image(selectedFile.toURI().toString());
-    improfile.setImage(image);
+    //improfile.setImage(image);
+    circle.setStroke(Color.SEAGREEN);
+    circle.setFill(new ImagePattern(image));
+    circle.setEffect(new DropShadow(+25d,0d,+2d,Color.DARKSEAGREEN));
+
     }
     }
        
@@ -143,10 +153,14 @@ Image photo=improfile.getImage();
     id.setText(String.valueOf(UserConnected.getId()));
     Nom.setText(UserConnected.getNom());
     email.setText(UserConnected.getEmail());
+      prenom.setText(UserConnected.getPrenom());
     String im=UserConnected.getImage();
     System.out.println("image est "+im);
     Image image = new Image(new File(UserConnected.getImage()).toURI().toString());
-    improfile.setImage(image);
+    //improfile.setImage(image);
+   circle.setStroke(Color.SEAGREEN);
+    circle.setFill(new ImagePattern(image));
+    circle.setEffect(new DropShadow(+25d,0d,+2d,Color.DARKSEAGREEN));
 
     User user = new User();
     user.setId(UserConnected.getId());

@@ -17,12 +17,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -53,7 +56,15 @@ public class MdpoublieeController implements Initializable {
     private void mdpOublier(ActionEvent event) throws Exception {
         UserService u = new UserService();
         //System.out.println(emailmdp.getText());
-       if(u.existence(emailmdp.getText())==0){
+          if (emailmdp.getText().isEmpty() || !emailmdp.getText().matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Veuillez saisir une adresse email valide.");
+        alert.showAndWait();
+        return;
+    }
+         if(u.existence(emailmdp.getText())==0){
            FXMLLoader blog_parent = new FXMLLoader(getClass().getResource("/GUI/CodeTest.fxml"));
         try {
            
@@ -78,6 +89,24 @@ public class MdpoublieeController implements Initializable {
         alert.showAndWait();
        }
        
+    }
+    
+         @FXML
+  void retour(ActionEvent event) {
+        try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("login.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+                  
+
+
+     
+            } catch (IOException ex) {
+                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
     }
 
     
