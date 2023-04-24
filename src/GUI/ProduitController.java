@@ -477,9 +477,6 @@ return;
         
     }
 
-    @FXML
-    private void voirProduit(ActionEvent event) {
-    }
     
     
         
