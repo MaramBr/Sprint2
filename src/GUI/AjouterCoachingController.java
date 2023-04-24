@@ -20,6 +20,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -187,6 +188,7 @@ public class AjouterCoachingController implements Initializable {
     JOptionPane.showMessageDialog(null, "Veuillez ajouter une image");
     return;
 }
+         //instanciation de entite coaching
    Coaching u = new Coaching( descCoach,cours, dispoCoach, imagePath);
     
     // Insert new user into the database
@@ -274,36 +276,32 @@ public class AjouterCoachingController implements Initializable {
 
 
     
-     public void chercherCoaching() {
-        FilteredList<Coaching> filteredData = new FilteredList<>(FXCollections.observableArrayList(sc.afficher()), b -> true);
-        chercherField.textProperty().addListener((observable, oldValue, newValue) -> {
-            filteredData.setPredicate(rec -> {
-                if (newValue == null || newValue.isEmpty()) {
-                    return true;
-                }
-                String lowerCaseFilter = newValue.toLowerCase();
-                if (rec.getCours().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-                    return true;
-                } else if (rec.getDispoCoach().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-                    return true;
-                } else if (rec.getDescCoach().toLowerCase().indexOf(lowerCaseFilter) != -1) {
-                    return true;
-                } else {
-                    return false;
-                }
+    public void chercherCoaching() {
+    ObservableList<Coaching> coachingList = FXCollections.observableArrayList(sc.afficher());
 
-            });
+    FilteredList<Coaching> filteredData = coachingList.filtered(b -> true);
+    chercherField.textProperty().addListener((observable, oldValue, newValue) -> {
+        filteredData.setPredicate(rec -> {
+            if (newValue == null || newValue.isEmpty()) {
+                return true;
+            }
+            String lowerCaseFilter = newValue.toLowerCase();
+            return Stream.of(rec.getCours(), rec.getDispoCoach(), rec.getDescCoach())
+                    .anyMatch(field -> field.toLowerCase().contains(lowerCaseFilter));
         });
-        SortedList<Coaching> sortedData = new SortedList<>(filteredData);
-        sortedData.comparatorProperty().bind(CoachingTable.comparatorProperty());
-        CoachingTable.setItems(sortedData);
-    }
+    });
+
+    SortedList<Coaching> sortedData = filteredData.sorted();
+    sortedData.comparatorProperty().bind(CoachingTable.comparatorProperty());
+    CoachingTable.setItems(sortedData);
+}
+
 
      
 @FXML
     private void filtreCoaching(ActionEvent event) {
         
-        boolean yogaSelected = checkYoga.isSelected();
+    boolean yogaSelected = checkYoga.isSelected();
     boolean fitnessSelected = checkFitness.isSelected();
     boolean boxingSelected = checkBoxing.isSelected();
 

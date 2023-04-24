@@ -83,7 +83,7 @@ private  String [] colors = {"B9E5FF","BDB2FE","FB9AA8","FF5056"} ;
             stage.initStyle(StageStyle.UTILITY);
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger("USer C").log(Level.SEVERE, null, ex);
+            Logger.getLogger("C").log(Level.SEVERE, null, ex);
         }
     }
     

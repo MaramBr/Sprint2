@@ -122,14 +122,14 @@ public class RdvBackController implements Initializable {
 void ban(ActionEvent event) throws Exception{
    
     String typeString ;
-     RendezVous selectedUser = tablerdv.getSelectionModel().getSelectedItem();
-    if (selectedUser != null) {
+     RendezVous selectedrdv = tablerdv.getSelectionModel().getSelectedItem();
+    if (selectedrdv != null) {
        
          
        
         ServiceRendezVous rdvs = new ServiceRendezVous();
-        rdvs.mailing(selectedUser.getId());
-       if(selectedUser.getEtatrdv()==0){
+        rdvs.mailing(selectedrdv.getId());
+       if(selectedrdv.getEtatrdv()==0){
        JavaMail.sendMail("VOTRE RESERVATION EST CONFIRMEE!!","maram.brinsi@esprit.tn");
        
        

@@ -68,8 +68,7 @@ public class CoachingFrontController implements Initializable {
        descField.setText(c.getDescCoach());
          dispoField.setText(c.getDispoCoach());
 
-  
-        
+
     }
 
 }

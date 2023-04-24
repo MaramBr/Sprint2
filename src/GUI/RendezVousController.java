@@ -248,7 +248,7 @@ if (selectedDate.isAfter(threeMonthsAgo)) {
 
 // Si la date est valide, ajouter le rendez-vous
 RendezVous c = new RendezVous();
-//c.setIdCoaching(idCoachingToadd);
+c.setIdCoaching(idCoachingToadd);
 Date utilDate = Date.from(selectedDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
 java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
 c.setDaterdv(sqlDate);
