@@ -20,7 +20,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" onMouseClicked="#getSelected" prefHeight="527.0" prefWidth="831.0" style="-fx-background-color: #1E1E1E;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterCoachingController">
+<AnchorPane id="AnchorPane" onMouseClicked="#getSelected" prefHeight="527.0" prefWidth="981.0" style="-fx-background-color: #1E1E1E;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterCoachingController">
    <stylesheets>
         <URL value="@tableview.css" />
     </stylesheets>
@@ -57,7 +57,7 @@
             </LinearGradient>
          </textFill></Label>
       <Button fx:id="imgField" layoutX="118.0" layoutY="304.0" mnemonicParsing="false" onAction="#choisirImage" style="-fx-background-color: e15e1c;" text="inserer une image " />
-      <TableView fx:id="CoachingTable" layoutX="364.0" layoutY="165.0" onMouseClicked="#getSelected" prefHeight="206.0" prefWidth="363.0">
+      <TableView fx:id="CoachingTable" layoutX="480.0" layoutY="158.0" onMouseClicked="#getSelected" prefHeight="206.0" prefWidth="363.0">
         <columns>
           <TableColumn fx:id="idC" minWidth="0.0" prefWidth="0.0" text="Id" />
           <TableColumn fx:id="CoursC" prefWidth="81.0" text="Cours" />
@@ -66,14 +66,14 @@
             <TableColumn fx:id="ImgC" prefWidth="59.0" text="Image" />
         </columns>
       </TableView>
-      <Button fx:id="ModifierC" layoutX="483.0" layoutY="435.0" mnemonicParsing="false" onAction="#ModifierCoaching" prefHeight="31.0" prefWidth="83.0" text="Modifier" visible="false" />
-      <TextField fx:id="idField" layoutX="455.0" layoutY="316.0" prefHeight="0.0" prefWidth="5.0" visible="false" />
-      <Button layoutX="606.0" layoutY="450.0" mnemonicParsing="false" onAction="#SupprimerCoaching" prefHeight="31.0" prefWidth="92.0" text="Supprimer" visible="false" />
-      <BorderPane layoutX="324.0" layoutY="150.0" prefHeight="319.0" prefWidth="4.0" style="-fx-background-color: e15e1c;" />
-      <TextField fx:id="chercherField" layoutX="365.0" layoutY="115.0" prefHeight="31.0" prefWidth="180.0" promptText="Recchercher" />
-      <Button fx:id="refreshB" layoutX="624.0" layoutY="415.0" mnemonicParsing="false" onAction="#updateTable" text="Refresh" />
+      <Button fx:id="ModifierC" layoutX="599.0" layoutY="428.0" mnemonicParsing="false" onAction="#ModifierCoaching" prefHeight="31.0" prefWidth="83.0" text="Modifier" visible="false" />
+      <TextField fx:id="idField" layoutX="571.0" layoutY="309.0" prefHeight="0.0" prefWidth="5.0" visible="false" />
+      <Button layoutX="722.0" layoutY="443.0" mnemonicParsing="false" onAction="#SupprimerCoaching" prefHeight="31.0" prefWidth="92.0" text="Supprimer" visible="false" />
+      <BorderPane layoutX="375.0" layoutY="150.0" prefHeight="319.0" prefWidth="4.0" style="-fx-background-color: e15e1c;" />
+      <TextField fx:id="chercherField" layoutX="481.0" layoutY="108.0" prefHeight="31.0" prefWidth="180.0" promptText="Recchercher" />
+      <Button fx:id="refreshB" layoutX="740.0" layoutY="408.0" mnemonicParsing="false" onAction="#updateTable" text="Refresh" />
       <ComboBox fx:id="dispoCombo" layoutX="115.0" layoutY="264.0" prefHeight="31.0" prefWidth="149.0" />
-      <SplitPane dividerPositions="0.5" layoutX="364.0" layoutY="382.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: e15e1c;">
+      <SplitPane dividerPositions="0.5" layoutX="480.0" layoutY="375.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: e15e1c;">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="13.0" prefWidth="158.0">
                <children>

@@ -54,18 +54,19 @@ public class MenuFrontController implements Initializable {
     }
 
     @FXML
-    private void BackC(MouseEvent event) {
-          try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/GUI/Menu.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.show();}
-        catch (IOException ex) {
-            System.out.println(ex);        }
+    private void BackC(MouseEvent event) throws IOException {
+         mainPane.getChildren().clear();
+        Parent Content = FXMLLoader.load(getClass().getResource("AjouterCoaching.fxml"));
+        mainPane.getChildren().setAll(Content);
         
       
+    }
+
+    @FXML
+    private void Backrdv(MouseEvent event) throws IOException {
+           mainPane.getChildren().clear();
+        Parent Content = FXMLLoader.load(getClass().getResource("rdvBack.fxml"));
+        mainPane.getChildren().setAll(Content);
     }
     
 }

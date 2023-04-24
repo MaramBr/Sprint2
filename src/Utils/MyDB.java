@@ -8,6 +8,7 @@ package Utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import javafx.stage.Stage;
 
 /**
  *
@@ -19,6 +20,26 @@ public class MyDB {
     final String USERNAME ="root";
     final String PWD ="";
    private  Connection cnx;
+   private static int idCoachingToPick;
+    private static Stage stageAdresse;
+   
+
+    public static Stage getStageAdresse() {
+        return stageAdresse;
+    }
+
+    public static void setStageAdresse(Stage stageAdresse) {
+        MyDB.stageAdresse = stageAdresse;
+    }
+
+
+    public static int getIdCoachingToPick() {
+        return idCoachingToPick;
+    }
+
+    public static void setIdCoachingToPick(int idCoachingToPick) {
+        MyDB.idCoachingToPick = idCoachingToPick;
+    }
     
     private MyDB(){
         try {

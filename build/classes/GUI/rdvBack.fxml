@@ -28,14 +28,17 @@
             <Image url="@images/rdv.png" />
          </image>
       </ImageView>
-      <TableView fx:id="tablerdv" layoutX="134.0" layoutY="173.0" prefHeight="285.0" prefWidth="494.0" stylesheets="@tableview2.css">
+      <TableView fx:id="tablerdv" layoutX="127.0" layoutY="198.0" prefHeight="298.0" prefWidth="657.0" stylesheets="@tableview2.css">
         <columns>
           <TableColumn fx:id="idR" prefWidth="75.0" text="idrdv" visible="false" />
-          <TableColumn fx:id="coursR" prefWidth="150.0" text="Cours" />
-            <TableColumn fx:id="dateR" prefWidth="181.0" text="date" />
-            <TableColumn fx:id="etatR" prefWidth="162.0" text="etat" />
+          <TableColumn fx:id="coursR" prefWidth="185.0" text="Cours" />
+            <TableColumn fx:id="dateR" prefWidth="221.0" text="date" />
+            <TableColumn fx:id="etatR" prefWidth="181.0" text="etat" />
         </columns>
       </TableView>
-      <Button fx:id="Etat" layoutX="669.0" layoutY="251.0" mnemonicParsing="false" onAction="#ban" prefHeight="25.0" prefWidth="82.0" text="Traiter" />
+      <Button fx:id="Etat" layoutX="822.0" layoutY="314.0" mnemonicParsing="false" onAction="#ban" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: cc5d02;" text="Traiter" textFill="WHITE" />
+      <Button layoutX="246.0" layoutY="148.0" mnemonicParsing="false" onAction="#statistique" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: white;" text="Statistique" textFill="#cc5d02" />
+      <Button layoutX="534.0" layoutY="148.0" mnemonicParsing="false" onAction="#Import" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: white;" text="Import" textFill="#cc5d02" />
+      <Button layoutX="389.0" layoutY="148.0" mnemonicParsing="false" onAction="#Export" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: white;" text="Export" textFill="#cc5d02" />
    </children>
 </AnchorPane>
