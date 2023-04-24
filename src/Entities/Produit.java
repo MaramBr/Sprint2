@@ -11,8 +11,16 @@ package Entities;
  */
 public class Produit {
     
-    private int id,quantite,idCategory ;
+    private int id,quantite,idCategory ,likes;
     private String nom ,description,image,nomCategory ;
+
+    public int getLikes() {
+        return likes;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
 
     public Produit(int quantite, int idCategory, String nom, String description, String image, float prix) {
         this.quantite = quantite;

@@ -4,9 +4,12 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FrontPController">
@@ -15,36 +18,29 @@
         <String fx:value="selected" />
     </styleClass>
     <center>
-        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: black;">
             <children>
-                <Label prefHeight="21.0" prefWidth="280.0" text="La Liste Des Produits">
+            <Pane prefHeight="21.0" prefWidth="1434.0" style="-fx-background-color: e15e1c;" />
+                <Label alignment="TOP_LEFT" prefHeight="21.0" prefWidth="280.0" text="La Liste Des Produits" textFill="#c93a0f">
                     <font>
                         <Font name="Berlin Sans FB" size="24.0" />
                     </font>
                     <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                     </padding>
-                    <textFill>
-                    <Color fx:id="orange" red="1.0" green="0.647" blue="0.0" />
-                    </textFill>
                 </Label>
-                <Pagination fx:id="pagination" prefHeight="747.0" prefWidth="1315.0" />
+                <Pagination fx:id="pagination" prefHeight="579.0" prefWidth="1295.0" style="-fx-background-color: white;">
+               <effect>
+                  <Lighting diffuseConstant="2.0" specularConstant="2.0" specularExponent="38.05" surfaceScale="0.0">
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect></Pagination>
             </children>
-            <style>
-                .card {
-                    -fx-background-color: black;
-                    -fx-background-radius: 5;
-                    -fx-padding: 10px;
-                }
-                .card-title {
-                    -fx-font-size: 18px;
-                    -fx-text-fill: #FFA500;
-                }
-                .card-subtitle {
-                    -fx-font-size: 14px;
-                    -fx-text-fill: white;
-                }
-            </style>
         </VBox>
     </center>
 </BorderPane>

@@ -11,12 +11,18 @@
             <file>file:/C:/Users/21692/Desktop/PI/src/GUI/ProduitController.java</file>
             <file>file:/C:/Users/21692/Desktop/PI/src/Services/ServiceProduit.java</file>
             <file>file:/C:/Users/21692/Desktop/PI/src/pi/Categorie.java</file>
+            <file>file:/C:/Users/21692/Desktop/PI/src/GUI/rating.fxml</file>
+            <file>file:/C:/Users/21692/Desktop/PI/src/Entities/ProduitLike.java</file>
+            <file>file:/C:/Users/21692/Desktop/PI/src/Services/ServiceCategorie.java</file>
             <file>file:/C:/Users/21692/Desktop/PI/src/pi/PI.java</file>
             <file>file:/C:/Users/21692/Desktop/PI/src/GUI/FrontPController.java</file>
             <file>file:/C:/Users/21692/Desktop/PI/src/GUI/CardController.java</file>
+            <file>file:/C:/Users/21692/Desktop/PI/src/GUI/RatingController.java</file>
             <file>file:/C:/Users/21692/Desktop/PI/src/GUI/frontP.fxml</file>
             <file>file:/C:/Users/21692/Desktop/PI/src/Entities/Produit.java</file>
             <file>file:/C:/Users/21692/Desktop/PI/src/Services/ICService.java</file>
+            <file>file:/C:/Users/21692/Desktop/PI/src/util/MyDB.java</file>
+            <file>file:/C:/Users/21692/Desktop/PI/src/Entities/ProductRating.java</file>
         </group>
     </open-files>
 </project-private>
