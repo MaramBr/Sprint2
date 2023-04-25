@@ -211,7 +211,7 @@ void VoirUser(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Erreur");
         alert.setHeaderText(null);
-        alert.setContentText("mot de passe doit Sup a 5 caracteres");
+        alert.setContentText("mot de passe doit Supérieur a 5 caracteres");
         alert.showAndWait();
         return;
     }
@@ -261,7 +261,40 @@ void VoirUser(ActionEvent event) {
         String password = mdp.getText();
         String emailUser = email.getText();
          //System.out.println("The value: " + roles.getValue());
-       
+        if (emailUser.isEmpty() || !emailUser.matches("[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}")) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Veuillez saisir une adresse email valide.");
+        alert.showAndWait();
+        return;
+    }
+    
+    if (nomUser.isEmpty() || !nomUser.matches("[a-zA-Z]+")) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Un Nom ne doit contenir que des lettres.");
+        alert.showAndWait();
+        return;
+    }
+     
+      if (prenomUser.isEmpty() || !prenomUser.matches("[a-zA-Z]+")) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Un prenom ne doit contenir que des lettres.");
+        alert.showAndWait();
+        return;
+    }
+       if (password.isEmpty() || !(password.length() > 5)) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("mot de passe doit Sup a 5 caracteres");
+        alert.showAndWait();
+        return;
+    }
         
         typeString = "[\"ROLE_"+roles.getValue()+"\"]";
           String imagePath=selectedUser.getImage();
@@ -455,14 +488,14 @@ void ban(ActionEvent event){
 
         // Afficher un message de confirmation
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Confirmation");
+        //alert.setTitle("Confirmation");
         alert.setHeaderText(null);
         if(selectedUser.getIs_active()==0){
-            alert.setContentText("Utilisateur est bannée !");
+            alert.setContentText("Utilisateur est bloqué !");
         alert.showAndWait();
         }
         else{
-                   alert.setContentText("Utilisateur est débloquer !");
+                   alert.setContentText("Utilisateur est débloqué !");
         alert.showAndWait(); 
                 }
             
@@ -532,7 +565,7 @@ void ban(ActionEvent event){
             
                 public static String projectPath = System.getProperty("user.dir").replace("\\", "/");
     private void QRcode(User u) throws FileNotFoundException, IOException {
-        String contenue = "Nom : " + u.getNom()+ "\n" + "Email: " + u.getEmail()+ "\n" + "Role: " + u.getRoles(); 
+        String contenue = "Nom : " + u.getNom()+"Prenom :"+u.getPrenom()+ "\n" + "Email: " + u.getEmail()+ "\n" + "Role: " + u.getRoles(); 
         ByteArrayOutputStream out = QRCode.from(contenue).to(net.glxn.qrgen.image.ImageType.JPG).stream();
         File f = new File(projectPath + "\\src\\images\\" + u.getId()+ ".jpg");
         System.out.println(f.getPath());

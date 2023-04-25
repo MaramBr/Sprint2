@@ -64,7 +64,7 @@
          </font>
       </Label>
       <FontAwesomeIconView fill="WHITE" glyphName="REPLY" layoutX="52.0" layoutY="605.0" size="27" />
-      <Circle fx:id="circle" fill="DODGERBLUE" layoutX="691.0" layoutY="255.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="circle" fill="DODGERBLUE" layoutX="708.0" layoutY="241.0" radius="83.0" stroke="BLACK" strokeType="INSIDE" />
       
    </children>
 </AnchorPane>

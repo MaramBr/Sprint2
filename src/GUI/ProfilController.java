@@ -96,7 +96,8 @@ Image photo=improfile.getImage();
     path=selectedFile.getAbsolutePath();
     Image image = new Image(selectedFile.toURI().toString());
     //improfile.setImage(image);
-    circle.setStroke(Color.SEAGREEN);
+    //circle.setStroke(Color.SEAGREEN);
+    circle.setStroke(Color.TRANSPARENT);
     circle.setFill(new ImagePattern(image));
     circle.setEffect(new DropShadow(+25d,0d,+2d,Color.DARKSEAGREEN));
 

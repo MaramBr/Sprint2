@@ -14,6 +14,17 @@ public class Session {
     private static String roles;
     private static String password;
      private static String image;
+     private static int  is_active;
+
+    public static int getIs_active() {
+        return is_active;
+    }
+
+    public static void setIs_active(int is_active) {
+        Session.is_active = is_active;
+    }
+
+ 
     public static String getImage() {
         return image;
     }

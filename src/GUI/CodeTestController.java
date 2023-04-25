@@ -67,9 +67,10 @@ public class CodeTestController implements Initializable {
       UserService U = new UserService();
       User us = U.getUser(email);
       System.out.println(us.getPrenom()+us.getEmail());
+     String newline=System.getProperty("line.separator");
         //MS.send(us.getPrenom()+ us.getNom()+"Mr ou Madame"+" voila ton code est "+b, email);
-         JavaMail.sendMail("Bonjour,\n\n"+"Mr/Mme"+"\t"+ us.getNom()+"\t"+us.getPrenom()+"\t"+"Veuillez saisir le code suivant pour vérifier votre compte: "+"\t"+b+"\n\n" +
-                 "Cordialement,\n" +
+         JavaMail.sendMail("Bonjour,\n\n"+"\t"+newline+"\t"+"\t"+ "Mr/Mme"+"\t"+ us.getNom()+"\t"+us.getPrenom()+"\t"+"Veuillez saisir le code suivant pour vérifier votre compte: "+"\t"+b+"\n\n" +
+                 "Cordialement,\n" +"\t"+"\n"+
                  "L'équipe de support technique de E-FIT",email);
         send.setOnAction(e->{
             String c=code1.getText();

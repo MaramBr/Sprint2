@@ -183,8 +183,8 @@ String requete ="select * from user where idUser="+idUser;
                 String myPwd = "$2a" + rs.getString("password").substring(3);
                 System.out.println(rs.getString("password"));
                     System.out.println(Pwd);
-                    //System.out.println("AAA"+rs.getInt("is_active"));
-                if (BCrypt.checkpw(Pwd, myPwd) && rs.getInt("is_active")== 0) {
+                   System.out.println("AAA"+rs.getInt("is_active"));
+                if (BCrypt.checkpw(Pwd, myPwd) ) {
                     Session.setId(rs.getInt("id"));
                     Session.setNom(rs.getString("nom"));
                     Session.setPrenom(rs.getString("prenom"));
@@ -192,6 +192,7 @@ String requete ="select * from user where idUser="+idUser;
                     //Session.setPassword(rs.getString("password"));
                     Session.setRoles(rs.getString("roles"));
                       Session.setImage(rs.getString("image"));
+                      Session.setIs_active(rs.getInt("is_active"));
                     System.out.println("login ");
                     return true;
                 }

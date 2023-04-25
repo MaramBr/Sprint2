@@ -87,11 +87,22 @@ public class LoginController implements Initializable {
         if (!error) {
             UserService US = new UserService();
             if (US.login(emailLogin.getText(), pwdLogin.getText())) {
+                
 
               
                     
             try {
                  Session now =new Session();
+                 System.out.println("ETAT"+now.getIs_active());
+                 if(now.getIs_active()==1){
+                     Alert alert = new Alert(Alert.AlertType.ERROR);
+    alert.setTitle("Attention");
+    alert.setHeaderText(null);
+    alert.setContentText("Vous êtes maintenant Bloqué!");
+    alert.showAndWait();
+                 }
+                 else{
+                 
           String s = String.valueOf(now.getRoles()) ;
           
                        if(s.equals("[\"ROLE_ADMIN\"]")){
@@ -114,7 +125,7 @@ public class LoginController implements Initializable {
     ProfilController.setUser(now);
                            
                        }
-        } catch (IOException ex) {
+                 }} catch (IOException ex) {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         }
        /* } catch (IOException ex) {
@@ -149,11 +160,19 @@ public class LoginController implements Initializable {
             } else {
                 //  msgerreur.setVisible(true);
                 // JOptionPane.showMessageDialog(null, "verifier");
+                /*
                 JOptionPane.showMessageDialog(null, "votre Email ou mot de passe que vous avez saisi(e) n'est pas associé(e) à un compte ",
-                        "Alerte", JOptionPane.WARNING_MESSAGE);
+                        "Alerte", JOptionPane.WARNING_MESSAGE);*/
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+    alert.setTitle("votre Email ou mot de passe sont incorrectes!");
+    alert.setHeaderText(null);
+    alert.setContentText("Veuillez vérifier l'adresse e-mail,et le mot de passe que vous avez entrés et réessayer.!");
+    alert.showAndWait();
+            }
             }
         }
-    }    
+        
+       
     
     @FXML
       void Gotoacoount(ActionEvent event) {

@@ -3,28 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/Entities/User.java</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/Utils/JavaMail.java</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/Services/ServiceRendezVous.java</file>
+            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/SignupController.java</file>
             <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/ResetController.java</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/ProfilController.java</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/Services/ServiceCoaching.java</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/LoginController.java</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/CodeTestController.java</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/AdminController.java</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/MdpoublieeController.java</file>
             <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/userjava/NewFXMain.java</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/Reset.fxml</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/mdpoubliee.fxml</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/Entities/Session.java</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/Services/Iuser.java</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/Utils/MyDB.java</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/CodeTest.fxml</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/images/LOGO.png</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/images/log.png</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/Services/UserService.java</file>
             <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/login.fxml</file>
-            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/images/userv1.png</file>
+            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/MdpoublieeController.java</file>
+            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/LoginController.java</file>
+            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/AdminController.java</file>
+            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/Entities/User.java</file>
+            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/ProfilController.java</file>
+            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/Entities/Session.java</file>
+            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/login1.fxml</file>
+            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/CodeTestController.java</file>
+            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/login%20desin.css</file>
+            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/GUI/login1.css</file>
+            <file>file:/C:/Users/rayan/OneDrive/Bureau/NetBeansProjects/UserJava/src/Services/UserService.java</file>
         </group>
     </open-files>
 </project-private>

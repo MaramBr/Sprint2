@@ -120,7 +120,7 @@ public class SignupController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Erreur");
         alert.setHeaderText(null);
-        alert.setContentText("mot de passe doit Sup a 5 caracteres");
+        alert.setContentText("mot de passe doit Supérieur a 5 caracteres");
         alert.showAndWait();
         return;
     }

@@ -32,7 +32,7 @@ public class NewFXMain extends Application {
       try {   
        
          Parent root;
-            root = FXMLLoader.load(getClass().getResource("/GUI/Admin.fxml"));
+            root = FXMLLoader.load(getClass().getResource("/GUI/Login.fxml"));
         Scene scene = new Scene(root);
        
         primaryStage.setTitle("E-Fit");
