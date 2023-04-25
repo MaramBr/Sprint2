@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="726.0" prefWidth="1267.0" style="-fx-background-color: #e08d17;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestionEvenement.gui.ParticipantController">
+<AnchorPane id="AnchorPane" prefHeight="685.0" prefWidth="1234.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestionEvenement.gui.ParticipantController">
    <children>
-      <Pane layoutX="23.0" layoutY="59.0" prefHeight="608.0" prefWidth="965.0" style="-fx-background-color: black; -fx-border-color: #131314;">
+      <Pane layoutX="14.0" layoutY="77.0" prefHeight="608.0" prefWidth="965.0" style="-fx-background-color: black; -fx-border-color: #131314;">
          <children>
-            <TableView fx:id="tableparticipant" layoutX="503.0" layoutY="146.0" onMouseClicked="#afficherParticipantSelectionnee" prefHeight="88.0" prefWidth="258.0" style="-fx-background-color: black; -fx-border-color: #131314;">
+            <TableView fx:id="tableparticipant" layoutX="503.0" layoutY="146.0" onMouseClicked="#afficherParticipantSelectionnee" prefHeight="88.0" prefWidth="184.0" style="-fx-background-color: black; -fx-border-color: #131314;">
           <columns>
               <TableColumn fx:id="colidp" minWidth="0.0" prefWidth="0.0" text="event" visible="false" />
               <TableColumn fx:id="colnom" prefWidth="98.0" />
@@ -30,18 +30,14 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="28.0" layoutY="29.0" prefHeight="37.0" prefWidth="292.0" text="Participer ici" textFill="#fcfaf6">
+            <Button fx:id="btnmodifier" layoutX="443.0" layoutY="79.0" mnemonicParsing="false" onAction="#modifierparticipant" prefHeight="27.0" prefWidth="91.0" style="-fx-border-color: orange; -fx-background-color: black;" text="Modifier" textFill="#d9bd18">
                <font>
-                  <Font name="Corbel Bold Italic" size="28.0" />
-               </font>
-            </Label>
-            <Button fx:id="btnmodifier" layoutX="443.0" layoutY="79.0" mnemonicParsing="false" onAction="#modifierparticipant" prefHeight="27.0" prefWidth="91.0" style="-fx-border-color: #131314; -fx-background-color: black;" text="Modifier" textFill="#d9bd18" />
-            <Button fx:id="btnsupprimer" layoutX="546.0" layoutY="78.0" mnemonicParsing="false" onAction="#supprimerparticipant" prefHeight="31.0" prefWidth="103.0" style="-fx-border-color: #131314; -fx-background-color: black;" text="Annuler" textFill="#e8b717" />
-            <Label layoutX="447.0" layoutY="29.0" text="Votre participation" textFill="#f8f7f5">
+                  <Font name="System Bold Italic" size="15.0" />
+               </font></Button>
+            <Button fx:id="btnsupprimer" layoutX="546.0" layoutY="78.0" mnemonicParsing="false" onAction="#supprimerparticipant" prefHeight="31.0" prefWidth="103.0" style="-fx-border-color: orange; -fx-background-color: black;" text="Annuler" textFill="#e8b717">
                <font>
-                  <Font name="Corbel Bold Italic" size="28.0" />
-               </font>
-            </Label>
+                  <Font name="System Bold" size="15.0" />
+               </font></Button>
             <Label layoutX="19.0" layoutY="136.0" prefHeight="27.0" prefWidth="47.0" text="Nom" textFill="#fffafa">
                <font>
                   <Font size="18.0" />
@@ -52,7 +48,10 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="pdf" layoutX="665.0" layoutY="78.0" mnemonicParsing="false" onAction="#generatePDF" prefHeight="27.0" prefWidth="74.0" style="-fx-border-color: #131314; -fx-background-color: black;" text="PDF" textFill="#d99818" />
+            <Button fx:id="pdf" layoutX="665.0" layoutY="78.0" mnemonicParsing="false" onAction="#generatePDF" prefHeight="27.0" prefWidth="74.0" style="-fx-border-color: orange; -fx-background-color: black;" text="PDF" textFill="#d99818">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font></Button>
             <Label layoutX="16.0" layoutY="244.0" prefHeight="27.0" prefWidth="54.0" text="Email" textFill="#fcfafa">
                <font>
                   <Font size="18.0" />
@@ -70,33 +69,53 @@
             <TextField fx:id="tfprenom" layoutX="91.0" layoutY="190.0" prefHeight="33.0" prefWidth="226.0" style="-fx-border-color: #131314;" />
             <TextField fx:id="tfnomev" layoutX="91.0" layoutY="425.0" prefHeight="33.0" prefWidth="226.0" style="-fx-border-color: #131314;" />
             <TextField fx:id="tfevent" layoutX="106.0" layoutY="478.0" prefHeight="1.0" prefWidth="20.0" style="-fx-border-color: #131314;" />
-            <Button fx:id="btnenvoyer" layoutX="65.0" layoutY="478.0" mnemonicParsing="false" onAction="#ajouterparticipant" prefHeight="33.0" prefWidth="103.0" style="-fx-border-color: #131314; -fx-background-color: black;" text="Envoyer" textFill="#d9a918" />
+            <Button fx:id="btnenvoyer" layoutX="65.0" layoutY="478.0" mnemonicParsing="false" onAction="#ajouterparticipant" prefHeight="33.0" prefWidth="103.0" style="-fx-border-color: orange; -fx-background-color: black;" text="Envoyer" textFill="#d9a918">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font></Button>
             <Label layoutX="8.0" layoutY="388.0" text="Evenement concerné" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Pane fx:id="card" layoutX="382.0" layoutY="135.0" prefHeight="373.0" prefWidth="388.0" style="-fx-background-color: orange;">
+            <Pane fx:id="card" layoutX="382.0" layoutY="135.0" prefHeight="373.0" prefWidth="524.0" style="-fx-background-color: ffaa55;">
                <children>
-                  <Label fx:id="labelNom" layoutX="19.0" layoutY="43.0" prefHeight="21.0" prefWidth="243.0" />
-                  <Label fx:id="labelPrenom" layoutX="15.0" layoutY="100.0" />
-                  <Label fx:id="labelEmail" layoutX="15.0" layoutY="147.0" />
-                  <Label fx:id="labelAge" layoutX="15.0" layoutY="190.0" />
-                  <Label fx:id="labelTel" layoutX="15.0" layoutY="244.0" />
-                  <Label fx:id="labelEvent" layoutX="19.0" layoutY="314.0" />
+                  <Label fx:id="labelNom" layoutX="106.0" layoutY="80.0" prefHeight="21.0" prefWidth="243.0" />
+                  <Label fx:id="labelPrenom" layoutX="122.0" layoutY="113.0" prefHeight="21.0" prefWidth="184.0" />
+                  <Label fx:id="labelEmail" layoutX="122.0" layoutY="165.0" prefHeight="21.0" prefWidth="184.0" />
+                  <Label fx:id="labelAge" layoutX="131.0" layoutY="220.0" prefHeight="21.0" prefWidth="166.0" />
+                  <Label fx:id="labelTel" layoutX="128.0" layoutY="278.0" prefHeight="21.0" prefWidth="173.0" />
+                  <Label fx:id="labelEvent" layoutX="143.0" layoutY="319.0" prefHeight="21.0" prefWidth="184.0" />
+                  <Label layoutX="10.0" layoutY="3.0" prefHeight="37.0" prefWidth="292.0" text="Votre participation" textFill="#f8f6f2">
+                     <font>
+                        <Font name="Corbel Bold Italic" size="28.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="9.0" layoutY="69.0" prefHeight="21.0" prefWidth="126.0" text="Nom" />
+                  <Label layoutX="10.0" layoutY="113.0" prefHeight="21.0" prefWidth="74.0" text="prenom" />
+                  <Label layoutX="10.0" layoutY="165.0" prefHeight="21.0" prefWidth="74.0" text="email" />
+                  <Label layoutX="14.0" layoutY="220.0" text="Age" />
+                  <Label layoutX="10.0" layoutY="278.0" text="tel" />
+                  <Label layoutX="1.0" layoutY="319.0" text="Nom d'evenement" />
                </children>
             </Pane>
          </children>
       </Pane>
-      <VBox layoutX="1003.0" layoutY="59.0" prefHeight="608.0" prefWidth="214.0" style="-fx-background-color: #171716; -fx-border-color: #131314;">
+      <Pane layoutX="-13.0" layoutY="98.0" prefHeight="7.0" prefWidth="1029.0" style="-fx-background-color: white;" />
+      <Label layoutX="82.0" layoutY="41.0" prefHeight="37.0" prefWidth="292.0" text="Participer ici" textFill="#fcfaf6">
+         <font>
+            <Font name="Corbel Bold Italic" size="28.0" />
+         </font>
+      </Label>
+      <VBox layoutX="1003.0" layoutY="68.0" prefHeight="608.0" prefWidth="214.0" style="-fx-background-color: #171716; -fx-border-color: #131314;">
          <children>
             <Button fx:id="btnEvenement" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#GoEvenementfront" opacity="0.64" prefHeight="32.0" prefWidth="294.0" style="-fx-border-color: #131314; -fx-background-color: orange;" text="Evenement" textFill="#473a00">
                <font>
-                  <Font name="System Bold" size="26.0" />
+                  <Font name="System Bold Italic" size="26.0" />
                </font>
             </Button>
+            <ImageView fx:id="image1" fitHeight="88.0" fitWidth="215.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </VBox>
-      <ImageView fx:id="image1" fitHeight="88.0" fitWidth="184.0" layoutX="1003.0" layoutY="-11.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

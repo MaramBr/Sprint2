@@ -6,10 +6,17 @@
  */
 package gestionEvenement.gui;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.WriterException;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import gestionEvenement.entities.Evenement;
 import gestionEvenement.entities.Sponsor;
 import gestionEvenement.services.EvenementCRUD;
 import gestionEvenement.services.SponsorCRUD;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -40,6 +47,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.beans.property.SimpleStringProperty;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -124,6 +132,10 @@ String path="";
     private ImageView image1;
     @FXML
     private ImageView image2;
+    @FXML
+    private ImageView qrcodee;
+    @FXML
+    private Button BtnQr;
 
     /**
      * Initializes the controller class.
@@ -146,7 +158,7 @@ public void initialize(URL url, ResourceBundle rb) {
     // Ajouter un gestionnaire d'événements pour le ComboBox
     cbsponsor.setOnAction(event -> selectsponsor(event));
 
-    File file = new File("C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/image/logoFit.png");
+    File file = new File("C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/image/logoEfit.png");
     String localURL = "";
     try {
         localURL = file.toURI().toURL().toString();
@@ -630,18 +642,7 @@ private void rafraichir(ActionEvent event) {
                 return new SimpleStringProperty("");
             }
         });
-        callids.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-callnomev.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-calllieu.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-
-calltype.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-calldescription.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-calldatedebut.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-calldatefin.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-callimage.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-callnbparticipant.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-callprix.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-
+       
 
 
 
@@ -691,6 +692,49 @@ private void trierDate(MouseEvent event) {
         
         
     }
+
+    @FXML
+    private void BtnQr(ActionEvent event) {
+              Evenement p = tableEvenement.getSelectionModel().getSelectedItem();
+      
+
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        String Information = "nom  : "+p.getNom()+"\n"+"Description : "+p.getDescription()+"\n"+"date : "+p.getDate_debut();
+        int width = 300;
+        int height = 300;
+        BufferedImage bufferedImage = null;
+         try{
+            BitMatrix byteMatrix = qrCodeWriter.encode(Information, BarcodeFormat.QR_CODE, width, height);
+            bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+            bufferedImage.createGraphics();
+            
+            Graphics2D graphics = (Graphics2D) bufferedImage.getGraphics();
+            graphics.setColor(Color.WHITE);
+            graphics.fillRect(0, 0, width, height);
+            graphics.setColor(Color.BLACK);
+            
+            for (int i = 0; i < height; i++) {
+                for (int j = 0; j < width; j++) {
+                    if (byteMatrix.get(i, j)) {
+                        graphics.fillRect(i, j, 1, 1);
+                    }
+                }
+            }
+            
+            System.out.println("Success...");
+            
+            qrcodee.setImage(SwingFXUtils.toFXImage(bufferedImage, null));
+            
+        } catch (WriterException ex) {
+        }
+
+
+    
+  
+        
+        
+    }
+
 
 }
 

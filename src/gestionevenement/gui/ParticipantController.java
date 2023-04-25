@@ -13,6 +13,7 @@ import gestionevenement.services.ParticipantCRUD;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -73,6 +74,7 @@ public class ParticipantController implements Initializable {
     private Button pdf;
    
  private int  idEventSelectionnee;
+ 
     @FXML
     private TableView<Participant> tableparticipant;
     @FXML
@@ -498,11 +500,10 @@ public void setIdEvent(int idEvent, String nomEvent) {
 
   
 public void ajouterParticipantEvenement(String tfEvent) {
-
     // Récupérer l'ID de l'événement à partir du champ de texte
     String idEvent = tfevent.getText();
 
-    // Récupérer l'ID du dernier participant ajouté à partir de la table participant de la base de données
+    // Ajouter le participant à l'événement dans la table participant_evenement
     String idParticipant = null;
     String sql = "SELECT id FROM participant ORDER BY id DESC LIMIT 1";
     try {
@@ -516,8 +517,6 @@ public void ajouterParticipantEvenement(String tfEvent) {
     } catch (Exception ex) {
         ex.printStackTrace();
     }
-
-    // Ajouter l'ID de l'événement et l'ID du participant dans la table participant_evenement de la base de données
     try {
         Statement stm = MyConnection.getInstance().getCnx().createStatement();
         String sql1 = "INSERT INTO participant_evenement (participant_id, evenement_id) VALUES ('" + idParticipant + "', '" + idEvent + "')";
@@ -526,7 +525,19 @@ public void ajouterParticipantEvenement(String tfEvent) {
     } catch (Exception ex) {
         ex.printStackTrace();
     }
+
+    // Mettre à jour le nombre de participants dans la table evenement
+    String sql2 = "UPDATE evenement SET nb_participant = nb_participant - 1 WHERE id = ?";
+    try {
+        PreparedStatement stmt = MyConnection.getInstance().getCnx().prepareStatement(sql2);
+        stmt.setString(1, idEvent);
+        stmt.executeUpdate();
+        stmt.close();
+    } catch (Exception ex) {
+        ex.printStackTrace();
+    }
 }
+
 
 
     @FXML
@@ -543,46 +554,20 @@ public void ajouterParticipantEvenement(String tfEvent) {
 
   @FXML
 private void supprimerparticipant(ActionEvent event) {
-    // Récupérer le participant sélectionné dans la table view
-    Participant selectedParticipant = tableparticipant.getSelectionModel().getSelectedItem();
-    if (selectedParticipant == null) {
-        // Aucune ligne n'est sélectionnée
-        return;
-    }
     
-    // Récupérer les valeurs des colonnes "nom", "prenom" et "email" du participant sélectionné
-    String nom = selectedParticipant.getNom();
-    String prenom = selectedParticipant.getPrenom();
-    String email = selectedParticipant.getEmail();
-    
-    // Créer la requête SQL pour supprimer le participant de la base de données en fonction des valeurs des colonnes sélectionnées
-    String sql = "DELETE FROM participant WHERE nom = '" + nom + "' AND prenom = '" + prenom + "' AND email = '" + email + "'";
-    
+      // Vider la tableview
+    tableparticipant.getItems().clear();
+
+    // Mettre à jour le nombre de participants dans la table evenement
+    String sql2 = "UPDATE evenement SET nb_participant = nb_participant + 1 WHERE id = ?";
     try {
-        // Exécuter la requête SQL
-        Statement st = MyConnection.getInstance().getCnx().createStatement();
-        st.executeUpdate(sql);
-        
-        // Supprimer le participant de la table view
-        tableparticipant.getItems().remove(selectedParticipant);
-        
-        // Afficher un message de confirmation
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Suppression de participant");
-        alert.setHeaderText(null);
-        alert.setContentText("Le participant a été supprimé avec succès.");
-        alert.showAndWait();
-        
-        // Fermer la connexion à la base de données
-        st.close();
-    } catch (SQLException e) {
-        // Afficher un message d'erreur en cas d'échec de la suppression
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Erreur lors de la suppression de participant");
-        alert.setHeaderText(null);
-        alert.setContentText("Impossible de supprimer le participant sélectionné.");
-        alert.showAndWait();
-        e.printStackTrace();
+        String idEvent = tfevent.getText();
+        PreparedStatement stmt = MyConnection.getInstance().getCnx().prepareStatement(sql2);
+        stmt.setString(1, idEvent);
+        stmt.executeUpdate();
+        stmt.close();
+    } catch (Exception ex) {
+        ex.printStackTrace();
     }
 }
 

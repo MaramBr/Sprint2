@@ -16,6 +16,9 @@ import java.util.List;
 import java.util.Map;
 import gestionEvenement.intefaces.InterfaceSponsor;
 import java.sql.Connection;
+import java.sql.Statement;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javax.activation.DataSource;
 
 /**
@@ -153,7 +156,61 @@ public int getIdByNom(String nom) {
 }
 
 
+public ObservableList<Sponsor> triNomDESC() {
+    ObservableList<Sponsor> list = FXCollections.observableArrayList();
+    try {
+        String req = "SELECT * FROM sponsor ORDER BY nom_sponsor DESC";
+        PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            Sponsor sponsor = new Sponsor(rs.getInt("id"), rs.getString("nom_Sponsor"), rs.getString("email"), rs.getString("invest"));
+            list.add(sponsor);
+        }
+    } catch (SQLException ex) {
+        System.err.println(ex.getMessage());
+    }
+    return list;
+}
 
+public ObservableList<Sponsor> triNomASC() {
+    ObservableList<Sponsor> list = FXCollections.observableArrayList();
+    try {
+        String req = "SELECT * FROM sponsor ORDER BY nom_sponsor ASC";
+        PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            Sponsor sponsor = new Sponsor(rs.getInt("id"), rs.getString("nom_Sponsor"), rs.getString("email"), rs.getString("invest"));
+            list.add(sponsor);
+        }
+    } catch (SQLException ex) {
+        System.err.println(ex.getMessage());
+    }
+    return list;
+}
+
+public ObservableList<Sponsor> searchSponsors(String searchTerm) {
+    ObservableList<Sponsor> sponsors = FXCollections.observableArrayList();
+    try {
+        String query = "SELECT * FROM sponsor WHERE nom_sponsor LIKE ? OR email LIKE ? OR invest LIKE ?";
+        PreparedStatement preparedStatement = MyConnection.getInstance().getCnx().prepareStatement(query);
+        preparedStatement.setString(1, "%" + searchTerm + "%");
+        preparedStatement.setString(2, "%" + searchTerm + "%");
+        preparedStatement.setString(3, "%" + searchTerm + "%");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Sponsor sponsor = new Sponsor(
+                resultSet.getInt("id"),
+                resultSet.getString("nom_sponsor"),
+                resultSet.getString("email"),
+                resultSet.getString("invest")
+            );
+            sponsors.add(sponsor);
+        }
+    } catch (SQLException ex) {
+        System.err.println(ex.getMessage());
+    }
+    return sponsors;
+}
 
 
  

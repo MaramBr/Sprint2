@@ -68,8 +68,6 @@ public class SponsorController implements Initializable {
     @FXML
     private TextField emailField;
     @FXML
-    private Button pdf;
-    @FXML
     private Button btnretour;
     @FXML
     private ImageView image1;
@@ -93,6 +91,12 @@ public class SponsorController implements Initializable {
     private Button btnParticipant;
     @FXML
     private Button btnSponsor;
+    @FXML
+    private Button trie;
+    @FXML
+    private Button trie1;
+    @FXML
+    private TextField searchInput;
 
     /**
      * Initializes the controller class.
@@ -105,7 +109,7 @@ public class SponsorController implements Initializable {
      
       
         show();
-      File file = new File("C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/image/logoFit.png");
+      File file = new File("C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/image/logoEfit.png");
         String localURL = "";
         try {
             localURL = file.toURI().toURL().toString();
@@ -322,17 +326,11 @@ public void show() {
         colid.setCellValueFactory(new PropertyValueFactory<>("id"));
         tableSponsors.setItems(data);
         
-          colnom.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-colemail.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-colinvest.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+         
 
 
     }
 
-    @FXML
-    private void generatePDF(ActionEvent event) {
-   
-    }
 
     @FXML
     private void retour(ActionEvent event) {
@@ -423,6 +421,37 @@ colinvest.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-
         window.show();
     } catch (IOException e) {
     }
+    }
+
+    @FXML
+private void triNomD(ActionEvent event) {
+    SponsorCRUD sc = new SponsorCRUD();
+    colnom.setCellValueFactory(new PropertyValueFactory<>("nom_Sponsor"));
+    colemail.setCellValueFactory(new PropertyValueFactory<>("email"));
+    colinvest.setCellValueFactory(new PropertyValueFactory<>("invest"));
+    colid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        ObservableList<Sponsor> sponsorList = sc.triNomDESC();
+    tableSponsors.setItems(sponsorList);
+}
+
+    @FXML
+    private void triNomA(ActionEvent event) {
+        SponsorCRUD ss = new SponsorCRUD();
+    colnom.setCellValueFactory(new PropertyValueFactory<>("nom_Sponsor"));
+    colemail.setCellValueFactory(new PropertyValueFactory<>("email"));
+    colinvest.setCellValueFactory(new PropertyValueFactory<>("invest"));
+    colid.setCellValueFactory(new PropertyValueFactory<>("id"));
+        ObservableList<Sponsor> sponsorList = ss.triNomASC();
+    tableSponsors.setItems(sponsorList);
+    }
+
+    @FXML
+    private void searchSponsors(ActionEvent event) {
+        
+        String searchTerm = searchInput.getText();
+    SponsorCRUD sponsorService = new SponsorCRUD();
+        ObservableList<Sponsor> sponsorList = sponsorService.searchSponsors(searchTerm);
+    tableSponsors.setItems(sponsorList);
     }
 
     }

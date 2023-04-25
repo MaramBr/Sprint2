@@ -5,34 +5,39 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="713.0" prefWidth="981.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestionEvenement.gui.EvenementFrontController">
    <children>
-      <Button fx:id="participer" layoutX="178.0" layoutY="89.0" mnemonicParsing="false" onAction="#participer" prefHeight="34.0" prefWidth="119.0" style="-fx-border-color: orange; -fx-background-color: #000000;" text="Participer" textFill="#ffc247" />
-      <Label layoutX="50.0" layoutY="38.0" prefHeight="45.0" prefWidth="326.0" text="Les Evenement :" textFill="#ffb200">
+      <Label layoutX="47.0" layoutY="12.0" prefHeight="45.0" prefWidth="326.0" text="Les Evenements :" textFill="#fffefd">
          <font>
             <Font name="Corbel Bold Italic" size="38.0" />
          </font>
       </Label>
-      <TableView fx:id="tableEvenement" layoutX="20.0" layoutY="132.0" prefHeight="567.0" prefWidth="931.0" style="-fx-border-color: #000000;">
+      <TableView fx:id="tableEvenement" layoutX="7.0" layoutY="227.0" onMouseClicked="#afficherEvenementSelectionne" prefHeight="317.0" prefWidth="289.0" style="-fx-border-color: #000000;" stylesheets="@tableview2.css">
          <columns>
-            <TableColumn fx:id="colidevent" minWidth="0.0" prefWidth="0.0" text="type" />
-            <TableColumn fx:id="colsponsor" prefWidth="91.0" text="Sponsor" />
-            <TableColumn fx:id="colnom" prefWidth="89.0" text="nom" />
-            <TableColumn fx:id="collieu" prefWidth="96.0" text="lieu" />
-            <TableColumn fx:id="coltype" prefWidth="81.0" text="type" />
-            <TableColumn fx:id="coldescription" prefWidth="142.0" text="description" />
-            <TableColumn fx:id="coldatedebut" prefWidth="103.0" text="date debut" />
-            <TableColumn fx:id="coldatefin" prefWidth="90.0" text="date fin" />
-            <TableColumn fx:id="colimage" prefWidth="71.0" text="image" />
-            <TableColumn fx:id="colnbparticipant" prefWidth="102.0" text="nbParticipant" />
-            <TableColumn fx:id="colprix" prefWidth="64.0" text="prix" />
+            <TableColumn fx:id="colidevent" minWidth="0.0" prefWidth="0.0" text="type" visible="false" />
+            <TableColumn fx:id="colsponsor" prefWidth="91.0" style="-fx-background-color: #e15e1c;" text="Sponsor" />
+            <TableColumn fx:id="colnom" prefWidth="89.0" style="-fx-background-color: #e15e1c;" text="nom" />
+            <TableColumn fx:id="collieu" prefWidth="96.0" text="lieu" visible="false" />
+            <TableColumn fx:id="coltype" prefWidth="81.0" text="type" visible="false" />
+            <TableColumn fx:id="coldescription" prefWidth="142.0" text="description" visible="false" />
+            <TableColumn fx:id="coldatedebut" prefWidth="103.0" style="-fx-background-color: #e15e1c;" text="date debut" />
+            <TableColumn fx:id="coldatefin" prefWidth="90.0" text="date fin" visible="false" />
+            <TableColumn fx:id="colimage" prefWidth="71.0" text="image" visible="false" />
+            <TableColumn fx:id="colnbparticipant" prefWidth="102.0" text="nbParticipant" visible="false" />
+            <TableColumn fx:id="colprix" prefWidth="64.0" text="prix" visible="false" />
          </columns>
       </TableView>
-      <Button fx:id="btnrafraichira" layoutX="50.0" layoutY="89.0" mnemonicParsing="false" onAction="#show" prefHeight="34.0" prefWidth="119.0" style="-fx-border-color: orange; -fx-background-color: #000000;" text="Rafraichir" textFill="#f8ba33" />
+      <Button fx:id="btnrafraichira" layoutX="33.0" layoutY="89.0" mnemonicParsing="false" onAction="#show" prefHeight="34.0" prefWidth="119.0" style="-fx-border-color: orange; -fx-background-color: #000000;" text="Rafraichir" textFill="#f8ba33">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font></Button>
       <Button fx:id="btnretour" mnemonicParsing="false" onAction="#retour" prefHeight="34.0" prefWidth="40.0" style="-fx-border-color: #ffffff; -fx-background-color: #ffffff;" text="&lt;-">
          <opaqueInsets>
             <Insets />
@@ -41,6 +46,85 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <ImageView fx:id="image1" fitHeight="111.0" fitWidth="219.0" layoutX="755.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="image1" fitHeight="98.0" fitWidth="145.0" layoutX="842.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="detail" layoutX="166.0" layoutY="89.0" mnemonicParsing="false" onAction="#detail" prefHeight="34.0" prefWidth="119.0" style="-fx-border-color: orange; -fx-background-color: #000000;" text="details :" textFill="#ffc247">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font></Button>
+      <Pane layoutX="-7.0" layoutY="74.0" prefHeight="1.0" prefWidth="994.0" style="-fx-background-color: white;" />
+      <AnchorPane layoutX="347.0" layoutY="144.0" prefHeight="519.0" prefWidth="549.0" style="-fx-background-color: #e15e1c; -fx-background-radius: 14 14 0 0;">
+         <children>
+            <TextField fx:id="tfnom" editable="false" layoutX="31.0" layoutY="97.0" style="-fx-border-color: black; -fx-background-radius: 14 14 14 14;" stylesheets="@tableview.css" />
+            <TextField fx:id="tftype" editable="false" layoutX="22.0" layoutY="177.0" style="-fx-background-radius: 14 14 14 14; -fx-border-color: orange;" stylesheets="@tableview.css" />
+            <TextArea fx:id="tfdescription" editable="false" layoutX="25.0" layoutY="331.0" prefHeight="118.0" prefWidth="200.0" style="-fx-background-radius: 14 14 14 14; -fx-border-color: orange;" stylesheets="@tableview.css" />
+            <TextField fx:id="tfnbparticipant" editable="false" layoutX="306.0" layoutY="318.0" style="-fx-background-radius: 14 14 14 14; -fx-border-color: black;" stylesheets="@tableview.css" />
+            <TextField fx:id="tfprix" editable="false" layoutX="306.0" layoutY="387.0" style="-fx-background-radius: 14 14 14 14; -fx-border-color: orange;" stylesheets="@tableview.css" />
+            <ImageView fx:id="image2" fitHeight="135.0" fitWidth="211.0" layoutX="294.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+            <TextField fx:id="tfdatefin" editable="false" layoutX="306.0" layoutY="251.0" style="-fx-background-radius: 14 14 14 14; -fx-border-color: orange;" stylesheets="@tableview.css" />
+            <TextField fx:id="tfdatedebut" editable="false" layoutX="306.0" layoutY="187.0" style="-fx-background-radius: 14 14 14 14; -fx-border-color: black;" stylesheets="@tableview.css" />
+            <TextField fx:id="tflieu" editable="false" layoutX="22.0" layoutY="251.0" style="-fx-background-radius: 14 14 14 14; -fx-border-color: black;" stylesheets="@tableview.css" />
+            <Label layoutX="31.0" layoutY="66.0" prefHeight="21.0" prefWidth="145.0" text="Nom Evenement">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="145.0" prefHeight="21.0" prefWidth="145.0" text="Type ">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="219.0" prefHeight="21.0" prefWidth="145.0" text="lieu ">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="18.0" layoutY="297.0" prefHeight="21.0" prefWidth="145.0" text="Description">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="306.0" layoutY="156.0" prefHeight="21.0" prefWidth="145.0" text="Date Debut">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="306.0" layoutY="230.0" prefHeight="21.0" prefWidth="145.0" text="Date Fin">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="306.0" layoutY="297.0" prefHeight="21.0" prefWidth="145.0" text="Nombre Participant">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="306.0" layoutY="366.0" prefHeight="21.0" prefWidth="145.0" text="Prix">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="participer" layoutX="360.0" layoutY="463.0" mnemonicParsing="false" onAction="#participer" prefHeight="34.0" prefWidth="119.0" style="-fx-border-color: orange; -fx-background-color: #000000;" text="Participer" textFill="#ffc247">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Button>
+            <Label layoutX="15.0" layoutY="1.0" prefHeight="45.0" prefWidth="200.0" text="les details:" textFill="WHITE">
+               <font>
+                  <Font name="Corbel Bold Italic" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="BtnQr" layoutX="59.0" layoutY="463.0" mnemonicParsing="false" onAction="#QR" prefHeight="34.0" prefWidth="119.0" style="-fx-border-color: orange; -fx-background-color: #000000;" text="Qr code" textFill="#ffc247">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Label layoutX="16.0" layoutY="152.0" prefHeight="34.0" prefWidth="326.0" text="liste des Evenements dispo:" textFill="WHITE">
+         <font>
+            <Font name="Corbel Bold Italic" size="23.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="qrcodee" fitHeight="150.0" fitWidth="200.0" layoutX="40.0" layoutY="549.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

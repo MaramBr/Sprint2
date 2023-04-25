@@ -15,6 +15,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -120,6 +122,35 @@ public List<Participant> afficherParticipant() {
         System.err.println(ex.getMessage());
     }
     return participantList;
+}
+
+
+public ObservableList<Participant> searchParticipants(String searchTerm) {
+    ObservableList<Participant> participants = FXCollections.observableArrayList();
+    try {
+        String query = "SELECT * FROM participant WHERE nom LIKE ? OR prenom LIKE ? OR email LIKE ? OR age LIKE ? OR tel LIKE ?";
+        PreparedStatement preparedStatement = MyConnection.getInstance().getCnx().prepareStatement(query);
+        preparedStatement.setString(1, "%" + searchTerm + "%");
+        preparedStatement.setString(2, "%" + searchTerm + "%");
+        preparedStatement.setString(3, "%" + searchTerm + "%");
+        preparedStatement.setString(4, "%" + searchTerm + "%");
+        preparedStatement.setString(5, "%" + searchTerm + "%");
+        ResultSet resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Participant participant = new Participant(
+                resultSet.getInt("id"),
+                resultSet.getString("nom"),
+                resultSet.getString("prenom"),
+                resultSet.getString("email"),
+                resultSet.getInt("age"),
+                resultSet.getInt("tel")
+            );
+            participants.add(participant);
+        }
+    } catch (SQLException ex) {
+        System.err.println(ex.getMessage());
+    }
+    return participants;
 }
 
     

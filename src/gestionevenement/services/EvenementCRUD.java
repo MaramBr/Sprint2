@@ -20,6 +20,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -216,5 +218,35 @@ public String getSponsorNameById(int sponsorsId) {
     }
     return sponsorName;
 }
+
+
+
+
+public List<Evenement> recupererEvenement() throws SQLException {
+    List<Evenement> evenements = new ArrayList<>();
+    String s = "SELECT * FROM evenement";
+    Statement st = MyConnection.getInstance().getCnx().createStatement();
+    ResultSet rs = st.executeQuery(s);
+    while (rs.next()) {
+        Evenement e = new Evenement(
+                rs.getInt("id"),
+                rs.getInt("sponsors_id"),
+                rs.getString("nom"), 
+                rs.getString("lieu"),
+                rs.getString("type"),
+                rs.getString("description"),
+                rs.getString("date_debut"),
+                rs.getString("date_fin"),
+                rs.getString("image"),
+                rs.getInt("nb_participant"),
+               rs.getInt("prix")
+        );
+        evenements.add(e);
+    }
+    return evenements;
+}
+
+
+
 
 }

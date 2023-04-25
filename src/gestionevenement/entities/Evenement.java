@@ -36,6 +36,14 @@ package gestionEvenement.entities;
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public Evenement(int aInt, String string, String string0, String string1) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Evenement(int aInt, String string, String string0, String string1, String string2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public Sponsor getSponsor() {
         return sponsor;
     }
@@ -138,7 +146,7 @@ package gestionEvenement.entities;
         this.date_fin = date_fin;
     }
 
-    public String getImage() {
+    public  String getImage() {
         return image;
     }
 
@@ -184,7 +192,17 @@ package gestionEvenement.entities;
 
    
     
+public String getNom_sponsor() {
+        return nom_sponsor;
+    }
 
+    public void setNom_sponsor(String image) {
+        this.nom_sponsor = image;
+    }
+
+    public int getNbParticipant() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    
      
     

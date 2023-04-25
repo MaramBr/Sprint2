@@ -75,6 +75,8 @@ public class ParticipantBackController implements Initializable {
     private Button btnParticipant;
     @FXML
     private ImageView image1;
+    @FXML
+    private TextField searchInput;
 
     /**
      * Initializes the controller class.
@@ -83,7 +85,7 @@ public class ParticipantBackController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     show();
-        File file = new File("C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/image/logoFit.png");
+        File file = new File("C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/image/logoEfit.png");
         String localURL = "";
         try {
             localURL = file.toURI().toURL().toString();
@@ -179,12 +181,7 @@ public class ParticipantBackController implements Initializable {
         colage.setCellValueFactory(new PropertyValueFactory<>("age"));
         coltel.setCellValueFactory(new PropertyValueFactory<>("tel"));
         
-        colidp.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-        colnom.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-        colprenom.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-        colemail.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-        colage.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
-        coltel.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-style: solid;");
+      
        
         
         tableparticipant.setItems(data);
@@ -287,4 +284,13 @@ private boolean isValidEmailAddress(String email) {
     String regex = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
     return email.matches(regex);
 }   
+
+    @FXML
+    private void searchParticipant(ActionEvent event) {
+        
+        String searchTerm = searchInput.getText();
+    ParticipantCRUD sponsorService = new ParticipantCRUD();
+         ObservableList<Participant> sponsorList = sponsorService.searchParticipants(searchTerm);
+    tableparticipant.setItems(sponsorList);
+    }
 }
