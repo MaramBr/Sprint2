@@ -7,9 +7,14 @@ package GUI;
 
 import Entities.Genre;
 import Entities.Reclamation;
+import static GUI.ReclamamtionFrontController.ACCOUNT_SID;
+import static GUI.ReclamamtionFrontController.AUTH_TOKEN;
 import Services.ServiceGenre;
 import Services.ServiceReclamation;
 import Utils.MyDB;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -17,7 +22,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.stream.Collectors;
@@ -27,8 +34,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -39,6 +48,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 
 /**
@@ -49,6 +59,8 @@ import javax.swing.JOptionPane;
 public class RelamationController implements Initializable {
 ServiceGenre sr = new ServiceGenre();
    ServiceReclamation sp = new ServiceReclamation();
+    public static final String ACCOUNT_SID = "AC099883ea0f07c67cd19e55b497fceb12";
+    public static final String AUTH_TOKEN = "0dc81da96bcea4d51424b9bbf5a80f07";
     int index = -1;
     
     
@@ -288,6 +300,7 @@ private void AjoutGenre(ActionEvent event) {
 
     // Enregistrement de la modification
     sp.modifier(selectedReclamation);
+   sendSms("+21692524435", "Votre réclamation est  confirmée , consultez notre site ou notre application pour consultez le traitement");
     updateTablereclamation();
     JOptionPane.showMessageDialog(null, "Réclamation modifiée");
         
@@ -346,8 +359,7 @@ private void AjoutGenre(ActionEvent event) {
 }
     
     
-    @FXML
-    public void rechercherRec(ActionEvent event){
+    
         /*
         List<Reclamation> Reclamations = sp.rechercher(TFrechercheReca.getText());
         ObservableList<Reclamation> olp = FXCollections.observableArrayList(Reclamations);
@@ -361,7 +373,7 @@ private void AjoutGenre(ActionEvent event) {
 
     AdminViewRec.setItems(olp);
 */
-}
+
 
     @FXML
     private void Front(ActionEvent event) throws IOException {
@@ -369,6 +381,58 @@ private void AjoutGenre(ActionEvent event) {
         Scene scene = front_btn.getScene();
         scene.setRoot(newPage);
 
+    }
+
+    @FXML
+    private void statisques(ActionEvent event) {
+        ObservableList<Reclamation> Reclamations = AdminViewRec.getItems();
+    Map <String, Integer> statistiques = new HashMap<>();
+
+    // Calcul des statistiques
+    for (Reclamation r : Reclamations) {
+        String type = r.getGenre();
+        if (statistiques.containsKey(type)) {
+            statistiques.put(type, statistiques.get(type) + 1);
+        } else {
+            statistiques.put(type, 1);
+        }
+    }
+
+    ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+    int totalSponsors = 0;
+    for (Map.Entry<String, Integer> entry : statistiques.entrySet()) {
+        String type = entry.getKey();
+        int nbreclamations = entry.getValue();
+        totalSponsors += nbreclamations;
+        pieChartData.add(new PieChart.Data(type + " (" + nbreclamations + ")", nbreclamations));
+    }
+
+    // Calcul des pourcentages
+    for (PieChart.Data data : pieChartData) {
+        double pourcentage = (data.getPieValue() / totalSponsors) * 100;
+        String label = data.getName() + " - " + String.format("%.2f", pourcentage) + "%";
+        data.setName(label);
+    }
+
+    PieChart chart = new PieChart(pieChartData);
+    chart.setTitle("Statistiques des réclamations par leurs catégories");
+
+    Stage stage = new Stage();
+    Scene scene = new Scene(new Group(chart), 600, 400);
+    stage.setScene(scene);
+    stage.show();
+    }
+    
+     public static void sendSms(String recipient, String messageBody) {
+        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+
+        Message message = Message.creator(
+                new PhoneNumber(recipient), // To number
+                new PhoneNumber("+12766336884"), // From number
+                messageBody) // SMS body
+                .create();
+
+        System.out.println("Message sent: " + message.getSid());
     }
 
 }

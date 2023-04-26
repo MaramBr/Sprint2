@@ -43,6 +43,11 @@ import javax.swing.JOptionPane;
 import com.twilio.Twilio;
 import com.twilio.rest.api.v2010.account.Message;
 import com.twilio.type.PhoneNumber;
+import java.util.HashMap;
+import java.util.Map;
+import javafx.scene.Group;
+import javafx.scene.chart.PieChart;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -54,12 +59,16 @@ public class ReclamamtionFrontController implements Initializable {
     ServiceGenre sr = new ServiceGenre();
     ServiceReclamation sp = new ServiceReclamation();
     public static final String ACCOUNT_SID = "AC099883ea0f07c67cd19e55b497fceb12";
-    public static final String AUTH_TOKEN = "7cd54f265b4727ce40c3c978b0181069";
+    public static final String AUTH_TOKEN = "0dc81da96bcea4d51424b9bbf5a80f07";
     int index = -1;
 
     private int idCoachingToadd;
     @FXML
     private Button admin_btn;
+    @FXML
+    private Button showallButton;
+    @FXML
+    private Button stati;
 
     public int getIdCoachingToadd() {
         return idCoachingToadd;
@@ -178,17 +187,7 @@ public class ReclamamtionFrontController implements Initializable {
         
                 }*/
 
-    public static void sendSms(String recipient, String messageBody) {
-        Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
-
-        Message message = Message.creator(
-                new PhoneNumber(recipient), // To number
-                new PhoneNumber("+12766336884"), // From number
-                messageBody) // SMS body
-                .create();
-
-        System.out.println("Message sent: " + message.getSid());
-    }
+   
 
     @FXML
     private void ajouterRec(ActionEvent event) {
@@ -232,7 +231,7 @@ public class ReclamamtionFrontController implements Initializable {
         // Ajouter la réclamation à la base de données
         sp.ajouter(r);
         // envoye d'un sms
-        sendSms("+21692524435", "une réclamation a été ajoutée du titre " + r.getTitre() + ", veuillez le traiter svp");
+      //  sendSms("+21692524435", "une réclamation a été ajoutée du titre " + r.getTitre() + ", veuillez le traiter svp");
         // Appeler la méthode de notification
         String message = "Une nouvelle réclamation a été ajoutée.";
         sp.notification(message);
@@ -402,6 +401,53 @@ public class ReclamamtionFrontController implements Initializable {
         Scene scene = admin_btn.getScene();
         scene.setRoot(newPage);
 
+    }
+
+    @FXML
+    private void showall(ActionEvent event) throws IOException {
+        Parent newPage = FXMLLoader.load(getClass().getResource("ReclamationCard.fxml"));
+        Scene scene = admin_btn.getScene();
+        scene.setRoot(newPage);
+    }
+
+    @FXML
+    private void stat(ActionEvent event) {
+        ObservableList<Reclamation> Reclamations = ReclamationTable.getItems();
+    Map <String, Integer> statistiques = new HashMap<>();
+
+    // Calcul des statistiques
+    for (Reclamation r : Reclamations) {
+        String type = r.getGenre();
+        if (statistiques.containsKey(type)) {
+            statistiques.put(type, statistiques.get(type) + 1);
+        } else {
+            statistiques.put(type, 1);
+        }
+    }
+
+    ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+    int totalSponsors = 0;
+    for (Map.Entry<String, Integer> entry : statistiques.entrySet()) {
+        String type = entry.getKey();
+        int nbreclamations = entry.getValue();
+        totalSponsors += nbreclamations;
+        pieChartData.add(new PieChart.Data(type + " (" + nbreclamations + ")", nbreclamations));
+    }
+
+    // Calcul des pourcentages
+    for (PieChart.Data data : pieChartData) {
+        double pourcentage = (data.getPieValue() / totalSponsors) * 100;
+        String label = data.getName() + " - " + String.format("%.2f", pourcentage) + "%";
+        data.setName(label);
+    }
+
+    PieChart chart = new PieChart(pieChartData);
+    chart.setTitle("Statistiques des réclamations par leurs catégories");
+
+    Stage stage = new Stage();
+    Scene scene = new Scene(new Group(chart), 600, 400);
+    stage.setScene(scene);
+    stage.show();
     }
 
 }

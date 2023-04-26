@@ -69,20 +69,16 @@ public class ServiceReclamation implements IService<Reclamation> {
             ResultSet rs = stm.executeQuery(qry);
 
             while (rs.next()) {
-                Reclamation p = new Reclamation();
-                p.setIdRec(rs.getInt(1));
-                p.setTitre(rs.getString(5));
-                p.setGenre(rs.getString(2));
-                Date date = rs.getDate(4);
-                SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-                String dateStr = formatter.format(date);
-                p.setDate(dateStr);
-
-                p.setDescription(rs.getString(6));
-                // p.setIdG(rs.getInt(2));
-                p.setStatus(rs.getString(7));
-                p.setTraitement(rs.getString(8));
-                reclamations.add(p);
+                Reclamation r = new Reclamation();
+                r.setIdRec(rs.getInt(1));
+                r.setTitre(rs.getString("r.titre_r"));
+                r.setDescription(rs.getString("r.description_r"));
+                r.setDate(rs.getString("r.date_r"));
+                // r.setIdG(rs.getInt("genre_id"));
+                r.setGenre(rs.getString("g.libelle"));
+                r.setStatus(rs.getString("r.status_r"));
+                r.setTraitement(rs.getString("r.traitement"));
+                reclamations.add(r);
             }
 
             return reclamations;

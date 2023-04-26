@@ -73,7 +73,7 @@
                   <Label layoutX="20.0" layoutY="248.0" text="Traitement :" textFill="#fcfcfc" />
                   <TextArea fx:id="TfTraitement" layoutX="14.0" layoutY="277.0" prefHeight="69.0" prefWidth="213.0" />
                   <ComboBox fx:id="boxtraitement" layoutX="21.0" layoutY="194.0" prefWidth="150.0" />
-                  <Button layoutX="461.0" layoutY="108.0" mnemonicParsing="false" onAction="#rechercherRec" style="-fx-background-color: #e15e1c;" text="rechercher" />
+                  <Button layoutX="461.0" layoutY="108.0" mnemonicParsing="false" onAction="#statisques" style="-fx-background-color: #e15e1c;" text="statisques" />
                   <Button fx:id="front_btn" layoutX="739.0" layoutY="424.0" mnemonicParsing="false" onAction="#Front" prefHeight="35.0" prefWidth="71.0" style="-fx-background-color: #e15e1c;" text="Front" />
                   <Pane layoutX="-40.0" layoutY="89.0" prefHeight="11.0" prefWidth="945.0" style="-fx-background-color: white;" />
                   <Text fill="#fffbfb" fontSmoothingType="LCD" layoutX="108.0" layoutY="51.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reclamation" wrappingWidth="126.23177337646484" />
