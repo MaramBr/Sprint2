@@ -86,7 +86,7 @@ public class AdminController implements Initializable {
     private PasswordField mdp;
     @FXML
     private ImageView image2;
-    String path="";
+    String path="C:\\Users\\rayan\\Downloads\\avatar.png";
     @FXML
     private TableColumn<User,Integer> idc;
     @FXML
@@ -99,6 +99,10 @@ public class AdminController implements Initializable {
     private TableColumn<?, ?> etatU;
     @FXML
     private ImageView Qr;
+    @FXML
+    private Button bloquer;
+    @FXML
+    private Button debloquer;
  
     /**
      * Initializes the controller class.
@@ -397,6 +401,8 @@ Image photo=image2.getImage();
        roles.getSelectionModel().clearSelection();
         image2.setImage(null);
         Qr.setImage(null);
+        bloquer.setVisible(true);
+            debloquer.setVisible(true);
         Afficher();
     }
     @FXML
@@ -407,6 +413,16 @@ Image photo=image2.getImage();
         if (index <= -1) {
             return;
         }
+         if(c.getIs_active()==0){
+             bloquer.setVisible(true);
+            debloquer.setVisible(false);
+         }
+         else if(c.getIs_active()==1){
+             bloquer.setVisible(false);
+             debloquer.setVisible(true);
+         }
+       
+        
         idfield.setText((idc.getCellData(index).toString()));
         nom.setText(nomU.getCellData(index));
         prenom.setText(prenomU.getCellData(index));
@@ -519,6 +535,95 @@ void ban(ActionEvent event){
      Afficher();
      
 }
+@FXML
+void bloquer(ActionEvent event){
+    
+    String typeString ;
+     User selectedUser = table.getSelectionModel().getSelectedItem();
+    if (selectedUser != null) {
+        
+         if(selectedUser.getIs_active()==0){
+             bloquer.setVisible(true);
+         }
+        
+        UserService userService = new UserService();
+        userService.banUser(selectedUser.getId());
+        
+
+        // Afficher un message de confirmation
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        //alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        
+            alert.setContentText("Utilisateur est bloqué !");
+        alert.showAndWait();
+        
+       
+            
+        
+       
+
+        // Réinitialiser les champs
+        nom.setText("");
+        prenom.setText("");
+        mdp.setText("");
+        email.setText("");
+       roles.getSelectionModel().clearSelection();
+        image2.setImage(null);
+         } else {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Veuillez sélectionner un utilisateur ");
+        alert.showAndWait();
+    }
+     Afficher();
+     
+}
+
+@FXML
+void debloquer(ActionEvent event){
+    
+    String typeString ;
+     User selectedUser = table.getSelectionModel().getSelectedItem();
+    if (selectedUser != null) {
+        
+         
+        
+        UserService userService = new UserService();
+        userService.debloquer(selectedUser.getId());
+        
+
+        // Afficher un message de confirmation
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        //alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        
+            alert.setContentText("Utilisateur est débloqué !");
+        alert.showAndWait();
+        
+       
+            
+        
+       
+
+        // Réinitialiser les champs
+        nom.setText("");
+        prenom.setText("");
+        mdp.setText("");
+        email.setText("");
+       roles.getSelectionModel().clearSelection();
+        image2.setImage(null);
+    } else {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText(null);
+        alert.setContentText("Veuillez sélectionner un utilisateur ");
+        alert.showAndWait();
+    }
+     Afficher();
+     
+}
     
     @FXML
     private void statistique(ActionEvent event) {
@@ -565,7 +670,8 @@ void ban(ActionEvent event){
             
                 public static String projectPath = System.getProperty("user.dir").replace("\\", "/");
     private void QRcode(User u) throws FileNotFoundException, IOException {
-        String contenue = "Nom : " + u.getNom()+"Prenom :"+u.getPrenom()+ "\n" + "Email: " + u.getEmail()+ "\n" + "Role: " + u.getRoles(); 
+        String contenue = "Nom : " + u.getNom()+"Prenom :"+u.getPrenom()+ "\n" + "Email: " + u.getEmail()+ "\n" + "Role: " + u.getRoles()
+                ; 
         ByteArrayOutputStream out = QRCode.from(contenue).to(net.glxn.qrgen.image.ImageType.JPG).stream();
         File f = new File(projectPath + "\\src\\images\\" + u.getId()+ ".jpg");
         System.out.println(f.getPath());
@@ -608,4 +714,8 @@ void triNomDESC(ActionEvent event) {
        UserList=us.TriNomDESC();
              table.setItems(UserList);
     }//Ban a user
+
+    @FXML
+    private void Generate(MouseEvent event) {
+    }
 }

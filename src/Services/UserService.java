@@ -320,7 +320,20 @@ pst.setString(1, myPwd);
     }
      public void banUser(int id) {
         try {
-            String qry = "UPDATE user SET is_active = CASE WHEN is_active = 1 THEN 0 ELSE 1 END WHERE id = ?";
+             //"UPDATE user SET is_active = CASE WHEN is_active = 1 THEN 0 ELSE 1 END WHERE id = ?";
+            String qry ="UPDATE user SET is_active = 1 WHERE id = ?";
+            PreparedStatement stm = conn.prepareStatement(qry);
+            stm.setInt(1, id);
+            stm.executeUpdate();
+            System.out.println("User with ID " + id + " has been banned/unbanned successfully");
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+     public void debloquer(int id) {
+        try {
+             //"UPDATE user SET is_active = CASE WHEN is_active = 1 THEN 0 ELSE 1 END WHERE id = ?";
+            String qry ="UPDATE user SET is_active = 0 WHERE id = ?";
             PreparedStatement stm = conn.prepareStatement(qry);
             stm.setInt(1, id);
             stm.executeUpdate();

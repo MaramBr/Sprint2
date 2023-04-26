@@ -69,9 +69,8 @@ public class CodeTestController implements Initializable {
       System.out.println(us.getPrenom()+us.getEmail());
      String newline=System.getProperty("line.separator");
         //MS.send(us.getPrenom()+ us.getNom()+"Mr ou Madame"+" voila ton code est "+b, email);
-         JavaMail.sendMail("Bonjour,\n\n"+"\t"+newline+"\t"+"\t"+ "Mr/Mme"+"\t"+ us.getNom()+"\t"+us.getPrenom()+"\t"+"Veuillez saisir le code suivant pour vérifier votre compte: "+"\t"+b+"\n\n" +
-                 "Cordialement,\n" +"\t"+"\n"+
-                 "L'équipe de support technique de E-FIT",email);
+         JavaMail.sendMail(""+b
+                ,email);
         send.setOnAction(e->{
             String c=code1.getText();
         if(c.equals(s)){

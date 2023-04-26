@@ -23,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.DropShadow;
@@ -61,6 +62,8 @@ public class ProfilController implements Initializable {
     private TextField prenom;
     @FXML
     private Circle circle;
+    @FXML
+    private Label profil;
     @ FXML
        void btn_changer_nom(ActionEvent event) {
                     String imagePath = path;
@@ -155,6 +158,7 @@ Image photo=improfile.getImage();
     Nom.setText(UserConnected.getNom());
     email.setText(UserConnected.getEmail());
       prenom.setText(UserConnected.getPrenom());
+      profil.setText("BIENVENUE "+UserConnected.getNom()+"\t"+UserConnected.getPrenom()+":");
     String im=UserConnected.getImage();
     System.out.println("image est "+im);
     Image image = new Image(new File(UserConnected.getImage()).toURI().toString());
