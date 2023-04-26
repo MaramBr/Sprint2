@@ -1,0 +1,129 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 19 févr. 2023, 08:37:24
+    Author     : sassi
+*/
+
+.bg-form{
+    -fx-background-color: linear-gradient(to top right, #d2b48c, #ffffff);
+}
+.textfield{
+    -fx-background-color:transparent;
+    -fx-text-inner-color:#fff;
+    -fx-border-color:#d63333;
+    -fx-border-width:0px 0px .4px 0px ;
+     
+    
+}
+.textfield:focused{
+    -fx-border-color:#fb6363;
+    -fx-border-width:0px 0px 2px .0px;
+    
+  
+    
+    
+}
+.login-btn:hover{
+     -fx-background-color:linear-gradient(to bottom right,#fb6363,#4284d0);
+    
+    -fx-background-radius:8px;
+     -fx-text-fill:#fff;
+     -fx-font-size :14px;
+     -fx-cursor:hand;
+    
+}
+.create-btn:hover{
+     -fx-background-color:linear-gradient(to bottom right,#3862c2,#4284d0);
+    
+    -fx-background-radius:8px;
+     -fx-text-fill:#fff;
+     -fx-font-size :14px;
+     -fx-cursor:hand;
+    
+    
+}
+.ajouter-btn:hover{
+     -fx-background-color:linear-gradient(to bottom right,#3862c2,#4284d0);
+    
+    -fx-background-radius:8px;
+     -fx-text-fill:#fff;
+     -fx-font-size :14px;
+     -fx-cursor:hand;
+    
+    
+}
+.modifier-btn:hover{
+     -fx-background-color:linear-gradient(to bottom right,#3862c2,#4284d0);
+    
+    -fx-background-radius:8px;
+     -fx-text-fill:#fff;
+     -fx-font-size :14px;
+     -fx-cursor:hand;
+    
+    
+}
+.supprimer-btn:hover{
+     -fx-background-color:linear-gradient(to bottom right,#3862c2,#4284d0);
+    
+    -fx-background-radius:8px;
+     -fx-text-fill:#fff;
+     -fx-font-size :14px;
+     -fx-cursor:hand;
+    
+    
+}
+.afficher-btn:hover{
+     -fx-background-color:linear-gradient(to bottom right,#3862c2,#4284d0);
+    
+    -fx-background-radius:8px;
+     -fx-text-fill:#fff;
+     -fx-font-size :14px;
+     -fx-cursor:hand;
+    
+    
+}
+.uplod-btn:hover{
+     -fx-background-color:linear-gradient(to bottom right,#3862c2,#4284d0);
+    
+    -fx-background-radius:8px;
+     -fx-text-fill:#fff;
+     -fx-font-size :14px;
+     -fx-cursor:hand;
+    
+    
+}
+.hyperlink{-fx-underline:false;
+          -fx-text-fill:#fb6363;
+          -fx-border-color:transparent;
+           -fx-border-width:0px;
+}
+.background{
+    background: url(blue smoke.png)no-repeat;
+    background-position: center;
+    background-size:cover;
+    height: 100vh;
+    width: 100%;  
+}
+.ali-box form a {
+    position:relative;
+    display:inline-block;
+    padding:10px 20px;
+    color:#cc0066;
+    font-size:16px;
+    text-decoration:none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition:all 0.5s;
+    margin-right: 40px;
+    letter-spacing: 4px;
+}
+ali-box a:hover{
+    background:#cc0066; 
+    color: #fff;
+    border-radius: 5px ;
+    box-shadow: 0 0 5px #cc0066,0 0 25px #cc0066,0 0 50px #cc0066,0 0 100px #3862c2;
+}
+
