@@ -10,13 +10,14 @@ import javafx.collections.ObservableList;
 
 /**
  *
- * @author Maram
+ * @author Mohamed
+ * @param <T>
  */
-public interface IService<C>{
-     public void ajouter(C c);
-    public boolean modifier (C c);
-    public void supprimer(C c);
-    public ObservableList<C> afficher();
-    public List<C>afficherrdv();
+public interface IService<T> {
+    public void ajouter(T t);
+   public List<T> afficher();
+    public boolean modifier (T t);
+    public void supprimer(T t);
+    public ObservableList<T> afficher2();
     
 }

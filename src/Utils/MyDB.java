@@ -8,13 +8,15 @@ package Utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author Maram
+ * @author Mohamed
  */
 public class MyDB {
-     private static MyDB instance ;
+    private static MyDB instance ;
     final String URL ="jdbc:mysql://127.0.0.1:3306/pidev";
     final String USERNAME ="root";
     final String PWD ="";
@@ -39,5 +41,4 @@ public class MyDB {
         
         return instance;
     }
-    
 }
