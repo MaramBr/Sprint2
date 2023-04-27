@@ -64,9 +64,9 @@ private Region createPage(int pageIndex) {
     try {
         for (Reclamation value : pageRecalamtion) {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(getClass().getResource("Card.fxml"));
+            fxmlLoader.setLocation(getClass().getResource("CardReclamation.fxml"));
             HBox box = fxmlLoader.load();
-            CardController cardController = fxmlLoader.getController();
+            CardReclamationController cardController = fxmlLoader.getController();
             cardController.setReclamation(value);
             pageContainer.getChildren().add(box);
         }
