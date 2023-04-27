@@ -5,7 +5,8 @@
  */
 package GUI;
 
-import Entites.Coaching;
+
+import Entities.Coaching;
 import Utils.MyDB;
 import java.io.IOException;
 import java.net.URL;

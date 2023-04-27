@@ -5,11 +5,11 @@
  */
 package GUI;
 
-import Entites.Coaching;
 import Entities.RendezVous;
+import Entities.Session;
 import Services.ServiceCoaching;
 import Services.ServiceRendezVous;
-import Utils.JavaMail;
+import Utils.javamail1;
 import Utils.MyDB;
 import java.io.File;
 import java.net.URL;
@@ -68,6 +68,7 @@ public class RdvBackController implements Initializable {
     private TableView<RendezVous> tablerdv;
     @FXML
     private Button Etat;
+    Session UserConnected;
 
     /**
      * Initializes the controller class.
@@ -129,8 +130,9 @@ void ban(ActionEvent event) throws Exception{
        
         ServiceRendezVous rdvs = new ServiceRendezVous();
         rdvs.mailing(selectedrdv.getId());
+        
        if(selectedrdv.getEtatrdv()==0){
-       JavaMail.sendMail("VOTRE RESERVATION EST CONFIRMEE!!","maram.brinsi@esprit.tn");
+       javamail1.sendMail("VOTRE RESERVATION EST CONFIRMEE!!",UserConnected.getEmail());
        
        
         // Afficher un message de confirmation

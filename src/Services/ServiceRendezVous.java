@@ -5,7 +5,7 @@
  */
 package Services;
 
-import Entites.Coaching;
+
 import Entities.RendezVous;
 import Utils.MyDB;
 import java.sql.Connection;
@@ -22,7 +22,7 @@ import javafx.collections.ObservableList;
  *
  * @author Maram
  */
-public class ServiceRendezVous implements IService<RendezVous> {
+public class ServiceRendezVous implements Icoaching<RendezVous> {
 
     Connection cnx ;
       Statement stm;

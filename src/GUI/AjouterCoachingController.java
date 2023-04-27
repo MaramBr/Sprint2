@@ -5,7 +5,8 @@
  */
 package GUI;
 
-import Entites.Coaching;
+
+import Entities.Coaching;
 import Entities.RendezVous;
 import Services.ServiceCoaching;
 import javafx.scene.image.Image;
@@ -413,6 +414,30 @@ public class AjouterCoachingController implements Initializable {
 
     @FXML
     private void ModifierCoaching(ActionEvent event) {
+          if(coursField.getText().trim().length() == 0) {
+    JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'cours'");
+    return;
+}
+ 
+      if(descField.getText().trim().length() == 0) {
+    JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'description'");
+    return;
+}
+         if(dispoCombo.getValue().trim().length() == 0) {
+    JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'disponibilité'");
+    return;
+}
+        
+         Coaching c = new Coaching();
+        c.setId(Integer.parseInt(idField.getText()));
+        c.setCours(coursField.getText());
+        c.setDispoCoach(dispoCombo.getValue());
+        c.setDescCoach(descField.getText());
+        c.setImgCoach(imgField.getText());
+
+        sc.modifier(c);
+        updateTable();
+      //  JOptionPane.showMessageDialog(null, "Seance modifiée");
     }
 
     @FXML

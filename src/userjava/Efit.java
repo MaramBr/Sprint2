@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package efit;
+package userjava;
 
-import Entites.Coaching;
+
 import Entities.RendezVous;
 import Services.ServiceCoaching;
 import Services.ServiceRendezVous;

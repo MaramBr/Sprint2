@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import Entites.Coaching;
+import Entities.Coaching;
 import Entities.RendezVous;
 import Services.ServiceCoaching;
 import Services.ServiceRendezVous;
@@ -75,25 +75,21 @@ import javafx.scene.Group;
 import javafx.scene.chart.PieChart;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
-import static org.apache.poi.hssf.usermodel.HeaderFooter.file;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import jxl.WorkbookSettings;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import jxl.*;
 import java.io.*;
 import java.sql.SQLException;
 import javafx.geometry.Pos;
 import javax.swing.JFileChooser;
 import jxl.read.biff.BiffException;
-import org.apache.poi.ss.usermodel.Row;
+
 import org.controlsfx.control.Notifications;
 
 

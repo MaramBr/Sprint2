@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package e_fit;
+package userjava;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -23,12 +23,12 @@ import javafx.stage.Stage;
  *
  * @author Maram
  */
-public class NewFXMain extends Application {
+public class mainmaram extends Application {
     
     @Override
     public void start(Stage primaryStage) {
          try {
-            Parent root = FXMLLoader.load(getClass().getResource("../GUI/CoachingFront.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/Menu.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();

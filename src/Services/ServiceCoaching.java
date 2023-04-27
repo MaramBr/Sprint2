@@ -5,7 +5,8 @@
  */
 package Services;
 
-import Entites.Coaching;
+
+import Entities.Coaching;
 import Utils.MyDB;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,7 +22,7 @@ import javafx.collections.ObservableList;
  *
  * @author Maram
  */
-public class ServiceCoaching implements IService<Coaching>{
+public class ServiceCoaching implements Icoaching<Coaching>{
  Connection cnx ;
   Statement stm;
     public ServiceCoaching(){
@@ -103,6 +104,11 @@ String qry = "DELETE FROM coaching WHERE id=?";
 
     @Override
     public List<Coaching> afficherrdv() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+ 
+    public ObservableList<Coaching> afficher2() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
  
