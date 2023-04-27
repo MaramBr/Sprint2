@@ -53,7 +53,7 @@ public class JavaMail {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-            message.setSubject("Code de vérification");
+            message.setSubject("EFIT CLUB :");
             message.setText(Text);
             message.setContent(Text,"text/html; charset=utf-8");
             return message;

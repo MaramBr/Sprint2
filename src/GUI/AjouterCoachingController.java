@@ -418,6 +418,8 @@ public class AjouterCoachingController implements Initializable {
     @FXML
     private void SupprimerCoaching(ActionEvent event) {
     }
+     private void coaching() {
+    }
     
     
 

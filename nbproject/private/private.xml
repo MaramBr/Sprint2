@@ -3,22 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/FrontController.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/img/search.png</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/img/reserve.png</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/img/add.png</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/img/electric-car.png</file>
             <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/AjouterCoachingController.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/img/MEGANE.jpg</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/Services/IService.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/img/tgoo.png</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/img/TROT.jpg</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/RendezVousController.java</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/MenuController.java</file>
             <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/RdvBackController.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/img/panier.png</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/img/46672.png</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/efit/RendezVousFXMain.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/img/406.jpg</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/img/rating.png</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/CoachingFrontController.java</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/CardController.java</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/Services/ServiceRendezVous.java</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/Utils/JavaMail.java</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/FrontController.java</file>
+            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/MenuFrontController.java</file>
         </group>
     </open-files>
 </project-private>

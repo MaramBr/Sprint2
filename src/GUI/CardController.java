@@ -39,7 +39,7 @@ public class CardController implements Initializable {
 
 
     
-private  String [] colors = {"B9E5FF","BDB2FE","FB9AA8","FF5056"} ;
+private  String [] colors = {"B9E5FF","FFA07A"} ;
     @FXML
     private ImageView coursImg;
     @FXML
