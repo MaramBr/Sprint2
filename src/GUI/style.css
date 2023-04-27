@@ -36,12 +36,12 @@
 }
 
 .free-delivery-card{
-    -fx-background-color: #FFFFFF;
+    -fx-background-color: #D3D3D3;
     -fx-background-radius: 30;
 }
 
 .shopping-online-card{
-    -fx-background-color: #000000;
+    -fx-background-color: #BAEAC3;
     -fx-background-radius: 30;
 }
 

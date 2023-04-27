@@ -3,34 +3,37 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userjava;
+package e_fit;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
  *
- * @author Majdi
+ * @author Maram
  */
-public class NewFXMain1 extends Application {
-
+public class NewFXMain extends Application {
+    
     @Override
     public void start(Stage primaryStage) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Admin.fxml"));
-            Parent root = loader.load();
-            Scene sc = new Scene(root);
-            primaryStage.setTitle("MAJDI");
-            primaryStage.setScene(sc);
+         try {
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/CoachingFront.fxml"));
+            Scene scene = new Scene(root);
+            primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-
+            System.out.println(ex);        }
     }
 
     /**
@@ -40,4 +43,6 @@ public class NewFXMain1 extends Application {
         launch(args);
     }
 
+  
+    
 }

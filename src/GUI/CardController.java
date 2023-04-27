@@ -5,102 +5,86 @@
  */
 package GUI;
 
-import Entities.Reclamation;
+import Entites.Coaching;
+import Utils.MyDB;
+import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
  *
- * @author Majdi
+ * @author Wahch
  */
 public class CardController implements Initializable {
 
     @FXML
     private HBox box;
-    @FXML
-    private Label Titre;
-    @FXML
-    private Label Description;
-    @FXML
-    private Label Statut;
-    @FXML
-    private Label Traitement;
-    
-    private Reclamation reclamation;
-    @FXML
-    private Button update;
-    @FXML
-    private Button delete;
-    
-    private  String [] colors = {"B9E5FF","BDB2FE","FB9AA8","FF5056"} ;
-    
+    private int idCoaching;
 
+
+    
+private  String [] colors = {"B9E5FF","FFA07A"} ;
+    @FXML
+    private ImageView coursImg;
+    @FXML
+    private Label coursName;
+    @FXML
+    private Label coursDesc;
+    @FXML
+    private Label coursDispo;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }  
-    
-    public void setReclamation(Reclamation r) {
-        
+    }    
+    public void setData(Coaching c)
+    {
+      Image image = new Image(getClass().getResourceAsStream(c.getImgCoach())) ;
+       coursImg.setImage(image);
+        coursDesc.setText(c.getCours());
+       coursName.setText(c.getDescCoach());
+         coursDispo.setText(c.getDispoCoach());
+         this.idCoaching = c.getId();
 
-
-       
-       
-        Titre.setText(r.getTitre());
-        Description.setText(r.getDescription());
-        Statut.setText(r.getStatus());
-        Traitement.setText(r.getTraitement());
-        
-        // Si le statut est "confirmé", on cache les boutons "Modifier" et "Supprimer"
-        if (r.getStatus().equals("confirmé")) {
-            this.update.setVisible(false);
-            this.delete.setVisible(false);
-        }
-         box.setStyle("-fx-background-color: #" +colors[(int)(Math.random()*colors.length)] 
+        box.setStyle("-fx-background-color: #" +colors[(int)(Math.random()*colors.length)] 
                 +" ; -fx-background-radius: 15;"
                 +"-fx-effect : dropshadow(three-pass-box , rgba(0,0,0,0.1) , 10 , 0 ,0 , 10 ) ;");
-    }
-
-    @FXML
-    private void modifier(ActionEvent event) {
-        
-//        
-//
-//        // Confirmation de la suppression
-//        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-//        alert.setTitle("Confirmation de la suppression");
-//        alert.setHeaderText(null);
-//        alert.setContentText("Êtes-vous sûr de vouloir supprimer la réclamation sélectionnée ?");
-//        Optional<ButtonType> result = alert.showAndWait();
-//        if (result.isPresent() && result.get() == ButtonType.OK) {
-//            // Supprimer la réclamation de la base de données
-//            sr.supprimer(selectedReclamation);
-//            // Appeler la méthode de notification
-//            String message = "Une réclamation a été supprimée.";
-//            sp.notification(message);
-//            // refresh table
-//           
-//            // Supprimer la réclamation de la table
-//           
-
         
     }
 
     @FXML
-    private void supprimer(ActionEvent event) {
+    private void reserver(ActionEvent event) {
+        MyDB.setIdCoachingToPick(idCoaching);
+        try {
+            Parent parent = FXMLLoader.load(getClass().getResource("RendezVous.fxml"));
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            MyDB.setStageAdresse(stage);
+
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger("C").log(Level.SEVERE, null, ex);
+        }
     }
     
 }

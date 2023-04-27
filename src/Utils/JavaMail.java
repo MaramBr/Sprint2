@@ -47,6 +47,8 @@ public class JavaMail {
         System.out.println("Message sent successfully");
 
     }
+
+    private static Message prepareMessage(Session session, String myAccountEmail, String recepient,String Text) {
 /*
    private static Message prepareMessage(Session session, String myAccountEmail, String recepient,String Text) {
         try {
@@ -135,47 +137,6 @@ public class JavaMail {
         }
         return null;
     }
-   */
-    private static Message prepareMessage(Session session, String myAccountEmail, String recepient, String text) throws MessagingException {
-    MimeMessage message = new MimeMessage(session);
-    message.setFrom(new InternetAddress(myAccountEmail));
-    message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-    message.setSubject("Code de vérification");
-
-    // Create the HTML content of the email
-    String htmlContent = "<html><head><style>" +
-        "body {background-color: #fafafa;display: flex;justify-content: center;align-items: center;}"+
-        ".c-email {width: 40vw;border-radius: 40px;overflow: hidden;box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, .1);}"+
-        ".c-email__header {background-color: #0fd59f;width: 100%;height: 60px;}"+
-        ".c-email__header__title {font-size: 23px;font-family: 'Open Sans';height: 60px;line-height: 60px;margin: 0;text-align: center;color: white;}"+
-        ".c-email__content {width: 100%;height: 300px;display: flex;flex-direction: column;justify-content: space-around;align-items: center;flex-wrap: wrap;background-color: #fff;padding: 15px;}"+
-        ".c-email__content__text {font-size: 20px;text-align: center;color: #343434;margin-top: 0;}"+
-        ".c-email__code {display: block;width: 60%;margin: 30px auto;background-color: #ddd;border-radius: 40px;padding: 20px;text-align: center;font-size: 36px;font-family: 'Open Sans';letter-spacing: 10px;box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, .1);}"+
-        ".c-email__footer {width: 100%;height: 60px;background-color: #fff;}"+
-        ".text-title {font-family: 'Open Sans';}"+
-        ".text-center {text-align: center;}"+
-        ".text-italic {font-style: italic;}"+
-        ".opacity-30 {opacity: 0.3;}"+
-        ".mb-0 {margin-bottom: 0;}"+
-        "</style></head><body>"+
-        "<div class='c-email'>"+
-        "<div class='c-email__header'>"+
-        "<h1 class='c-email__header__title'>Your Verification Code</h1>"+
-        "</div>"+
-        "<div class='c-email__content'>"+
-        "<p class='c-email__content__text text-title'>Enter this verification code in field:</p>"+
-        "<div class='c-email__code'>" +
-        "<span class='c-email__code__text'>" + text + "</span>" +
-        "</div>"+
-        "<p class='c-email__content__text text-italic opacity-30 text-title mb-0'>Cordialement, L'équipe de support technique de E-FIT</p>"+
-        "</div>"+
-        "<div class='c-email__footer'></div>"+
-        "</div>"+
-        "</body></html>";
-    message.setContent(htmlContent, "text/html; charset=utf-8");
-
-    return message;
-}
 /*
     public static void sendMail(String recepient, String code) throws Exception {
         Properties properties = new Properties();
@@ -274,7 +235,47 @@ public class JavaMail {
 
         String myAccountEmail = "ibtihel.chebbah@esprit.tn";
         
-        String password = "201JFT1884";
+   */
+    private static Message prepareMessage(Session session, String myAccountEmail, String recepient, String text) throws MessagingException {
+    MimeMessage message = new MimeMessage(session);
+    message.setFrom(new InternetAddress(myAccountEmail));
+    message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
+    message.setSubject("Code de vérification");
+
+    // Create the HTML content of the email
+    String htmlContent = "<html><head><style>" +
+        "body {background-color: #fafafa;display: flex;justify-content: center;align-items: center;}"+
+        ".c-email {width: 40vw;border-radius: 40px;overflow: hidden;box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, .1);}"+
+        ".c-email__header {background-color: #0fd59f;width: 100%;height: 60px;}"+
+        ".c-email__header__title {font-size: 23px;font-family: 'Open Sans';height: 60px;line-height: 60px;margin: 0;text-align: center;color: white;}"+
+        ".c-email__content {width: 100%;height: 300px;display: flex;flex-direction: column;justify-content: space-around;align-items: center;flex-wrap: wrap;background-color: #fff;padding: 15px;}"+
+        ".c-email__content__text {font-size: 20px;text-align: center;color: #343434;margin-top: 0;}"+
+        ".c-email__code {display: block;width: 60%;margin: 30px auto;background-color: #ddd;border-radius: 40px;padding: 20px;text-align: center;font-size: 36px;font-family: 'Open Sans';letter-spacing: 10px;box-shadow: 0px 7px 22px 0px rgba(0, 0, 0, .1);}"+
+        ".c-email__footer {width: 100%;height: 60px;background-color: #fff;}"+
+        ".text-title {font-family: 'Open Sans';}"+
+        ".text-center {text-align: center;}"+
+        ".text-italic {font-style: italic;}"+
+        ".opacity-30 {opacity: 0.3;}"+
+        ".mb-0 {margin-bottom: 0;}"+
+        "</style></head><body>"+
+        "<div class='c-email'>"+
+        "<div class='c-email__header'>"+
+        "<h1 class='c-email__header__title'>Your Verification Code</h1>"+
+        "</div>"+
+        "<div class='c-email__content'>"+
+        "<p class='c-email__content__text text-title'>Enter this verification code in field:</p>"+
+        "<div class='c-email__code'>" +
+        "<span class='c-email__code__text'>" + text + "</span>" +
+        "</div>"+
+        "<p class='c-email__content__text text-italic opacity-30 text-title mb-0'>Cordialement, L'équipe de support technique de E-FIT</p>"+
+        "</div>"+
+        "<div class='c-email__footer'></div>"+
+        "</div>"+
+        "</body></html>";
+    message.setContent(htmlContent, "text/html; charset=utf-8");
+
+    return message;
+}
 
         Session session = Session.getDefaultInstance(properties, new Authenticator() {
             @Override
@@ -345,3 +346,4 @@ public class JavaMail {
         
     }
 }
+        String password = "201JFT1884";
