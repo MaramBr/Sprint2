@@ -28,6 +28,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
+import util.MyDB;
 
 /**
  * FXML Controller class
@@ -46,9 +47,11 @@ public class CardController implements Initializable {
     private Label marque;
 
     
-  
+   private int pickedId;
     
 private  String [] colors = {"B9E5FF","BDB2FE","FB9AA8","FF5056"} ;
+    @FXML
+    private Label moyRating;
     /**
     /**
      * Initializes the controller class.
@@ -59,9 +62,11 @@ private  String [] colors = {"B9E5FF","BDB2FE","FB9AA8","FF5056"} ;
         // TODO
     }    
      public void setData(Produit prod) {
+          pickedId = prod.getId();
     Image image = new Image(getClass().getResourceAsStream(prod.getImage())) ;
     VehiculeImg.setImage(image);
     VehiculeName.setText(prod.getNom());
+      moyRating.setText(String.valueOf(prod.getMoyRating()));
     marque.setText(prod.getDescription());
     box.setStyle("-fx-background-color: #" +colors[(int)(Math.random()*colors.length)] 
         +" ; -fx-background-radius: 15;"
@@ -130,6 +135,7 @@ private  String [] colors = {"B9E5FF","BDB2FE","FB9AA8","FF5056"} ;
         Parent Content = FXMLLoader.load(getClass().getResource("Rating.fxml"));
         box.getChildren().setAll(Content); 
             // Set the productId attribute with the ID of the current product
+             MyDB.setPickedPRoductId(pickedId);
     }
     
 }

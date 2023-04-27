@@ -15,12 +15,28 @@ import java.util.logging.Logger;
  *
  * @author msi
  */
+
+ 
 public class MyDB {
    private static MyDB instance ;
     final String URL ="jdbc:mysql://127.0.0.1:3306/Pidev";
     final String USERNAME ="root";
     final String PWD ="";
    private  Connection cnx;
+   
+   
+   
+  
+    public static int getPickedPRoductId() {
+        return pickedPRoductId;
+    }
+
+    public static void setPickedPRoductId(int aPickedPRoductId) {
+        pickedPRoductId = aPickedPRoductId;
+    }
+   
+    private static int pickedPRoductId;
+
     
     private MyDB(){
         try {

@@ -23,7 +23,12 @@
                </font>
             </Label>
             <Button mnemonicParsing="false" onAction="#noteP" style="-fx-background-color: white;" text="Noter" textFill="#111111" />
-            <Label fx:id="marque" prefHeight="81.0" prefWidth="244.0" text="Mercedes">
+            <Label fx:id="marque" prefHeight="81.0" prefWidth="244.0" text="mercedes">
+               <font>
+                  <Font name="Berlin Sans FB" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="moyRating" prefHeight="81.0" prefWidth="244.0" text="Mercedes">
                <font>
                   <Font name="Berlin Sans FB" size="24.0" />
                </font>

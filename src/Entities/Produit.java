@@ -13,6 +13,15 @@ public class Produit {
     
     private int id,quantite,idCategory ,likes;
     private String nom ,description,image,nomCategory ;
+    private float moyRating;
+
+    public float getMoyRating() {
+        return moyRating;
+    }
+
+    public void setMoyRating(float moyRating) {
+        this.moyRating = moyRating;
+    }
 
     public int getLikes() {
         return likes;

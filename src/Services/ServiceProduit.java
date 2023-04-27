@@ -58,7 +58,7 @@ public class ServiceProduit implements IService<Produit> {
     @Override
     public List<Produit> afficherProduit() {
     List<Produit> produits = new ArrayList();
-        String qry = "SELECT p.id ,c.libelle, p.nom,p.description,p.quantite,p.prix,p.image  FROM category c JOIN produit p ON c.id = p.categorys_id";
+        String qry = "SELECT p.id ,c.libelle, p.nom,p.description,p.quantite,p.prix,p.image, (SELECT AVG(rating) from ratings where ratings.id_produit = p.id) as moyRating    FROM category c JOIN produit p ON c.id = p.categorys_id";
      try {
          Statement stm = cnx.createStatement();
          ResultSet rs = stm.executeQuery(qry);
@@ -73,6 +73,7 @@ public class ServiceProduit implements IService<Produit> {
               p.setQuantite(rs.getInt(5));
                p.setPrix(rs.getFloat(6));
                 p.setImage(rs.getString(7));
+                 p.setMoyRating(rs.getFloat(8));
             
              produits.add(p);
          }

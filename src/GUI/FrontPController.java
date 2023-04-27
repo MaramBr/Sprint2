@@ -8,8 +8,6 @@ package GUI;
 import Entities.Produit;
 import Entities.ProduitLike;
 import Services.ServiceProduit;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
