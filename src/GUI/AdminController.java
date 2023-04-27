@@ -7,6 +7,7 @@ package GUI;
 
 import Entities.User;
 import Services.UserService;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -99,10 +100,14 @@ public class AdminController implements Initializable {
     private TableColumn<?, ?> etatU;
     @FXML
     private ImageView Qr;
-    @FXML
     private Button bloquer;
-    @FXML
     private Button debloquer;
+    @FXML
+    private Button block;
+    @FXML
+    private FontAwesomeIconView bloquer1;
+    @FXML
+    private FontAwesomeIconView bloquer2;
  
     /**
      * Initializes the controller class.
@@ -401,8 +406,10 @@ Image photo=image2.getImage();
        roles.getSelectionModel().clearSelection();
         image2.setImage(null);
         Qr.setImage(null);
-        bloquer.setVisible(true);
-            debloquer.setVisible(true);
+        
+             block.setText("Bloquer/Débloquer");
+            bloquer1.setVisible(true);
+            bloquer2.setVisible(true);
         Afficher();
     }
     @FXML
@@ -414,12 +421,19 @@ Image photo=image2.getImage();
             return;
         }
          if(c.getIs_active()==0){
-             bloquer.setVisible(true);
-            debloquer.setVisible(false);
+             //bloquer.setVisible(true);
+            //debloquer.setVisible(false);
+            block.setText("Bloquer");
+            bloquer1.setVisible(true);
+            bloquer2.setVisible(false);
          }
          else if(c.getIs_active()==1){
-             bloquer.setVisible(false);
-             debloquer.setVisible(true);
+             //bloquer.setVisible(false);
+             //debloquer.setVisible(true);
+             
+             block.setText("Déloquer");
+            bloquer2.setVisible(true);
+             bloquer1.setVisible(false);
          }
        
         
@@ -535,7 +549,6 @@ void ban(ActionEvent event){
      Afficher();
      
 }
-@FXML
 void bloquer(ActionEvent event){
     
     String typeString ;
@@ -581,7 +594,6 @@ void bloquer(ActionEvent event){
      
 }
 
-@FXML
 void debloquer(ActionEvent event){
     
     String typeString ;
@@ -715,7 +727,5 @@ void triNomDESC(ActionEvent event) {
              table.setItems(UserList);
     }//Ban a user
 
-    @FXML
-    private void Generate(MouseEvent event) {
-    }
+    
 }

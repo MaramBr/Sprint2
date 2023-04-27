@@ -41,7 +41,7 @@ public class ServiceReclamation implements IService<Reclamation> {
         cnx = MyDB.getInstance().getCnx();
     }
 
-    @Override
+   
     public void ajouter(Reclamation t) {
         t.setStatus("en attente");
         t.setTraitement("pas de traitement");
@@ -59,7 +59,7 @@ public class ServiceReclamation implements IService<Reclamation> {
 
     }
 
-    @Override
+  
     public List<Reclamation> afficher() {
         List<Reclamation> reclamations = new ArrayList();
         String qry = "SELECT r.titre, r.description, r.date, r.status, g.libelle FROM reclamation r JOIN genre g ON r.id_genre = g.id;";
@@ -89,7 +89,7 @@ public class ServiceReclamation implements IService<Reclamation> {
         return reclamations;
     }
 
-    @Override
+    
     public boolean modifier(Reclamation t) {
         try {
             String qry = "UPDATE `reclamation` SET `id`='" + t.getIdRec() + "',`date_r`='" + t.getDate() + "',`titre_r`='" + t.getTitre() + "',`description_r`='" + t.getDescription() + "',`status_r`='" + t.getStatus() + "',`traitement`='" + t.getTraitement() + "'WHERE `id` = '" + t.getIdRec() + "'";
@@ -103,7 +103,7 @@ public class ServiceReclamation implements IService<Reclamation> {
         }
     }
 
-    @Override
+    
     public void supprimer(Reclamation t) {
         String qry = "DELETE FROM `reclamation` WHERE id=?";
         try {
@@ -115,7 +115,7 @@ public class ServiceReclamation implements IService<Reclamation> {
         }
     }
 
-    @Override
+    
     public ObservableList<Reclamation> afficher2() {
         ObservableList<Reclamation> reclamations = FXCollections.observableArrayList();
         String qry = "SELECT r.id , g.libelle, r.date_r, r.titre_r, r.description_r, r.status_r, r.traitement FROM reclamation r JOIN genre g ON r.genre_id = g.id;";

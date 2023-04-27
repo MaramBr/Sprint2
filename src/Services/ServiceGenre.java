@@ -31,7 +31,7 @@ public class ServiceGenre implements IService<Genre>{
     }
 
     
-    @Override
+    
     public void ajouter(Genre t) {
         
         String qry="INSERT INTO `genre`(`libelle`) VALUES ('"+t.getLibelle()+"')";
@@ -44,7 +44,7 @@ public class ServiceGenre implements IService<Genre>{
             System.out.println(ex.getMessage()); 
         }  }
 
-   @Override
+  
     public List<Genre> afficher() {
    List<Genre> genresList = new ArrayList();
         String qry ="SELECT * FROM `genre`";
@@ -66,7 +66,7 @@ public class ServiceGenre implements IService<Genre>{
      return genresList;
     }
 
-    @Override
+   
     public boolean modifier(Genre t) {
     
  try {
@@ -81,7 +81,7 @@ public class ServiceGenre implements IService<Genre>{
         } 
     }
 
-    @Override
+   
     public void supprimer(Genre t) {
      
 String qry = "DELETE FROM `genre` WHERE id=?";
@@ -95,7 +95,7 @@ String qry = "DELETE FROM `genre` WHERE id=?";
     
     }
 
-    @Override
+    
     public ObservableList<Genre> afficher2() {
         
            ObservableList<Genre> genresList = FXCollections.observableArrayList();
