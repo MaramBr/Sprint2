@@ -3,17 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Maram/Desktop/Efit/src/Entities/RendezVous.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit/src/GUI/RendezVous.fxml</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit/src/GUI/RendezVousController.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit/src/efit/Efit.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit/src/GUI/AjouterCoachingController.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit/src/Services/ServiceRendezVous.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit/src/efit/RendezVousFXMain.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit/src/Services/IService.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit/src/Entities/Coaching.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit/src/efit/NewFXMain.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit/src/Services/ServiceCoaching.java</file>
+            <file>file:/C:/Users/21692/Desktop/maysaa/PI/src/pi/NewFXMain.java</file>
+            <file>file:/C:/Users/21692/Desktop/maysaa/PI/src/Services/ServiceProduit.java</file>
+            <file>file:/C:/Users/21692/Desktop/maysaa/PI/src/GUI/FrontPController.java</file>
+            <file>file:/C:/Users/21692/Desktop/maysaa/PI/src/pi/Categorie.java</file>
+            <file>file:/C:/Users/21692/Desktop/maysaa/PI/src/Entities/Produit.java</file>
+            <file>file:/C:/Users/21692/Desktop/maysaa/PI/src/img/46672.png</file>
+            <file>file:/C:/Users/21692/Desktop/maysaa/PI/src/GUI/ProduitController.java</file>
+            <file>file:/C:/Users/21692/Desktop/maysaa/PI/src/GUI/FrontController.java</file>
+            <file>file:/C:/Users/21692/Desktop/maysaa/PI/src/GUI/MenuProduitController.java</file>
+            <file>file:/C:/Users/21692/Desktop/maysaa/PI/src/img/406.jpg</file>
+            <file>file:/C:/Users/21692/Desktop/maysaa/PI/src/GUI/CardController.java</file>
+            <file>file:/C:/Users/21692/Desktop/maysaa/PI/src/GUI/RatingController.java</file>
         </group>
     </open-files>
 </project-private>
