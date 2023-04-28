@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pi;
+package userjava;
 import Entities.Transporteur;
 import Entities.Companie;
 import Services.ServiceTransporteur;
 //import Services.ServiceCompanie;
-import util.MyDB;
+import Utils.MyDB;
 
 /**
  *

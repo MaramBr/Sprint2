@@ -3,14 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-<<<<<<<< HEAD:src/userjava/mainmaram.java
 package userjava;
-========
-package pi;
->>>>>>>> origin/IhebTransport:src/pi/NewFXMain.java
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -19,31 +18,22 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
 
 /**
  *
- * @author 21692
+ * @author Maram
  */
 public class mainmaram extends Application {
     
     @Override
     public void start(Stage primaryStage) {
-<<<<<<<< HEAD:src/userjava/mainmaram.java
          try {
             Parent root = FXMLLoader.load(getClass().getResource("../GUI/Menu.fxml"));
-========
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("../GUI/MenuTransporteur.fxml"));
->>>>>>>> origin/IhebTransport:src/pi/NewFXMain.java
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
             System.out.println(ex);        }
-     
     }
 
     /**
@@ -52,5 +42,7 @@ public class mainmaram extends Application {
     public static void main(String[] args) {
         launch(args);
     }
+
+  
     
 }

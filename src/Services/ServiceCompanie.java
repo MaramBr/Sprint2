@@ -5,7 +5,7 @@
  */
 package Services;
 import Entities.Companie;
-import util.MyDB;
+import Utils.MyDB;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
