@@ -390,9 +390,10 @@ JOptionPane.showMessageDialog(null, "Transporteur ajouté.");
     c.setCompanies_id(Companies_idToadd);
 
     sc.ajouterTransporteur(c);
-    QRcode(c);
-    sendsms();
     updateTable();
+    QRcode(c);
+    //sendsms();
+    
     JOptionPane.showMessageDialog(null, "Transporteur ajouté.");
 }
 
