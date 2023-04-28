@@ -3,21 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/AjouterCoachingController.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/RendezVousController.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/MenuController.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/RdvBackController.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/CoachingFrontController.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/CardController.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/Services/ServiceRendezVous.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/Utils/JavaMail.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/FrontController.java</file>
-            <file>file:/C:/Users/Maram/Desktop/Efit%20-%20Copy/src/GUI/MenuFrontController.java</file>
-            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/userjava/NewFXMain1.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/CardController.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/CodeTestController.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/Card.fxml</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/Services/IService.java</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/GenreController.java</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/AdminController.java</file>
-            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/CodeTestController.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/userjava/NewFXMain1.java</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/LoginController.java</file>
         </group>
     </open-files>

@@ -126,7 +126,10 @@ Image photo=improfile.getImage();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-      
+        /* Nom.setText(UserConnected.getNom());
+    email.setText(UserConnected.getEmail());
+      prenom.setText(UserConnected.getPrenom());
+      */
     }    
     
      /*int setUser(Session UserConnected) {
