@@ -293,7 +293,7 @@ if (selectedEvenement != null) {
 
 }
 
-   @FXML
+ /*@FXML
 private void afficherEvenementSelectionne(MouseEvent event) {
     Evenement Evenement = tableEvenement.getSelectionModel().getSelectedItem();
     if (Evenement != null) {
@@ -324,7 +324,7 @@ private void afficherEvenementSelectionne(MouseEvent event) {
         tfnbparticipant.setText("");
         tfprix.setText("");
     }
-}
+}*/
 
     @FXML
     private void QR(ActionEvent event) {
@@ -333,7 +333,7 @@ private void afficherEvenementSelectionne(MouseEvent event) {
       
 
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
-        String Information = "nom  : "+p.getNom()+"\n"+"Description : "+p.getDescription()+"\n"+"date : "+p.getDate_debut();
+        String Information = "nom  : "+p.getNom()+"\n"+"Description : "+p.getDescription()+"\n"+"date : "+p.getDate_debut()+"\n"+"nombre participant restant : "+p.getNb_participant()+"\n"+"Lieu : "+p.getLieu();
         int width = 300;
         int height = 300;
         BufferedImage bufferedImage = null;

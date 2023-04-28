@@ -71,7 +71,7 @@ private Region createPage(int pageIndex) {
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("CardEv.fxml"));
                 HBox cardBox = fxmlLoader.load();
-                CardController cardController = fxmlLoader.getController();
+                CardEvController cardController = fxmlLoader.getController();
                 cardController.setData(value);
                 rowContainer.getChildren().add(cardBox);
             }

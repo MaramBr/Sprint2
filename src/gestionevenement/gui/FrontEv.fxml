@@ -8,10 +8,11 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="527.0" prefWidth="831.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestionEvenement.gui.FrontEvController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="767.0" prefWidth="1226.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestionEvenement.gui.FrontEvController">
    <styleClass>
       <String fx:value="mouse-moved" />
       <String fx:value="selected" />
@@ -19,14 +20,14 @@
    <center>
       <VBox prefHeight="554.0" prefWidth="981.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="161.0" prefWidth="981.0">
+            <HBox prefHeight="157.0" prefWidth="1176.0" style="-fx-background-color: black;">
                <children>
-                  <ImageView fitHeight="194.0" fitWidth="115.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="117.0" fitWidth="120.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: black; -fx-background-radius: 14 14 14 14;">
                      <image>
-                        <Image url="@images/coach.png" />
+                        <Image url="@../../img/Note%20Vector%20Hd%20Images,%20Vector%20Notes%20Icon,%20Document,%20Notes,%20Office%20PNG%20Image%20For%20Free%20Download.jpg" />
                      </image>
                   </ImageView>
-                  <Label alignment="CENTER" prefHeight="133.0" prefWidth="569.0" text="Les Evenements">
+                  <Label alignment="CENTER" prefHeight="133.0" prefWidth="569.0" text="Les Evenements" textFill="#eeeaea">
                      <font>
                         <Font name="Baskerville Old Face" size="48.0" />
                      </font>
@@ -36,7 +37,8 @@
                   </Label>
                </children>
             </HBox>
-            <Pagination fx:id="pagination" prefHeight="381.0" prefWidth="981.0" />
+            <Pane prefHeight="5.0" prefWidth="1176.0" style="-fx-background-color: #e15e1c;" />
+            <Pagination fx:id="pagination" prefHeight="513.0" prefWidth="1176.0" />
          </children>
       </VBox>
    </center>

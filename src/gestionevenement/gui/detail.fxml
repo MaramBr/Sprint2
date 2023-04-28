@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gestionEvenement.gui.DetailController">
    <children>
-      <AnchorPane layoutX="-12.0" prefHeight="533.0" prefWidth="615.0" style="-fx-background-color: #e15e1c; -fx-background-radius: 14 14 0 0;">
+      <AnchorPane layoutX="-12.0" prefHeight="533.0" prefWidth="615.0" style="-fx-background-color: #e15e1c;">
          <children>
-            <TextField fx:id="tfnom" editable="false" layoutX="31.0" layoutY="97.0" style="-fx-border-color: black; -fx-background-radius: 14 14 14 14;" stylesheets="@tableview.css" />
-            <TextField fx:id="tftype" editable="false" layoutX="22.0" layoutY="177.0" style="-fx-background-radius: 14 14 14 14; -fx-border-color: orange;" stylesheets="@tableview.css" />
-            <TextField fx:id="tfnbparticipant" editable="false" layoutX="306.0" layoutY="318.0" style="-fx-background-radius: 14 14 14 14; -fx-border-color: black;" stylesheets="@tableview.css" />
-            <TextField fx:id="tfprix" editable="false" layoutX="306.0" layoutY="387.0" style="-fx-background-radius: 14 14 14 14; -fx-border-color: orange;" stylesheets="@tableview.css" />
-            <ImageView fx:id="image2" fitHeight="135.0" fitWidth="211.0" layoutX="294.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
-            <TextField fx:id="tfdatefin" editable="false" layoutX="306.0" layoutY="251.0" style="-fx-background-radius: 14 14 14 14; -fx-border-color: orange;" stylesheets="@tableview.css" />
-            <TextField fx:id="tfdatedebut" editable="false" layoutX="306.0" layoutY="187.0" style="-fx-background-radius: 14 14 14 14; -fx-border-color: black;" stylesheets="@tableview.css" />
-            <TextField fx:id="tflieu" editable="false" layoutX="22.0" layoutY="251.0" style="-fx-background-radius: 14 14 14 14; -fx-border-color: black;" stylesheets="@tableview.css" />
+            <TextField fx:id="idevent" editable="false" layoutX="402.0" layoutY="465.0" prefHeight="21.0" prefWidth="0.0" />
+            <ImageView fx:id="image2" fitHeight="135.0" fitWidth="211.0" layoutX="294.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <Reflection fraction="0.5" topOpacity="0.14" />
+               </effect></ImageView>
             <Label layoutX="31.0" layoutY="66.0" prefHeight="21.0" prefWidth="145.0" text="Nom Evenement">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
@@ -50,7 +51,7 @@
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
-            <Label layoutX="306.0" layoutY="297.0" prefHeight="21.0" prefWidth="145.0" text="Nombre Participant">
+            <Label layoutX="306.0" layoutY="297.0" prefHeight="21.0" prefWidth="211.0" text="Nombre Participant Restant">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
@@ -60,20 +61,78 @@
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Label>
+            <Label layoutX="39.0" layoutY="20.0" prefHeight="45.0" prefWidth="200.0" text="les details:" textFill="WHITE">
+               <font>
+                  <Font name="Jokerman" size="31.0" />
+               </font>
+            </Label>
+             
+                  
+            <Button fx:id="btnretour" layoutX="6.0" layoutY="-1.0" mnemonicParsing="false" onAction="#retour" prefHeight="31.0" prefWidth="42.0" style="-fx-background-color: black; -fx-background-radius: 14 14 14 14;" text="&lt;-" textFill="WHITE" />
+            <Label fx:id="tfnom" layoutX="31.0" layoutY="98.0" prefHeight="21.0" prefWidth="145.0" text="label">
+               <font>
+                  <Font name="Lucida Handwriting Italic" size="20.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Label fx:id="tftype" layoutX="25.0" layoutY="171.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Lucida Handwriting Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="tflieu" layoutX="25.0" layoutY="251.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Lucida Handwriting Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="tfdescription" layoutX="27.0" layoutY="337.0" prefHeight="59.0" prefWidth="211.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Lucida Handwriting Italic" size="21.0" />
+               </font>
+            </Label>
+            <Label fx:id="tfdatedebut" layoutX="325.0" layoutY="187.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Lucida Handwriting Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="tfdatefin" layoutX="325.0" layoutY="267.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Lucida Handwriting Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="tfnbparticipant" layoutX="333.0" layoutY="329.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Lucida Handwriting Italic" size="20.0" />
+               </font>
+            </Label>
+            <Label fx:id="tfprix" layoutX="333.0" layoutY="405.0" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="Lucida Handwriting Italic" size="20.0" />
+               </font>
+            </Label>
+            <Pane layoutX="6.0" layoutY="481.0" prefHeight="3.0" prefWidth="616.0" style="-fx-background-color: black;">
+               <cursor>
+                  <Cursor fx:constant="S_RESIZE" />
+               </cursor>
+            </Pane>
             <Button fx:id="participer" layoutX="360.0" layoutY="463.0" mnemonicParsing="false" onAction="#participer" prefHeight="34.0" prefWidth="119.0" style="-fx-border-color: orange; -fx-background-color: #000000;" text="Participer" textFill="#ffc247">
                <font>
                   <Font name="System Bold Italic" size="15.0" />
                </font>
             </Button>
-            <Label layoutX="39.0" layoutY="20.0" prefHeight="45.0" prefWidth="200.0" text="les details:" textFill="WHITE">
+            <ImageView fx:id="qrcodee" fitHeight="107.0" fitWidth="110.0" layoutX="18.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="BtnQr" layoutX="489.0" layoutY="463.0" mnemonicParsing="false" onAction="#QR" prefHeight="34.0" prefWidth="119.0" style="-fx-border-color: orange; -fx-background-color: #000000;" text="Qr code" textFill="#ffc247">
                <font>
-                  <Font name="Corbel Bold Italic" size="24.0" />
+                  <Font name="System Bold Italic" size="15.0" />
                </font>
-            </Label>
-            <ImageView fx:id="image2" fitHeight="135.0" fitWidth="211.0" layoutX="294.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
-            <TextField fx:id="idevent" editable="false" layoutX="56.0" layoutY="408.0" prefHeight="21.0" prefWidth="0.0" style="-fx-border-color: black; -fx-background-radius: 14 14 14 14;" stylesheets="@tableview.css" />
-            <TextArea fx:id="tfdescription" editable="false" layoutX="18.0" layoutY="349.0" prefHeight="118.0" prefWidth="200.0" style="-fx-background-radius: 14 14 14 14; -fx-border-color: orange;" stylesheets="@tableview.css" />
-            <Button fx:id="btnretour" layoutX="6.0" layoutY="-1.0" mnemonicParsing="false" onAction="#retour" prefHeight="31.0" prefWidth="42.0" style="-fx-background-color: black; -fx-background-radius: 14 14 14 14;" text="&lt;-" textFill="WHITE" />
+            </Button>
          </children>
       </AnchorPane>
    </children>

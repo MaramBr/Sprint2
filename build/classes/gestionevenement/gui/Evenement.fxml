@@ -113,7 +113,7 @@
                </font>
             </Button>
             <ImageView fx:id="image2" fitHeight="150.0" fitWidth="200.0" layoutX="433.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="qrcodee" fitHeight="150.0" fitWidth="200.0" layoutX="633.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="qrcodee" fitHeight="150.0" fitWidth="200.0" layoutX="702.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true" />
             <Button fx:id="BtnQr" layoutX="979.0" layoutY="496.0" mnemonicParsing="false" onAction="#BtnQr" prefHeight="37.0" prefWidth="182.0" style="-fx-border-color: #000000; -fx-background-color: #000000;" text="qr" textAlignment="CENTER" textFill="#d05803">
                <font>
                   <Font name="System Bold Italic" size="15.0" />

@@ -78,7 +78,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Pane fx:id="card" layoutX="382.0" layoutY="135.0" prefHeight="373.0" prefWidth="524.0" style="-fx-background-color: ffaa55;">
+            <Pane fx:id="card" layoutX="382.0" layoutY="135.0" prefHeight="373.0" prefWidth="524.0" style="-fx-background-color: #e15e1c;">
                <children>
                   <Label fx:id="labelNom" layoutX="106.0" layoutY="80.0" prefHeight="21.0" prefWidth="243.0" />
                   <Label fx:id="labelPrenom" layoutX="122.0" layoutY="113.0" prefHeight="21.0" prefWidth="184.0" />
