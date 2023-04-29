@@ -10,8 +10,9 @@ import Entities.Participant;
 import Entities.Sponsor;
 import Services.EvenementCRUD;
 import Services.SponsorCRUD;
-import Utils.MyConnection;
+import Utils.MyDB;
 import Services.ParticipantCRUD;
+import Utils.MyDB;
 import java.util.Date;
 
 /**
@@ -22,7 +23,7 @@ public class MainClass {
     public static void main(String[] args) {
         // TODO code application logic here
         
-        MyConnection conn = MyConnection.getInstance();
+        MyDB conn = MyDB.getInstance();
       
         //Evenement r = new Evenement(10,100,"aa" ,"aqa","zzz","22/3/2023","22/3/2023", "Evenement","ded");
      // Sponsor sponsor = new Sponsor(123,"er","zer","sdfg");

@@ -7,7 +7,7 @@ package GUI;
 
 import Entities.Participant;
 import Entities.Sponsor;
-import Utils.MyConnection;
+import Utils.MyDB;
 import Services.PDFGenerator;
 import Services.ParticipantCRUD;
 import java.io.File;
@@ -140,7 +140,7 @@ private Pane card;
         }
            image1.setImage(new Image(localURL));
     }
-    MyConnection cnx = null;
+    MyDB cnx = null;
     Statement st = null;
     ParticipantCRUD pcd = new ParticipantCRUD();
 
@@ -148,7 +148,7 @@ private Pane card;
     public void show() {
         try {
             String requete = "SELECT * FROM participant";
-            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            Statement st = MyDB.getInstance().getCnx().createStatement();
             ResultSet rs = st.executeQuery(requete);
             while (rs.next()) {
             Participant r = new Participant(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"), rs.getString("email"), rs.getInt("age"), rs.getInt("tel"));
@@ -183,7 +183,7 @@ coltel.setStyle("-fx-border-color: orange; -fx-border-width: 1px; -fx-border-sty
 public void show2() {
     try {
         String requete = "SELECT * FROM participant ORDER BY id DESC LIMIT 1";
-        Statement st = MyConnection.getInstance().getCnx().createStatement();
+        Statement st = MyDB.getInstance().getCnx().createStatement();
         ResultSet rs = st.executeQuery(requete);
         if (rs.next()) {
             Participant r = new Participant(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"), rs.getString("email"), rs.getInt("age"), rs.getInt("tel"));
@@ -211,7 +211,7 @@ public void show2() {
 public void show3() {
     try {
         String requete = "SELECT * FROM participant ORDER BY id DESC LIMIT 1";
-        Statement st = MyConnection.getInstance().getCnx().createStatement();
+        Statement st = MyDB.getInstance().getCnx().createStatement();
         ResultSet rs = st.executeQuery(requete);
         if (rs.next()) {
             String nom = rs.getString("nom");
@@ -235,7 +235,7 @@ public void show3() {
 public void show4() {
     try {
         String requete = "SELECT * FROM participant ORDER BY id DESC LIMIT 1";
-        Statement st = MyConnection.getInstance().getCnx().createStatement();
+        Statement st = MyDB.getInstance().getCnx().createStatement();
         ResultSet rs = st.executeQuery(requete);
         if (rs.next()) {
             String nom = rs.getString("nom");
@@ -507,7 +507,7 @@ public void ajouterParticipantEvenement(String tfEvent) {
     String idParticipant = null;
     String sql = "SELECT id FROM participant ORDER BY id DESC LIMIT 1";
     try {
-        Statement stmt = MyConnection.getInstance().getCnx().createStatement();
+        Statement stmt = MyDB.getInstance().getCnx().createStatement();
         ResultSet rs = stmt.executeQuery(sql);
         if (rs.next()) {
             idParticipant = rs.getString("id");
@@ -518,7 +518,7 @@ public void ajouterParticipantEvenement(String tfEvent) {
         ex.printStackTrace();
     }
     try {
-        Statement stm = MyConnection.getInstance().getCnx().createStatement();
+        Statement stm = MyDB.getInstance().getCnx().createStatement();
         String sql1 = "INSERT INTO participant_evenement (participant_id, evenement_id) VALUES ('" + idParticipant + "', '" + idEvent + "')";
         stm.executeUpdate(sql1);
         stm.close();
@@ -529,7 +529,7 @@ public void ajouterParticipantEvenement(String tfEvent) {
     // Mettre à jour le nombre de participants dans la table evenement
     String sql2 = "UPDATE evenement SET nb_participant = nb_participant - 1 WHERE id = ?";
     try {
-        PreparedStatement stmt = MyConnection.getInstance().getCnx().prepareStatement(sql2);
+        PreparedStatement stmt = MyDB.getInstance().getCnx().prepareStatement(sql2);
         stmt.setString(1, idEvent);
         stmt.executeUpdate();
         stmt.close();
@@ -562,7 +562,7 @@ private void supprimerparticipant(ActionEvent event) {
     String sql2 = "UPDATE evenement SET nb_participant = nb_participant + 1 WHERE id = ?";
     try {
         String idEvent = tfevent.getText();
-        PreparedStatement stmt = MyConnection.getInstance().getCnx().prepareStatement(sql2);
+        PreparedStatement stmt = MyDB.getInstance().getCnx().prepareStatement(sql2);
         stmt.setString(1, idEvent);
         stmt.executeUpdate();
         stmt.close();

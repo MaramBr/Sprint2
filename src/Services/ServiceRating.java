@@ -30,7 +30,7 @@ public class ServiceRating {
 
         try {
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/pidev", "root", "");
-            String query = "INSERT INTO ratings (id_produit, userName, rating) VALUES (?, ?, ?)";
+            String query = "INSERT INTO ratings (produit_id, user_name, rating) VALUES (?, ?, ?)";
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setInt(1, productId);
             stmt.setString(2, userName);

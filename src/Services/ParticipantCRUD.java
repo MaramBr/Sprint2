@@ -9,7 +9,7 @@ package Services;
 import Entities.Evenement;
 import Entities.Participant;
 import gestionEvenement.intefaces.InterfaceParticipant;
-import Utils.MyConnection;
+import Utils.MyDB;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,7 +28,7 @@ public class ParticipantCRUD  implements InterfaceParticipant {
 public void ajouterParticipant(Participant p) {
     try {
         String insertQuery = "INSERT INTO participant(nom,prenom,email,age,tel) VALUES(?,?,?,?,?)";
-        PreparedStatement insertStmt = MyConnection.getInstance().getCnx().prepareStatement(insertQuery);
+        PreparedStatement insertStmt = MyDB.getInstance().getCnx().prepareStatement(insertQuery);
        
         insertStmt.setString(1, p.getNom());
         insertStmt.setString(2, p.getPrenom());
@@ -45,7 +45,7 @@ public void ajouterParticipant(Participant p) {
 /*public void ajouterParticipant(Participant p, Evenement e) {
     try {
         String insertQuery = "INSERT INTO participant(nom,prenom,email,age,tel) VALUES(?,?,?,?,?)";
-        PreparedStatement insertStmt = MyConnection.getInstance().getCnx().prepareStatement(insertQuery);
+        PreparedStatement insertStmt = MyDB.getInstance().getCnx().prepareStatement(insertQuery);
        
         insertStmt.setString(1, p.getNom());
         insertStmt.setString(2, p.getPrenom());
@@ -60,7 +60,7 @@ public void ajouterParticipant(Participant p) {
         if (nbParticipant > 0) {
             e.setNb_participant(nbParticipant - 1);
             String updateQuery = "UPDATE evenement SET nb_participant = ? WHERE id = ?";
-            PreparedStatement updateStmt = MyConnection.getInstance().getCnx().prepareStatement(updateQuery);
+            PreparedStatement updateStmt = MyDB.getInstance().getCnx().prepareStatement(updateQuery);
             updateStmt.setInt(1, e.getNb_participant());
             updateStmt.setInt(2, e.getId());
             updateStmt.executeUpdate();
@@ -79,7 +79,7 @@ public void ajouterParticipant(Participant p) {
 public void modifierParticipant(Participant p) {
     try {
         String requete = "UPDATE participant SET nom=?, prenom=?, email=?, age=?, tel=? WHERE id=?";
-        PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
+        PreparedStatement pst = MyDB.getInstance().getCnx().prepareStatement(requete);
        
         pst.setString(1, p.getNom());
         pst.setString(2, p.getPrenom());
@@ -98,7 +98,7 @@ public void modifierParticipant(Participant p) {
 public void supprimerParticipant(int id) {
     try {
         String requete = "DELETE FROM participant WHERE id=?";
-        PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
+        PreparedStatement pst = MyDB.getInstance().getCnx().prepareStatement(requete);
         pst.setInt(1, id);
         pst.executeUpdate();
         System.out.println("Participant supprimé");
@@ -112,7 +112,7 @@ public List<Participant> afficherParticipant() {
     List<Participant> participantList = new ArrayList<>();
     try {
         String requete = "SELECT * FROM participant";
-        PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
+        PreparedStatement pst = MyDB.getInstance().getCnx().prepareStatement(requete);
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
             Participant participant = new Participant(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"), rs.getString("email"), rs.getInt("age"), rs.getInt("tel"));
@@ -129,7 +129,7 @@ public ObservableList<Participant> searchParticipants(String searchTerm) {
     ObservableList<Participant> participants = FXCollections.observableArrayList();
     try {
         String query = "SELECT * FROM participant WHERE nom LIKE ? OR prenom LIKE ? OR email LIKE ? OR age LIKE ? OR tel LIKE ?";
-        PreparedStatement preparedStatement = MyConnection.getInstance().getCnx().prepareStatement(query);
+        PreparedStatement preparedStatement = MyDB.getInstance().getCnx().prepareStatement(query);
         preparedStatement.setString(1, "%" + searchTerm + "%");
         preparedStatement.setString(2, "%" + searchTerm + "%");
         preparedStatement.setString(3, "%" + searchTerm + "%");

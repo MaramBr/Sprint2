@@ -6,8 +6,9 @@
 package GUI;
 
 import Entities.Participant;
-import Utils.MyConnection;
+
 import Services.ParticipantCRUD;
+import Utils.MyDB;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -95,7 +96,7 @@ public class ParticipantBackController implements Initializable {
            image1.setImage(new Image(localURL));
         
     }
-    MyConnection cnx = null;
+    MyDB cnx = null;
     Statement st = null;
     ParticipantCRUD pcd = new ParticipantCRUD();
     
@@ -119,7 +120,7 @@ public class ParticipantBackController implements Initializable {
     
     try {
         // Exécuter la requête SQL
-        Statement st = MyConnection.getInstance().getCnx().createStatement();
+        Statement st = MyDB.getInstance().getCnx().createStatement();
         st.executeUpdate(sql);
         
         // Supprimer le participant de la table view
@@ -164,7 +165,7 @@ public class ParticipantBackController implements Initializable {
     public void show() {
         try {
             String requete = "SELECT * FROM participant";
-            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            Statement st = MyDB.getInstance().getCnx().createStatement();
             ResultSet rs = st.executeQuery(requete);
             while (rs.next()) {
             Participant r = new Participant(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"), rs.getString("email"), rs.getInt("age"), rs.getInt("tel"));

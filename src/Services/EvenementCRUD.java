@@ -7,7 +7,7 @@ package Services;
 
 import Entities.Evenement;
 import Entities.Sponsor;
-import Utils.MyConnection;
+import Utils.MyDB;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -33,7 +33,7 @@ public class EvenementCRUD implements InterfaceEvenement {
   public void ajouterEvenement(Evenement r) {
     try {
         String requete1 = "INSERT INTO evenement(sponsors_id,nom,lieu,type,description,date_debut,date_fin,image,nb_participant,prix) VALUES(?,?,?,?,?,STR_TO_DATE(?, '%d/%m/%Y'),STR_TO_DATE(?, '%d/%m/%Y'),?,?,?)";
-        PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete1);
+        PreparedStatement pst = MyDB.getInstance().getCnx().prepareStatement(requete1);
         pst.setInt(1, r.getSponsors_id());
         pst.setString(2, r.getNom());
         pst.setString(3, r.getLieu());
@@ -56,7 +56,7 @@ public class EvenementCRUD implements InterfaceEvenement {
 public void modifierEvenement(Evenement r) {
     try {
         String requete = "UPDATE evenement SET sponsors_id = ?, nom = ?, lieu = ?, type = ?, description = ?, date_debut = STR_TO_DATE(?, '%d/%m/%Y'), date_fin = STR_TO_DATE(?, '%d/%m/%Y'), image = ?, nb_participant = ?, prix = ? WHERE id = ?";
-        PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
+        PreparedStatement pst = MyDB.getInstance().getCnx().prepareStatement(requete);
         pst.setInt(1, r.getSponsors_id());
         pst.setString(2, r.getNom());
         pst.setString(3, r.getLieu());
@@ -81,7 +81,7 @@ public void modifierEvenement(Evenement r) {
 public void supprimerEvenement(int id) {
     try {
         String requete = "DELETE FROM evenement WHERE id=?";
-        PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
+        PreparedStatement pst = MyDB.getInstance().getCnx().prepareStatement(requete);
         pst.setInt(1, id);
         pst.executeUpdate();
         System.out.println("Evenement supprimé avec succès !");
@@ -96,7 +96,7 @@ public List<Evenement> afficherEvenement() {
     List<Evenement> liste = new ArrayList<>();
     try {
         String requete = "SELECT * FROM evenement";
-        Statement st = MyConnection.getInstance().getCnx().createStatement();
+        Statement st = MyDB.getInstance().getCnx().createStatement();
         ResultSet rs = st.executeQuery(requete);
         while (rs.next()) {
             Evenement evenement;
@@ -125,7 +125,7 @@ public List<Evenement> afficherEvenement() {
 
 public int getIdSponsor(String nom) {
         int id = 0;
-        try (PreparedStatement pstmt = MyConnection.getInstance().getCnx().prepareStatement("SELECT id FROM sponsor WHERE nom_sponsor= ?")) {
+        try (PreparedStatement pstmt = MyDB.getInstance().getCnx().prepareStatement("SELECT id FROM sponsor WHERE nom_sponsor= ?")) {
             pstmt.setString(1, nom);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
@@ -139,7 +139,7 @@ public int getIdSponsor(String nom) {
   public Sponsor getSponsorById(int id) {
     Sponsor sponsor = null;
     try {
-        Connection conn = MyConnection.getInstance().getCnx();
+        Connection conn = MyDB.getInstance().getCnx();
         String query = "SELECT * FROM sponsor WHERE id = ?";
         PreparedStatement pst = conn.prepareStatement(query);
         pst.setInt(1, id);
@@ -160,7 +160,7 @@ public int getIdSponsor(String nom) {
 public String getNomSponsor(Sponsor sponsor) {
     String nomSponsor = null;
     try {
-        Connection connection = MyConnection.getInstance().getCnx();
+        Connection connection = MyDB.getInstance().getCnx();
         String query = "SELECT nom_sponsor FROM sponsor WHERE id = ?";
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setInt(1, sponsor.getId());
@@ -175,7 +175,7 @@ public String getNomSponsor(Sponsor sponsor) {
 }
 public Integer getIdSponsorFromNom(Sponsor sponsor) {
     Integer id = null;
-    try (PreparedStatement pstmt = MyConnection.getInstance().getCnx().prepareStatement("SELECT id  FROM Sponsor WHERE nom_sponsor= ?")) {
+    try (PreparedStatement pstmt = MyDB.getInstance().getCnx().prepareStatement("SELECT id  FROM Sponsor WHERE nom_sponsor= ?")) {
         pstmt.setString(1, sponsor.getNom_Sponsor());
         ResultSet rs = pstmt.executeQuery();
         if (rs.next()) {
@@ -190,7 +190,7 @@ public Integer getIdSponsorFromNom(Sponsor sponsor) {
 
 public String getNomSponsor(int id) {
 String nom = "";
-try (PreparedStatement pstmt = MyConnection.getInstance().getCnx().prepareStatement("SELECT nom_sponsor FROM sponsor WHERE id= ?")) {
+try (PreparedStatement pstmt = MyDB.getInstance().getCnx().prepareStatement("SELECT nom_sponsor FROM sponsor WHERE id= ?")) {
 pstmt.setInt(1, id);
 ResultSet rs = pstmt.executeQuery();
 if (rs.next()) {
@@ -207,7 +207,7 @@ public String getSponsorNameById(int sponsorsId) {
     String sponsorName = "";
     try {
         String requete = "SELECT nom_sponsor FROM sponsor WHERE id = ?";
-        PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
+        PreparedStatement pst = MyDB.getInstance().getCnx().prepareStatement(requete);
         pst.setInt(1, sponsorsId);
         ResultSet rs = pst.executeQuery();
         if (rs.next()) {
@@ -225,7 +225,7 @@ public String getSponsorNameById(int sponsorsId) {
 public List<Evenement> recupererEvenement() throws SQLException {
     List<Evenement> evenements = new ArrayList<>();
     String s = "SELECT * FROM evenement";
-    Statement st = MyConnection.getInstance().getCnx().createStatement();
+    Statement st = MyDB.getInstance().getCnx().createStatement();
     ResultSet rs = st.executeQuery(s);
     while (rs.next()) {
         Evenement e = new Evenement(

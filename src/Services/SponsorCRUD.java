@@ -6,7 +6,7 @@
 package Services;
 
 import Entities.Sponsor;
-import Utils.MyConnection;
+import Utils.MyDB;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,7 +33,7 @@ public class SponsorCRUD implements InterfaceSponsor{
     public void ajouterSponsor(Sponsor s) {
         try {
             String insertQuery = "INSERT INTO sponsor(nom_Sponsor, email, invest) VALUES(?,?,?)";
-            PreparedStatement insertStmt = MyConnection.getInstance().getCnx().prepareStatement(insertQuery);
+            PreparedStatement insertStmt = MyDB.getInstance().getCnx().prepareStatement(insertQuery);
             insertStmt.setString(1, s.getNom_Sponsor());
             insertStmt.setString(2, s.getEmail());
             insertStmt.setString(3, s.getInvest());
@@ -48,7 +48,7 @@ public class SponsorCRUD implements InterfaceSponsor{
     public void modifierSponsor(Sponsor s) {
         try {
             String requete = "UPDATE sponsor SET nom_Sponsor=?, email=?, invest=? WHERE id=?";
-            PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
+            PreparedStatement pst = MyDB.getInstance().getCnx().prepareStatement(requete);
             pst.setString(1, s.getNom_Sponsor());
             pst.setString(2, s.getEmail());
             pst.setString(3, s.getInvest());
@@ -64,7 +64,7 @@ public class SponsorCRUD implements InterfaceSponsor{
     public void supprimerSponsor(int id) {
         try {
             String requete = "DELETE FROM sponsor WHERE id=?";
-            PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
+            PreparedStatement pst = MyDB.getInstance().getCnx().prepareStatement(requete);
             pst.setInt(1, id);
             pst.executeUpdate();
             System.out.println("Sponsor supprimé");
@@ -78,7 +78,7 @@ public class SponsorCRUD implements InterfaceSponsor{
         List<Sponsor> sponsorList = new ArrayList<>();
         try {
             String requete = "SELECT * FROM sponsor";
-            PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
+            PreparedStatement pst = MyDB.getInstance().getCnx().prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 Sponsor sponsor = new Sponsor(rs.getInt("id"), rs.getString("nom_Sponsor"), rs.getString("email"), rs.getString("invest"));
@@ -92,7 +92,7 @@ public class SponsorCRUD implements InterfaceSponsor{
     
     public int getIdSponsor(String nom) {
         int id = 0;
-        try (PreparedStatement pstmt = MyConnection.getInstance().getCnx().prepareStatement("SELECT id FROM sponsor WHERE nom_sponsor= ?")) {
+        try (PreparedStatement pstmt = MyDB.getInstance().getCnx().prepareStatement("SELECT id FROM sponsor WHERE nom_sponsor= ?")) {
             pstmt.setString(1, nom);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
@@ -114,7 +114,7 @@ public String getSponsorNameById(int sponsorsId) {
     String sponsorName = "";
     try {
         String requete = "SELECT nom_sponsor FROM sponsor WHERE id = ?";
-        PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(requete);
+        PreparedStatement pst = MyDB.getInstance().getCnx().prepareStatement(requete);
         pst.setInt(1, sponsorsId);
         ResultSet rs = pst.executeQuery();
         if (rs.next()) {
@@ -135,7 +135,7 @@ public int getIdByNom(String nom) {
     try {
        
         String query = "SELECT id FROM sponsor WHERE nom_sponsor = ?";
-        ps =MyConnection.getInstance().getCnx().prepareStatement(query);
+        ps =MyDB.getInstance().getCnx().prepareStatement(query);
         ps.setString(1, nom);
         rs = ps.executeQuery();
         if (rs.next()) {
@@ -160,7 +160,7 @@ public ObservableList<Sponsor> triNomDESC() {
     ObservableList<Sponsor> list = FXCollections.observableArrayList();
     try {
         String req = "SELECT * FROM sponsor ORDER BY nom_sponsor DESC";
-        PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);
+        PreparedStatement pst = MyDB.getInstance().getCnx().prepareStatement(req);
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
             Sponsor sponsor = new Sponsor(rs.getInt("id"), rs.getString("nom_Sponsor"), rs.getString("email"), rs.getString("invest"));
@@ -176,7 +176,7 @@ public ObservableList<Sponsor> triNomASC() {
     ObservableList<Sponsor> list = FXCollections.observableArrayList();
     try {
         String req = "SELECT * FROM sponsor ORDER BY nom_sponsor ASC";
-        PreparedStatement pst = MyConnection.getInstance().getCnx().prepareStatement(req);
+        PreparedStatement pst = MyDB.getInstance().getCnx().prepareStatement(req);
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
             Sponsor sponsor = new Sponsor(rs.getInt("id"), rs.getString("nom_Sponsor"), rs.getString("email"), rs.getString("invest"));
@@ -192,7 +192,7 @@ public ObservableList<Sponsor> searchSponsors(String searchTerm) {
     ObservableList<Sponsor> sponsors = FXCollections.observableArrayList();
     try {
         String query = "SELECT * FROM sponsor WHERE nom_sponsor LIKE ? OR email LIKE ? OR invest LIKE ?";
-        PreparedStatement preparedStatement = MyConnection.getInstance().getCnx().prepareStatement(query);
+        PreparedStatement preparedStatement = MyDB.getInstance().getCnx().prepareStatement(query);
         preparedStatement.setString(1, "%" + searchTerm + "%");
         preparedStatement.setString(2, "%" + searchTerm + "%");
         preparedStatement.setString(3, "%" + searchTerm + "%");

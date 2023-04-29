@@ -7,7 +7,7 @@ package GUI;
 
 import Entities.Evenement;
 import Services.EvenementCRUD;
-import Utils.MyConnection;
+import Utils.MyDB;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -41,7 +41,7 @@ public class FrontEvController implements Initializable {
 private int pageCount;
 
     public FrontEvController() {
-        cnx = MyConnection.getInstance().getCnx();
+        cnx = MyDB.getInstance().getCnx();
     }
 
     @Override

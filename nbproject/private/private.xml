@@ -3,23 +3,31 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/Card.fxml</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/Services/IService.java</file>
-            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/userjava/NewFXMain1.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/Services/PDFGenerator.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/userjava/Categorie.java</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/userjava/PI.java</file>
-            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/Services/ServiceCompanie.java</file>
-            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/GenreController.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/EvenementFrontController.java</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/RelamationController.java</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/userjava/Companie.java</file>
-            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/userjava/mainmaram.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/MenuController.java</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/CodeTestController.java</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/Services/sms.java</file>
-            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/TransporteurController.java</file>
-            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/CardController.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/userjava/emnamain.java</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/Utils/MyDB.java</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/Services/ServiceTransporteur.java</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/AdminController.java</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/LoginController.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/HomePage.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/Card.fxml</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/userjava/NewFXMain1.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/Utils/MyConnection.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/Services/ServiceCompanie.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/GenreController.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/EvenementController.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/userjava/mainmaram.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/TransporteurController.java</file>
+            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/CardController.java</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/Services/ServiceRendezVous.java</file>
             <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/userjava/ihebmain.java</file>
         </group>

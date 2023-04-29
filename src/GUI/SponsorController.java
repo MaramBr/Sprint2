@@ -6,7 +6,7 @@
 package GUI;
 
 import Entities.Sponsor;
-import Utils.MyConnection;
+import Utils.MyDB;
 import Services.SponsorCRUD;
 import java.io.File;
 import java.io.IOException;
@@ -118,7 +118,7 @@ public class SponsorController implements Initializable {
         }
         image1.setImage(new Image(localURL));
     }
-    MyConnection cnx = null;
+    MyDB cnx = null;
     Statement st = null;
     SponsorCRUD rcd = new SponsorCRUD();
 
@@ -270,7 +270,7 @@ private void afficherReclamationSelectionnee(MouseEvent event) {
             
             try {
             // Exécuter la requête SQL
-            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            Statement st = MyDB.getInstance().getCnx().createStatement();
             st.executeUpdate(sql);
             
             // Supprimer la ligne de la table view
@@ -309,7 +309,7 @@ private void afficherReclamationSelectionnee(MouseEvent event) {
 public void show() {
         try {
             String requete = "SELECT * FROM sponsor";
-            Statement st = MyConnection.getInstance().getCnx().createStatement();
+            Statement st = MyDB.getInstance().getCnx().createStatement();
             ResultSet rs = st.executeQuery(requete);
             while (rs.next()) {
                 Sponsor r = new Sponsor(rs.getInt("id"), rs.getString("nom_Sponsor"), rs.getString("email"), rs.getString("invest"));
