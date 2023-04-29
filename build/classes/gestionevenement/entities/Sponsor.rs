@@ -1,0 +1,1 @@
+gestionEvenement.entities.Sponsor

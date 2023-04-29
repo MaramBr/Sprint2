@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Pagination?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="767.0" prefWidth="1226.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FrontEvController">
+   <styleClass>
+      <String fx:value="mouse-moved" />
+      <String fx:value="selected" />
+   </styleClass>
+   <center>
+      <VBox prefHeight="554.0" prefWidth="981.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="157.0" prefWidth="1176.0" style="-fx-background-color: black;">
+               <children>
+                  <ImageView fitHeight="117.0" fitWidth="120.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" style="-fx-border-color: black; -fx-background-radius: 14 14 14 14;">
+                     <image>
+                        <Image url="@../img/Note%20Vector%20Hd%20Images,%20Vector%20Notes%20Icon,%20Document,%20Notes,%20Office%20PNG%20Image%20For%20Free%20Download.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" prefHeight="133.0" prefWidth="569.0" text="Les Evenements" textFill="#eeeaea">
+                     <font>
+                        <Font name="Baskerville Old Face" size="48.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <Pane prefHeight="5.0" prefWidth="1176.0" style="-fx-background-color: #e15e1c;" />
+            <Pagination fx:id="pagination" prefHeight="513.0" prefWidth="1176.0" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
