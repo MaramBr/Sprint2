@@ -5,8 +5,8 @@
  */
 package gestionEvenement.intefaces;
 
-import gestionEvenement.entities.Sponsor;
-import gestionEvenement.entities.Evenement;
+import Entities.Sponsor;
+import Entities.Evenement;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.util.List;

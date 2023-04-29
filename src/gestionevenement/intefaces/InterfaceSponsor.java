@@ -5,7 +5,7 @@
  */
 package gestionEvenement.intefaces;
 
-import gestionEvenement.entities.Sponsor;
+import Entities.Sponsor;
 import java.util.List;
 
 /**

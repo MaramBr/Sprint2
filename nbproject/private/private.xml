@@ -4,18 +4,15 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/EvenementFrontController.java</file>
-            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/Bjehrabia5dmiController.java</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/entities/Evenement.java</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/EvenementFront.fxml</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/img/46672.png</file>
-            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/bjehrabia5dmi.fxml</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/ParticipantBack.fxml</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/img/406.jpg</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/intefaces/InterfaceSponsor.java</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/style.css</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/entities/Sponsor.java</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/tableview2.css</file>
-            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/AfficherEvenementController.java</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/HomePage.java</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/tests/MainClass.java</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/ParticipantBackController.java</file>
@@ -38,8 +35,9 @@
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/MenuController.java</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/entities/Participant.java</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/DetailController.java</file>
-            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/CardController.java</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/CardEvController.java</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/tableview.css</file>
+            <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/qrcodee.png</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/Sponsor.fxml</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/intefaces/InterfaceEvenement.java</file>
             <file>file:/C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/gestionevenement/gui/detail.fxml</file>

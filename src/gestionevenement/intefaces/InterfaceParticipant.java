@@ -5,8 +5,8 @@
  */
 package gestionEvenement.intefaces;
 
-import gestionEvenement.entities.Evenement;
-import gestionEvenement.entities.Participant;
+import Entities.Evenement;
+import Entities.Participant;
 import java.util.List;
 
 /**
