@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package userjava;
 
 import java.io.IOException;
@@ -19,22 +18,23 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author 21692
+ * @author Majdi
  */
-public class Categorie extends Application {
+public class emnamain extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
-           try {
-            Parent root = FXMLLoader.load(getClass().getResource("../GUI/Categorie.fxml"));
+       public void start(Stage primaryStage) {
+        Parent root= null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("EvenementFront.fxml"));
             Scene scene = new Scene(root);
+            primaryStage.setTitle("Ajout d'un Evenement");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
-            System.out.println(ex);        }
-        
-      
-    }
+            System.out.println(ex.getMessage());
+        }
+        }
 
     /**
      * @param args the command line arguments

@@ -1,2 +1,0 @@
-gestionEvenement.gui.ParticipantController
-gestionEvenement.gui.ParticipantController$1

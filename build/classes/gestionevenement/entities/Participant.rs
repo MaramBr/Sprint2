@@ -1,1 +1,0 @@
-gestionEvenement.entities.Participant
