@@ -1,1 +1,0 @@
-gestionEvenement.intefaces.InterfaceParticipant
