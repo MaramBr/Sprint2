@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="1483.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EvenementController">
+<AnchorPane id="AnchorPane" prefHeight="764.0" prefWidth="1515.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EvenementController">
    <children>
       <Pane layoutX="14.0" layoutY="86.0" prefHeight="608.0" prefWidth="1177.0" style="-fx-background-color: black; -fx-border-color: #131314;">
          <children>
@@ -77,17 +77,17 @@
             <DatePicker fx:id="tfdatefin" layoutX="156.0" layoutY="355.0" />
             <TableView fx:id="tableEvenement" layoutX="384.0" layoutY="71.0" onMouseClicked="#afficherEvenementSelectionne" prefHeight="323.0" prefWidth="755.0" stylesheets="@tableview2.css">
               <columns>
-                  <TableColumn fx:id="callidev" prefWidth="52.0" style="-fx-background-color:#e15e1c: #e15e1c;" text="type" />
-                <TableColumn fx:id="callnomev" prefWidth="75.0" style="-fx-background-color: #e15e1c;" text="nom" />
-                  <TableColumn fx:id="calllieu" prefWidth="75.0" style="-fx-background-color: #e15e1c;" text="lieu" />
-                  <TableColumn fx:id="calltype" prefWidth="75.0" style="-fx-background-color: #e15e1c;" text="type" />
-                  <TableColumn fx:id="calldescription" prefWidth="75.0" style="-fx-background-color: #e15e1c;" text="description" />
-                  <TableColumn fx:id="calldatedebut" prefWidth="75.0" style="-fx-background-color: #e15e1c;" text="dateD" />
-                  <TableColumn fx:id="calldatefin" prefWidth="75.0" style="-fx-background-color: #e15e1c;" text="dateF" />
-                  <TableColumn fx:id="callimage" prefWidth="75.0" style="-fx-background-color: #e15e1c;" text="image" />
-                  <TableColumn fx:id="callnbparticipant" prefWidth="75.0" style="-fx-background-color: #e15e1c;" text="nbP" />
-                  <TableColumn fx:id="callprix" prefWidth="98.0" style="-fx-background-color: #e15e1c;" text="prix" />
-                  <TableColumn fx:id="callids" prefWidth="75.0" style="-fx-background-color: #e15e1c;" text="Sponsor" />
+                  <TableColumn fx:id="callidev" prefWidth="52.0" text="type" />
+                <TableColumn fx:id="callnomev" prefWidth="75.0" text="nom" />
+                  <TableColumn fx:id="calllieu" prefWidth="75.0" text="lieu" />
+                  <TableColumn fx:id="calltype" prefWidth="75.0" text="type" />
+                  <TableColumn fx:id="calldescription" prefWidth="75.0" text="description" />
+                  <TableColumn fx:id="calldatedebut" prefWidth="75.0" text="dateD" />
+                  <TableColumn fx:id="calldatefin" prefWidth="75.0" text="dateF" />
+                  <TableColumn fx:id="callimage" prefWidth="75.0" text="image" />
+                  <TableColumn fx:id="callnbparticipant" prefWidth="75.0" text="nbP" />
+                  <TableColumn fx:id="callprix" prefWidth="98.0" text="prix" />
+                  <TableColumn fx:id="callids" prefWidth="75.0" text="Sponsor" />
               </columns>
             </TableView>
             <Button fx:id="btnmodifier" layoutX="433.0" layoutY="17.0" mnemonicParsing="false" onAction="#modifierev" prefHeight="46.0" prefWidth="120.0" style="-fx-border-color: #000000; -fx-background-color: #000000;" text="Modifier" textFill="#d05803">
@@ -135,7 +135,7 @@
             </Button>
          </children>
       </VBox>
-      <ImageView fx:id="image1" fitHeight="89.0" fitWidth="217.0" layoutX="1400.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="image1" fitHeight="89.0" fitWidth="217.0" layoutX="1336.0" pickOnBounds="true" preserveRatio="true" />
       <Pane layoutX="-23.0" layoutY="83.0" prefHeight="6.0" prefWidth="1576.0" style="-fx-background-color: white;" />
       <Label layoutX="49.0" layoutY="36.0" prefHeight="46.0" prefWidth="317.0" text="Ajout d'un evenement :" textFill="WHITE">
          <font>

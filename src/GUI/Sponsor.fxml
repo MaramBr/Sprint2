@@ -29,9 +29,9 @@
                </font></Button>
             <TableView fx:id="tableSponsors" layoutX="435.0" layoutY="125.0" onMouseClicked="#afficherReclamationSelectionnee" prefHeight="290.0" prefWidth="381.0" stylesheets="@tableview2.css">
           <columns>
-              <TableColumn fx:id="colnom" prefWidth="100.0" style="-fx-background-color: #e15e1c;" text="nom" />
-              <TableColumn fx:id="colemail" prefWidth="126.0" style="-fx-background-color: #e15e1c;" text="email" />
-              <TableColumn fx:id="colinvest" prefWidth="156.0" style="-fx-background-color: #e15e1c;" text="Invest" />
+              <TableColumn fx:id="colnom" prefWidth="100.0" text="nom" />
+              <TableColumn fx:id="colemail" prefWidth="126.0" text="email" />
+              <TableColumn fx:id="colinvest" prefWidth="156.0" text="Invest" />
                   <TableColumn fx:id="colid" prefWidth="193.0" style="-fx-background-color:: #e15e1c;" text="id" visible="false" />
           </columns>
       </TableView>
