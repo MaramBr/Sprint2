@@ -59,8 +59,8 @@ import javax.swing.JOptionPane;
 public class RelamationController implements Initializable {
 ServiceGenre sr = new ServiceGenre();
    ServiceReclamation sp = new ServiceReclamation();
-    public static final String ACCOUNT_SID = "AC099883ea0f07c67cd19e55b497fceb12";
-    public static final String AUTH_TOKEN = "0dc81da96bcea4d51424b9bbf5a80f07";
+    public static final String ACCOUNT_SID = "ACf6fdb03518098cd1fd30281ba1a56f13";
+  public static final String AUTH_TOKEN = "55cf8e7a55d401a2a297ffe23fd8bee6";
     int index = -1;
     
     
@@ -300,7 +300,7 @@ private void AjoutGenre(ActionEvent event) {
 
     // Enregistrement de la modification
     sp.modifier(selectedReclamation);
-   sendSms("+21692524435", "Votre réclamation est  confirmée , consultez notre site ou notre application pour consultez le traitement");
+   sendSms("+21653661331", "Votre réclamation est  confirmée , consultez notre site ou notre application pour consultez le traitement");
     updateTablereclamation();
     JOptionPane.showMessageDialog(null, "Réclamation modifiée");
         
@@ -428,7 +428,7 @@ private void AjoutGenre(ActionEvent event) {
 
         Message message = Message.creator(
                 new PhoneNumber(recipient), // To number
-                new PhoneNumber("+12766336884"), // From number
+                new PhoneNumber("+16073501293"), // From number
                 messageBody) // SMS body
                 .create();
 

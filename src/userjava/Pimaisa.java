@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pi;
+package userjava;
 import Entities.Produit;
 import Entities.Categorie;
 import Services.ServiceProduit;
@@ -14,7 +14,7 @@ import util.MyDB;
  *
  * @author 21692
  */
-public class PI {
+public class Pimaisa {
 
     /**
      * @param args the command line arguments
