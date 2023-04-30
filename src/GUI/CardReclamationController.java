@@ -49,26 +49,32 @@ public class CardReclamationController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-     public void setReclamation(Reclamation r) {
-        
+public void setReclamation(Reclamation r) {
+    Titre.setText(r.getTitre());
+    Description.setText(r.getDescription());
+    Statut.setText(r.getStatus());
+    Traitement.setText(r.getTraitement());
 
-
-       
-       
-        Titre.setText(r.getTitre());
-        Description.setText(r.getDescription());
-        Statut.setText(r.getStatus());
-        Traitement.setText(r.getTraitement());
-        
-        // Si le statut est "confirmé", on cache les boutons "Modifier" et "Supprimer"
-        if (r.getStatus().equals("confirmé")) {
-            this.update.setVisible(false);
-            this.delete.setVisible(false);
-        }
-         box.setStyle("-fx-background-color: #" +colors[(int)(Math.random()*colors.length)] 
-                +" ; -fx-background-radius: 15;"
-                +"-fx-effect : dropshadow(three-pass-box , rgba(0,0,0,0.1) , 10 , 0 ,0 , 10 ) ;");
+    // Appliquer des styles esthétiques au label Statut
+    if (r.getStatus().equals("confirmé")) {
+        Statut.setStyle("-fx-text-fill: green; -fx-font-weight: bold; -fx-font-size: 12px; -fx-alignment: center;");
+        this.update.setVisible(false);
+        this.delete.setVisible(false);
+    } else if (r.getStatus().equals("en attente")) {
+        Statut.setStyle("-fx-text-fill: red; -fx-font-weight: bold; -fx-font-size: 12px; -fx-alignment: center;");
+        this.update.setVisible(true);
+        this.delete.setVisible(true);
     }
+
+    // Appliquer des styles esthétiques aux autres labels (Titre, Description, Traitement)
+    Titre.setStyle("-fx-font-weight: bold; -fx-font-size: 15px; -fx-alignment: center;");
+    Description.setStyle("-fx-font-size: 11px; -fx-alignment: center;");
+    Traitement.setStyle("-fx-font-size: 10px; -fx-alignment: center;");
+
+    box.setStyle("-fx-background-color:  #e15e1c; -fx-background-radius: 15;"
+            + "-fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 10);");
+}
+
 
 
     @FXML

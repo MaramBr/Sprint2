@@ -9,47 +9,48 @@
 
 <HBox fx:id="box" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="276.0" prefWidth="482.0" spacing="15.0" style="-fx-background-radius: 15;" styleClass="shadow" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CardReclamationController">
    <children>
-      <Button fx:id="update" mnemonicParsing="false" onAction="#modifier" prefHeight="12.0" prefWidth="69.0" stylesheets="@style.css" text="Modifier">
-         <styleClass>
-            <String fx:value="add-btn" />
-            <String fx:value="chosen-fruit-card" />
-         </styleClass></Button>
-      <VBox alignment="CENTER" prefHeight="210.0" prefWidth="217.0" spacing="15.0">
+      <Button fx:id="delete" mnemonicParsing="false" onAction="#supprimer" styleClass="add-btn" stylesheets="@style.css" text="Supprimer" />
+      <VBox alignment="CENTER" prefHeight="276.0" prefWidth="284.0" spacing="15.0">
          <children>
-            <Label prefHeight="24.0" prefWidth="72.0" text="Titre:" textFill="#e15e1c">
+            <Label prefHeight="22.0" prefWidth="306.0" text="Titre:" textFill="WHITE">
                <font>
-                  <Font name="Amiri Bold Slanted" size="12.0" />
+                  <Font name="Amiri Bold Slanted" size="9.0" />
                </font></Label>
-            <Label fx:id="Titre" prefHeight="19.0" prefWidth="117.0" text="titre" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="Titre" prefHeight="18.0" prefWidth="335.0" text="titre" textAlignment="CENTER" wrapText="true">
               
             </Label>
-            <Label prefHeight="24.0" prefWidth="82.0" text="Descriptîon:" textFill="#e15e1c">
+            <Label prefHeight="18.0" prefWidth="314.0" text="Descriptîon:" textFill="WHITE">
                <font>
-                  <Font name="Amiri Bold Slanted" size="12.0" />
+                  <Font name="Amiri Bold Slanted" size="9.0" />
                </font>
             </Label>
-            <Label fx:id="Description" prefHeight="33.0" prefWidth="217.0" text="Description" textAlignment="CENTER" wrapText="true">
+            <Label fx:id="Description" prefHeight="30.0" prefWidth="344.0" text="Description" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="System Italic" size="12.0" />
                </font></Label>
-            <Label prefHeight="24.0" prefWidth="66.0" text="Status:" textFill="#e15e1c">
-               <font>
-                  <Font name="Amiri Bold Slanted" size="12.0" />
-               </font>
-            </Label>
-            <Label fx:id="Statut" prefHeight="17.0" prefWidth="149.0" text="status" textAlignment="CENTER" wrapText="true">
-              
-            </Label>
-            <Label prefHeight="27.0" prefWidth="81.0" text="Traitement:" textFill="#e15e1c">
+            <Label prefHeight="27.0" prefWidth="338.0" text="Status:" textFill="WHITE">
                <font>
                   <Font name="Amiri Bold Slanted" size="13.0" />
                </font>
             </Label>
-            <Label fx:id="Traitement" contentDisplay="CENTER" prefHeight="17.0" prefWidth="155.0" text="traitement" textOverrun="CLIP" wrapText="true">
+            <Label fx:id="Statut" prefHeight="17.0" prefWidth="297.0" text="status" textAlignment="CENTER" wrapText="true">
+              
+            </Label>
+            <Label prefHeight="25.0" prefWidth="343.0" text="Traitement:" textFill="WHITE">
+               <font>
+                  <Font name="Amiri Bold Slanted" size="9.0" />
+               </font>
+            </Label>
+            <Label fx:id="Traitement" contentDisplay="CENTER" prefHeight="17.0" prefWidth="370.0" text="traitement" textOverrun="CLIP" wrapText="true">
                
             </Label>
          </children>
       </VBox>
-      <Button fx:id="delete" mnemonicParsing="false" onAction="#supprimer" styleClass="add-btn" stylesheets="@style.css" text="Supprimer" />
+      <Button fx:id="update" mnemonicParsing="false" onAction="#modifier" prefHeight="12.0" prefWidth="69.0" stylesheets="@style.css" text="Modifier">
+         <styleClass>
+            <String fx:value="add-btn" />
+            <String fx:value="chosen-fruit-card" />
+         </styleClass>
+      </Button>
    </children>
 </HBox>
