@@ -1,0 +1,12 @@
+button {
+    -fx-background-color: #4CAF50; /* couleur de fond */
+    -fx-text-fill: white; /* couleur du texte */
+    -fx-font-size: 14pt; /* taille de police */
+    -fx-padding: 8px 16px; /* marge intérieure */
+    -fx-border-radius: 4px; /* rayon de bordure */
+    -fx-cursor: hand; /* curseur de souris */
+}
+
+button:hover {
+    -fx-background-color: #3E8E41; /* couleur de fond au survol */
+}

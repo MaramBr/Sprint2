@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="622.0" prefWidth="1331.0" style="-fx-background-color: whirte;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.SponsorController">
+   <children>
+      <Button fx:id="btnretour" layoutX="7.0" layoutY="14.0" mnemonicParsing="false" onAction="#retour" prefHeight="34.0" prefWidth="40.0" style="-fx-border-color: #ffffff; -fx-background-color: #ffffff;" text="&lt;-">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+      <ImageView fx:id="image1" fitHeight="86.0" fitWidth="122.0" layoutX="191.0" layoutY="430.0" pickOnBounds="true" preserveRatio="true" />
+      <Pane layoutX="7.0" layoutY="119.0" prefHeight="7.0" prefWidth="1388.0" style="-fx-background-color: black;" />
+      <TableView fx:id="tableSponsors" layoutX="769.0" layoutY="253.0" onMouseClicked="#afficherReclamationSelectionnee" prefHeight="272.0" prefWidth="445.0" stylesheets="@tableview2.css">
+    <columns>
+        <TableColumn fx:id="colnom" prefWidth="100.0" text="nom" />
+        <TableColumn fx:id="colemail" prefWidth="137.0" text="email" />
+        <TableColumn fx:id="colinvest" prefWidth="145.0" text="Invest" />
+            <TableColumn fx:id="colid" prefWidth="193.0" style="-fx-background-color:: #e15e1c;" text="id" visible="false" />
+    </columns>
+</TableView>
+      <Button fx:id="trie1" layoutX="1255.0" layoutY="198.0" mnemonicParsing="false" onAction="#triNomA" prefHeight="33.0" prefWidth="103.0" stylesheets="@style.css" text="Trie ASC" textFill="WHITE">
+         <font>
+            <Font name="Corbel Bold Italic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="trie" layoutX="1255.0" layoutY="257.0" mnemonicParsing="false" onAction="#triNomD" prefHeight="33.0" prefWidth="103.0" styleClass="search-button" stylesheets="@style.css" text="Trie DESC" textFill="#f2f2f2">
+         <font>
+            <Font name="Corbel Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="statistique" layoutX="1241.0" layoutY="145.0" mnemonicParsing="false" onAction="#statistique" prefHeight="33.0" prefWidth="131.0" stylesheets="@style.css" text="statistique" textFill="WHITE">
+         <font>
+            <Font name="Corbel Bold" size="15.0" />
+         </font>
+      </Button>
+      <TextField fx:id="searchInput" layoutX="833.0" layoutY="161.0" onAction="#searchSponsors" prefHeight="37.0" prefWidth="226.0" promptText="Recherche ..." styleClass="search-button" stylesheets="@style.css" />
+      <Button fx:id="btnmodifier" layoutX="789.0" layoutY="574.0" mnemonicParsing="false" onAction="#modifiersponsor" prefHeight="34.0" prefWidth="122.0" stylesheets="@style.css" text="Modifier" textFill="WHITE">
+         <font>
+            <Font name="Corbel Bold Italic" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnsupprimer" layoutX="1055.0" layoutY="575.0" mnemonicParsing="false" onAction="#supprimersponsor" prefHeight="33.0" prefWidth="122.0" stylesheets="@style.css" text="Supprimer" textFill="WHITE">
+         <font>
+            <Font name="Corbel Bold" size="15.0" />
+         </font>
+      </Button>
+      <ChoiceBox fx:id="tftype" layoutX="154.0" layoutY="372.0" prefHeight="33.0" prefWidth="226.0" styleClass="filed-button" stylesheets="@style.css" />
+      <Button fx:id="btnenvoyer" layoutX="200.0" layoutY="542.0" mnemonicParsing="false" onAction="#ajoutersponsor" prefHeight="33.0" prefWidth="103.0" stylesheets="@style.css" text="Envoyer" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Button>
+      <Label layoutX="47.0" layoutY="372.0" prefHeight="34.0" prefWidth="109.0" text="Invest:">
+         <font>
+            <Font name="Corbel Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="307.0" text="Email:">
+         <font>
+            <Font name="Corbel Bold" size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="emailField" layoutX="154.0" layoutY="304.0" prefHeight="33.0" prefWidth="226.0" promptText="veuillez entrer une email valide" styleClass="filed-button" stylesheets="@style.css" />
+      <TextField fx:id="tfnom" layoutX="154.0" layoutY="240.0" prefHeight="37.0" prefWidth="226.0" styleClass="filed-button" stylesheets="@style.css" />
+      <Label layoutX="47.0" layoutY="245.0" text="Nom">
+         <font>
+            <Font name="Corbel Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="151.0" layoutY="31.0" text="Sponsors">
+         <font>
+            <Font name="Baskerville Old Face" size="55.0" />
+         </font>
+      </Label>
+      <Pane layoutX="592.0" layoutY="161.0" prefHeight="470.0" prefWidth="7.0" style="-fx-background-color: black;" />
+      <ImageView fitHeight="86.0" fitWidth="89.0" layoutX="38.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/sponsor-removebg-preview.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
