@@ -14,26 +14,26 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="544.0" prefWidth="981.0" style="-fx-background-color: #ffff;" stylesheets="@tableview.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RendezVousController">
+<AnchorPane id="AnchorPane" prefHeight="544.0" prefWidth="981.0" style="-fx-background-color: #ffff;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RendezVousController">
     <children>
        
-      <Label layoutX="37.0" layoutY="184.0" text=".Date">
+      <Label layoutX="153.0" layoutY="197.0" prefHeight="20.0" prefWidth="77.0" text="Date">
          <font>
-            <Font name="Baskerville Old Face" size="20.0" />
+            <Font name="Corbel Bold" size="18.0" />
          </font></Label>
-      <Button layoutX="62.0" layoutY="417.0" mnemonicParsing="false" onAction="#ModifierRdv" text="Modifier">
+      <Button layoutX="86.0" layoutY="355.0" mnemonicParsing="false" onAction="#ModifierRdv" prefHeight="25.0" prefWidth="212.0" text="Modifier">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="65.0" layoutY="333.0" mnemonicParsing="false" onAction="#AjouterRdv" text="Ajouter" textOverrun="WORD_ELLIPSIS">
+      <Button layoutX="91.0" layoutY="298.0" mnemonicParsing="false" onAction="#AjouterRdv" prefHeight="25.0" prefWidth="202.0" text="Ajouter" textOverrun="WORD_ELLIPSIS">
          <font>
             <Font name="Book Antiqua Bold" size="12.0" />
          </font></Button>
-      <Button layoutX="225.0" layoutY="333.0" mnemonicParsing="false" onAction="#SupprimerRdv" text="Supprimer">
+      <Button layoutX="742.0" layoutY="451.0" mnemonicParsing="false" onAction="#SupprimerRdv" prefHeight="25.0" prefWidth="212.0" text="Supprimer">
          <font>
             <Font name="Book Antiqua Bold" size="12.0" />
          </font></Button>
-      <TableView fx:id="TableView" layoutX="436.0" layoutY="117.0" onMouseClicked="#getSelected" prefHeight="236.0" prefWidth="464.0" stylesheets="@tableview2.css">
+      <TableView fx:id="TableView" layoutX="424.0" layoutY="180.0" onMouseClicked="#getSelected" prefHeight="236.0" prefWidth="464.0" stylesheets="@tableview2.css">
         <columns>
           <TableColumn fx:id="idR" minWidth="0.0" prefWidth="61.0" text="id" visible="false" />
           <TableColumn fx:id="dateR" prefWidth="230.0" text="date" />
@@ -46,7 +46,7 @@
             <URL value="@tableview.css" />
             <URL value="@tableview2.css" />
          </stylesheets></ComboBox>
-      <DatePicker fx:id="dateField" layoutX="126.0" layoutY="173.0" prefHeight="25.0" prefWidth="150.0" />
+      <DatePicker fx:id="dateField" layoutX="94.0" layoutY="235.0" prefHeight="28.0" prefWidth="179.0" styleClass="filed-button" />
       <Label layoutX="100.0" layoutY="54.0" text="Rendez Vous" textFill="WHITE">
          <font>
             <Font name="Baskerville Old Face" size="38.0" />
@@ -62,9 +62,9 @@
             <Font name="Baskerville Old Face" size="48.0" />
          </font>
       </Text>
-      <Button layoutX="221.0" layoutY="417.0" mnemonicParsing="false" onAction="#ViderRdv" prefHeight="28.0" prefWidth="112.0" text="Vider">
+      <Button layoutX="293.0" layoutY="231.0" mnemonicParsing="false" onAction="#ViderRdv" prefHeight="25.0" prefWidth="39.0" text="Vider">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font size="10.0" />
          </font>
       </Button>
    </children>

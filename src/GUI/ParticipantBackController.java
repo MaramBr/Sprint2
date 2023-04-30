@@ -69,12 +69,6 @@ public class ParticipantBackController implements Initializable {
     @FXML
     private TableView<Participant> tableparticipant;
     @FXML
-    private Button btnevenement;
-    @FXML
-    private Button btnSponsor;
-    @FXML
-    private Button btnParticipant;
-    @FXML
     private ImageView image1;
     @FXML
     private TextField searchInput;
@@ -149,7 +143,6 @@ public class ParticipantBackController implements Initializable {
     }
 
     
-    @FXML
     private void gererEvenement(ActionEvent event) {
          try {
         Parent EvenementsParent = FXMLLoader.load(getClass().getResource("Evenement.fxml"));
@@ -188,7 +181,6 @@ public class ParticipantBackController implements Initializable {
         tableparticipant.setItems(data);
     }
 
-    @FXML
     private void gererSponsor(ActionEvent event) {
          try {
         Parent EvenementsParent = FXMLLoader.load(getClass().getResource("Sponsor.fxml"));
@@ -202,7 +194,6 @@ public class ParticipantBackController implements Initializable {
 
  
 
-    @FXML
     private void gereParticipant(ActionEvent event) {
          try {
         Parent EvenementsParent = FXMLLoader.load(getClass().getResource("Participant.fxml"));

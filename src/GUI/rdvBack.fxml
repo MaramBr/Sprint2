@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="527.0" prefWidth="831.0" style="-fx-background-color: #1E1E1E;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RdvBackController">
+<AnchorPane id="AnchorPane" prefHeight="527.0" prefWidth="831.0" style="-fx-background-color: black;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.RdvBackController">
    <children>
-      <Pane layoutX="10.0" layoutY="106.0" prefHeight="5.0" prefWidth="1000.0" style="-fx-background-color: #ffff;">
+      <Pane layoutX="10.0" layoutY="106.0" prefHeight="5.0" prefWidth="1000.0" style="-fx-background-color: white;">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
@@ -37,8 +37,8 @@
         </columns>
       </TableView>
       <Button fx:id="Etat" layoutX="822.0" layoutY="314.0" mnemonicParsing="false" onAction="#ban" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: cc5d02;" text="Traiter" textFill="WHITE" />
-      <Button layoutX="246.0" layoutY="148.0" mnemonicParsing="false" onAction="#statistique" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: white;" text="Statistique" textFill="#cc5d02" />
-      <Button layoutX="534.0" layoutY="148.0" mnemonicParsing="false" onAction="#Import" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: white;" text="Import" textFill="#cc5d02" />
-      <Button layoutX="389.0" layoutY="148.0" mnemonicParsing="false" onAction="#Export" prefHeight="25.0" prefWidth="90.0" style="-fx-background-color: white;" text="Export" textFill="#cc5d02" />
+      <Button layoutX="246.0" layoutY="148.0" mnemonicParsing="false" onAction="#statistique" prefHeight="25.0" prefWidth="82.0" text="Statistique" textFill="WHITE" />
+      <Button layoutX="534.0" layoutY="148.0" mnemonicParsing="false" onAction="#Import" prefHeight="25.0" prefWidth="90.0" text="Import" textFill="WHITE" />
+      <Button layoutX="389.0" layoutY="148.0" mnemonicParsing="false" onAction="#Export" prefHeight="25.0" prefWidth="90.0" text="Export" textFill="WHITE" />
    </children>
 </AnchorPane>

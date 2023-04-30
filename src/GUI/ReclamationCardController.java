@@ -34,8 +34,6 @@ public class ReclamationCardController implements Initializable {
     private Pagination pagination;
     private int rowsPerPage = 1;
     private int pageCount;
-    @FXML
-    private HBox cardlayoout;
     private List<Reclamation> reclamation;
     Connection cnx;
     Statement stmt;

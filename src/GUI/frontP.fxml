@@ -7,8 +7,10 @@
 <?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -18,18 +20,26 @@
         <String fx:value="selected" />
     </styleClass>
     <center>
-        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: black;">
+        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: white;">
             <children>
-            <Pane prefHeight="21.0" prefWidth="1434.0" style="-fx-background-color: e15e1c;" />
-                <Label alignment="TOP_LEFT" prefHeight="21.0" prefWidth="280.0" text="La Liste Des Produits" textFill="#c93a0f">
-                    <font>
-                        <Font name="Berlin Sans FB" size="24.0" />
-                    </font>
-                    <padding>
-                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                    </padding>
-                </Label>
-                <Pagination fx:id="pagination" prefHeight="579.0" prefWidth="1295.0" style="-fx-background-color: white;">
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                      <Label alignment="TOP_LEFT" layoutX="142.0" layoutY="64.0" prefHeight="67.0" prefWidth="628.0" text="La Liste Des Produits">
+                          <font>
+                              <Font name="Baskerville Old Face" size="45.0" />
+                          </font>
+                          <padding>
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                          </padding>
+                      </Label>
+                  <ImageView fitHeight="121.0" fitWidth="118.0" layoutX="30.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/4129528.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+                <Pagination fx:id="pagination" prefHeight="743.0" prefWidth="1315.0" style="-fx-background-color: white;">
                <effect>
                   <Lighting diffuseConstant="2.0" specularConstant="2.0" specularExponent="38.05" surfaceScale="0.0">
                      <bumpInput>

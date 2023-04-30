@@ -65,8 +65,6 @@ private Evenement evenementSelectionne;
     private Button btnretour;
 
     @FXML
-    private Button participer;
-    @FXML
     private TableColumn<Evenement, String> colsponsor;
     @FXML
     private TableColumn<Evenement, String> colnom;
@@ -94,24 +92,6 @@ private Evenement evenementSelectionne;
     private ImageView image1;
     @FXML
     private Button detail;
-    @FXML
-    private ImageView image2;
-    @FXML
-    private TextField tfnom;
-    @FXML
-    private TextField tftype;
-    @FXML
-    private TextArea tfdescription;
-    @FXML
-    private TextField tfnbparticipant;
-    @FXML
-    private TextField tfprix;
-    @FXML
-    private TextField tfdatefin;
-    @FXML
-    private TextField tfdatedebut;
-    @FXML
-    private TextField tflieu;
     @FXML
     private ImageView qrcodee;
     @FXML
@@ -208,7 +188,6 @@ private Evenement evenementSelectionne;
     }
     }
 
-    @FXML
 private void participer(ActionEvent event) {
     
      // Vérifier si une ligne est sélectionnée dans la table

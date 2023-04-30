@@ -103,9 +103,6 @@ public class ParticipantController implements Initializable {
     private TextField tfevent;
     @FXML
     private TextField tfnomev;
-    @FXML
-    private Button btnEvenement;
-    @FXML
     private ImageView image1;
   @FXML
 private Pane card;
@@ -540,7 +537,6 @@ public void ajouterParticipantEvenement(String tfEvent) {
 
 
 
-    @FXML
     private void GoEvenementfront(ActionEvent event) {
          try {
         Parent EvenementsParent = FXMLLoader.load(getClass().getResource("EvenementFront.fxml"));

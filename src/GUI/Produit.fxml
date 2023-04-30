@@ -15,13 +15,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="11.0" prefWidth="841.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProduitController">
+<AnchorPane id="AnchorPane" prefHeight="11.0" prefWidth="841.0" style="-fx-background-color: black;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProduitController">
    <children>
-      <Button fx:id="Add" layoutX="465.0" layoutY="605.0" mnemonicParsing="false" onAction="#ajouterP" prefHeight="50.0" prefWidth="93.0" style="-fx-background-color: e15e1c;" text="Ajouter" />
-      <TextField fx:id="quantiteFieldP" layoutX="107.0" layoutY="394.0" />
-      <TextField fx:id="prixFieldP" layoutX="107.0" layoutY="444.0" />
-      <TextField fx:id="descriptionFieldP" layoutX="107.0" layoutY="343.0" />
-      <TextField fx:id="nomFieldP" layoutX="107.0" layoutY="293.0" />
+      <Button fx:id="Add" layoutX="89.0" layoutY="653.0" mnemonicParsing="false" onAction="#ajouterP" prefHeight="35.0" prefWidth="224.0" style="-fx-background-color: e15e1c;" text="Ajouter" />
+      <TextField fx:id="quantiteFieldP" layoutX="107.0" layoutY="394.0" styleClass="filed-button" stylesheets="@style.css" />
+      <TextField fx:id="prixFieldP" layoutX="107.0" layoutY="444.0" styleClass="filed-button" stylesheets="@style.css" />
+      <TextField fx:id="descriptionFieldP" layoutX="107.0" layoutY="343.0" styleClass="filed-button" stylesheets="@style.css" />
+      <TextField fx:id="nomFieldP" layoutX="107.0" layoutY="293.0" styleClass="filed-button" stylesheets="@style.css" />
       <Label layoutX="26.0" layoutY="298.0" style="-fx-background-color: black;" text="  Nom  " textFill="#f8f8f8" />
       <Label layoutX="6.0" layoutY="348.0" style="-fx-background-color: black;" text="  Description  " textFill="#eeecec" />
       <Label layoutX="9.0" layoutY="399.0" style="-fx-background-color: black;" text="  Quantite  " textFill="#f5f5f5" />
@@ -38,11 +38,10 @@
             <TableColumn fx:id="CategoryP" prefWidth="90.0" text="Category" />
         </columns>
       </TableView>
-      <Button fx:id="supprimer" layoutX="804.0" layoutY="605.0" mnemonicParsing="false" onAction="#supprimerP" prefHeight="50.0" prefWidth="102.0" style="-fx-background-color: e15e1c;" stylesheets="@../../../../Downloads/tableview2.css" text="Supprimer" />
-      <Button fx:id="modifier" layoutX="631.0" layoutY="605.0" mnemonicParsing="false" onAction="#modifierP" prefHeight="50.0" prefWidth="92.0" style="-fx-background-color: e15e1c;" text="Modifier" />
+      <Button fx:id="modifier" layoutX="86.0" layoutY="722.0" mnemonicParsing="false" onAction="#modifierP" prefHeight="35.0" prefWidth="230.0" style="-fx-background-color: e15e1c;" text="Modifier" />
       <TextField fx:id="imageFieldP" layoutX="221.0" layoutY="791.0" style="-fx-background-color: black;" />
       <Label layoutX="12.0" layoutY="510.0" style="-fx-background-color: black;" text="  categorie  " textFill="#fcf8f8" />
-      <ComboBox fx:id="catPField" layoutX="107.0" layoutY="505.0" prefHeight="31.0" prefWidth="187.0" />
+      <ComboBox fx:id="catPField" layoutX="107.0" layoutY="505.0" prefHeight="31.0" prefWidth="187.0" styleClass="filed-button" stylesheets="@style.css" />
       <Pane layoutY="114.0" prefHeight="11.0" prefWidth="841.0" style="-fx-background-color: e15e1c;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Text fill="#e15e1c" layoutX="51.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Produits">
          <font>
@@ -53,9 +52,9 @@
       <Button fx:id="selectimageBtn" layoutX="114.0" layoutY="574.0" mnemonicParsing="false" onMouseClicked="#selectimage" style="-fx-background-color: e15e1c;" text="ajouter une image" />
       <TextField fx:id="idFieldP" layoutX="271.0" layoutY="-48.0" style="-fx-background-color: black;" />
       <ImageView fx:id="imgView" fitHeight="150.0" fitWidth="200.0" layoutX="66.0" layoutY="670.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField fx:id="Recherche" layoutX="474.0" layoutY="218.0" prefHeight="40.0" prefWidth="207.0" promptText="Rechercher" />
-      <Button layoutX="897.0" layoutY="211.0" mnemonicParsing="false" onAction="#stat" style="-fx-background-color: e15e1c;" text="statistique " />
-      <SplitPane dividerPositions="0.2144927536231884" layoutX="968.0" layoutY="614.0" orientation="VERTICAL" prefHeight="177.0" prefWidth="200.0">
+      <TextField fx:id="Recherche" layoutX="474.0" layoutY="218.0" prefHeight="40.0" prefWidth="207.0" promptText="Rechercher" styleClass="search-button" />
+      <Button layoutX="823.0" layoutY="221.0" mnemonicParsing="false" onAction="#stat" prefHeight="25.0" prefWidth="149.0" style="-fx-background-color: e15e1c;" text="statistique " />
+      <SplitPane dividerPositions="0.5" layoutX="474.0" layoutY="590.0" orientation="VERTICAL" prefHeight="177.0" prefWidth="200.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="135.0" prefWidth="198.0" style="-fx-background-color: e15e1c;">
                <children>
@@ -72,5 +71,6 @@
         </items>
       </SplitPane>
       <Pane layoutX="383.0" layoutY="233.0" prefHeight="489.0" prefWidth="4.0" style="-fx-background-color: e15e1c;" />
+      <Button fx:id="supprimer" layoutX="897.0" layoutY="559.0" mnemonicParsing="false" onAction="#supprimerP" prefHeight="31.0" prefWidth="198.0" style="-fx-background-color: e15e1c;" stylesheets="@../../../../Downloads/tableview2.css" text="Supprimer" />
    </children>
 </AnchorPane>

@@ -63,7 +63,6 @@ public class ReclamamtionFrontController implements Initializable {
     int index = -1;
 
     private int idCoachingToadd;
-    @FXML
     private Button admin_btn;
     @FXML
     private Button showallButton;
@@ -395,7 +394,6 @@ public class ReclamamtionFrontController implements Initializable {
 
     }
 
-    @FXML
     private void back(ActionEvent event) throws IOException {
         Parent newPage = FXMLLoader.load(getClass().getResource("Relamation.fxml"));
         Scene scene = admin_btn.getScene();

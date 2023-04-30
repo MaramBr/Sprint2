@@ -160,7 +160,6 @@ public class AjouterCoachingController implements Initializable {
         chercherCoaching();
     }    
 
-    @FXML
     private void ajouter(javafx.scene.input.MouseEvent event) {
         
                 Image photo=imgView.getImage();
@@ -240,7 +239,6 @@ public class AjouterCoachingController implements Initializable {
  
 
 
-    @FXML
     private void ModifierCoaching(javafx.scene.input.MouseEvent event) {
         
          if(coursField.getText().trim().length() == 0) {
@@ -336,7 +334,6 @@ public class AjouterCoachingController implements Initializable {
 
 
  
-    @FXML
     private void SupprimerC(javafx.scene.input.MouseEvent event) {
            Coaching c = new Coaching();
         c.setId(Integer.parseInt(idField.getText()));
@@ -351,7 +348,6 @@ public class AjouterCoachingController implements Initializable {
     }
 
  
-    @FXML
     private void RefrechC(MouseEvent event) {
           coursField.setText("");
           descField.setText("");

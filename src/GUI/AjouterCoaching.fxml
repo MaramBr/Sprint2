@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
@@ -16,48 +15,52 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" onMouseClicked="#getSelected" prefHeight="527.0" prefWidth="981.0" style="-fx-background-color: #1E1E1E;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterCoachingController">
-   <stylesheets>
-        <URL value="@tableview.css" />
-    </stylesheets>
+<AnchorPane id="AnchorPane" onMouseClicked="#getSelected" prefHeight="527.0" prefWidth="981.0" style="-fx-background-color: black;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterCoachingController">
     <children>
-      <TextField fx:id="coursField" layoutX="113.0" layoutY="165.0" />
-      <TextField fx:id="descField" layoutX="113.0" layoutY="215.0" />
+      <TextField fx:id="coursField" layoutX="67.0" layoutY="164.0" styleClass="filed-button">
+         <padding>
+            <Insets right="70.0" top="10.0" />
+         </padding></TextField>
+      <TextField fx:id="descField" layoutX="67.0" layoutY="217.0" styleClass="filed-button">
+         <padding>
+            <Insets right="70.0" top="10.0" />
+         </padding></TextField>
       <TextField fx:id="dispoField" layoutX="808.0" layoutY="282.0" prefHeight="31.0" prefWidth="18.0" visible="false" />
-      <Label layoutX="35.0" layoutY="169.0" text="Cours" textFill="WHITE" />
-      <Label layoutX="35.0" layoutY="220.0" text="Description">
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="WHITE" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill></Label>
-      <Label layoutX="32.0" layoutY="269.0" text="Disponibilite">
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="WHITE" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill></Label>
-      <Label layoutX="34.0" layoutY="327.0" text="Image">
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="WHITE" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill></Label>
-      <Button fx:id="imgField" layoutX="118.0" layoutY="304.0" mnemonicParsing="false" onAction="#choisirImage" style="-fx-background-color: e15e1c;" text="inserer une image " />
-      <TableView fx:id="CoachingTable" layoutX="480.0" layoutY="158.0" onMouseClicked="#getSelected" prefHeight="206.0" prefWidth="363.0">
+      <Label layoutX="149.0" layoutY="123.0" prefHeight="5.0" prefWidth="132.0" text="Cours" textFill="WHITE">
+         <font>
+            <Font name="Corbel Bold" size="18.0" />
+         </font>
+         <padding>
+            <Insets right="70.0" top="10.0" />
+         </padding></Label>
+      <Label layoutX="126.0" layoutY="185.0" text="Description" textFill="WHITE">
+         <font>
+            <Font name="Corbel Bold" size="18.0" />
+         </font>
+         <padding>
+            <Insets right="70.0" top="10.0" />
+         </padding></Label>
+      <Label layoutX="121.0" layoutY="245.0" text="Disponibilite" textFill="WHITE">
+         <font>
+            <Font name="Corbel Bold" size="18.0" />
+         </font>
+         <padding>
+            <Insets right="70.0" top="10.0" />
+         </padding></Label>
+      <Label layoutX="135.0" layoutY="306.0" text="Image" textFill="WHITE">
+         <font>
+            <Font name="Corbel Bold" size="18.0" />
+         </font>
+         <padding>
+            <Insets right="70.0" top="10.0" />
+         </padding></Label>
+      <Button fx:id="imgField" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="351.0" mnemonicParsing="false" onAction="#choisirImage" prefHeight="17.0" prefWidth="160.0" styleClass="filed-button" stylesheets="@style.css" text="upload ">
+         <padding>
+            <Insets right="70.0" top="10.0" />
+         </padding></Button>
+      <TableView fx:id="CoachingTable" layoutX="480.0" layoutY="158.0" onMouseClicked="#getSelected" prefHeight="206.0" prefWidth="363.0" stylesheets="@tableview.css">
         <columns>
           <TableColumn fx:id="idC" minWidth="0.0" prefWidth="0.0" text="Id" />
           <TableColumn fx:id="CoursC" prefWidth="81.0" text="Cours" />
@@ -70,9 +73,12 @@
       <TextField fx:id="idField" layoutX="571.0" layoutY="309.0" prefHeight="0.0" prefWidth="5.0" visible="false" />
       <Button layoutX="722.0" layoutY="443.0" mnemonicParsing="false" onAction="#SupprimerCoaching" prefHeight="31.0" prefWidth="92.0" text="Supprimer" visible="false" />
       <BorderPane layoutX="375.0" layoutY="150.0" prefHeight="319.0" prefWidth="4.0" style="-fx-background-color: e15e1c;" />
-      <TextField fx:id="chercherField" layoutX="481.0" layoutY="108.0" prefHeight="31.0" prefWidth="180.0" promptText="Recchercher" />
-      <Button fx:id="refreshB" layoutX="740.0" layoutY="408.0" mnemonicParsing="false" onAction="#updateTable" text="Refresh" />
-      <ComboBox fx:id="dispoCombo" layoutX="115.0" layoutY="264.0" prefHeight="31.0" prefWidth="149.0" />
+      <TextField fx:id="chercherField" layoutX="481.0" layoutY="108.0" prefHeight="31.0" prefWidth="180.0" promptText="Recchercher" styleClass="search-button" />
+      <Button fx:id="refreshB" layoutX="481.0" layoutY="469.0" mnemonicParsing="false" onAction="#updateTable" text="Refresh" />
+      <ComboBox fx:id="dispoCombo" layoutX="67.0" layoutY="280.0" prefHeight="17.0" prefWidth="205.0" styleClass="filed-button">
+         <padding>
+            <Insets right="70.0" />
+         </padding></ComboBox>
       <SplitPane dividerPositions="0.5" layoutX="480.0" layoutY="375.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: e15e1c;">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="13.0" prefWidth="158.0">
@@ -89,25 +95,24 @@
             </AnchorPane>
         </items>
       </SplitPane>
-      <Label layoutX="98.0" layoutY="27.0" text="Coachnig" textFill="WHITE">
-         <font>
-            <Font name="Baskerville Old Face" size="38.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="67.0" fitWidth="50.0" layoutX="41.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="67.0" fitWidth="109.0" layoutX="34.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/coach.png" />
          </image>
       </ImageView>
-      <FontAwesomeIconView fill="WHITE" glyphName="PLUS" layoutX="22.0" layoutY="499.0" onMouseClicked="#ajouter" size="50" wrappingWidth="39.0000065267086" />
-      <FontAwesomeIconView fill="WHITE" glyphName="EDIT" layoutX="91.0" layoutY="499.0" onMouseClicked="#ModifierCoaching" size="50" />
-      <FontAwesomeIconView fill="WHITE" glyphName="TRASH" layoutX="176.0" layoutY="494.0" onMouseClicked="#SupprimerC" size="50" />
-      <Pane layoutY="96.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: #ffff;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <FontAwesomeIconView fill="#479be0" glyphName="PLUS" layoutX="48.0" layoutY="485.0" onMouseClicked="#ajouter" size="30" text="" wrappingWidth="39.0000065267086" />
+      <FontAwesomeIconView fill="#479be0" glyphName="EDIT" layoutX="254.0" layoutY="484.0" onMouseClicked="#ModifierCoaching" size="30" />
+      <FontAwesomeIconView fill="#479be0" glyphName="TRASH" layoutX="814.0" layoutY="404.0" onMouseClicked="#SupprimerC" size="30" wrappingWidth="42.85713788866997" />
+      <Pane layoutY="96.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </Pane>
-      <FontAwesomeIconView fill="WHITE" glyphName="REFRESH" layoutX="244.0" layoutY="493.0" onMouseClicked="#RefrechC" size="50" />
-      <ImageView fx:id="imgView" fitHeight="59.0" fitWidth="109.0" layoutX="122.0" layoutY="371.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgView" fitHeight="59.0" fitWidth="109.0" layoutX="115.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="119.0" layoutY="32.0" prefHeight="31.0" prefWidth="192.0" text="Coaching" textFill="WHITE">
+         <font>
+            <Font name="Baskerville Old Face" size="44.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -86,12 +86,6 @@ public class SponsorController implements Initializable {
     @FXML
     private Button statistique;
     @FXML
-    private Button btnEvenement;
-    @FXML
-    private Button btnParticipant;
-    @FXML
-    private Button btnSponsor;
-    @FXML
     private Button trie;
     @FXML
     private Button trie1;
@@ -387,7 +381,6 @@ public void show() {
         
     }
 
-    @FXML
     private void gererEvenement(ActionEvent event) {
                try {
         Parent EvenementsParent = FXMLLoader.load(getClass().getResource("Evenement.fxml"));
@@ -399,7 +392,6 @@ public void show() {
     }
     }
 
-    @FXML
     private void gererParticipant(ActionEvent event) {
                try {
         Parent EvenementsParent = FXMLLoader.load(getClass().getResource("ParticipantBack.fxml"));
@@ -411,7 +403,6 @@ public void show() {
     }
     }
 
-    @FXML
     private void gererSponsor(ActionEvent event) {
                try {
         Parent EvenementsParent = FXMLLoader.load(getClass().getResource("Sponsor.fxml"));
