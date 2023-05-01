@@ -245,6 +245,8 @@ public class AjouterCoachingController implements Initializable {
 
     @FXML
    private void ModifierCoaching(javafx.scene.input.MouseEvent event) {
+       
+        //String imagePath = path.substring(path.lastIndexOf("/img/"));
     if(coursField.getText().trim().length() == 0) {
         JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'cours'");
         return;
@@ -271,7 +273,8 @@ public class AjouterCoachingController implements Initializable {
     c.setCours(coursField.getText());
     c.setDescCoach(descField.getText());
     c.setDispoCoach(dispoCombo.getValue());
-    c.setImgCoach(imgField.getText());
+    //c.setImgCoach(imgField.getText());
+    //c.setImgCoach(imagePath);
     
     // Save the updated Coaching object to the database
     sc.modifier(c);
@@ -446,11 +449,12 @@ private void ModifierCoaching(ActionEvent event) {
     c.setDispoCoach(dispoCombo.getValue());
     
     String imagePath = imgField.getText();
+    c.setImgCoach(imagePath.substring(path.lastIndexOf("/img/")));
     if (imagePath.trim().length() == 0) {
         JOptionPane.showMessageDialog(null, "Veuillez ajouter une image");
         return;
     }
-    c.setImgCoach(imagePath);
+  //  c.setImgCoach(path);
 
     // Save the updated Coaching object to the database
     sc.modifier(c);

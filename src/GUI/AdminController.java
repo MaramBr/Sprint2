@@ -87,7 +87,7 @@ public class AdminController implements Initializable {
     private PasswordField mdp;
     @FXML
     private ImageView image2;
-    String path="C:\\Users\\rayan\\Downloads\\avatar.png";
+    String path="C:\\Users\\Maram\\Desktop\\integration\\Sprint2\\src\\images\\userv1.png";
     @FXML
     private TableColumn<User,Integer> idc;
     @FXML
