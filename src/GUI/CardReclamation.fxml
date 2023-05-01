@@ -9,7 +9,7 @@
 
 <HBox fx:id="box" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="276.0" prefWidth="482.0" spacing="15.0" style="-fx-background-radius: 15;" styleClass="shadow" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CardReclamationController">
    <children>
-      <Button fx:id="delete" mnemonicParsing="false" onAction="#supprimer" styleClass="add-btn" stylesheets="@style.css" text="Supprimer" />
+      <Button fx:id="delete" mnemonicParsing="false" onAction="#supprimer" styleClass="white-background" stylesheets="@style.css" text="Supprimer" />
       <VBox alignment="CENTER" prefHeight="276.0" prefWidth="284.0" spacing="15.0">
          <children>
             <Label prefHeight="22.0" prefWidth="306.0" text="Titre:" textFill="WHITE">
@@ -49,7 +49,7 @@
       <Button fx:id="update" mnemonicParsing="false" onAction="#modifier" prefHeight="12.0" prefWidth="69.0" stylesheets="@style.css" text="Modifier">
          <styleClass>
             <String fx:value="add-btn" />
-            <String fx:value="chosen-fruit-card" />
+            <String fx:value="white-background" />
          </styleClass>
       </Button>
    </children>

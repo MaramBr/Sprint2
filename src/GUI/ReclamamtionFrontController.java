@@ -65,9 +65,13 @@ public class ReclamamtionFrontController implements Initializable {
     private int idCoachingToadd;
     private Button admin_btn;
     @FXML
-    private Button showallButton;
+    private TableColumn<?, ?> idC;
+    @FXML
+    private TextField idField;
     @FXML
     private Button stati;
+    @FXML
+    private Button showallButton;
 
     public int getIdCoachingToadd() {
         return idCoachingToadd;
@@ -83,8 +87,7 @@ public class ReclamamtionFrontController implements Initializable {
     private Button Add;
     @FXML
     private TableView<Reclamation> ReclamationTable;
-    @FXML
-    private TableColumn<Reclamation, Integer> idC;
+    
     private TableColumn<Reclamation, Integer> genre;
     @FXML
     private TableColumn<Reclamation, String> Titre;
@@ -96,26 +99,11 @@ public class ReclamamtionFrontController implements Initializable {
     private TableColumn<Reclamation, String> Status;
     @FXML
     private Button ModifierC;
-    @FXML
-    private TextField idField;
-    @FXML
-    private TableView<Reclamation> ReclamationTable1;
-    @FXML
-    private TableColumn<Reclamation, Integer> idC1;
-    @FXML
-    private TableColumn<Reclamation, String> GenreR1;
-    @FXML
-    private TableColumn<Reclamation, String> TitreR;
-    @FXML
-    private TableColumn<Reclamation, String> DescriptionR;
-    @FXML
-    private TableColumn<Reclamation, String> dateR;
-    @FXML
-    private TableColumn<Reclamation, String> Traitement;
+
     @FXML
     private ComboBox<Genre> boxGenre;
     @FXML
-    private TextArea descTF;
+    private TextField descTF;
     @FXML
     private TableColumn<Reclamation, String> idgenre;
 
@@ -125,7 +113,7 @@ public class ReclamamtionFrontController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         show();
-        show2();
+
         //  remplirComboBoxGenres();
         ServiceGenre sc = new ServiceGenre();
         ObservableList<Genre> genres = FXCollections.observableArrayList(sc.afficherGenres());
@@ -151,42 +139,6 @@ public class ReclamamtionFrontController implements Initializable {
         });
 
     }
-
-    /*private void remplirComboBoxGenres() {
-    // Récupérer la liste des genres à partir de la base de données
-    List<Genre> genres = sr.afficherGenres();
-    // Ajouter les genres au ComboBox
-    boxGenre.getItems().addAll(genres);
-  ServiceGenre sc = new ServiceGenre();
-        List<String> nomsCours = new ArrayList<>();
-        for (Genre c : sc.afficher2()) {
-            nomsCours.add(c.getLibelle());
-
-        }
-        boxGenre.setItems(FXCollections.observableArrayList(nomsCours));
-
-        boxGenre.valueProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                // get the selected Personne object based on the selected nom value
-                Genre selectedCours = null;
-                for (Genre c: sc.afficher2()) {
-                    if (c.getLibelle().equals(newValue)) {
-                        selectedCours = c;
-                        break;
-                    }
-                }
-                if (selectedCours != null) {
-                    int id = selectedCours.getId();
-                    System.out.println("Selected libelle id: " + id);
-                    // do something with the id...
-                    setIdCoachingToadd(id);
-                }}}
-   );
-            
-        
-                }*/
-
-   
 
     @FXML
     private void ajouterRec(ActionEvent event) {
@@ -230,7 +182,7 @@ public class ReclamamtionFrontController implements Initializable {
         // Ajouter la réclamation à la base de données
         sp.ajouter(r);
         // envoye d'un sms
-      //  sendSms("+21692524435", "une réclamation a été ajoutée du titre " + r.getTitre() + ", veuillez le traiter svp");
+        //  sendSms("+21692524435", "une réclamation a été ajoutée du titre " + r.getTitre() + ", veuillez le traiter svp");
         // Appeler la méthode de notification
         String message = "Une nouvelle réclamation a été ajoutée.";
         sp.notification(message);
@@ -256,17 +208,6 @@ public class ReclamamtionFrontController implements Initializable {
         Date.setCellValueFactory(new PropertyValueFactory<>("date"));
         Status.setCellValueFactory(new PropertyValueFactory<>("status"));
         ReclamationTable.setItems(reclamationsFiltrees);
-
-        // ajouter les réclamations confirmées à la TableView
-        FilteredList<Reclamation> reclamationsFiltrees2 = new FilteredList<>(reclamations2, p -> p.getStatus().equals("confirmé"));
-
-        GenreR1.setCellValueFactory(new PropertyValueFactory<>("genre"));
-        TitreR.setCellValueFactory(new PropertyValueFactory<>("titre"));
-        DescriptionR.setCellValueFactory(new PropertyValueFactory<>("description"));
-        dateR.setCellValueFactory(new PropertyValueFactory<>("date"));
-        Traitement.setCellValueFactory(new PropertyValueFactory<>("traitement"));
-
-        ReclamationTable1.setItems(reclamationsFiltrees2);
 
     }
 
@@ -379,27 +320,7 @@ public class ReclamamtionFrontController implements Initializable {
 
     }
 
-    private void show2() {
-        ObservableList<Reclamation> reclamations = sp.afficher2();
 
-        // ajouter les réclamations à la TableView
-        FilteredList<Reclamation> reclamationsFiltrees = new FilteredList<>(reclamations, p -> p.getStatus().equals("confirmé"));
-        GenreR1.setCellValueFactory(new PropertyValueFactory<>("genre"));
-        TitreR.setCellValueFactory(new PropertyValueFactory<>("titre"));
-        DescriptionR.setCellValueFactory(new PropertyValueFactory<>("description"));
-        dateR.setCellValueFactory(new PropertyValueFactory<>("date"));
-        Traitement.setCellValueFactory(new PropertyValueFactory<>("traitement"));
-
-        ReclamationTable1.setItems(reclamationsFiltrees);
-
-    }
-
-    private void back(ActionEvent event) throws IOException {
-        Parent newPage = FXMLLoader.load(getClass().getResource("Relamation.fxml"));
-        Scene scene = admin_btn.getScene();
-        scene.setRoot(newPage);
-
-    }
 
     @FXML
     private void showall(ActionEvent event) throws IOException {
@@ -411,41 +332,41 @@ public class ReclamamtionFrontController implements Initializable {
     @FXML
     private void stat(ActionEvent event) {
         ObservableList<Reclamation> Reclamations = ReclamationTable.getItems();
-    Map <String, Integer> statistiques = new HashMap<>();
+        Map<String, Integer> statistiques = new HashMap<>();
 
-    // Calcul des statistiques
-    for (Reclamation r : Reclamations) {
-        String type = r.getGenre();
-        if (statistiques.containsKey(type)) {
-            statistiques.put(type, statistiques.get(type) + 1);
-        } else {
-            statistiques.put(type, 1);
+        // Calcul des statistiques
+        for (Reclamation r : Reclamations) {
+            String type = r.getGenre();
+            if (statistiques.containsKey(type)) {
+                statistiques.put(type, statistiques.get(type) + 1);
+            } else {
+                statistiques.put(type, 1);
+            }
         }
-    }
 
-    ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
-    int totalSponsors = 0;
-    for (Map.Entry<String, Integer> entry : statistiques.entrySet()) {
-        String type = entry.getKey();
-        int nbreclamations = entry.getValue();
-        totalSponsors += nbreclamations;
-        pieChartData.add(new PieChart.Data(type + " (" + nbreclamations + ")", nbreclamations));
-    }
+        ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+        int totalSponsors = 0;
+        for (Map.Entry<String, Integer> entry : statistiques.entrySet()) {
+            String type = entry.getKey();
+            int nbreclamations = entry.getValue();
+            totalSponsors += nbreclamations;
+            pieChartData.add(new PieChart.Data(type + " (" + nbreclamations + ")", nbreclamations));
+        }
 
-    // Calcul des pourcentages
-    for (PieChart.Data data : pieChartData) {
-        double pourcentage = (data.getPieValue() / totalSponsors) * 100;
-        String label = data.getName() + " - " + String.format("%.2f", pourcentage) + "%";
-        data.setName(label);
-    }
+        // Calcul des pourcentages
+        for (PieChart.Data data : pieChartData) {
+            double pourcentage = (data.getPieValue() / totalSponsors) * 100;
+            String label = data.getName() + " - " + String.format("%.2f", pourcentage) + "%";
+            data.setName(label);
+        }
 
-    PieChart chart = new PieChart(pieChartData);
-    chart.setTitle("Statistiques des réclamations par leurs catégories");
+        PieChart chart = new PieChart(pieChartData);
+        chart.setTitle("Statistiques des réclamations par leurs catégories");
 
-    Stage stage = new Stage();
-    Scene scene = new Scene(new Group(chart), 600, 400);
-    stage.setScene(scene);
-    stage.show();
+        Stage stage = new Stage();
+        Scene scene = new Scene(new Group(chart), 600, 400);
+        stage.setScene(scene);
+        stage.show();
     }
 
 }
