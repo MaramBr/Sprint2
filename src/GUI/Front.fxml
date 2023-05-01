@@ -4,6 +4,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Pagination?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -36,6 +37,7 @@
                   </Label>
                </children>
             </HBox>
+            <TextField fx:id="searchbar" prefHeight="84.0" prefWidth="831.0" promptText="Recherche...." styleClass="search-button" stylesheets="@style.css" />
             <Pagination fx:id="pagination" prefHeight="381.0" prefWidth="981.0" />
          </children>
       </VBox>

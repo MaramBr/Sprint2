@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/GUI/CodeTestController.java</file>
+            <file>file:/C:/Users/Maram/Desktop/integration/Sprint2/src/GUI/MenuController.java</file>
+            <file>file:/C:/Users/Maram/Desktop/integration/Sprint2/src/userjava/mainmaram.java</file>
+            <file>file:/C:/Users/Maram/Desktop/integration/Sprint2/src/Utils/MyDB.java</file>
+            <file>file:/C:/Users/Maram/Desktop/integration/Sprint2/src/Services/UserService.java</file>
+            <file>file:/C:/Users/Maram/Desktop/integration/Sprint2/src/util/MyDB.java</file>
+            <file>file:/C:/Users/Maram/Desktop/integration/Sprint2/src/GUI/AdminController.java</file>
+            <file>file:/C:/Users/Maram/Desktop/integration/Sprint2/src/GUI/AjouterCoaching.fxml</file>
+            <file>file:/C:/Users/Maram/Desktop/integration/Sprint2/src/GUI/AjouterCoachingController.java</file>
         </group>
     </open-files>
 </project-private>

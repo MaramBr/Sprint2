@@ -114,5 +114,6 @@
             <Font name="Baskerville Old Face" size="44.0" />
          </font>
       </Label>
+      <Button layoutX="768.0" layoutY="490.0" mnemonicParsing="false" onAction="#imprimer" text="Imprimer" />
    </children>
 </AnchorPane>

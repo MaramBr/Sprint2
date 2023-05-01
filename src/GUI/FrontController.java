@@ -18,6 +18,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,6 +26,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Pagination;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -45,19 +47,32 @@ public class FrontController implements Initializable {
     private Pagination pagination;
     private int rowsPerPage = 2;
 private int pageCount;
+private String searchQuery = "";
+    @FXML
+    private TextField searchbar;
+
 
     public FrontController() {
         cnx = MyDB.getInstance().getCnx();
     }
 
-    @Override
-   public void initialize(URL url, ResourceBundle rb) {
+  
+@Override
+public void initialize(URL url, ResourceBundle rb) {
     ServiceCoaching sm = new ServiceCoaching();
     recentlyadd = new ArrayList<>(sm.afficher());
+
+    searchbar.textProperty().addListener((observable, oldValue, newValue) -> {
+        // Update the search query whenever the user types in the search bar
+        searchQuery = newValue;
+        pagination.setPageFactory(this::createPage);
+    });
+
     pageCount = (int) Math.ceil((double) recentlyadd.size() / rowsPerPage);
     pagination.setPageCount(pageCount);
     pagination.setPageFactory(this::createPage);
 }
+
 private Region createPage(int pageIndex) {
     int startIndex = pageIndex * rowsPerPage;
     int endIndex = Math.min(startIndex + rowsPerPage, recentlyadd.size());
@@ -66,6 +81,13 @@ private Region createPage(int pageIndex) {
     HBox pageContainer = new HBox();
     pageContainer.setSpacing(20.0);
     pageContainer.setAlignment(Pos.CENTER);
+
+    // Filter the pageProducts list based on the search query
+    if (!searchQuery.isEmpty()) {
+        pageProducts = pageProducts.stream()
+                .filter(c -> c.getCours().contains(searchQuery) || c.getDescCoach().contains(searchQuery))
+                .collect(Collectors.toList());
+    }
 
     try {
         for (int i = 0; i < Math.ceil((double) pageProducts.size() / 2); i++) {
@@ -92,8 +114,6 @@ private Region createPage(int pageIndex) {
 
     return pageContainer;
 }
-
-
     
 
 }

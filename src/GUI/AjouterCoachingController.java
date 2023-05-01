@@ -11,12 +11,15 @@ import Entities.RendezVous;
 import Services.ServiceCoaching;
 import javafx.scene.image.Image;
 import java.awt.image.BufferedImage;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -160,6 +163,7 @@ public class AjouterCoachingController implements Initializable {
         chercherCoaching();
     }    
 
+    @FXML
     private void ajouter(javafx.scene.input.MouseEvent event) {
         
                 Image photo=imgView.getImage();
@@ -239,35 +243,41 @@ public class AjouterCoachingController implements Initializable {
  
 
 
-    private void ModifierCoaching(javafx.scene.input.MouseEvent event) {
-        
-         if(coursField.getText().trim().length() == 0) {
-    JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'cours'");
-    return;
-}
+    @FXML
+   private void ModifierCoaching(javafx.scene.input.MouseEvent event) {
+    if(coursField.getText().trim().length() == 0) {
+        JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'cours'");
+        return;
+    }
  
-      if(descField.getText().trim().length() == 0) {
-    JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'description'");
-    return;
-}
-         if(dispoCombo.getValue().trim().length() == 0) {
-    JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'disponibilité'");
-    return;
-}
-        
-         Coaching c = new Coaching();
-        c.setId(Integer.parseInt(idField.getText()));
-        c.setCours(coursField.getText());
-        c.setDispoCoach(dispoCombo.getValue());
-        c.setDescCoach(descField.getText());
-        c.setImgCoach(imgField.getText());
-
-        sc.modifier(c);
-        updateTable();
-      //  JOptionPane.showMessageDialog(null, "Seance modifiée");
-
+    if(descField.getText().trim().length() == 0) {
+        JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'description'");
+        return;
+    }
+         
+    if(dispoCombo.getValue().trim().length() == 0) {
+        JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'disponibilité'");
+        return;
     }
     
+    // Get the Coaching object to modify
+    Coaching c = CoachingTable.getSelectionModel().getSelectedItem();
+    if (c == null) {
+        JOptionPane.showMessageDialog(null, "Veuillez sélectionner une séance à modifier");
+        return;
+    }
+    
+    // Update the Coaching object
+    c.setCours(coursField.getText());
+    c.setDescCoach(descField.getText());
+    c.setDispoCoach(dispoCombo.getValue());
+    c.setImgCoach(imgField.getText());
+    
+    // Save the updated Coaching object to the database
+    sc.modifier(c);
+    updateTable();
+}
+
 
     
     
@@ -334,6 +344,7 @@ public class AjouterCoachingController implements Initializable {
 
 
  
+    @FXML
     private void SupprimerC(javafx.scene.input.MouseEvent event) {
            Coaching c = new Coaching();
         c.setId(Integer.parseInt(idField.getText()));
@@ -386,60 +397,122 @@ public class AjouterCoachingController implements Initializable {
     }
 
     @FXML
-    private void getSelected(MouseEvent event) {
-        
-   
-        
-         Coaching c=CoachingTable.getSelectionModel().getSelectedItem();
-         index = CoachingTable.getSelectionModel().getSelectedIndex();
-        if (index <= -1) {
-            return;
-        }
-        idField.setText((idC.getCellData(index).toString()));
-        coursField.setText(CoursC.getCellData(index));
-        dispoCombo.setValue(DispoC.getCellData(index));
-        descField.setText(DescC.getCellData(index));
-            Image image = new Image(new File(c.getImgCoach()).toURI().toString());
-            imgView.setImage(image);
+  private void getSelected(MouseEvent event) {
+    Coaching c = CoachingTable.getSelectionModel().getSelectedItem();
+    index = CoachingTable.getSelectionModel().getSelectedIndex();
+    if (index <= -1) {
+        return;
+    }
+    idField.setText((idC.getCellData(index).toString()));
+    coursField.setText(CoursC.getCellData(index));
+    dispoCombo.setValue(DispoC.getCellData(index));
+    descField.setText(DescC.getCellData(index));
+    String imagePath = c.getImgCoach();
+    if (!imagePath.startsWith("/img/")) {
+        // if the image path is not already a file URL, create one
+        imagePath = "/img/" + imagePath;
+    }
+    Image image = new Image(imagePath);
+    imgView.setImage(image);
+}
 
-   
-    
-    
-          
+
+  @FXML
+private void ModifierCoaching(ActionEvent event) {
+    if (coursField.getText().trim().length() == 0) {
+        JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'cours'");
+        return;
     }
 
-    @FXML
-    private void ModifierCoaching(ActionEvent event) {
-          if(coursField.getText().trim().length() == 0) {
-    JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'cours'");
-    return;
-}
- 
-      if(descField.getText().trim().length() == 0) {
-    JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'description'");
-    return;
-}
-         if(dispoCombo.getValue().trim().length() == 0) {
-    JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'disponibilité'");
-    return;
-}
-        
-         Coaching c = new Coaching();
-        c.setId(Integer.parseInt(idField.getText()));
-        c.setCours(coursField.getText());
-        c.setDispoCoach(dispoCombo.getValue());
-        c.setDescCoach(descField.getText());
-        c.setImgCoach(imgField.getText());
-
-        sc.modifier(c);
-        updateTable();
-      //  JOptionPane.showMessageDialog(null, "Seance modifiée");
+    if (descField.getText().trim().length() == 0) {
+        JOptionPane.showMessageDialog(null, "Veuillez remplir le champ 'description'");
+        return;
     }
+
+    if (dispoCombo.getValue() == null || dispoCombo.getValue().trim().length() == 0) {
+        JOptionPane.showMessageDialog(null, "Veuillez sélectionner une disponibilité");
+        return;
+    }
+
+    Coaching c = CoachingTable.getSelectionModel().getSelectedItem();
+    if (c == null) {
+        JOptionPane.showMessageDialog(null, "Veuillez sélectionner une séance à modifier");
+        return;
+    }
+
+    // Update the selected Coaching object with new data
+    c.setCours(coursField.getText());
+    c.setDescCoach(descField.getText());
+    c.setDispoCoach(dispoCombo.getValue());
+    
+    String imagePath = imgField.getText();
+    if (imagePath.trim().length() == 0) {
+        JOptionPane.showMessageDialog(null, "Veuillez ajouter une image");
+        return;
+    }
+    c.setImgCoach(imagePath);
+
+    // Save the updated Coaching object to the database
+    sc.modifier(c);
+    updateTable();
+}
+
 
     @FXML
     private void SupprimerCoaching(ActionEvent event) {
     }
      private void coaching() {
+    }
+
+    @FXML
+    private void imprimer(ActionEvent event) {
+        
+        Coaching selectedObject = CoachingTable.getSelectionModel().getSelectedItem();
+
+    if (selectedObject != null) {
+        int id = selectedObject.getId();
+        String descCoach = selectedObject.getDescCoach();
+        String Cours = selectedObject.getCours();
+        String DispoCoach = selectedObject.getDispoCoach();
+        String ImgCoach = selectedObject.getImgCoach();
+
+        try {
+            // Chemin du fichier sur le bureau
+            String desktopPath = System.getProperty("user.home") + "/Desktop/";
+            String fileName = "donnees.txt";
+
+            // Création du fichier sur le bureau
+            File file = new File(desktopPath + fileName);
+            PrintWriter writer = new PrintWriter(file);
+
+            // Écriture des données dans le fichier
+            writer.println("id: " + id);
+            writer.println("descCoach: " + descCoach);
+            writer.println("Cours: " + Cours);
+            writer.println("DispoCoach: " + DispoCoach);
+            writer.println("ImgCoach: " + ImgCoach);
+
+            // Fermeture du fichier
+            writer.close();
+
+            System.out.println("Données imprimées dans le fichier " + desktopPath + fileName + ".");
+
+            // Ouverture de la boîte de dialogue d'impression
+            PrinterJob job = PrinterJob.getPrinterJob();
+            boolean ok = job.printDialog();
+            if (ok) {
+                job.print();
+            }
+
+        } catch (IOException e) {
+            System.err.println("Erreur lors de l'impression des données sur le fichier.");
+            e.printStackTrace();
+        } catch (PrinterException ex) {
+            System.err.println("Erreur lors de l'impression des données.");
+            ex.printStackTrace();
+        }
+    }
+        
     }
     
     

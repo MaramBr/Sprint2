@@ -19,7 +19,7 @@ import java.util.logging.Logger;
  
 public class MyDB {
    private static MyDB instance ;
-    final String URL ="jdbc:mysql://127.0.0.1:3306/Pidev";
+    final String URL ="jdbc:mysql://127.0.0.1:3306/Pidev2";
     final String USERNAME ="root";
     final String PWD ="";
    private  Connection cnx;

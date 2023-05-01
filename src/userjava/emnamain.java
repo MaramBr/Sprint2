@@ -26,7 +26,7 @@ public class emnamain extends Application {
        public void start(Stage primaryStage) {
         Parent root= null;
         try {
-            root = FXMLLoader.load(getClass().getResource("EvenementFront.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../GUI/EvenementFront.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setTitle("Ajout d'un Evenement");
             primaryStage.setScene(scene);
