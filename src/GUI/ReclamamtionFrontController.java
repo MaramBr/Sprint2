@@ -66,9 +66,15 @@ public class ReclamamtionFrontController implements Initializable {
     @FXML
     private Button admin_btn;
     @FXML
-    private Button showallButton;
+    private TableColumn<?, ?> idC;
+    @FXML
+    private TextField idField;
     @FXML
     private Button stati;
+    @FXML
+    private TableColumn<?, ?> idC1;
+    @FXML
+    private Button showallButton;
 
     public int getIdCoachingToadd() {
         return idCoachingToadd;
@@ -84,8 +90,6 @@ public class ReclamamtionFrontController implements Initializable {
     private Button Add;
     @FXML
     private TableView<Reclamation> ReclamationTable;
-    @FXML
-    private TableColumn<Reclamation, Integer> idC;
     private TableColumn<Reclamation, Integer> genre;
     @FXML
     private TableColumn<Reclamation, String> Titre;
@@ -98,11 +102,7 @@ public class ReclamamtionFrontController implements Initializable {
     @FXML
     private Button ModifierC;
     @FXML
-    private TextField idField;
-    @FXML
     private TableView<Reclamation> ReclamationTable1;
-    @FXML
-    private TableColumn<Reclamation, Integer> idC1;
     @FXML
     private TableColumn<Reclamation, String> GenreR1;
     @FXML
