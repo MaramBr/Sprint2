@@ -118,7 +118,7 @@ public class LoginController implements Initializable {
     alert.setHeaderText(null);
     alert.setContentText("Vous êtes maintenant connecté!");
     alert.showAndWait();
-                  FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/profil.fxml"));
+                  FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Profil.fxml"));
             Parent root = loader.load();
             rootPane.getScene().setRoot(root);
               ProfilController ProfilController = loader.getController();
