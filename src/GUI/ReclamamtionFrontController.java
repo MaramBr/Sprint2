@@ -404,7 +404,7 @@ public class ReclamamtionFrontController implements Initializable {
     @FXML
     private void showall(ActionEvent event) throws IOException {
         Parent newPage = FXMLLoader.load(getClass().getResource("ReclamationCard.fxml"));
-        Scene scene = admin_btn.getScene();
+        Scene scene = showallButton.getScene();
         scene.setRoot(newPage);
     }
 

@@ -132,7 +132,7 @@ void ban(ActionEvent event) throws Exception{
         rdvs.mailing(selectedrdv.getId());
         
        if(selectedrdv.getEtatrdv()==0){
-       javamail1.sendMail("VOTRE RESERVATION EST CONFIRMEE!!",UserConnected.getEmail());
+       javamail1.sendMail("VOTRE RESERVATION EST CONFIRMEE!!","maram.brinsi@esprit.tn");
        
        
         // Afficher un message de confirmation
