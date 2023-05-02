@@ -6,6 +6,7 @@
 package GUI;
 
 import Entities.Session;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -19,9 +20,13 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.ContextMenuEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 /**
@@ -36,15 +41,23 @@ public class UIController implements Initializable {
     @FXML
     private Label label;
  Session UserConnected;
+    @FXML
+    private Circle admin;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb)  {
         // TODO
-        label.setText("BONJOUR"+"\t"+UserConnected.getNom()+"\t"+UserConnected.getPrenom());
+        label.setText("BONJOUR"+UserConnected.getNom()+"\t"+UserConnected.getPrenom());
        mainPane.getChildren().clear();
         Parent Content;
+          Image image = new Image(new File(UserConnected.getImage()).toURI().toString());
+    //improfile.setImage(image);
+   //circle.setStroke(Color.SEAGREEN);
+   
+   admin.setStroke(Color.TRANSPARENT);
+   admin.setFill(new ImagePattern(image));
         
         try {
             Content = FXMLLoader.load(getClass().getResource("Admin.fxml"));

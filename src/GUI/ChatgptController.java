@@ -43,15 +43,15 @@ public class ChatgptController implements Initializable {
      responses = new HashMap<>();
         // TODO
          responses.put("bonjour", "comment puis je vous aidez");
-        responses.put("donner moi le meilleurs cours dans votre salle de sport? ", "zumba");
+        responses.put("donner moi le meilleurs cours dans votre application? ", "Fitness");
+        responses.put("donner moi le meilleurs Produit dans votre salle de sport? ", "vélo");
         
-        responses.put("combien dure un cours kick", "40 min");
         responses.put("les bienfaits de la salle de sport? ", "bien pour la santé,bien a la cardiovascularité");
-        responses.put("donnez moi le nom de l admin", "aziz");
+        responses.put("donnez moi le nom de l admin", "Rayen");
          responses.put("donne moi le lien de l'esprit", " https://esprit-tn.com");
         responses.put("salut bot", "comment puis je vous aidez? ");
-         responses.put("qui etes vous?", "je suis un bot creer par weGym ");
-          responses.put("weGym?", "weGym! weGym!  ");
+         responses.put("qui etes vous?", "je suis un bot creer par Efit ");
+          responses.put("Efit", "Efit! Efit!  ");
              TextFields.bindAutoCompletion(ASK, responses.keySet());
            TextField textField =  TextFields.createClearablePasswordField();
   

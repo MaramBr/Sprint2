@@ -13,9 +13,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="1182.0" style="-fx-background-color: #20120F;" styleClass="*" stylesheets="@login1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LoginController">
+<AnchorPane id="AnchorPane" fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1288.0" style="-fx-background-color: #20120F;" styleClass="*" stylesheets="@login1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LoginController">
    <children>
-      <AnchorPane layoutX="531.0" layoutY="53.0" prefHeight="588.0" prefWidth="618.0" style="-fx-background-color: E65100;">
+      <AnchorPane layoutX="565.0" layoutY="53.0" prefHeight="588.0" prefWidth="652.0" style="-fx-background-color: E65100;">
          <children>
             <HBox layoutX="114.0" layoutY="165.0" prefHeight="45.0" prefWidth="350.0" style="-fx-background-color: #fff;" styleClass="textlab" stylesheets="@login1.css">
                <children>
@@ -49,7 +49,7 @@
                </font></Button>
             <Text fx:id="nullErr" disable="true" fill="#ff000000" layoutX="112.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="veuillez entrer votre email !" visible="false" />
             <Text fx:id="nullmdp" fill="#ff000000" layoutX="85.0" layoutY="233.0" strokeType="OUTSIDE" strokeWidth="0.0" text="veuillez entrer votre mot de passe !" visible="false" />
-            <FontAwesomeIconView glyphName="USERS" layoutX="248.0" layoutY="90.0" size="80" />
+            <FontAwesomeIconView glyphName="USERS" layoutX="260.0" layoutY="90.0" size="80" />
             <Hyperlink layoutX="226.0" layoutY="431.0" onAction="#mdpoubliee" text="Mot de passe oubliée?" textFill="WHITE" />
             <Hyperlink layoutX="252.0" layoutY="484.0" onAction="#Gotoacoount" prefHeight="29.0" prefWidth="113.0" text="S'inscrire" textFill="WHITE" />
          </children>

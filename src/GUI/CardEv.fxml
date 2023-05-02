@@ -14,17 +14,17 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox fx:id="box" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="440.0" spacing="15.0" style="-fx-background-radius: 15;" styleClass="shadow" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CardEvController">
+<HBox fx:id="box" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="671.0" spacing="15.0" style="-fx-background-radius: 15;" styleClass="shadow" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CardEvController">
    <children>
-      <ImageView fx:id="coursImg" fitHeight="159.0" fitWidth="136.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="coursImg" fitHeight="140.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
          <effect>
             <Reflection fraction="0.54" topOpacity="0.44" />
          </effect></ImageView>
       <VBox alignment="CENTER" prefHeight="151.0" prefWidth="230.0" spacing="15.0">
          <children>
-            <HBox prefHeight="68.0" prefWidth="329.0">
+            <HBox prefHeight="68.0" prefWidth="230.0">
                <children>
-                  <Label fx:id="coursDesc" alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="285.0" text=" Nom event&#10;&#10;">
+                  <Label fx:id="coursDesc" alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="261.0" text=" Nom event&#10;&#10;">
                      <font>
                         <Font name="Bookman Old Style Bold Italic" size="26.0" />
                      </font>
@@ -66,7 +66,7 @@
             </Label>
          </children>
       </VBox>
-      <Button fx:id="BtnQr" mnemonicParsing="false" onAction="#QR" prefHeight="40.0" prefWidth="96.0" stylesheets="@tableview.css" text="Qr">
+      <Button fx:id="BtnQr" mnemonicParsing="false" onAction="#QR" prefHeight="40.0" prefWidth="75.0" stylesheets="@tableview.css" text="Qr">
          <effect>
             <Lighting diffuseConstant="1.24" specularConstant="0.5" surfaceScale="3.21">
                <bumpInput>

@@ -76,13 +76,13 @@ public class MenuFrontController implements Initializable {
  @FXML
     private void Reclamation(MouseEvent event) throws IOException {
          mainPane.getChildren().clear();
-        Parent Content = FXMLLoader.load(getClass().getResource("ReclamationCard.fxml"));
+        Parent Content = FXMLLoader.load(getClass().getResource("ReclamamtionFront.fxml"));
         mainPane.getChildren().setAll(Content);
     }
      @FXML
     private void Event(MouseEvent event) throws IOException {
          mainPane.getChildren().clear();
-        Parent Content = FXMLLoader.load(getClass().getResource("FrontEv.fxml"));
+        Parent Content = FXMLLoader.load(getClass().getResource("Participant.fxml"));
         mainPane.getChildren().setAll(Content);
     }
  @FXML

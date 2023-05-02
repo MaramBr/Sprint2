@@ -21,10 +21,10 @@ public class NewFXMain1 extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Admin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/login.fxml"));
             Parent root = loader.load();
             Scene sc = new Scene(root);
-            primaryStage.setTitle("MAJDI");
+            primaryStage.setTitle("Efit");
             primaryStage.setScene(sc);
             primaryStage.show();
         } catch (IOException ex) {

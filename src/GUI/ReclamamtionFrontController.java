@@ -72,6 +72,8 @@ public class ReclamamtionFrontController implements Initializable {
     private Button stati;
     @FXML
     private Button showallButton;
+    @FXML
+    private Button chatbot;
 
     public int getIdCoachingToadd() {
         return idCoachingToadd;
@@ -367,6 +369,16 @@ public class ReclamamtionFrontController implements Initializable {
         Scene scene = new Scene(new Group(chart), 600, 400);
         stage.setScene(scene);
         stage.show();
+    }
+
+    @FXML
+    private void chatbot(ActionEvent event) throws IOException {
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("chatgpt.fxml"));
+            Parent root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
     }
 
 }

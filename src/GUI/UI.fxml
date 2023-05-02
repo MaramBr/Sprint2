@@ -13,13 +13,18 @@
 
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1288.0" style="-fx-background-color: #000000;" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UIController">
    <children>
+      <ImageView fitHeight="95.0" fitWidth="152.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/log.png" />
+         </image>
+      </ImageView>
       <AnchorPane layoutX="-1.0" layoutY="134.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="295.0" styleClass="sidebar">
          <children>
             <Pane layoutX="22.0" layoutY="8.0" prefHeight="30.0" prefWidth="204.0" styleClass="labbtn">
                <children>
-                  <Label fx:id="label" alignment="CENTER" layoutX="7.0" layoutY="8.0" prefHeight="16.0" prefWidth="180.0" textFill="#2262c6">
+                  <Label fx:id="label" alignment="CENTER" layoutX="7.0" layoutY="8.0" prefHeight="16.0" prefWidth="180.0">
                      <font>
-                        <Font name="Berlin Sans FB" size="14.0" />
+                        <Font name="Cambria" size="15.0" />
                      </font>
                   </Label>
                </children>
@@ -183,11 +188,6 @@
             </HBox>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="95.0" fitWidth="152.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/log.png" />
-         </image>
-      </ImageView>
       <HBox alignment="CENTER_LEFT" layoutX="287.0" layoutY="420.0" />
       <AnchorPane fx:id="mainPane" layoutX="293.0" layoutY="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="998.0" />
       <HBox alignment="CENTER_LEFT" layoutX="29.0" layoutY="557.0" prefHeight="40.0" prefWidth="180.0" styleClass="sidebar-btn-text">
@@ -227,6 +227,6 @@
             <Insets left="5.0" />
          </padding>
       </HBox>
-      <Circle fill="DODGERBLUE" layoutX="218.0" layoutY="51.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="admin" fill="DODGERBLUE" layoutX="69.0" layoutY="69.0" radius="55.0" stroke="BLACK" strokeType="INSIDE" />
    </children>
 </AnchorPane>

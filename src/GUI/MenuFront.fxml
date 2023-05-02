@@ -9,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="527.0" prefWidth="990.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MenuFrontController">
    <children>
-      <AnchorPane layoutX="-1.0" prefHeight="121.0" prefWidth="990.0" style="-fx-background-color: e15e1c;">
+      <AnchorPane layoutX="1.0" minWidth="-Infinity" prefHeight="121.0" prefWidth="1288.0" style="-fx-background-color: e15e1c;">
          <children>
             <Label layoutX="360.0" layoutY="47.0" onMousePressed="#pagerdv" text="Rendez Vous" textFill="WHITE">
                <font>
@@ -36,25 +36,25 @@
                   <Font name="Candara Bold Italic" size="21.0" />
                </font>
             </Label>
+            <Label layoutX="772.0" layoutY="48.0" onMouseClicked="#tls" text="Transporteurs" textFill="WHITE">
+               <font>
+                  <Font name="Candara Bold Italic" size="21.0" />
+               </font>
+            </Label>
             <Label layoutX="42.0" layoutY="47.0" prefHeight="8.0" prefWidth="74.0" text="Accueil" textFill="WHITE">
                <font>
                   <Font name="Candara Bold Italic" size="21.0" />
                </font>
             </Label>
-            <Pane layoutY="101.0" prefHeight="20.0" prefWidth="990.0" style="-fx-background-color: #1E1E1E;" />
-            <Circle fx:id="profil" fill="DODGERBLUE" layoutX="956.0" layoutY="30.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+            <Pane layoutY="101.0" prefHeight="20.0" prefWidth="1290.0" style="-fx-background-color: #1E1E1E;" />
+            <Circle fx:id="profil" fill="DODGERBLUE" layoutX="1224.0" layoutY="30.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+            <Label layoutX="1196.0" layoutY="60.0" onMouseClicked="#profil" text="Profile">
+               <font>
+                  <Font name="Candara Italic" size="21.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <HBox fx:id="mainPane" layoutX="6.0" layoutY="121.0" prefHeight="527.0" prefWidth="981.0" />
-      <Label layoutX="762.0" layoutY="48.0" onMouseClicked="#tls" text="Transporteurs" textFill="WHITE">
-         <font>
-            <Font name="Candara Bold Italic" size="21.0" />
-         </font>
-      </Label>
-      <Label layoutX="927.0" layoutY="57.0" onMouseClicked="#profil" text="Profile">
-         <font>
-            <Font name="Candara Italic" size="21.0" />
-         </font>
-      </Label>
+      <HBox fx:id="mainPane" layoutX="6.0" layoutY="121.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="1288.0" />
    </children>
 </AnchorPane>

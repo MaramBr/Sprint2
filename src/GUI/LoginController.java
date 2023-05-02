@@ -121,9 +121,9 @@ public class LoginController implements Initializable {
                   FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/MenuFront.fxml"));
             Parent root = loader.load();
             rootPane.getScene().setRoot(root);
-           ProfilController Profil = loader.getController();
+           //ProfilController Profil = loader.getController();
               
-    Profil.setUser(now);
+    //Profil.setUser(now);
      
                            
                        }

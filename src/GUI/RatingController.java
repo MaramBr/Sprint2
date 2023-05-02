@@ -10,6 +10,7 @@ import javafx.beans.value.ObservableValue;
 
 import Entities.ProductRating;
 import Entities.Produit;
+import Entities.Session;
 import Services.ServiceRating;
 import util.MyDB;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
@@ -65,7 +66,7 @@ public class RatingController implements Initializable {
     private Rating ratingFieldStar;
     private Button closeButton;
      private Stage parentStage;
-
+Session S;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
      
@@ -92,12 +93,12 @@ public class RatingController implements Initializable {
     public void addProductRating(ActionEvent event) throws SQLException {
         int productId = MyDB.getPickedPRoductId();
         System.out.println("pickedId: " + productId);
-        String userName = userNameTextField.getText();
+       /* String userName = userNameTextField.getText();
         if (userName.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Veuillez saisir votre nom svp .");
             return;
-        }
-        saveRating(productId, userName, rating);
+        }*/
+        saveRating(productId,S.getNom(), rating);
 
     }
     

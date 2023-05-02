@@ -128,7 +128,7 @@ private Pane card;
         // TODO
       
      
-        File file = new File("C:/Users/emnaa/OneDrive/Documents/NetBeansProject/GestionEvenement/src/image/logoFit.png");
+        File file = new File("C:/Users/Majdi/Documents/NetBeansProjects/integration/Sprint2/src/images/bg.png");
         String localURL = "";
         try {
             localURL = file.toURI().toURL().toString();
