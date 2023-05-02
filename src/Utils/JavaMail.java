@@ -164,10 +164,10 @@ String htmlContent = "<html><head><style>" +
     "</style></head><body>"+
     "<div class='c-email'>"+
     "<div class='c-email__header'>"+
-    "<h1 class='c-email__header__title'>Your Verification Code</h1>"+
+    "<h1 class='c-email__header__title'>Votre vode de vérification</h1>"+
     "</div>"+
     "<div class='c-email__content'>"+
-    "<p class='c-email__content__text text-title'>Enter this verification code in field:</p>"+
+    "<p class='c-email__content__text text-title'>Entrer ce code de vérification:</p>"+
     "<div class='c-email__code'>" +
     "<span class='c-email__code__text'>" + text + "</span>" +
     "</div>"+

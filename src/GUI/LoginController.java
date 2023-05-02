@@ -109,7 +109,7 @@ public class LoginController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/UI.fxml"));
             Parent root = loader.load();
             rootPane.getScene().setRoot(root);}
-                       else if(s.equals("[\"ROLE_Coach\"]")){FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/front.fxml"));
+                       else if(s.equals("[\"ROLE_Coach\"]")){FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/AjouterCoaching.fxml"));
             Parent root = loader.load();
             rootPane.getScene().setRoot(root);}
                        else{
