@@ -22,7 +22,7 @@
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" text="Coaching" textFill="#d07a38">
                            <font>
-                              <Font name="Cambria Math" size="40.0" />
+                              <Font name="Candara Bold Italic" size="43.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="MOVE" />
@@ -47,12 +47,12 @@
                            <children>
                               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="36.0" prefWidth="141.0" text="Cours :" textFill="#bf6a2e">
                                  <font>
-                                    <Font name="System Bold" size="25.0" />
+                                    <Font name="Candara Bold Italic" size="30.0" />
                                  </font>
                               </Label>
                               <Label fx:id="coursField" alignment="TOP_RIGHT" contentDisplay="CENTER" prefHeight="36.0" prefWidth="449.0" text="coursC">
                                  <font>
-                                    <Font name="System Bold" size="25.0" />
+                                    <Font name="Candara Bold Italic" size="30.0" />
                                  </font>
                               </Label>
                            </children>
@@ -64,12 +64,12 @@
                         </ImageView>
                         <Label fx:id="descField" alignment="TOP_LEFT" prefHeight="101.0" prefWidth="318.0" text="Description">
                            <font>
-                              <Font name="System Bold" size="13.0" />
+                              <Font name="Candara Bold Italic" size="15.0" />
                            </font>
                         </Label>
                         <Label fx:id="dispoField" alignment="TOP_RIGHT" contentDisplay="RIGHT" prefHeight="36.0" prefWidth="84.0" text="Disponibilite" textFill="#70ff77">
                            <font>
-                              <Font name="System Bold" size="13.0" />
+                              <Font name="Candara Bold Italic" size="15.0" />
                            </font>
                         </Label>
                      </children>

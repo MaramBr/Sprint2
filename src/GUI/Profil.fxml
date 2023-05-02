@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="1182.0" styleClass="bg-form" stylesheets="@login1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProfilController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="998.0" style="-fx-background-color: #e15e1c;" styleClass="bg-form" stylesheets="@login1.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ProfilController">
    <children>
       <Label layoutX="106.0" layoutY="56.0" text="id" visible="false" />
       <TextField fx:id="id" layoutX="185.0" layoutY="51.0" visible="false" />
@@ -52,19 +51,14 @@
          <font>
             <Font name="Arial Rounded MT Bold" size="22.0" />
          </font></Label>
-      <Pane layoutX="-19.0" layoutY="128.0" prefHeight="6.0" prefWidth="1196.0" style="-fx-background-color: white;" />
-      <ImageView fitHeight="126.0" fitWidth="170.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/user.png" />
-         </image>
-      </ImageView>
+      <Pane layoutX="-19.0" layoutY="125.0" prefHeight="9.0" prefWidth="1016.0" style="-fx-background-color: white;" />
       <Label layoutX="148.0" layoutY="62.0" prefHeight="31.0" prefWidth="214.0" text="Mon Profil:">
          <font>
             <Font name="Arial Rounded MT Bold" size="26.0" />
          </font>
       </Label>
       <FontAwesomeIconView fill="WHITE" glyphName="REPLY" layoutX="52.0" layoutY="605.0" size="27" />
-      <Circle fx:id="circle" fill="DODGERBLUE" layoutX="842.0" layoutY="241.0" radius="83.0" stroke="BLACK" strokeType="INSIDE" />
+      <Circle fx:id="circle" fill="DODGERBLUE" layoutX="63.0" layoutY="65.0" radius="49.0" stroke="BLACK" strokeType="INSIDE" />
       <Label fx:id="profil" layoutX="301.0" layoutY="61.0" prefHeight="31.0" prefWidth="479.0">
          <font>
             <Font name="Arial Rounded MT Bold" size="25.0" />

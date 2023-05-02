@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -13,24 +14,24 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="527.0" prefWidth="981.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CompanieController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="998.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CompanieController">
    <children>
-      <Label layoutX="186.0" layoutY="218.0" text="Libelle" textFill="WHITE">
+      <Label layoutX="245.0" layoutY="252.0" text="Compagnie" textFill="WHITE">
          <font>
             <Font name="Corbel Bold" size="20.0" />
          </font></Label>
-      <TextField fx:id="libelleFieldC" layoutX="154.0" layoutY="264.0" prefHeight="23.0" prefWidth="128.0" styleClass="filed-button" />
-      <Button fx:id="Add" layoutX="128.0" layoutY="323.0" mnemonicParsing="false" onAction="#ajouterC" prefHeight="23.0" prefWidth="187.0" style="-fx-background-color: e15e1c;" text="Ajouter" />
-      <Button fx:id="modifier" layoutX="124.0" layoutY="373.0" mnemonicParsing="false" onAction="#modifierC" prefHeight="25.0" prefWidth="187.0" style="-fx-background-color: e15e1c;" text="Modifier" />
-      <Button fx:id="supprimer" layoutX="810.0" layoutY="501.0" mnemonicParsing="false" onAction="#supprimerC" prefHeight="11.0" prefWidth="187.0" style="-fx-background-color: e15e1c;" text="Supprimer" />
-      <TableView fx:id="TableViewC" layoutX="571.0" layoutY="193.0" onMouseClicked="#getSelected" prefHeight="285.0" prefWidth="383.0">
+      <TextField fx:id="libelleFieldC" layoutX="133.0" layoutY="312.0" prefHeight="25.0" prefWidth="286.0" styleClass="filed-button" />
+      <Button fx:id="Add" layoutX="122.0" layoutY="375.0" mnemonicParsing="false" onAction="#ajouterC" prefHeight="34.0" prefWidth="72.0" style="-fx-background-color: e15e1c;" />
+      <Button fx:id="modifier" layoutX="247.0" layoutY="375.0" mnemonicParsing="false" onAction="#modifierC" prefHeight="34.0" prefWidth="72.0" style="-fx-background-color: e15e1c;" />
+      <Button fx:id="supprimer" layoutX="377.0" layoutY="375.0" mnemonicParsing="false" onAction="#supprimerC" prefHeight="34.0" prefWidth="72.0" style="-fx-background-color: e15e1c;" />
+      <TableView fx:id="TableViewC" layoutX="554.0" layoutY="182.0" onMouseClicked="#getSelected" prefHeight="285.0" prefWidth="425.0">
         <columns>
-          <TableColumn fx:id="libelleC" prefWidth="302.0" text="Companies Names" />
           <TableColumn fx:id="idC" minWidth="0.0" prefWidth="144.0" text="id" visible="false" />
+          <TableColumn fx:id="libelleC" prefWidth="424.0" text="Noms des compagnies" />
         </columns>
       </TableView>
       <Pane layoutY="128.0" prefHeight="11.0" prefWidth="841.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Text fill="WHITE" layoutX="134.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Companies" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="1075.806640625">
+      <Text fill="WHITE" layoutX="134.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Compagnies" AnchorPane.leftAnchor="134.0" AnchorPane.rightAnchor="1075.806640625">
          <font>
             <Font name="Baskerville Old Face" size="44.0" />
          </font>
@@ -41,6 +42,9 @@
             <Image url="@../images/camp.png" />
          </image>
       </ImageView>
+      <FontAwesomeIconView glyphName="PLUS" layoutX="148.0" layoutY="400.0" size="25" />
+      <FontAwesomeIconView glyphName="EDIT" layoutX="271.0" layoutY="400.0" size="25" />
+      <FontAwesomeIconView glyphName="TRASH" layoutX="402.0" layoutY="399.0" size="25" />
    </children>
    <stylesheets>
       <URL value="@tableview2.css" />

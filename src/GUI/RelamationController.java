@@ -300,7 +300,7 @@ private void AjoutGenre(ActionEvent event) {
 
     // Enregistrement de la modification
     sp.modifier(selectedReclamation);
-   sendSms("+21653661331", "Votre réclamation est  confirmée , consultez notre site ou notre application pour consultez le traitement");
+//   sendSms("+21653661331", "Votre réclamation est  confirmée , consultez notre site ou notre application pour consultez le traitement");
     updateTablereclamation();
     JOptionPane.showMessageDialog(null, "Réclamation modifiée");
         

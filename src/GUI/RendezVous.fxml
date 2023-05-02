@@ -19,19 +19,19 @@
        
       <Label layoutX="153.0" layoutY="197.0" prefHeight="20.0" prefWidth="77.0" text="Date">
          <font>
-            <Font name="Corbel Bold" size="18.0" />
+            <Font name="Candara Bold Italic" size="20.0" />
          </font></Label>
       <Button layoutX="86.0" layoutY="355.0" mnemonicParsing="false" onAction="#ModifierRdv" prefHeight="25.0" prefWidth="212.0" text="Modifier">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Candara Bold Italic" size="14.0" />
          </font></Button>
       <Button layoutX="91.0" layoutY="298.0" mnemonicParsing="false" onAction="#AjouterRdv" prefHeight="25.0" prefWidth="202.0" text="Ajouter" textOverrun="WORD_ELLIPSIS">
          <font>
-            <Font name="Book Antiqua Bold" size="12.0" />
+            <Font name="Candara Bold Italic" size="14.0" />
          </font></Button>
       <Button layoutX="742.0" layoutY="451.0" mnemonicParsing="false" onAction="#SupprimerRdv" prefHeight="25.0" prefWidth="212.0" text="Supprimer">
          <font>
-            <Font name="Book Antiqua Bold" size="12.0" />
+            <Font name="Candara Bold Italic" size="12.0" />
          </font></Button>
       <TableView fx:id="TableView" layoutX="424.0" layoutY="180.0" onMouseClicked="#getSelected" prefHeight="236.0" prefWidth="464.0" stylesheets="@tableview2.css">
         <columns>
@@ -59,7 +59,7 @@
       </ImageView>
       <Text layoutX="100.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="RendezVous">
          <font>
-            <Font name="Baskerville Old Face" size="48.0" />
+            <Font name="Candara Bold Italic" size="48.0" />
          </font>
       </Text>
       <Button layoutX="293.0" layoutY="231.0" mnemonicParsing="false" onAction="#ViderRdv" prefHeight="25.0" prefWidth="39.0" text="Vider">

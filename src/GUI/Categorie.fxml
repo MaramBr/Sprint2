@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -12,23 +13,23 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="527.0" prefWidth="981.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CategorieController">
+<AnchorPane id="AnchorPane" prefHeight="702.0" prefWidth="950.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CategorieController">
    <children>
-      <Label layoutX="208.0" layoutY="197.0" text="libelle" textFill="#fffdfd">
+      <Label layoutX="209.0" layoutY="253.0" text="libelle" textFill="#fffdfd">
          <font>
             <Font name="Corbel Bold" size="20.0" />
          </font></Label>
-      <TextField fx:id="libelleFieldC" layoutX="159.0" layoutY="232.0" styleClass="filed-button" />
-      <Button fx:id="Add" layoutX="141.0" layoutY="283.0" mnemonicParsing="false" onAction="#ajouterC" prefHeight="25.0" prefWidth="185.0" style="-fx-background-color: e15e1c;" text="Ajouter" />
-      <Button fx:id="modifier" layoutX="137.0" layoutY="338.0" mnemonicParsing="false" onAction="#modifierC" prefHeight="23.0" prefWidth="194.0" style="-fx-background-color: e15e1c;" text="Modifier" />
-      <Button fx:id="supprimer" layoutX="771.0" layoutY="451.0" mnemonicParsing="false" onAction="#supprimerC" prefHeight="23.0" prefWidth="149.0" style="-fx-background-color: e15e1c;" text="Supprimer" />
-      <TableView fx:id="TableViewC" layoutX="539.0" layoutY="208.0" onMouseClicked="#getSelected" prefHeight="200.0" prefWidth="306.0">
+      <TextField fx:id="libelleFieldC" layoutX="138.0" layoutY="296.0" prefHeight="25.0" prefWidth="194.0" styleClass="filed-button" />
+      <Button fx:id="Add" layoutX="27.0" layoutY="383.0" mnemonicParsing="false" onAction="#ajouterC" prefHeight="34.0" prefWidth="72.0" style="-fx-background-color: e15e1c;" />
+      <Button fx:id="modifier" layoutX="174.0" layoutY="381.0" mnemonicParsing="false" onAction="#modifierC" prefHeight="34.0" prefWidth="72.0" style="-fx-background-color: e15e1c;" />
+      <Button fx:id="supprimer" layoutX="308.0" layoutY="386.0" mnemonicParsing="false" onAction="#supprimerC" prefHeight="34.0" prefWidth="72.0" style="-fx-background-color: e15e1c;" />
+      <TableView fx:id="TableViewC" layoutX="539.0" layoutY="208.0" onMouseClicked="#getSelected" prefHeight="200.0" prefWidth="440.0">
         <columns>
-          <TableColumn fx:id="libelleC" prefWidth="302.0" text="Libelle" />
+          <TableColumn fx:id="libelleC" prefWidth="439.0" text="Libelle" />
           <TableColumn fx:id="idC" minWidth="0.0" prefWidth="0.0" text="id" />
         </columns>
       </TableView>
-      <Pane layoutY="128.0" prefHeight="11.0" prefWidth="841.0" style="-fx-background-color: e15e1c;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Pane layoutY="128.0" prefHeight="11.0" prefWidth="841.0" style="-fx-background-color: WHITE;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Text fill="WHITE" layoutX="174.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categories" AnchorPane.leftAnchor="174.0" AnchorPane.rightAnchor="596.0">
          <font>
             <Font name="Akhbar MT" size="57.0" />
@@ -36,6 +37,9 @@
       </Text>
       <TextField fx:id="idFieldC" layoutX="431.0" layoutY="-71.0" style="-fx-background-color: black;" />
       <ImageView fitHeight="98.0" fitWidth="132.0" layoutX="27.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true" />
+      <FontAwesomeIconView glyphName="PLUS" layoutX="50.0" layoutY="409.0" size="25" />
+      <FontAwesomeIconView glyphName="EDIT" layoutX="197.0" layoutY="408.0" size="25" />
+      <FontAwesomeIconView glyphName="TRASH" layoutX="334.0" layoutY="411.0" size="25" />
    </children>
    <stylesheets>
       <URL value="@tableview2.css" />

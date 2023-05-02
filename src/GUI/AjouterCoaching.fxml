@@ -17,13 +17,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" onMouseClicked="#getSelected" prefHeight="527.0" prefWidth="981.0" style="-fx-background-color: black;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterCoachingController">
+<AnchorPane id="AnchorPane" onMouseClicked="#getSelected" prefHeight="702.0" prefWidth="998.0" style="-fx-background-color: black;" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterCoachingController">
     <children>
       <TextField fx:id="coursField" layoutX="67.0" layoutY="164.0" styleClass="filed-button">
          <padding>
             <Insets right="70.0" top="10.0" />
          </padding></TextField>
-      <TextField fx:id="descField" layoutX="67.0" layoutY="217.0" styleClass="filed-button">
+      <TextField fx:id="descField" layoutX="67.0" layoutY="227.0" styleClass="filed-button">
          <padding>
             <Insets right="70.0" top="10.0" />
          </padding></TextField>
@@ -35,51 +35,51 @@
          <padding>
             <Insets right="70.0" top="10.0" />
          </padding></Label>
-      <Label layoutX="126.0" layoutY="185.0" text="Description" textFill="WHITE">
+      <Label layoutX="126.0" layoutY="188.0" text="Description" textFill="WHITE">
          <font>
             <Font name="Corbel Bold" size="18.0" />
          </font>
          <padding>
             <Insets right="70.0" top="10.0" />
          </padding></Label>
-      <Label layoutX="121.0" layoutY="245.0" text="Disponibilite" textFill="WHITE">
+      <Label layoutX="121.0" layoutY="253.0" text="Disponibilite" textFill="WHITE">
          <font>
             <Font name="Corbel Bold" size="18.0" />
          </font>
          <padding>
             <Insets right="70.0" top="10.0" />
          </padding></Label>
-      <Label layoutX="135.0" layoutY="306.0" text="Image" textFill="WHITE">
+      <Label layoutX="135.0" layoutY="317.0" text="Image" textFill="WHITE">
          <font>
             <Font name="Corbel Bold" size="18.0" />
          </font>
          <padding>
             <Insets right="70.0" top="10.0" />
          </padding></Label>
-      <Button fx:id="imgField" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="351.0" mnemonicParsing="false" onAction="#choisirImage" prefHeight="17.0" prefWidth="160.0" styleClass="filed-button" stylesheets="@style.css" text="upload ">
+      <Button fx:id="imgField" alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="360.0" mnemonicParsing="false" onAction="#choisirImage" prefHeight="17.0" prefWidth="160.0" styleClass="filed-button" stylesheets="@style.css" text="upload ">
          <padding>
             <Insets right="70.0" top="10.0" />
          </padding></Button>
-      <TableView fx:id="CoachingTable" layoutX="472.0" layoutY="179.0" onMouseClicked="#getSelected" prefHeight="206.0" prefWidth="363.0" stylesheets="@tableview.css">
+      <TableView fx:id="CoachingTable" layoutX="418.0" layoutY="179.0" onMouseClicked="#getSelected" prefHeight="206.0" prefWidth="553.0" stylesheets="@tableview.css">
         <columns>
           <TableColumn fx:id="idC" minWidth="0.0" prefWidth="0.0" text="Id" />
-          <TableColumn fx:id="CoursC" prefWidth="81.0" text="Cours" />
-            <TableColumn fx:id="DescC" prefWidth="92.0" text="Description" />
-            <TableColumn fx:id="DispoC" prefWidth="112.0" text="Disponibilte" />
-            <TableColumn fx:id="ImgC" prefWidth="59.0" text="Image" />
+          <TableColumn fx:id="CoursC" prefWidth="127.0" text="Cours" />
+            <TableColumn fx:id="DescC" prefWidth="206.0" text="Description" />
+            <TableColumn fx:id="DispoC" prefWidth="106.0" text="Disponibilte" />
+            <TableColumn fx:id="ImgC" prefWidth="113.0" text="Image" />
         </columns>
       </TableView>
       <Button fx:id="ModifierC" layoutX="591.0" layoutY="449.0" mnemonicParsing="false" onAction="#ModifierCoaching" prefHeight="31.0" prefWidth="83.0" text="Modifier" visible="false" />
       <TextField fx:id="idField" layoutX="563.0" layoutY="330.0" prefHeight="0.0" prefWidth="5.0" visible="false" />
       <Button layoutX="722.0" layoutY="443.0" mnemonicParsing="false" onAction="#SupprimerCoaching" prefHeight="31.0" prefWidth="92.0" text="Supprimer" visible="false" />
-      <BorderPane layoutX="375.0" layoutY="150.0" prefHeight="319.0" prefWidth="4.0" style="-fx-background-color: e15e1c;" />
-      <TextField fx:id="chercherField" layoutX="473.0" layoutY="129.0" prefHeight="31.0" prefWidth="180.0" promptText="Recchercher" styleClass="search-button" />
-      <Button fx:id="refreshB" layoutX="473.0" layoutY="490.0" mnemonicParsing="false" onAction="#updateTable" text="Refresh" />
-      <ComboBox fx:id="dispoCombo" layoutX="67.0" layoutY="280.0" prefHeight="17.0" prefWidth="205.0" styleClass="filed-button">
+      <BorderPane layoutX="370.0" layoutY="150.0" prefHeight="497.0" prefWidth="9.0" style="-fx-background-color: e15e1c;" />
+      <TextField fx:id="chercherField" layoutX="584.0" layoutY="129.0" prefHeight="31.0" prefWidth="180.0" promptText="Recchercher" styleClass="search-button" />
+      <Button fx:id="refreshB" layoutX="473.0" layoutY="552.0" mnemonicParsing="false" onAction="#updateTable" prefHeight="34.0" prefWidth="72.0" />
+      <ComboBox fx:id="dispoCombo" layoutX="67.0" layoutY="295.0" prefHeight="17.0" prefWidth="205.0" styleClass="filed-button">
          <padding>
             <Insets right="70.0" />
          </padding></ComboBox>
-      <SplitPane dividerPositions="0.5" layoutX="472.0" layoutY="396.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: e15e1c;">
+      <SplitPane dividerPositions="0.5" layoutX="545.0" layoutY="456.0" orientation="VERTICAL" prefHeight="67.0" prefWidth="247.0" style="-fx-background-color: e15e1c;">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="13.0" prefWidth="158.0">
                <children>
@@ -100,20 +100,22 @@
             <Image url="@images/coach.png" />
          </image>
       </ImageView>
-      <FontAwesomeIconView fill="#479be0" glyphName="PLUS" layoutX="48.0" layoutY="485.0" onMouseClicked="#ajouter" size="30" text="" wrappingWidth="39.0000065267086" />
-      <FontAwesomeIconView fill="#479be0" glyphName="EDIT" layoutX="254.0" layoutY="484.0" onMouseClicked="#ModifierCoaching" size="30" />
-      <FontAwesomeIconView fill="#479be0" glyphName="TRASH" layoutX="805.0" layoutY="420.0" onMouseClicked="#SupprimerC" size="30" wrappingWidth="42.85713788866997" />
+      <FontAwesomeIconView fill="#479be0" glyphName="PLUS" layoutX="48.0" layoutY="583.0" onMouseClicked="#ajouter" size="30" text="" wrappingWidth="39.0000065267086" />
+      <FontAwesomeIconView fill="#479be0" glyphName="EDIT" layoutX="254.0" layoutY="581.0" onMouseClicked="#ModifierCoaching" size="30" />
+      <FontAwesomeIconView fill="#479be0" glyphName="TRASH" layoutX="908.0" layoutY="420.0" onMouseClicked="#SupprimerC" size="30" wrappingWidth="42.85713788866997" />
       <Pane layoutY="96.0" prefHeight="5.0" prefWidth="200.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <opaqueInsets>
             <Insets />
          </opaqueInsets>
       </Pane>
-      <ImageView fx:id="imgView" fitHeight="59.0" fitWidth="109.0" layoutX="115.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imgView" fitHeight="103.0" fitWidth="109.0" layoutX="104.0" layoutY="434.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="119.0" layoutY="18.0" prefHeight="31.0" prefWidth="192.0" text="Coaching" textFill="WHITE">
          <font>
             <Font name="Baskerville Old Face" size="44.0" />
          </font>
       </Label>
-      <Button layoutX="768.0" layoutY="490.0" mnemonicParsing="false" onAction="#imprimer" text="Imprimer" />
+      <Button layoutX="843.0" layoutY="545.0" mnemonicParsing="false" onAction="#imprimer" prefHeight="34.0" prefWidth="72.0" />
+      <FontAwesomeIconView glyphName="REFRESH" layoutX="499.0" layoutY="578.0" size="25" />
+      <FontAwesomeIconView glyphName="PRINT" layoutX="868.0" layoutY="569.0" size="25" text="" />
    </children>
 </AnchorPane>

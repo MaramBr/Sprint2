@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="1288.0" style="-fx-background-color: #000000;" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UIController">
+   <children>
+      <AnchorPane layoutX="-1.0" layoutY="134.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="295.0" styleClass="sidebar">
+         <children>
+            <Pane layoutX="22.0" layoutY="8.0" prefHeight="30.0" prefWidth="204.0" styleClass="labbtn">
+               <children>
+                  <Label fx:id="label" alignment="CENTER" layoutX="7.0" layoutY="8.0" prefHeight="16.0" prefWidth="180.0" textFill="#2262c6">
+                     <font>
+                        <Font name="Berlin Sans FB" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <HBox alignment="CENTER_LEFT" layoutX="29.0" layoutY="53.0" onMouseClicked="#pageCoaching" prefHeight="50.0" prefWidth="217.0" styleClass="sidebar-btn-text">
+               <children>
+                  <FontAwesomeIconView glyphName="USERS" size="20">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+                  <Label text="Utilisateurs">
+                     <font>
+                        <Font name="Cambria" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="30.0" layoutY="95.0" prefHeight="50.0" prefWidth="204.0" styleClass="sidebar-btn-text">
+               <children>
+                  <FontAwesomeIconView glyphName="CART_PLUS" size="25">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+                  <Label onMouseClicked="#pageproduit" text="Produits">
+                     <font>
+                        <Font name="Cambria" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="31.0" layoutY="144.0" prefHeight="40.0" prefWidth="180.0" styleClass="sidebar-btn-text">
+               <children>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/categorie.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </ImageView>
+                  <Label onMouseClicked="#pagecategorie" text="Catégorie">
+                     <font>
+                        <Font name="Cambria" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="32.0" layoutY="184.0" prefHeight="40.0" prefWidth="180.0" styleClass="sidebar-btn-text">
+               <children>
+                  <FontAwesomeIconView glyphName="EDIT" size="25">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+                  <Label onMouseClicked="#pagereclamation" text="Réclamation">
+                     <font>
+                        <Font name="Cambria" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="31.0" layoutY="228.0" prefHeight="40.0" prefWidth="180.0" styleClass="sidebar-btn-text">
+               <children>
+                  <FontAwesomeIconView glyphName="CALENDAR" size="25">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+                  <Label onMouseClicked="#pagerendezvous" text="Rendez_Vous">
+                     <font>
+                        <Font name="Cambria" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="31.0" layoutY="265.0" prefHeight="40.0" prefWidth="180.0" styleClass="sidebar-btn-text">
+               <children>
+                  <FontAwesomeIconView glyphName="USER" size="25">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+                  <Label onMouseClicked="#pagecoaching" text="Coaching">
+                     <font>
+                        <Font name="Cambria" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="32.0" layoutY="305.0" prefHeight="40.0" prefWidth="180.0" styleClass="sidebar-btn-text">
+               <children>
+                  <FontAwesomeIconView glyphName="USERS" size="20">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+                  <Label onMouseClicked="#pagepaticipant" text="Participants">
+                     <font>
+                        <Font name="Cambria" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <FontAwesomeIconView glyphName="SIGN_OUT" layoutX="9.0" layoutY="561.0" onMouseClicked="#logout" size="50" wrappingWidth="51.9999942779541" />
+            <HBox alignment="CENTER_LEFT" layoutX="31.0" layoutY="344.0" onMouseClicked="#pageSponsor" prefHeight="40.0" prefWidth="180.0" styleClass="sidebar-btn-text">
+               <children>
+                  <FontAwesomeIconView glyphName="DOLLAR" size="25">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+                  <Label onContextMenuRequested="#pagecomapanie" text="Sponsors">
+                     <font>
+                        <Font name="Cambria" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="31.0" layoutY="384.0" onMouseClicked="#pageevenement" prefHeight="40.0" prefWidth="180.0" styleClass="sidebar-btn-text">
+               <children>
+                  <FontAwesomeIconView glyphName="CALENDAR_CHECK_ALT" size="25">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </FontAwesomeIconView>
+                  <Label onContextMenuRequested="#pagecomapanie" text="Evenement">
+                     <font>
+                        <Font name="Cambria" size="22.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="95.0" fitWidth="152.0" layoutX="18.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/log.png" />
+         </image>
+      </ImageView>
+      <HBox alignment="CENTER_LEFT" layoutX="287.0" layoutY="420.0" />
+      <AnchorPane fx:id="mainPane" layoutX="293.0" layoutY="1.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="998.0" />
+      <HBox alignment="CENTER_LEFT" layoutX="29.0" layoutY="557.0" prefHeight="40.0" prefWidth="180.0" styleClass="sidebar-btn-text">
+         <children>
+            <ImageView fitHeight="20.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/livraison.png" />
+               </image>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label onMouseClicked="#pagetransporteur" text="Transporteurs">
+               <font>
+                  <Font name="Cambria" size="22.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" layoutX="28.0" layoutY="597.0" onMouseClicked="#pagecomapanie" prefHeight="40.0" prefWidth="180.0" styleClass="sidebar-btn-text">
+         <children>
+            <FontAwesomeIconView glyphName="BUILDING" size="25">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </FontAwesomeIconView>
+            <Label onContextMenuRequested="#pagecomapanie" text="Companies">
+               <font>
+                  <Font name="Cambria" size="22.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </HBox>
+      <Circle fill="DODGERBLUE" layoutX="218.0" layoutY="51.0" radius="37.0" stroke="BLACK" strokeType="INSIDE" />
+   </children>
+</AnchorPane>

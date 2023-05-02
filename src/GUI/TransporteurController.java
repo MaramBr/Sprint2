@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import Services.ServiceTransporteur;
+import Services.UserService;
 import static Services.sms.sendsms;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -388,6 +389,7 @@ JOptionPane.showMessageDialog(null, "Transporteur ajouté.");
     c.setPrix(prixTransporteur);
     c.setImage(imagePath);
     c.setCompanies_id(Companies_idToadd);
+    c.setNumero(numero);
 
     sc.ajouterTransporteur(c);
     updateTable();
@@ -400,7 +402,19 @@ JOptionPane.showMessageDialog(null, "Transporteur ajouté.");
     
     
     
-    
+        @FXML
+void trit(ActionEvent event) {
+          ServiceTransporteur sc=new ServiceTransporteur();
+  idP.setCellValueFactory(new PropertyValueFactory<>("id"));
+        nomP.setCellValueFactory(new PropertyValueFactory<>("nom"));
+        descriptionP.setCellValueFactory(new PropertyValueFactory<>("description"));
+        numeroP.setCellValueFactory(new PropertyValueFactory<>("numero"));
+        prixP.setCellValueFactory(new PropertyValueFactory<>("prix"));
+        imageP.setCellValueFactory(new PropertyValueFactory<>("image"));
+        ObservableList<Transporteur> UserList = sc.TriNomDESC();
+             TableView.setItems(UserList);
+    }//Ban a user
+
     
     
     
@@ -558,7 +572,7 @@ JOptionPane.showMessageDialog(null, "Transporteur ajouté.");
     }
 
     PieChart chart = new PieChart(pieChartData);
-    chart.setTitle("Statistiques de nombre des rendez_vous par cours");
+    chart.setTitle("Statistiques de nombre des Transporteurs par Compagnie");
 
     Stage stage = new Stage();
     Scene scene = new Scene(new Group(chart), 600, 400);
@@ -636,7 +650,7 @@ JOptionPane.showMessageDialog(null, "Transporteur ajouté.");
     
                 public static String projectPath = System.getProperty("user.dir").replace("\\", "/");
     private void QRcode(Transporteur u) throws FileNotFoundException, IOException {
-        String contenue = "Nom : " + u.getNom()+"Prenom :"+u.getNumero()+ "\n" + "Email: " + u.getDescription()+ "\n" + "Role: " + u.getNomCompanie()
+        String contenue = "Nom : " + u.getNom()+ "\n" +"Numero :"+u.getNumero()+ "\n" +"Prix :"+u.getPrix()+ "\n" + "Vehicule description: " + u.getDescription()+ "\n" + "Nom du compagnie: " + u.getNomCompanie()
                 ; 
         ByteArrayOutputStream out = QRCode.from(contenue).to(net.glxn.qrgen.image.ImageType.JPG).stream();
         File f = new File(projectPath + "\\src\\images\\" + u.getId()+ ".jpg");

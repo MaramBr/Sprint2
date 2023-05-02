@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="767.0" prefWidth="1226.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FrontEvController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="981.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.FrontEvController">
    <styleClass>
       <String fx:value="mouse-moved" />
       <String fx:value="selected" />
@@ -29,7 +29,7 @@
                   </ImageView>
                   <Label alignment="CENTER" prefHeight="133.0" prefWidth="569.0" text="Les Evenements" textFill="#eeeaea">
                      <font>
-                        <Font name="Baskerville Old Face" size="48.0" />
+                        <Font name="Candara Bold Italic" size="48.0" />
                      </font>
                      <padding>
                         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
@@ -37,8 +37,8 @@
                   </Label>
                </children>
             </HBox>
-            <Pane prefHeight="5.0" prefWidth="1176.0" style="-fx-background-color: #e15e1c;" />
-            <Pagination fx:id="pagination" prefHeight="513.0" prefWidth="1176.0" />
+            <Pane minHeight="-Infinity" minWidth="-Infinity" prefHeight="5.0" prefWidth="981.0" style="-fx-background-color: #e15e1c;" />
+            <Pagination fx:id="pagination" prefHeight="544.0" prefWidth="978.0" />
          </children>
       </VBox>
    </center>

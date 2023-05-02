@@ -5,6 +5,7 @@
  */
 package Services;
 import Entities.Transporteur;
+import Entities.User;
 import Utils.MyDB;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,6 +16,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -130,7 +133,26 @@ public class ServiceTransporteur implements TService<Transporteur> {
         
     }
     
-    
+       public ObservableList<Transporteur> TriNomDESC() {
+        ObservableList<Transporteur> list = FXCollections.observableArrayList();
+        try {
+         //   String req = "Select * from espacetalent where roles like '%[]%' order by nom";
+                String req = "Select * from transporteur  order by Nom DESC";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+
+            while (rs.next()) {
+            //    EspaceTalent u = new EspaceTalent(rs.getInt("id"), rs.getString("nom"), rs.getString("prenom"), rs.getString("username"), rs.getString("email"), rs.getString("file"), rs.getInt("etat"), rs.getDate("created_at"));
+               Transporteur a = new Transporteur( rs.getInt("numero"), rs.getInt("companies_id"),rs.getString("nom"),rs.getString("description"),rs.getString("image"),rs.getFloat("prix")); 
+        list.add(a) ;
+        
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return list;
+    }
 
 
 }

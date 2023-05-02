@@ -21,30 +21,33 @@
                <padding>
                   <Insets top="5.0" />
                </padding></TextField>
-            <Label alignment="CENTER" layoutX="38.0" layoutY="169.0" prefHeight="0.0" prefWidth="150.0" text="Titre :">
+            <Label alignment="CENTER" layoutX="75.0" layoutY="169.0" prefHeight="0.0" prefWidth="150.0" text="Titre :">
                <font>
-                  <Font name="Corbel Bold" size="15.0" />
+                  <Font name="Candara Bold Italic" size="17.0" />
                </font>
                <padding>
                   <Insets top="5.0" />
                </padding></Label>
-            <Label alignment="CENTER" layoutX="38.0" layoutY="337.0" prefHeight="0.0" prefWidth="150.0" text="Description :">
+            <Label alignment="CENTER" layoutX="69.0" layoutY="337.0" prefHeight="0.0" prefWidth="150.0" text="Description :">
                <font>
-                  <Font name="Corbel Bold" size="15.0" />
+                  <Font name="Candara Bold Italic" size="17.0" />
                </font>
                <padding>
                   <Insets top="5.0" />
                </padding>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="38.0" layoutY="249.0" prefHeight="0.0" prefWidth="150.0" text="Genre :">
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="70.0" layoutY="249.0" prefHeight="0.0" prefWidth="150.0" text="Genre :">
                <font>
-                  <Font name="Corbel Bold" size="15.0" />
+                  <Font name="Candara Bold Italic" size="17.0" />
                </font>
                <padding>
                   <Insets top="5.0" />
                </padding>
             </Label>
-            <Button fx:id="Add" layoutX="37.0" layoutY="442.0" mnemonicParsing="false" onAction="#ajouterRec" prefHeight="39.0" prefWidth="219.0" style="-fx-background-color: #e15e1c;" text="Ajouter" />
+            <Button fx:id="Add" layoutX="37.0" layoutY="442.0" mnemonicParsing="false" onAction="#ajouterRec" prefHeight="39.0" prefWidth="219.0" style="-fx-background-color: #e15e1c;" text="Ajouter">
+               <font>
+                  <Font name="Candara Bold Italic" size="15.0" />
+               </font></Button>
             <TableView fx:id="ReclamationTable" layoutX="273.0" layoutY="158.0" onMouseClicked="#getSelected" prefHeight="277.0" prefWidth="652.0" stylesheets="@tableview2%20(1).css">
                <columns>
                   <TableColumn fx:id="idC" minWidth="0.0" prefWidth="0.0" text="Id" />
@@ -55,20 +58,32 @@
                   <TableColumn fx:id="Status" prefWidth="136.0" text="Status" />
                </columns>
             </TableView>
-            <Button fx:id="ModifierC" layoutX="37.0" layoutY="504.0" mnemonicParsing="false" onAction="#ModifierRec" prefHeight="39.0" prefWidth="219.0" style="-fx-background-color: #e15e1c;" text="Modifier" />
+            <Button fx:id="ModifierC" layoutX="37.0" layoutY="504.0" mnemonicParsing="false" onAction="#ModifierRec" prefHeight="39.0" prefWidth="219.0" style="-fx-background-color: #e15e1c;" text="Modifier">
+               <font>
+                  <Font name="Candara Bold Italic" size="15.0" />
+               </font></Button>
             <TextField fx:id="idField" layoutX="450.0" layoutY="260.0" prefHeight="0.0" prefWidth="5.0" visible="false" />
-            <Button layoutX="797.0" layoutY="446.0" mnemonicParsing="false" onAction="#SupprimerRec" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: #e15e1c;" text="Supprimer" />
+            <Button layoutX="797.0" layoutY="446.0" mnemonicParsing="false" onAction="#SupprimerRec" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: #e15e1c;" text="Supprimer">
+               <font>
+                  <Font name="Candara Bold Italic" size="15.0" />
+               </font></Button>
             <ComboBox fx:id="boxGenre" layoutX="38.0" layoutY="281.0" prefHeight="30.0" prefWidth="219.0" styleClass="filed-button" stylesheets="@style.css">
                <padding>
                   <Insets top="5.0" />
                </padding></ComboBox>
-            <Button fx:id="showallButton" layoutX="566.0" layoutY="446.0" mnemonicParsing="false" onAction="#showall" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: #e15e1c;" text="afficher" />
-            <Button fx:id="stati" layoutX="284.0" layoutY="446.0" mnemonicParsing="false" onAction="#stat" prefHeight="30.0" prefWidth="138.0" style="-fx-background-color: #e15e1c;" text="statistique" />
+            <Button fx:id="showallButton" layoutX="566.0" layoutY="446.0" mnemonicParsing="false" onAction="#showall" prefHeight="30.0" prefWidth="126.0" style="-fx-background-color: #e15e1c;" text="afficher">
+               <font>
+                  <Font name="Candara Bold Italic" size="15.0" />
+               </font></Button>
+            <Button fx:id="stati" layoutX="284.0" layoutY="446.0" mnemonicParsing="false" onAction="#stat" prefHeight="30.0" prefWidth="138.0" style="-fx-background-color: #e15e1c;" text="statistique">
+               <font>
+                  <Font name="Candara Bold Italic" size="15.0" />
+               </font></Button>
             <Pane layoutX="-8.0" layoutY="14.0" prefHeight="94.0" prefWidth="859.0">
                <children>
                   <Label layoutX="167.0" layoutY="29.0" text="Reclammation">
                      <font>
-                        <Font name="Baskerville Old Face" size="43.0" />
+                        <Font name="Candara Bold Italic" size="45.0" />
                      </font>
                   </Label>
                   <ImageView fitHeight="77.0" fitWidth="104.0" layoutX="55.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">

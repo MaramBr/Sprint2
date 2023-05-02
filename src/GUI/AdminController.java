@@ -87,7 +87,7 @@ public class AdminController implements Initializable {
     private PasswordField mdp;
     @FXML
     private ImageView image2;
-    String path="C:\\Users\\Maram\\Desktop\\integration\\Sprint2\\src\\images\\userv1.png";
+    String path="C:\\Users\\Majdi\\Downloads\\ray.jpg";
     @FXML
     private TableColumn<User,Integer> idc;
     @FXML
@@ -407,7 +407,7 @@ Image photo=image2.getImage();
         image2.setImage(null);
         Qr.setImage(null);
         
-             block.setText("Bloquer/Débloquer");
+             //block.setText("Bloquer/Débloquer");
             bloquer1.setVisible(true);
             bloquer2.setVisible(true);
         Afficher();
@@ -423,7 +423,7 @@ Image photo=image2.getImage();
          if(c.getIs_active()==0){
              //bloquer.setVisible(true);
             //debloquer.setVisible(false);
-            block.setText("Bloquer");
+            //block.setText("Bloquer");
             bloquer1.setVisible(true);
             bloquer2.setVisible(false);
          }
@@ -431,7 +431,7 @@ Image photo=image2.getImage();
              //bloquer.setVisible(false);
              //debloquer.setVisible(true);
              
-             block.setText("Déloquer");
+             //block.setText("Déloquer");
             bloquer2.setVisible(true);
              bloquer1.setVisible(false);
          }

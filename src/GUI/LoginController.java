@@ -106,7 +106,7 @@ public class LoginController implements Initializable {
           String s = String.valueOf(now.getRoles()) ;
           
                        if(s.equals("[\"ROLE_ADMIN\"]")){
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Admin.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/UI.fxml"));
             Parent root = loader.load();
             rootPane.getScene().setRoot(root);}
                        else if(s.equals("[\"ROLE_Coach\"]")){FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/front.fxml"));
@@ -118,10 +118,10 @@ public class LoginController implements Initializable {
     alert.setHeaderText(null);
     alert.setContentText("Vous êtes maintenant connecté!");
     alert.showAndWait();
-                  FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Profil.fxml"));
+                  FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/MenuFront.fxml"));
             Parent root = loader.load();
             rootPane.getScene().setRoot(root);
-              ProfilController Profil = loader.getController();
+           ProfilController Profil = loader.getController();
               
     Profil.setUser(now);
      
@@ -214,8 +214,6 @@ public class LoginController implements Initializable {
 
     }
 
-    @FXML
-    private void handleClose(MouseEvent event) {
-    }
+    
     
 }
