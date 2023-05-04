@@ -10,9 +10,12 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -82,7 +85,7 @@ public class MenuFrontController implements Initializable {
      @FXML
     private void Event(MouseEvent event) throws IOException {
          mainPane.getChildren().clear();
-        Parent Content = FXMLLoader.load(getClass().getResource("Participant.fxml"));
+        Parent Content = FXMLLoader.load(getClass().getResource("FrontEv.fxml"));
         mainPane.getChildren().setAll(Content);
     }
  @FXML
@@ -116,6 +119,27 @@ public class MenuFrontController implements Initializable {
            mainPane.getChildren().clear();
         Parent Content = FXMLLoader.load(getClass().getResource("rdvBack.fxml"));
         mainPane.getChildren().setAll(Content);
+    }
+    
+    private void logout(MouseEvent event) throws IOException {
+        
+    }
+
+    @FXML
+    private void logoutt(MouseEvent event) {
+        try {
+                Parent page1 = FXMLLoader.load(getClass().getResource("login.fxml"));
+                Scene scene = new Scene(page1);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+                  
+
+
+     
+            } catch (IOException ex) {
+                Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
+            }
     }
     
 }

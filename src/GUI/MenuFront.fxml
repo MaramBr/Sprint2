@@ -53,6 +53,11 @@
                   <Font name="Candara Italic" size="21.0" />
                </font>
             </Label>
+            <Label layoutX="1120.0" layoutY="61.0" onMouseClicked="#logoutt" text="log out">
+               <font>
+                  <Font name="Candara Italic" size="21.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <HBox fx:id="mainPane" layoutX="6.0" layoutY="121.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="1288.0" />

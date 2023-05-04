@@ -15,7 +15,7 @@ import com.twilio.rest.api.v2010.account.Message;
 public class sms {
     
      public static final String ACCOUNT_SID = "ACb6b533b08eb122b9ba8e2e15a87a7d0c"; 
-    public static final String AUTH_TOKEN = "f90c6178033ddc19bb653ec449e881bd"; 
+    public static final String AUTH_TOKEN = "096d74e72bb49721c330e8dde6449d9e"; 
  
       public static void sendsms(){
           

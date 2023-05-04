@@ -94,10 +94,10 @@ private  String [] colors = {"B9E5FF","BDB2FE","FB9AA8","FF5056"} ;
          eventid.setText(String.valueOf(c.getId()));
 tfprix.setText(String.valueOf(c.getPrix()));
 
-      /*  box.setStyle("-fx-background-color: #" +colors[(int)(Math.random()*colors.length)] 
+       box.setStyle("-fx-background-color: #" +colors[(int)(Math.random()*colors.length)] 
                 +" ; -fx-background-radius: 15;"
-                +"-fx-effect : dropshadow(three-pass-box , rgba(0,0,0,0.1) , 10 , 0 ,0 , 10 ) ;");*/
-      box.setStyle("-fx-background-color: linear-gradient(to bottom right, #FF9B00, #FFAF5B);" 
+                +"-fx-effect : dropshadow(three-pass-box , rgba(0,0,0,0.1) , 10 , 0 ,0 , 10 ) ;");
+      /*box.setStyle("-fx-background-color: linear-gradient(to bottom right, #FF9B00, #FFAF5B);" 
              + "-fx-background-radius: 15;" 
              + "-fx-border-color: linear-gradient(to bottom right, #FF9B00, #FFAF5B);"
              + "-fx-border-width: 2px;"
@@ -105,7 +105,7 @@ tfprix.setText(String.valueOf(c.getPrix()));
              + "-fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 10);");
 
         
-    }
+ */   }
 
     @FXML
     private void detail(ActionEvent event) {
@@ -117,7 +117,7 @@ String nomEvent = coursDesc.getText();
     try {
             
            /////redirection//////
-           FXMLLoader loader = new FXMLLoader(getClass().getResource("Participant.fxml"));
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/Participant.fxml"));
 Parent messageParent = loader.load();
 ParticipantController participantController = loader.getController();
 participantController.setIdEvent(idEvent, nomEvent);

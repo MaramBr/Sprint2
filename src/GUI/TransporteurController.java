@@ -394,7 +394,7 @@ JOptionPane.showMessageDialog(null, "Transporteur ajouté.");
     sc.ajouterTransporteur(c);
     updateTable();
     QRcode(c);
-    //sendsms();
+    sendsms();
     
     JOptionPane.showMessageDialog(null, "Transporteur ajouté.");
 }

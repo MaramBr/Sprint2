@@ -31,60 +31,36 @@ import java.io.FileNotFoundException;
 public class PDFGenerator {
 public void generatePDF(List<Participant> participants, String fileName) {
     Document document = new Document();
+
     try {
         PdfWriter.getInstance(document, new FileOutputStream(fileName));
         document.open();
-        
-        // Ajouter une table avec une cellule orange qui contient le contenu
-        PdfPTable table = new PdfPTable(1);
-        PdfPCell cell = new PdfPCell();
-        cell.setBackgroundColor(new BaseColor(255, 165, 0));
-        cell.setPadding(20f);
-        
-        // Ajouter un titre en bleu au-dessus de la table
-        Paragraph title = new Paragraph("Invitation à l'événement", new Font(Font.FontFamily.HELVETICA, 20, Font.BOLD, new BaseColor(33, 150, 243)));
+
+        // Add a title in orange at the top of the page
+        Paragraph title = new Paragraph("Invitation à l'événement", new Font(Font.FontFamily.TIMES_ROMAN, 25, Font.BOLDITALIC, new BaseColor(255, 170, 0)));
         title.setAlignment(Element.ALIGN_CENTER);
-        cell.addElement(title);
-        cell.addElement(Chunk.NEWLINE);
-        
-        // Parcourir la liste des participants et ajouter leurs informations sous forme d'invitation
+        document.add(title);
+        document.add(Chunk.NEWLINE);
+
+        // Loop through the list of participants and add their information as an invitation
         for (Participant participant : participants) {
             Paragraph invitation = new Paragraph();
-            invitation.add(new Chunk("Evenement: ", new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD)));
-            invitation.add(new Chunk(participant.getNomev() + "\n", new Font(Font.FontFamily.HELVETICA, 14)));
-            invitation.add(new Chunk("Nom: ", new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD)));
-            invitation.add(new Chunk(participant.getNom() + "\n", new Font(Font.FontFamily.HELVETICA, 14)));
-            invitation.add(new Chunk("Prénom: ", new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD)));
-            invitation.add(new Chunk(participant.getPrenom() + "\n", new Font(Font.FontFamily.HELVETICA, 14)));
-            invitation.add(new Chunk("E-mail: ", new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD)));
-            invitation.add(new Chunk(participant.getEmail() + "\n", new Font(Font.FontFamily.HELVETICA, 14)));
-            invitation.add(new Chunk("Âge: ", new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD)));
-            invitation.add(new Chunk(String.valueOf(participant.getAge()) + "\n", new Font(Font.FontFamily.HELVETICA, 14)));
-            invitation.add(new Chunk("Téléphone: ", new Font(Font.FontFamily.HELVETICA, 14, Font.BOLD)));
-            invitation.add(new Chunk(String.valueOf(participant.getTel()) + "\n", new Font(Font.FontFamily.HELVETICA, 14)));
-            cell.addElement(invitation);
-            cell.addElement(Chunk.NEWLINE);
+            invitation.add(new Chunk("Cher(e) " + participant.getNom() + ",\n\n", new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLDITALIC)));
+            invitation.add(new Chunk("Vous êtes cordialement invité(e) à notre événement " + participant.getNomev() + ".\n", new Font(Font.FontFamily.HELVETICA, 17)));
+            invitation.add(new Chunk("Veuillez confirmer votre présence en nous répondant à cet email E_Fit@gmail.com  ou en nous appelant au " + participant.getTel() + ".\n\n", new Font(Font.FontFamily.HELVETICA, 17)));
+            document.add(invitation);
         }
-            // Ajouter un paragraphe de remerciement à la fin
-Paragraph thanks = new Paragraph("Nous vous remercions d'avoir participé à notre événement !", new Font(Font.FontFamily.HELVETICA, 16, Font.BOLD, new BaseColor(255, 255, 255)));
-thanks.setAlignment(Element.ALIGN_CENTER);
-thanks.setSpacingBefore(50f);
-document.add(thanks);
-        // Ajouter la cellule à la table et ajouter la table au document
-        table.addCell(cell);
-        document.add(table);
-        
-    
 
-  
-
+        // Add a thank you message at the end with the event name
+        Paragraph thanks = new Paragraph("Nous vous remercions d'avoir participé à notre événement " + participants.get(0).getNomev() + " !", new Font(Font.FontFamily.TIMES_ROMAN, 19, Font.BOLDITALIC, new BaseColor(255, 170, 0)));
+        thanks.setAlignment(Element.ALIGN_CENTER);
+        thanks.setSpacingBefore(50f);
+        document.add(thanks);
 
         document.close();
     } catch (Exception e) {
         e.printStackTrace();
     }
 }
-
-
 
 }
